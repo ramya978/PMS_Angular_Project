@@ -1,0 +1,7 @@
+/* fd-16-invoices-credit-notes.css – styles of FD-16 Invoices & Credit Notes (laptop rules; phone rules sit in max-width media queries). */
+
+.invtab:has(.fd-after:target) .fd-empty-row {
+  display: none;
+}
+
+/* fd-16-invoices-credit-notes.css: no screen-specific rules, this screen uses the shared styles. */

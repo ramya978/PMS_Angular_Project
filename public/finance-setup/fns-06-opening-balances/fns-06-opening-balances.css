@@ -1,0 +1,55 @@
+/* fns-06-opening-balances.css: opening files, lists, balances and the validate / import result. */
+.dl-total td {
+  background: var(--sunken);
+}
+
+[data-code="FNS-06-debtors"] td:first-child,
+[data-code="FNS-06-creditors"] td:first-child {
+  min-width: 220px;
+}
+
+/* before / after Validate and Import */
+.ob-post,
+.ob-done {
+  display: none;
+}
+
+body:has(#validated:target) .ob-pre,
+body:has(#imported:target) .ob-pre {
+  display: none;
+}
+
+body:has(#validated:target) .ob-post {
+  display: inline-flex;
+}
+
+body:has(#validated:target) .ob-ok {
+  display: flex;
+}
+
+body:has(#imported:target) .ob-post {
+  display: inline-flex;
+}
+
+body:has(#imported:target) .ob-ok,
+body:has(#imported:target) .ob-import {
+  display: none;
+}
+
+body:has(#imported:target) .ob-done {
+  display: flex;
+}
+
+.ob-import {
+  opacity: 0.55;
+}
+
+body:has(#validated:target) .ob-import {
+  opacity: 1;
+}
+
+body:has(#validated:target) #t-validated,
+body:has(#imported:target) #t-imported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

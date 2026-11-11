@@ -1,0 +1,20 @@
+/* das-01-approval-types-and-escalation.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.da-esc { display: flex; gap: 6px; min-width: 190px; }
+.da-esc .field__wrap { min-width: 84px; }
+.da-chain { display: block; min-width: 260px; font-size: 13px; }
+.da-chain small { color: var(--ink-3); }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

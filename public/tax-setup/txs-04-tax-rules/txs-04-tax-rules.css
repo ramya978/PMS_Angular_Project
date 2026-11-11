@@ -1,0 +1,43 @@
+/* txs-04-tax-rules.css: place of supply list, read-only rule and toasts. */
+.tx-dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.tx-dl > div {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.tx-dl dt {
+  font-weight: 600;
+}
+
+.tx-dl dd {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.tx-ro {
+  margin: 6px 0 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .tx-dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

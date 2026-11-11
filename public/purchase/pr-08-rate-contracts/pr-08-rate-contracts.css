@@ -1,0 +1,12 @@
+/* pr-08-rate-contracts.css: contract cards with item rates, market comparison and renewal after-states, new contract (#added). */
+.pq-mk, .pq-ren, .pq-mkn { display: none; }
+.pq-rc:has(.pm[id^=cmp-]:target) .pq-mk { display: table-cell; }
+.pq-rc:has(.pm[id^=cmp-]:target) .pq-mkn { display: flex; height: auto; padding: 6px 10px; white-space: normal; }
+.pq-rc:has(.pm[id^=ren-]:target) .pq-ren { display: flex; height: auto; padding: 6px 10px; white-space: normal; }
+.pq-rc--new { display: none; }
+body:has(#added:target) .pq-rc--new { display: grid; box-shadow: 0 0 0 2px #9ad1b3; }
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.pq-g2 > .prs-add { grid-column: 1 / -1; }

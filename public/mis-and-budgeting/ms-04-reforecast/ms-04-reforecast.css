@@ -1,0 +1,8 @@
+/* ms-04-reforecast.css – styles of MS-04 Reforecast (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#rfsaved:target) #t-rf {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.ms-tbl th small { font-weight: 400; color: var(--ink-3); }
+.fd-sub { display: block; color: var(--ink-3); font-size: 12px; }

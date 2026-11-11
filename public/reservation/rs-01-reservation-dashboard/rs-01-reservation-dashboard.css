@@ -1,0 +1,30 @@
+/* rs-01-reservation-dashboard.css: screen-specific rules. */
+
+/* 2026-11-11 · "Pick-up today" tile: rooms picked up and net revenue picked up, two figures side by side.
+   Laptop view only – on tablet and phone the tile keeps its normal width. */
+.st-tile--pick .st-tile__n--rev {
+  color: var(--em-600);
+}
+
+@media (min-width: 1025px) {
+  .st-tiles[data-n="7"]:has(.st-tile--pick) {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .st-tiles[data-n="7"] > .st-tile--pick {
+    grid-column: span 2;
+  }
+  .st-tiles[data-n="7"] > .st-tile--pick .st-tile__v {
+    column-gap: 16px;
+  }
+}
+
+/* 2026-11-11 · Shift handover card: top open notes, link to RS-28 */
+.rs01-ho { display: grid; gap: 10px; margin: 0 0 10px; padding: 0; list-style: none; }
+.rs01-ho li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; align-items: baseline; }
+.rs01-ho small { grid-column: 2; color: var(--ink-3); font-size: 12px; }
+.rs01-ho a { font-weight: 600; color: var(--ink); }
+.rs01-ho__p { padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.rs01-ho__p--urgent { background: #fde8e8; color: #9b1c1c; }
+.rs01-ho__p--high { background: #feecdc; color: #9c4221; }
+
+.st-tile--pick .st-tile__u { white-space: normal; }

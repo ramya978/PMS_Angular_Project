@@ -1,0 +1,440 @@
+/* hk-07-duty-roster.css: Duty Roster – week bar in the header, today summary ribbon, shift legend, staff × 7-day grid
+   with shift / section selects coloured by shift code (HKS-04 colours), today column highlighted, coverage footer,
+   mark-absent and temporary-staff pop-ups. */
+.hk7-week {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.hk7-week .btn--icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  justify-content: center;
+}
+
+.hk7-top {
+  display: grid;
+  gap: 10px;
+}
+
+.hk7-sum {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.2), transparent 60%),
+    radial-gradient(50% 120% at 0% 100%, rgb(var(--forest-rgb, 31 61 51) / 0.9), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 22px 44px -32px rgb(var(--deep-rgb, 14 26 43) / 0.75);
+  color: #fff;
+}
+
+.hk7-sum > div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 16px 20px;
+}
+
+.hk7-sum > div + div {
+  box-shadow: -1px 0 0 rgb(255 255 255 / 0.1);
+}
+
+.hk7-sum span {
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hk7-sum b {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.hk7-sum small {
+  color: rgb(255 255 255 / 0.65);
+  font-size: 12px;
+}
+
+.hk7-sum__warn {
+  background: rgb(192 86 33 / 0.18);
+}
+
+.hk7-sum__warn span {
+  color: #f6c9a6;
+}
+
+.hk7-leg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lg i {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--sc);
+}
+
+.lg--m, .rc--m { --sc: #2f855a; }
+.lg--e, .rc--e { --sc: #2b6cb0; }
+.lg--n, .rc--n { --sc: #4a5568; }
+.lg--g, .rc--g { --sc: #b7791f; }
+.lg--off, .rc--off { --sc: #718096; }
+.lg--lv, .rc--lv { --sc: #c05621; }
+
+.hk7 {
+  display: grid;
+  gap: 12px;
+}
+
+.hk7-scroll {
+  max-height: 70vh;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.hk7-t {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.hk7-t thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--surface);
+}
+
+.hk7-t .hk7-t__staff,
+.hk7-t .rs {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--surface);
+  box-shadow: 1px 0 0 var(--line);
+}
+
+.hk7-t thead .hk7-t__staff {
+  z-index: 4;
+}
+
+.dh {
+  min-width: 128px;
+  text-align: left;
+}
+
+.dh b {
+  margin-left: 6px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.dh small {
+  display: block;
+  color: var(--em-700);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dh.is-today {
+  background: var(--em-50) !important;
+}
+
+.rg th {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.rs {
+  display: table-cell;
+  min-width: 200px;
+  padding: 8px 14px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.rs > span:last-child {
+  display: inline-grid;
+  vertical-align: middle;
+}
+
+.rs b {
+  font-size: 13px;
+}
+
+.rs small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.rs__av {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--em-500), var(--em-800));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.rs__av--tmp {
+  background: linear-gradient(145deg, var(--br-300), var(--br-600));
+  color: var(--deep, #0e1a2b);
+}
+
+.rc {
+  padding: 5px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.rc.is-today {
+  background: var(--em-50);
+}
+
+.rc__in {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  padding: 5px 6px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--sc) 9%, var(--surface));
+}
+
+.rc__sh,
+.rc__sec {
+  width: 100%;
+  height: 24px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: color-mix(in srgb, var(--sc) 80%, #000);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.rc__sec {
+  height: 22px;
+  color: var(--ink-2);
+  font-weight: 500;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.rc__sh:focus-visible,
+.rc__sec:focus-visible {
+  outline: 2px solid var(--br-400);
+}
+
+.rc__att {
+  color: var(--ink-3);
+  font-size: 10.5px;
+}
+
+.rc__att--present {
+  color: #2f855a;
+  font-weight: 600;
+}
+
+.rc__att--late {
+  color: #c05621;
+  font-weight: 650;
+}
+
+.rc__note {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: var(--br-700);
+}
+
+.rc__fix {
+  padding: 2px 4px;
+  color: color-mix(in srgb, var(--sc) 80%, #000);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.tmp {
+  display: none;
+}
+
+body:has(#temp-added:target) .tmp {
+  display: table-row;
+}
+
+body:has(#temp-added:target) .tmp > * {
+  background: var(--ok-bg) !important;
+}
+
+.hk7-t tfoot th,
+.hk7-t tfoot td {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 10px 8px;
+  background: var(--surface-2);
+  box-shadow: 0 -1px 0 var(--line);
+  font-size: 12px;
+  text-align: left;
+}
+
+.hk7-t tfoot th {
+  left: 0;
+  z-index: 3;
+  padding-left: 16px;
+}
+
+.cv small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.cv.is-today {
+  background: var(--em-50) !important;
+}
+
+.hk7-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hk7-foot .fd-muted {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+/* pop-ups */
+.pm {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.modal:has(.pm:target) {
+  display: grid;
+  animation: av-fade 200ms ease-out;
+}
+
+.pr {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pr__no--av {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--em-500), var(--em-800));
+  color: #fff;
+  font-weight: 700;
+}
+
+.pr__t {
+  display: grid;
+}
+
+.pr__t small {
+  color: var(--ink-3);
+}
+
+@media (max-width: 1100px) {
+  .hk7-sum {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.hk7-t .rs,
+.hk7-t .rs b,
+.hk7-t .rs small {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hk7-t .rs b {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.dh {
+  min-width: 112px;
+}
+
+.rs__abs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  color: #c05621;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rs__abs:hover {
+  text-decoration: underline;
+}
+#hk07-abs:has(#abs-EMP-2001:target) .pr--EMP-2001 { display: flex; }
+#hk07-abs:has(#abs-EMP-2002:target) .pr--EMP-2002 { display: flex; }
+#hk07-abs:has(#abs-EMP-2003:target) .pr--EMP-2003 { display: flex; }
+#hk07-abs:has(#abs-EMP-2004:target) .pr--EMP-2004 { display: flex; }
+#hk07-abs:has(#abs-EMP-2006:target) .pr--EMP-2006 { display: flex; }
+#hk07-abs:has(#abs-EMP-2007:target) .pr--EMP-2007 { display: flex; }
+#hk07-abs:has(#abs-EMP-2008:target) .pr--EMP-2008 { display: flex; }
+#hk07-abs:has(#abs-EMP-2009:target) .pr--EMP-2009 { display: flex; }
+#hk07-abs:has(#abs-EMP-2010:target) .pr--EMP-2010 { display: flex; }
+#hk07-abs:has(#abs-EMP-2011:target) .pr--EMP-2011 { display: flex; }
+#hk07-abs:has(#abs-EMP-2012:target) .pr--EMP-2012 { display: flex; }
+#hk07-abs:has(#abs-EMP-2013:target) .pr--EMP-2013 { display: flex; }
+#hk07-abs:has(#abs-EMP-2015:target) .pr--EMP-2015 { display: flex; }
+#hk07-abs:has(#abs-EMP-2016:target) .pr--EMP-2016 { display: flex; }
+#hk07-abs:has(#abs-EMP-2017:target) .pr--EMP-2017 { display: flex; }
+#hk07-abs:has(#abs-EMP-2018:target) .pr--EMP-2018 { display: flex; }
+#hk07-abs:has(#abs-EMP-2021:target) .pr--EMP-2021 { display: flex; }
+#hk07-abs:has(#abs-EMP-2025:target) .pr--EMP-2025 { display: flex; }

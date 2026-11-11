@@ -1,0 +1,29 @@
+/* acs-02-departments-and-cost-centres.css: departments with type and head. */
+.dp-name.field__input {
+  min-width: 250px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="ACS-02-departments"] td:nth-child(n + 3):nth-child(-n + 4) {
+  min-width: 220px;
+}
+
+.dp-new {
+  display: none;
+}
+
+body:has(#added:target) tr.dp-new {
+  display: table-row;
+}
+
+body:has(#added:target) tr.dp-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

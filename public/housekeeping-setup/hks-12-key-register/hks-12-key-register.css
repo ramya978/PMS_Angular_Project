@@ -1,0 +1,188 @@
+/* hks-12-key-register.css: key list with status and holder, summary strip, key form and retire confirmation. */
+
+.hks-sum {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 12px 0 16px;
+}
+
+.hks-sum > div {
+  display: grid;
+  gap: 2px;
+  padding: 12px 16px;
+}
+
+.hks-sum > div + div {
+  box-shadow: inset 1px 0 0 var(--line);
+}
+
+.hks-sum strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.hks-sum span {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.hks-anchor {
+  position: absolute;
+}
+
+.hks-who {
+  max-width: 260px;
+  white-space: normal;
+}
+
+.dt__table tbody tr:has(.hks-anchor:target) td {
+  background: var(--ok-bg);
+}
+
+/* saved / retired toasts: shown with the row that changed */
+body:has(#saved-k1:target) #t-k1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k2:target) #t-k2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k3:target) #t-k3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k4:target) #t-k4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k5:target) #t-k5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k6:target) #t-k6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k7:target) #t-k7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k8:target) #t-k8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k9:target) #t-k9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k10:target) #t-k10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k11:target) #t-k11 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k12:target) #t-k12 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k13:target) #t-k13 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k14:target) #t-k14 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-k15:target) #t-k15 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k1:target) #t-ret-k1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k2:target) #t-ret-k2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k3:target) #t-ret-k3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k4:target) #t-ret-k4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k5:target) #t-ret-k5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k6:target) #t-ret-k6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k7:target) #t-ret-k7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k8:target) #t-ret-k8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k9:target) #t-ret-k9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k10:target) #t-ret-k10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k11:target) #t-ret-k11 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k13:target) #t-ret-k13 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k14:target) #t-ret-k14 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#ret-k15:target) #t-ret-k15 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+

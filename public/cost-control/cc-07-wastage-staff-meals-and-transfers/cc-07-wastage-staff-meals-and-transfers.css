@@ -1,0 +1,121 @@
+/* cc-07-wastage-staff-meals-and-transfers.css: entry form, entries with approval and the month summary. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-waiting:target) .hv__v[data-v="v-waiting"],
+#main:has(#v-approved:target) .hv__v[data-v="v-approved"],
+#main:has(#v-rejected:target) .hv__v[data-v="v-rejected"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-waiting:target) .en-row:not(.en-s-waiting),
+#main:has(#v-approved:target) .en-row:not(.en-s-approved),
+#main:has(#v-rejected:target) .en-row:not(.en-s-rejected) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.en-new-form {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.en-new-form > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.en-new-form > summary::-webkit-details-marker {
+  display: none;
+}
+
+.en-form {
+  display: grid;
+  gap: 14px;
+  padding: 4px 16px 16px;
+}
+
+.en-form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+/* the credit-type and transfer choices only show for their type */
+.en-credit {
+  display: none;
+}
+
+.en-form:has(input[value="Entertainment / complimentary"]:checked) .en-credit--ent,
+.en-form:has(input[value="Transfer"]:checked) .en-credit--tr {
+  display: grid;
+}
+
+.en-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.en-reason {
+  white-space: normal;
+}
+
+.en-row > td:nth-child(3) {
+  min-width: 260px;
+}
+
+.en-new {
+  display: none;
+}
+
+body:has(#saved:target) .en-new {
+  display: table-row;
+}
+
+body:has(#saved:target) .en-new > td {
+  background: var(--ok-bg);
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+/* approve / reject: the waiting chip is replaced by the new status */
+.en-st--a,
+.en-st--r {
+  display: none;
+}
+
+body:has(#ap-0167:target) #en-0167 .en-st--w, body:has(#rj-0167:target) #en-0167 .en-st--w, body:has(#ap-0167:target) #en-0167 .en-act, body:has(#rj-0167:target) #en-0167 .en-act { display: none; }
+body:has(#ap-0167:target) #en-0167 .en-st--a, body:has(#rj-0167:target) #en-0167 .en-st--r { display: inline-flex; }
+body:has(#ap-0167:target) #en-0167 > td, body:has(#rj-0167:target) #en-0167 > td { background: var(--ok-bg); }
+body:has(#ap-0166:target) #en-0166 .en-st--w, body:has(#rj-0166:target) #en-0166 .en-st--w, body:has(#ap-0166:target) #en-0166 .en-act, body:has(#rj-0166:target) #en-0166 .en-act { display: none; }
+body:has(#ap-0166:target) #en-0166 .en-st--a, body:has(#rj-0166:target) #en-0166 .en-st--r { display: inline-flex; }
+body:has(#ap-0166:target) #en-0166 > td, body:has(#rj-0166:target) #en-0166 > td { background: var(--ok-bg); }
+body:has(#ap-0165:target) #en-0165 .en-st--w, body:has(#rj-0165:target) #en-0165 .en-st--w, body:has(#ap-0165:target) #en-0165 .en-act, body:has(#rj-0165:target) #en-0165 .en-act { display: none; }
+body:has(#ap-0165:target) #en-0165 .en-st--a, body:has(#rj-0165:target) #en-0165 .en-st--r { display: inline-flex; }
+body:has(#ap-0165:target) #en-0165 > td, body:has(#rj-0165:target) #en-0165 > td { background: var(--ok-bg); }
+
+body:has(#saved:target) #t-saved,
+body:has(#ap-0167:target) #t-ap-0167,
+body:has(#ap-0166:target) #t-ap-0166,
+body:has(#ap-0165:target) #t-ap-0165,
+body:has(#rj-0167:target) #t-rj-0167,
+body:has(#rj-0166:target) #t-rj-0166,
+body:has(#rj-0165:target) #t-rj-0165 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

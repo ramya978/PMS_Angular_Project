@@ -1,0 +1,9 @@
+/* ln-09-amenity-consumption.css: period filter, consumption per occupied room against the standard. */
+.rl-f {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+body:has(#exported:target) #t-exported { display: flex; animation: av-rise 320ms var(--ease); }

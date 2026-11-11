@@ -1,0 +1,15 @@
+/* pr-03-purchase-requisition.css: requisition form (header, lines, budget check), approval path and the after-states of Save, Submit, Cancel and Copy. */
+.pq-fs { min-width: 0; margin: 0; padding: 0; border: 0; display: grid; gap: 16px; }
+.pq-fs .la-ro { min-height: 38px; }
+.pq-doc:has(#submitted:target) .pq-now,
+.pq-doc:has(#cancelled:target) .pq-now { display: none; }
+body:has(#saved:target) #t-saved,
+body:has(#submitted:target) #t-submitted,
+body:has(#cancelled:target) #t-cancelled,
+body:has(#copied:target) #t-copied,
+body:has(#line-added:target) #t-line {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.pq-doc:has(#submitted:target) .pq-to--sub,
+.pq-doc:has(#cancelled:target) .pq-to--can { display: inline-flex; }

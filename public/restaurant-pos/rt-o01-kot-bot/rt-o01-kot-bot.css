@@ -1,0 +1,35 @@
+/* rt-o01-kot-bot.css: kitchen order tickets (80 mm) – one chosen by #kNNNN, all without one. */
+.kg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.kot {
+  display: grid;
+  gap: 3px;
+  width: 260px;
+  padding: 14px;
+  border: 1px dashed #999;
+  background: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.kot hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px dashed #999;
+}
+
+.kw:has(.pm:target) .kot {
+  display: none;
+}
+.kw:has(#k4601:target) .kot--4601 { display: grid; }
+.kw:has(#k4603:target) .kot--4603 { display: grid; }
+.kw:has(#k4604:target) .kot--4604 { display: grid; }
+.kw:has(#k4605:target) .kot--4605 { display: grid; }
+.kw:has(#k4607:target) .kot--4607 { display: grid; }
+.kw:has(#k4608:target) .kot--4608 { display: grid; }
+.kw:has(#k4609:target) .kot--4609 { display: grid; }
+.kw:has(#k4611:target) .kot--4611 { display: grid; }

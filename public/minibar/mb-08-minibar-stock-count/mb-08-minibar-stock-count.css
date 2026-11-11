@@ -1,0 +1,64 @@
+/* mb-08-minibar-stock-count.css: last count note, count form (date, scope, lines with counted inputs, calculated variance and
+   required reasons above the tolerance), freeze and submit after-states. */
+.sc-last {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.sc-last > span .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+
+.sc-done {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+body:has(#frozen:target) .sc-done--frz,
+body:has(#submitted:target) .sc-done--sub,
+body:has(#frozen:target) #t-frozen,
+body:has(#submitted:target) #t-submitted {
+  display: flex;
+}
+
+.sc-scroll {
+  max-height: 520px;
+  margin-top: 12px;
+}
+
+.sc-in {
+  width: 92px;
+}
+
+.sc-sel {
+  min-width: 220px;
+}
+
+.sc-r.is-var > td {
+  background: #fffaf2;
+}
+
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.rp-acts .fd-muted {
+  margin-right: auto;
+  font-size: 12.5px;
+}

@@ -1,0 +1,46 @@
+/* fn-07-bank-reconciliation.css: statement lines, timing differences and the reconciliation statement. */
+.rb-a {
+  display: none;
+}
+
+body:has(#entries:target) .rb-b,
+body:has(#finalised:target) .rb-b {
+  display: none;
+}
+
+body:has(#entries:target) .rb-a,
+body:has(#finalised:target) .rb-a {
+  display: inline-flex;
+}
+
+body:has(#entries:target) .cc-now.rb-a,
+body:has(#finalised:target) .cc-now.rb-a {
+  display: flex;
+}
+
+body:has(#entries:target) .rb-row--un > td,
+body:has(#finalised:target) .rb-row--un > td {
+  background: var(--ok-bg);
+}
+
+.bp-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+[data-code="FN-07-lines"] td:nth-child(2) {
+  min-width: 300px;
+}
+
+body:has(#automatched:target) #t-automatched,
+body:has(#manual:target) #t-manual,
+body:has(#entries:target) #t-entries,
+body:has(#finalised:target) #t-finalised {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

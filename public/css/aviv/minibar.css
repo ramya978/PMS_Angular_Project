@@ -1,0 +1,47 @@
+/* minibar.css: shared styles of the Minibar Setup (MBS) and Minibar (MB) pages, linked after the Aviv stylesheets. */
+
+/* hidden :target markers of after-states – fixed at the top so following a marker never scrolls the page */
+.hb-mks {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* "System" note: what runs automatically (background processes) */
+.mb-sys {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.mb-sys summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.mb-sys ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+/* ───────── consumption line status: colour + icon + label (uses the .pill.hk-pill look of aviv.css) ───────── */
+.ml--pend { --hk: #b7791f; }
+.ml--post { --hk: #2f855a; }
+.ml--fail { --hk: #c53030; }
+.ml--disp { --hk: #b83280; }
+.ml--rev { --hk: #718096; }
+.ml--late { --hk: #2b6cb0; }
+.ml--wo { --hk: #4a5568; }
+
+/* icons inside running text stay on the line */
+.law :is(.la-late, .la-ok, .la-warn, .ex-k, .mc-note, .sc-last > span) > .icon {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: -2px;
+}

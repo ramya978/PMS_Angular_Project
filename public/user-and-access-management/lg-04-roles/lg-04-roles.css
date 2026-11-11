@@ -1,0 +1,138 @@
+/* lg-04-roles.css: users-in-role panels, new role after-state, toasts. */
+.lg-ru {
+  display: none;
+}
+
+body:has(#ru-reservation-agent:target) #p-ru-reservation-agent {
+  display: grid;
+}
+
+body:has(#ru-front-desk-agent:target) #p-ru-front-desk-agent {
+  display: grid;
+}
+
+body:has(#ru-cashier:target) #p-ru-cashier {
+  display: grid;
+}
+
+body:has(#ru-night-auditor:target) #p-ru-night-auditor {
+  display: grid;
+}
+
+body:has(#ru-fo-manager:target) #p-ru-fo-manager {
+  display: grid;
+}
+
+body:has(#ru-room-attendant:target) #p-ru-room-attendant {
+  display: grid;
+}
+
+body:has(#ru-floor-supervisor:target) #p-ru-floor-supervisor {
+  display: grid;
+}
+
+body:has(#ru-executive-housekeeper:target) #p-ru-executive-housekeeper {
+  display: grid;
+}
+
+body:has(#ru-steward:target) #p-ru-steward {
+  display: grid;
+}
+
+body:has(#ru-captain:target) #p-ru-captain {
+  display: grid;
+}
+
+body:has(#ru-outlet-cashier:target) #p-ru-outlet-cashier {
+  display: grid;
+}
+
+body:has(#ru-f-b-manager:target) #p-ru-f-b-manager {
+  display: grid;
+}
+
+body:has(#ru-chef:target) #p-ru-chef {
+  display: grid;
+}
+
+body:has(#ru-stores-keeper:target) #p-ru-stores-keeper {
+  display: grid;
+}
+
+body:has(#ru-purchase:target) #p-ru-purchase {
+  display: grid;
+}
+
+body:has(#ru-accountant:target) #p-ru-accountant {
+  display: grid;
+}
+
+body:has(#ru-fc:target) #p-ru-fc {
+  display: grid;
+}
+
+body:has(#ru-hr:target) #p-ru-hr {
+  display: grid;
+}
+
+body:has(#ru-chief-engineer:target) #p-ru-chief-engineer {
+  display: grid;
+}
+
+body:has(#ru-technician:target) #p-ru-technician {
+  display: grid;
+}
+
+body:has(#ru-revenue-manager:target) #p-ru-revenue-manager {
+  display: grid;
+}
+
+body:has(#ru-sales:target) #p-ru-sales {
+  display: grid;
+}
+
+body:has(#ru-gm:target) #p-ru-gm {
+  display: grid;
+}
+
+body:has(#ru-owner:target) #p-ru-owner {
+  display: grid;
+}
+
+body:has(#ru-auditor:target) #p-ru-auditor {
+  display: grid;
+}
+
+body:has(#ru-super-admin:target) #p-ru-super-admin {
+  display: grid;
+}
+
+body:has(#ru-duty-manager:target) #p-ru-duty-manager {
+  display: grid;
+}
+
+body:has(#ru-user-administrator:target) #p-ru-user-administrator {
+  display: grid;
+}
+
+body:has(#ru-laundry-attendant:target) #p-ru-laundry-attendant {
+  display: grid;
+}
+
+body:has(#ru-vendor-support:target) #p-ru-vendor-support {
+  display: grid;
+}
+
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) table.dt__table tr.hr-new {
+  display: grid;
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

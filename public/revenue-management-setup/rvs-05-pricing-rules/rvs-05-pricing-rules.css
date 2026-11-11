@@ -1,0 +1,26 @@
+/* rvs-05-pricing-rules.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.rv-w { min-width: 220px; }
+.rv-bld { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 300px; }
+.rv-nm { display: grid; grid-template-columns: 64px minmax(230px, 1fr); gap: 8px; min-width: 310px; }
+.rv-bld .field__input:not(.field__input--select) { width: 120px; }
+.rv-bld .field__wrap { width: auto; }
+td:last-child > .rv-st { min-width: 150px; }
+.rv-st { display: block; margin-top: 6px; }
+.prs-n--m { max-width: 110px; }
+.rv-bld > span { width: 36px; color: var(--ink-3); font-size: 12px; font-weight: 600; }
+.rv-bld > small { flex-basis: 100%; padding-left: 42px; color: var(--ink-3); }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

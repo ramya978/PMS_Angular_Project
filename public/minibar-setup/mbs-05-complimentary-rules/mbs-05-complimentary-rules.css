@@ -1,0 +1,100 @@
+/* mbs-05-complimentary-rules.css: rules table with status, Add rule form (details) with grouped "applies to" options and an item grid. */
+.cr-kpi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  list-style: none;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.cr-kpi li {
+  display: grid;
+}
+
+.cr-kpi b {
+  color: var(--ink);
+  font-size: 22px;
+}
+
+.cr-items small {
+  color: var(--ink-3);
+}
+
+.cr-ap {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.cr-new {
+  display: none;
+}
+
+body:has(#added:target) .cr-new {
+  display: table-row;
+}
+
+body:has(#added:target) .cr-new > td {
+  background: var(--ok-bg);
+}
+
+.cr-dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cr-ap-k {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cr-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.la-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.la-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.la-add > summary::-webkit-details-marker {
+  display: none;
+}
+
+.la-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.la-add__a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+body:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }

@@ -1,0 +1,66 @@
+/* hks-17-housekeeping-alerts-and-escalation.css: one card per alert with threshold, escalation, channels and three recipient levels. */
+
+.hks-alerts {
+  display: grid;
+  gap: 14px;
+}
+
+.hks-alert {
+  padding: 16px 20px;
+}
+
+.hks-alert .fd-cardhead {
+  margin-bottom: 2px;
+}
+
+.hks-alert__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 20px;
+  margin-top: 12px;
+}
+
+.hks-thr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hks-thr input {
+  width: 100px;
+}
+
+.hks-levels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 20px;
+  margin-top: 12px;
+}
+
+.hks-lv__list {
+  display: grid;
+  gap: 4px;
+}
+
+.hks-alert__foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-2);
+  font-size: 12.5px;
+}
+
+/* an inactive alert is greyed out */
+.hks-alert:has(input[name$="_active"]:not(:checked)) .hks-alert__grid,
+.hks-alert:has(input[name$="_active"]:not(:checked)) .hks-levels {
+  opacity: 0.5;
+}
+
+@media (max-width: 1100px) {
+  .hks-alert__grid,
+  .hks-levels {
+    grid-template-columns: 1fr;
+  }
+}

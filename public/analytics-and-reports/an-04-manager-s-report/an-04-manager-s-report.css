@@ -1,0 +1,11 @@
+/* an-04-manager-s-report.css – styles of AN-04 Manager's Report (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.hr-compact th,
+.hr-compact td {
+  padding-inline: 6px;
+  font-size: 11.5px;
+}

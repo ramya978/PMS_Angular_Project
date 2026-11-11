@@ -1,0 +1,72 @@
+/* hk-20-attendant-productivity.css: Attendant Productivity – hero, productivity table (rooms, credits, minutes vs
+   standard in red when above, inspection, requests in time bar, supplies), period filter. Shared: housekeeping.css. */
+.apw {
+  display: grid;
+  gap: 16px;
+}
+
+.hk7-week {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.ap-t td {
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.ap-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ap-av {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--em-500), var(--em-800));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.is-over {
+  color: #c53030;
+  font-weight: 650;
+}
+
+.ap-pct {
+  display: inline-block;
+  width: 60px;
+  height: 6px;
+  margin-right: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line-2);
+  vertical-align: middle;
+}
+
+.ap-pct i {
+  display: block;
+  height: 100%;
+  background: var(--em-500);
+}
+
+.ap-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ap-note .icon {
+  flex: none;
+  margin-top: 2px;
+}

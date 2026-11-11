@@ -1,0 +1,89 @@
+/* lf-06-storage-and-locations.css: figure strip, one card per location (safe, shelf, front desk hold, bins by month) with its items, Move and Audit location. */
+
+/* two columns of location cards, filled so both end at about the same height (no gaps under the short cards) */
+.loc-g {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+}
+
+.loc-col {
+  display: grid;
+  gap: 14px;
+}
+
+.loc-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loc-h > span:nth-child(2) {
+  display: grid;
+  flex: 1;
+}
+
+.loc-h small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.loc-ic {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.loc-n {
+  color: var(--ink-3);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.loc-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.loc-i {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px auto auto;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-2);
+}
+
+.loc-r {
+  display: grid;
+  font-size: 12.5px;
+}
+
+.loc-none {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+@media (max-width: 1300px) {
+  .loc-g {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.locw:has(#audit-valuables-safe:target) #t-audit-valuables-safe { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-perishables-shelf:target) #t-audit-perishables-shelf { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-front-desk-hold:target) #t-audit-front-desk-hold { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-store-room-bin-oct:target) #t-audit-store-room-bin-oct { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-store-room-bin-sep:target) #t-audit-store-room-bin-sep { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-store-room-bin-aug:target) #t-audit-store-room-bin-aug { display: flex; animation: av-rise 320ms var(--ease); }
+.locw:has(#audit-store-room-bin-jul:target) #t-audit-store-room-bin-jul { display: flex; animation: av-rise 320ms var(--ease); }

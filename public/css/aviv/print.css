@@ -1,0 +1,38 @@
+/* Print: hide the app frame, keep the document. */
+@media print {
+  .sidebar,
+  .topbar,
+  .helpbox,
+  .no-print,
+  .paper-bar,
+  .page-header__actions,
+  .fd-toast,
+  .modal {
+    display: none !important;
+  }
+  .app {
+    display: block;
+  }
+  body {
+    background: #fff;
+  }
+  .app__content {
+    padding: 0;
+    max-width: none;
+    animation: none;
+  }
+  .paper {
+    box-shadow: none;
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* table pages: print every row, no pager */
+.pg {
+  display: none !important;
+}
+
+.pgw tbody > tr:not(.fd-after):not(.fd-empty-row) {
+  display: table-row !important;
+}

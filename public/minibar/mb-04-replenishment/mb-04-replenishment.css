@@ -1,0 +1,134 @@
+/* mb-04-replenishment.css: rooms to refill by floor with Done ticks, floor chips (:has), cart load (pick list) and cart return. */
+.mr-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mr-filt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.mr-filt__k {
+  margin-right: 4px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.mr-chip span {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px #a39b88;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.mr-chip input:checked + span {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 0 0 1.5px var(--em-600);
+}
+
+.rp-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.rp-side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.rp-side > * {
+  min-width: 0;
+}
+
+.rp-grp th {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.rp-r.is-done > td {
+  color: var(--ink-3);
+  background: var(--ok-bg);
+}
+
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.rp-acts .fd-muted {
+  margin-right: auto;
+  font-size: 12.5px;
+}
+
+.rp:has(.rp-fl:checked) :is(.rp-r,
+  .rp-grp):not(:is(.rp:has(#rfl1:checked) .f1)):not(:is(.rp:has(#rfl2:checked) .f2)):not(:is(.rp:has(#rfl3:checked) .f3)):not(:is(.rp:has(#rfl4:checked) .f4)):not(:is(.rp:has(#rfl5:checked) .f5)) {
+  display: none;
+}
+
+body:has(#refilled:target) .rp-r:has(input:checked) > td {
+  background: var(--ok-bg);
+}
+
+body:has(#refilled:target) #t-refilled,
+body:has(#returned:target) #t-returned { display: flex; animation: av-rise 320ms var(--ease); }
+
+@media (max-width: 1320px) {
+  .rp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mr-rm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mr-g {
+  display: grid;
+}
+
+.mc-note {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 12.5px;
+}
+
+.mc-note > .icon {
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pc {
+  display: none;
+  margin-bottom: 4px;
+}
+
+.mb-new {
+  display: none;
+}

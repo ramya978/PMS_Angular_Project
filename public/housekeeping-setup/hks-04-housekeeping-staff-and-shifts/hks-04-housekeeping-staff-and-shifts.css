@@ -1,0 +1,240 @@
+/* hks-04-housekeeping-staff-and-shifts.css: staff profiles and shift codes tabs, staff cell, shift swatch, profile and shift pop-ups, saved-row highlight. */
+
+.hks-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hks-who > span {
+  display: grid;
+}
+
+.hks-who--big .avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+}
+
+.hks-yes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--st-ready);
+  font-weight: 650;
+}
+
+.hks-shift {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.hks-shift i {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+}
+
+.hks-sync {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 12.5px;
+}
+
+.fd-banner + .hks-sync {
+  margin-top: 10px;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.hks-login {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.hks-colour {
+  width: 72px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+/* agency fields only when Agency staff is on; time fields only for working shifts */
+.hks-form:not(:has(input[name="agency"]:checked)) .hks-agency,
+.hks-form:not(:has(input[name="working"]:checked)) .hks-times {
+  display: none;
+}
+
+/* a saved row is highlighted when the page is opened after Save */
+.dt__table tbody tr:target td {
+  background: var(--ok-bg);
+}
+
+/* saved toasts: shown with the row that was saved */
+body:has(#saved-e2001:target) #t-e2001 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2002:target) #t-e2002 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2003:target) #t-e2003 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2004:target) #t-e2004 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2005:target) #t-e2005 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2006:target) #t-e2006 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2007:target) #t-e2007 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2008:target) #t-e2008 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2009:target) #t-e2009 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2010:target) #t-e2010 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2011:target) #t-e2011 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2012:target) #t-e2012 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2013:target) #t-e2013 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2014:target) #t-e2014 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2015:target) #t-e2015 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2016:target) #t-e2016 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2017:target) #t-e2017 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2018:target) #t-e2018 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2019:target) #t-e2019 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2020:target) #t-e2020 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2021:target) #t-e2021 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2022:target) #t-e2022 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2023:target) #t-e2023 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2024:target) #t-e2024 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2025:target) #t-e2025 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e2026:target) #t-e2026 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-m:target) #t-m {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-e:target) #t-e {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-n:target) #t-n {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-g:target) #t-g {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-off:target) #t-off {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lv:target) #t-lv {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

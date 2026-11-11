@@ -1,0 +1,174 @@
+/* fn-03-account-ledger.css: account header, four tabs, credit note pop-up, dispute and follow-up. */
+.pm--t {
+  position: absolute;
+}
+
+.ac-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+  gap: 16px 28px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.ac-head__n {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.ac-head p {
+  margin: 0;
+}
+
+.ac-head__f {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin: 0;
+}
+
+.ac-head__f dt {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ac-head__f dd {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+/* tabs: Open invoices is shown until another tab is chosen */
+.fn-tab {
+  display: none;
+}
+
+#main:not(:has(.pm--t:target)) .fn-tab--open,
+#main:has(#t-open:target) .fn-tab--open,
+#main:has(#t-trans:target) .fn-tab--trans,
+#main:has(#t-follow:target) .fn-tab--follow,
+#main:has(#t-docs:target) .fn-tab--docs {
+  display: block;
+}
+
+#main:not(:has(.pm--t:target)) .hv__v[data-v="t-open"],
+#main:has(#t-open:target) .hv__v[data-v="t-open"],
+#main:has(#t-trans:target) .hv__v[data-v="t-trans"],
+#main:has(#t-follow:target) .hv__v[data-v="t-follow"],
+#main:has(#t-docs:target) .hv__v[data-v="t-docs"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+/* the pop-ups open on top of the tab that was open */
+.iv-st--d {
+  display: none;
+}
+
+.iv-src {
+  font-weight: 600;
+}
+
+[data-code^="FN-03-1-"] td:nth-child(2) {
+  min-width: 260px;
+}
+
+body:has(#disp-cl-2026-0412:target) #iv-cl-2026-0412 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0412:target) #iv-cl-2026-0412 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0412:target) #iv-cl-2026-0412 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0412:target) #iv-cl-2026-0412 .btn { display: none; }
+body:has(#disp-cl-2026-0398:target) #iv-cl-2026-0398 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0398:target) #iv-cl-2026-0398 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0398:target) #iv-cl-2026-0398 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0398:target) #iv-cl-2026-0398 .btn { display: none; }
+body:has(#disp-cl-2026-0377:target) #iv-cl-2026-0377 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0377:target) #iv-cl-2026-0377 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0377:target) #iv-cl-2026-0377 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0377:target) #iv-cl-2026-0377 .btn { display: none; }
+
+body:has(#submitted:target) #t-submitted,
+body:has(#logged:target) #t-logged,
+body:has(#disp-cl-2026-0412:target) #t-disp-cl-2026-0412,
+body:has(#disp-cl-2026-0398:target) #t-disp-cl-2026-0398,
+body:has(#disp-cl-2026-0377:target) #t-disp-cl-2026-0377 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 900px) {
+  .ac-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .ac-head__f {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+body:has(#disp-cl-2026-0352:target) #iv-cl-2026-0352 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0352:target) #iv-cl-2026-0352 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0352:target) #iv-cl-2026-0352 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0352:target) #iv-cl-2026-0352 .btn { display: none; }
+body:has(#disp-cl-2026-0352:target) #t-disp-cl-2026-0352 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0405:target) #iv-cl-2026-0405 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0405:target) #iv-cl-2026-0405 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0405:target) #iv-cl-2026-0405 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0405:target) #iv-cl-2026-0405 .btn { display: none; }
+body:has(#disp-cl-2026-0405:target) #t-disp-cl-2026-0405 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0409:target) #iv-cl-2026-0409 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0409:target) #iv-cl-2026-0409 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0409:target) #iv-cl-2026-0409 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0409:target) #iv-cl-2026-0409 .btn { display: none; }
+body:has(#disp-cl-2026-0409:target) #t-disp-cl-2026-0409 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0402:target) #iv-cl-2026-0402 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0402:target) #iv-cl-2026-0402 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0402:target) #iv-cl-2026-0402 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0402:target) #iv-cl-2026-0402 .btn { display: none; }
+body:has(#disp-cl-2026-0402:target) #t-disp-cl-2026-0402 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0418:target) #iv-cl-2026-0418 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0418:target) #iv-cl-2026-0418 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0418:target) #iv-cl-2026-0418 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0418:target) #iv-cl-2026-0418 .btn { display: none; }
+body:has(#disp-cl-2026-0418:target) #t-disp-cl-2026-0418 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0415:target) #iv-cl-2026-0415 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0415:target) #iv-cl-2026-0415 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0415:target) #iv-cl-2026-0415 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0415:target) #iv-cl-2026-0415 .btn { display: none; }
+body:has(#disp-cl-2026-0415:target) #t-disp-cl-2026-0415 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0360:target) #iv-cl-2026-0360 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0360:target) #iv-cl-2026-0360 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0360:target) #iv-cl-2026-0360 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0360:target) #iv-cl-2026-0360 .btn { display: none; }
+body:has(#disp-cl-2026-0360:target) #t-disp-cl-2026-0360 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0392:target) #iv-cl-2026-0392 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0392:target) #iv-cl-2026-0392 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0392:target) #iv-cl-2026-0392 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0392:target) #iv-cl-2026-0392 .btn { display: none; }
+body:has(#disp-cl-2026-0392:target) #t-disp-cl-2026-0392 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-ota-2026-0309:target) #iv-ota-2026-0309 .iv-st--n { display: none; }
+body:has(#disp-ota-2026-0309:target) #iv-ota-2026-0309 .iv-st--d { display: inline-flex; }
+body:has(#disp-ota-2026-0309:target) #iv-ota-2026-0309 > td { background: var(--ok-bg); }
+body:has(#disp-ota-2026-0309:target) #iv-ota-2026-0309 .btn { display: none; }
+body:has(#disp-ota-2026-0309:target) #t-disp-ota-2026-0309 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0421:target) #iv-cl-2026-0421 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0421:target) #iv-cl-2026-0421 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0421:target) #iv-cl-2026-0421 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0421:target) #iv-cl-2026-0421 .btn { display: none; }
+body:has(#disp-cl-2026-0421:target) #t-disp-cl-2026-0421 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#disp-cl-2026-0384:target) #iv-cl-2026-0384 .iv-st--n { display: none; }
+body:has(#disp-cl-2026-0384:target) #iv-cl-2026-0384 .iv-st--d { display: inline-flex; }
+body:has(#disp-cl-2026-0384:target) #iv-cl-2026-0384 > td { background: var(--ok-bg); }
+body:has(#disp-cl-2026-0384:target) #iv-cl-2026-0384 .btn { display: none; }
+body:has(#disp-cl-2026-0384:target) #t-disp-cl-2026-0384 { display: flex; animation: av-rise 320ms var(--ease); }

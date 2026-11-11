@@ -1,0 +1,27 @@
+/* fns-04-matching-and-payments.css: tolerances, approval levels, payment days, maker-checker and the GM approval. */
+.cc-banner {
+  margin: 0;
+}
+
+.ap-after {
+  display: none;
+}
+
+body:has(#approved:target) .ap-before {
+  display: none;
+}
+
+body:has(#approved:target) .ap-after {
+  display: inline;
+}
+
+[data-code="FNS-04-levels"] td:last-child {
+  min-width: 260px;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#approved:target) #t-approved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

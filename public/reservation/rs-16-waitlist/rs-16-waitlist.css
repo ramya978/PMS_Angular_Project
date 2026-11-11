@@ -1,0 +1,20 @@
+/* rs-16-waitlist.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* Optional waitlist: banner and approval route */
+.wl-opt { margin-bottom: 12px; }
+.wl-route { margin-bottom: 14px; }
+.wl-route__h { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.wl-route__s { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 10px; padding: 0; list-style: none; counter-reset: wl; }
+.wl-route__s li { position: relative; display: grid; align-content: start; gap: 2px; padding: 10px 12px 10px 44px; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--line); counter-increment: wl; font-size: 13px; }
+.wl-route__s li::before { content: counter(wl); position: absolute; left: 12px; top: 10px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--br-600); color: #fff; font-size: 12px; font-weight: 700; }
+.wl-route__s span { color: var(--ink-3); font-size: 12.5px; line-height: 1.4; }
+@media (max-width: 1024px) { .wl-route__s { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .wl-route__s { grid-template-columns: 1fr; } }
+.wl-table td[data-label="Approval"], .wl-table td[data-label="Stay"] { white-space: normal; }
+.wl-table td[data-label="Guest"] { white-space: normal; }
+@media (max-width: 760px) { .app__content > .s-note.wl-opt { display: flex; } }
+
+/* the header shows the action once */
+.page-header__actions > a[data-flow="opener"]:nth-of-type(n + 2) {
+  display: none;
+}

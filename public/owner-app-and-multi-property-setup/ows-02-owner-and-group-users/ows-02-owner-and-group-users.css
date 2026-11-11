@@ -1,0 +1,193 @@
+/* ows-02-owner-and-group-users.css: after-states (new rows, status changes) and toasts. */
+table.dt__table tr.hr-new,
+.ow-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new--added {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-owner:target) .hv__v[data-v="v-owner"],
+#main:has(#v-head:target) .hv__v[data-v="v-head"],
+#main:has(#v-finance:target) .hv__v[data-v="v-finance"],
+#main:has(#v-suspended:target) .hv__v[data-v="v-suspended"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-owner:target) .ow-u:not(.rg-owner),
+#main:has(#v-head:target) .ow-u:not(.rg-head),
+#main:has(#v-finance:target) .ow-u:not(.rg-finance),
+#main:has(#v-suspended:target) .ow-u:not(.rg-suspended) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+body:has(#susp-u01:target) #u-u01 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u01:target) #u-u01 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u01:target) #u-u01 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u02:target) #u-u02 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u02:target) #u-u02 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u02:target) #u-u02 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u03:target) #u-u03 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u03:target) #u-u03 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u03:target) #u-u03 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u04:target) #u-u04 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u04:target) #u-u04 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u04:target) #u-u04 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u05:target) #u-u05 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u05:target) #u-u05 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u05:target) #u-u05 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u06:target) #u-u06 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u06:target) #u-u06 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u06:target) #u-u06 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u07:target) #u-u07 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u07:target) #u-u07 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u07:target) #u-u07 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#susp-u08:target) #u-u08 .ow-st {
+  display: none;
+}
+
+body:has(#susp-u08:target) #u-u08 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#susp-u08:target) #u-u08 {
+  box-shadow: 0 0 0 2px var(--bad, #C53030);
+}
+
+body:has(#react-u09:target) #u-u09 .ow-st {
+  display: none;
+}
+
+body:has(#react-u09:target) #u-u09 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#react-u09:target) #u-u09 {
+  box-shadow: 0 0 0 2px var(--ok, #2F855A);
+}
+
+body:has(#react-u10:target) #u-u10 .ow-st {
+  display: none;
+}
+
+body:has(#react-u10:target) #u-u10 .ow-alt {
+  display: inline-flex;
+}
+
+body:has(#react-u10:target) #u-u10 {
+  box-shadow: 0 0 0 2px var(--ok, #2F855A);
+}
+
+body:has(#added:target) .ow-new--added {
+  display: grid;
+  box-shadow: 0 0 0 2px var(--ok, #2F855A);
+}
+
+.ow-u__more > summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.ow-u__more[open] > summary {
+  margin-bottom: 10px;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled,
+body:has(#added:target) #t-added,
+body:has(#susp-u01:target) #t-susp-u01,
+body:has(#react-u01:target) #t-react-u01,
+body:has(#susp-u02:target) #t-susp-u02,
+body:has(#react-u02:target) #t-react-u02,
+body:has(#susp-u03:target) #t-susp-u03,
+body:has(#react-u03:target) #t-react-u03,
+body:has(#susp-u04:target) #t-susp-u04,
+body:has(#react-u04:target) #t-react-u04,
+body:has(#susp-u05:target) #t-susp-u05,
+body:has(#react-u05:target) #t-react-u05,
+body:has(#susp-u06:target) #t-susp-u06,
+body:has(#react-u06:target) #t-react-u06,
+body:has(#susp-u07:target) #t-susp-u07,
+body:has(#react-u07:target) #t-react-u07,
+body:has(#susp-u08:target) #t-susp-u08,
+body:has(#react-u08:target) #t-react-u08,
+body:has(#susp-u09:target) #t-susp-u09,
+body:has(#react-u09:target) #t-react-u09,
+body:has(#susp-u10:target) #t-susp-u10,
+body:has(#react-u10:target) #t-react-u10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,48 @@
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+.fds05:has(input[name="form3"]:not(:checked)) .reg-form3 {
+  display: none;
+}
+
+.fds05:has(input[name="show_rate"][value="Never"]:checked) .reg-rate {
+  display: none;
+}
+
+.fds05:has(input[name="staff_sig"]:not(:checked)) .reg-staff {
+  visibility: hidden;
+}
+
+/* layout: the form and the live preview share the page, so the sections stack (title on top, settings
+   full width) instead of losing a third of their width to the rail, and the preview gets room to show
+   the card without wrapping every value */
+.fds05-wrap .fd-split--wide {
+  grid-template-columns: minmax(0, 1fr) minmax(400px, 0.8fr);
+}
+
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec) {
+  grid-template-columns: minmax(0, 1fr);
+  background:
+    radial-gradient(60% 90px at 0% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.10), transparent 70%),
+    var(--surface);
+}
+
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec)::before {
+  display: none;
+}
+
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec) > *,
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec) > :is(.fd-sec__t, .fd-sec__d),
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec) > .fd-sec__t:first-child + .fd-sec__d + * {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+body[data-code^="FDS-"] .fds05-wrap .fd-sec:not(.modal .fd-sec) > .fd-sec__d {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 1100px) {
+  .fds05-wrap .fd-split--wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

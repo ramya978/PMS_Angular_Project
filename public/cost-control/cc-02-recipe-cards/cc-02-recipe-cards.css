@@ -1,0 +1,150 @@
+/* cc-02-recipe-cards.css: recipe list with views, recipe card pop-ups. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-menu:target) .hv__v[data-v="v-menu"],
+#main:has(#v-sub:target) .hv__v[data-v="v-sub"],
+#main:has(#v-cock:target) .hv__v[data-v="v-cock"],
+#main:has(#v-banq:target) .hv__v[data-v="v-banq"],
+#main:has(#v-due:target) .hv__v[data-v="v-due"],
+#main:has(#v-drift:target) .hv__v[data-v="v-drift"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-menu:target) .rc-row:not(.rc-t-menu),
+#main:has(#v-sub:target) .rc-row:not(.rc-t-sub),
+#main:has(#v-cock:target) .rc-row:not(.rc-t-cock),
+#main:has(#v-banq:target) .rc-row:not(.rc-t-banq),
+#main:has(#v-due:target) .rc-row:not(.rc-due),
+#main:has(#v-drift:target) .rc-row:not(.rc-drift) {
+  display: none;
+}
+
+.pm--v,
+.pm--s {
+  position: absolute;
+}
+
+[data-code="CC-02-recipes"] td:first-child {
+  min-width: 220px;
+}
+
+[data-code="CC-02-recipes"] td:nth-child(7) {
+  min-width: 190px;
+}
+
+.rc-item.field__input {
+  min-width: 260px;
+}
+
+.cc-kpis-wrap {
+  display: block;
+}
+
+.cc-sec {
+  display: block;
+}
+
+body:has(#recosted:target) #recosted-t,
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-karimeen:target) #t-s-rc-karimeen {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-stew:target) #t-s-rc-stew {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-fishcurry:target) #t-s-rc-fishcurry {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-vegstew:target) #t-s-rc-vegstew {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-pbm:target) #t-s-rc-pbm {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-bchicken:target) #t-s-rc-bchicken {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-prawns:target) #t-s-rc-prawns {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-biryani:target) #t-s-rc-biryani {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-soup:target) #t-s-rc-soup {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-chillipaneer:target) #t-s-rc-chillipaneer {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-sadya:target) #t-s-rc-sadya {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-mattarice:target) #t-s-rc-mattarice {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-payasam:target) #t-s-rc-payasam {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-limesoda:target) #t-s-rc-limesoda {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-rum:target) #t-s-rc-rum {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-sunset:target) #t-s-rc-sunset {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-currybase:target) #t-s-rc-currybase {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-bbiryani:target) #t-s-rc-bbiryani {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-rc-bsadya:target) #t-s-rc-bsadya {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

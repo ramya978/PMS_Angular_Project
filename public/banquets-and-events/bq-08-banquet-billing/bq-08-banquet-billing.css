@@ -1,0 +1,35 @@
+/* bq-08-banquet-billing.css: lines, IGST, advances adjusted, balance; bill to / GSTIN / place of supply; Generate invoice → BQ-O05, Settle and Credit note pop-ups, Transfer → FD-17. */
+.ev-h,
+.ev-st {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ev-tot td {
+  font-weight: 700;
+}
+
+.ev-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bl-new {
+  display: none;
+}
+
+.blw:has(#settled:target) .bl-now {
+  display: none;
+}
+
+.blw:has(#settled:target) .bl-new {
+  display: inline;
+  color: var(--st-ready);
+}
+.blw:has(#closed:target) #t-closed { display: flex; animation: av-rise 320ms var(--ease); }
+.blw:has(#settled:target) #t-settled { display: flex; animation: av-rise 320ms var(--ease); }
+.blw:has(#cn-sent:target) #t-cn-sent { display: flex; animation: av-rise 320ms var(--ease); }

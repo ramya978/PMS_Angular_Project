@@ -1,0 +1,46 @@
+/* hr-08-advances-and-loans.css: views, approval states and add box. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-pending:target) .hv__v[data-v="v-pending"],
+#main:has(#v-approved:target) .hv__v[data-v="v-approved"],
+#main:has(#v-recovering:target) .hv__v[data-v="v-recovering"],
+#main:has(#v-closed:target) .hv__v[data-v="v-closed"],
+#main:has(#v-rejected:target) .hv__v[data-v="v-rejected"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-pending:target) .gl-row:not(.ad-pending),
+#main:has(#v-approved:target) .gl-row:not(.ad-approved),
+#main:has(#v-recovering:target) .gl-row:not(.ad-recovering),
+#main:has(#v-closed:target) .gl-row:not(.ad-closed),
+#main:has(#v-rejected:target) .gl-row:not(.ad-rejected) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+body:has(#requested:target) #t-req,
+body:has(#ad-ok-0048:target) #t-ok-0048,
+body:has(#ad-no-0048:target) #t-no-0048 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+.ad-ok-0048,
+.ad-no-0048 {
+  display: none;
+}
+
+body:has(#ad-ok-0048:target) .ad-now-0048,
+body:has(#ad-no-0048:target) .ad-now-0048 {
+  display: none;
+}
+
+body:has(#ad-ok-0048:target) .ad-ok-0048,
+body:has(#ad-no-0048:target) .ad-no-0048 {
+  display: inline-flex;
+}

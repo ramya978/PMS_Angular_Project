@@ -1,0 +1,1285 @@
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+body:not(:has(.va:target)):not(:has(.variant :target)) .va-act--list {
+  display: inline-flex;
+}
+
+body:has(#list:target) .va-act--list,
+body:has(.v-list :target) .va-act--list {
+  display: inline-flex;
+}
+
+body:has(#GP-0289:target) .va-act--GP-0289,
+body:has(.v-GP-0289 :target) .va-act--GP-0289 {
+  display: inline-flex;
+}
+
+body:has(#GP-0232:target) .va-act--GP-0232,
+body:has(.v-GP-0232 :target) .va-act--GP-0232 {
+  display: inline-flex;
+}
+
+body:has(#GP-0337:target) .va-act--GP-0337,
+body:has(.v-GP-0337 :target) .va-act--GP-0337 {
+  display: inline-flex;
+}
+
+body:has(#GP-0052:target) .va-act--GP-0052,
+body:has(.v-GP-0052 :target) .va-act--GP-0052 {
+  display: inline-flex;
+}
+
+body:has(#GP-0099:target) .va-act--GP-0099,
+body:has(.v-GP-0099 :target) .va-act--GP-0099 {
+  display: inline-flex;
+}
+
+body:has(#GP-0347:target) .va-act--GP-0347,
+body:has(.v-GP-0347 :target) .va-act--GP-0347 {
+  display: inline-flex;
+}
+
+body:has(#GP-0210:target) .va-act--GP-0210,
+body:has(.v-GP-0210 :target) .va-act--GP-0210 {
+  display: inline-flex;
+}
+
+body:has(#GP-0183:target) .va-act--GP-0183,
+body:has(.v-GP-0183 :target) .va-act--GP-0183 {
+  display: inline-flex;
+}
+
+body:has(#GP-0353:target) .va-act--GP-0353,
+body:has(.v-GP-0353 :target) .va-act--GP-0353 {
+  display: inline-flex;
+}
+
+body:has(#GP-0359:target) .va-act--GP-0359,
+body:has(.v-GP-0359 :target) .va-act--GP-0359 {
+  display: inline-flex;
+}
+
+body:has(#GP-0108:target) .va-act--GP-0108,
+body:has(.v-GP-0108 :target) .va-act--GP-0108 {
+  display: inline-flex;
+}
+
+body:has(#GP-0268:target) .va-act--GP-0268,
+body:has(.v-GP-0268 :target) .va-act--GP-0268 {
+  display: inline-flex;
+}
+
+body:has(#GP-0299:target) .va-act--GP-0299,
+body:has(.v-GP-0299 :target) .va-act--GP-0299 {
+  display: inline-flex;
+}
+
+body:has(#GP-0280:target) .va-act--GP-0280,
+body:has(.v-GP-0280 :target) .va-act--GP-0280 {
+  display: inline-flex;
+}
+
+body:has(#GP-0013:target) .va-act--GP-0013,
+body:has(.v-GP-0013 :target) .va-act--GP-0013 {
+  display: inline-flex;
+}
+
+body:has(#GP-0017:target) .va-act--GP-0017,
+body:has(.v-GP-0017 :target) .va-act--GP-0017 {
+  display: inline-flex;
+}
+
+body:has(#GP-0247:target) .va-act--GP-0247,
+body:has(.v-GP-0247 :target) .va-act--GP-0247 {
+  display: inline-flex;
+}
+
+body:has(#GP-0197:target) .va-act--GP-0197,
+body:has(.v-GP-0197 :target) .va-act--GP-0197 {
+  display: inline-flex;
+}
+
+body:has(#GP-0329:target) .va-act--GP-0329,
+body:has(.v-GP-0329 :target) .va-act--GP-0329 {
+  display: inline-flex;
+}
+
+body:has(#GP-0262:target) .va-act--GP-0262,
+body:has(.v-GP-0262 :target) .va-act--GP-0262 {
+  display: inline-flex;
+}
+
+body:has(#GP-0254:target) .va-act--GP-0254,
+body:has(.v-GP-0254 :target) .va-act--GP-0254 {
+  display: inline-flex;
+}
+
+body:has(#GP-0369:target) .va-act--GP-0369,
+body:has(.v-GP-0369 :target) .va-act--GP-0369 {
+  display: inline-flex;
+}
+
+body:has(#GP-0310:target) .va-act--GP-0310,
+body:has(.v-GP-0310 :target) .va-act--GP-0310 {
+  display: inline-flex;
+}
+
+body:has(#GP-0078:target) .va-act--GP-0078,
+body:has(.v-GP-0078 :target) .va-act--GP-0078 {
+  display: inline-flex;
+}
+
+body:has(#GP-0257:target) .va-act--GP-0257,
+body:has(.v-GP-0257 :target) .va-act--GP-0257 {
+  display: inline-flex;
+}
+
+body:has(#GP-0253:target) .va-act--GP-0253,
+body:has(.v-GP-0253 :target) .va-act--GP-0253 {
+  display: inline-flex;
+}
+
+body:has(#GP-0092:target) .va-act--GP-0092,
+body:has(.v-GP-0092 :target) .va-act--GP-0092 {
+  display: inline-flex;
+}
+
+body:has(#GP-0008:target) .va-act--GP-0008,
+body:has(.v-GP-0008 :target) .va-act--GP-0008 {
+  display: inline-flex;
+}
+
+body:has(#GP-0288:target) .va-act--GP-0288,
+body:has(.v-GP-0288 :target) .va-act--GP-0288 {
+  display: inline-flex;
+}
+
+body:has(#GP-0293:target) .va-act--GP-0293,
+body:has(.v-GP-0293 :target) .va-act--GP-0293 {
+  display: inline-flex;
+}
+
+body:has(#GP-0348:target) .va-act--GP-0348,
+body:has(.v-GP-0348 :target) .va-act--GP-0348 {
+  display: inline-flex;
+}
+
+body:has(#GP-0026:target) .va-act--GP-0026,
+body:has(.v-GP-0026 :target) .va-act--GP-0026 {
+  display: inline-flex;
+}
+
+body:has(#GP-0015:target) .va-act--GP-0015,
+body:has(.v-GP-0015 :target) .va-act--GP-0015 {
+  display: inline-flex;
+}
+
+body:has(#GP-0227:target) .va-act--GP-0227,
+body:has(.v-GP-0227 :target) .va-act--GP-0227 {
+  display: inline-flex;
+}
+
+body:has(#GP-0022:target) .va-act--GP-0022,
+body:has(.v-GP-0022 :target) .va-act--GP-0022 {
+  display: inline-flex;
+}
+
+body:has(#GP-0063:target) .va-act--GP-0063,
+body:has(.v-GP-0063 :target) .va-act--GP-0063 {
+  display: inline-flex;
+}
+
+body:has(#GP-0115:target) .va-act--GP-0115,
+body:has(.v-GP-0115 :target) .va-act--GP-0115 {
+  display: inline-flex;
+}
+
+body:has(#GP-0132:target) .va-act--GP-0132,
+body:has(.v-GP-0132 :target) .va-act--GP-0132 {
+  display: inline-flex;
+}
+
+body:has(#GP-0234:target) .va-act--GP-0234,
+body:has(.v-GP-0234 :target) .va-act--GP-0234 {
+  display: inline-flex;
+}
+
+body:has(#GP-0358:target) .va-act--GP-0358,
+body:has(.v-GP-0358 :target) .va-act--GP-0358 {
+  display: inline-flex;
+}
+
+body:has(#GP-0168:target) .va-act--GP-0168,
+body:has(.v-GP-0168 :target) .va-act--GP-0168 {
+  display: inline-flex;
+}
+
+body:has(#GP-0222:target) .va-act--GP-0222,
+body:has(.v-GP-0222 :target) .va-act--GP-0222 {
+  display: inline-flex;
+}
+
+body:has(#GP-0072:target) .va-act--GP-0072,
+body:has(.v-GP-0072 :target) .va-act--GP-0072 {
+  display: inline-flex;
+}
+
+body:has(#GP-0042:target) .va-act--GP-0042,
+body:has(.v-GP-0042 :target) .va-act--GP-0042 {
+  display: inline-flex;
+}
+
+body:has(#GP-0098:target) .va-act--GP-0098,
+body:has(.v-GP-0098 :target) .va-act--GP-0098 {
+  display: inline-flex;
+}
+
+body:has(#GP-0291:target) .va-act--GP-0291,
+body:has(.v-GP-0291 :target) .va-act--GP-0291 {
+  display: inline-flex;
+}
+
+body:has(#GP-0164:target) .va-act--GP-0164,
+body:has(.v-GP-0164 :target) .va-act--GP-0164 {
+  display: inline-flex;
+}
+
+body:has(#GP-0311:target) .va-act--GP-0311,
+body:has(.v-GP-0311 :target) .va-act--GP-0311 {
+  display: inline-flex;
+}
+
+body:has(#GP-0361:target) .va-act--GP-0361,
+body:has(.v-GP-0361 :target) .va-act--GP-0361 {
+  display: inline-flex;
+}
+
+body:has(#GP-0204:target) .va-act--GP-0204,
+body:has(.v-GP-0204 :target) .va-act--GP-0204 {
+  display: inline-flex;
+}
+
+body:has(#GP-0057:target) .va-act--GP-0057,
+body:has(.v-GP-0057 :target) .va-act--GP-0057 {
+  display: inline-flex;
+}
+
+body:has(#GP-0086:target) .va-act--GP-0086,
+body:has(.v-GP-0086 :target) .va-act--GP-0086 {
+  display: inline-flex;
+}
+
+body:has(#GP-0263:target) .va-act--GP-0263,
+body:has(.v-GP-0263 :target) .va-act--GP-0263 {
+  display: inline-flex;
+}
+
+body:has(#GP-0382:target) .va-act--GP-0382,
+body:has(.v-GP-0382 :target) .va-act--GP-0382 {
+  display: inline-flex;
+}
+
+body:has(#GP-0321:target) .va-act--GP-0321,
+body:has(.v-GP-0321 :target) .va-act--GP-0321 {
+  display: inline-flex;
+}
+
+body:has(#GP-0384:target) .va-act--GP-0384,
+body:has(.v-GP-0384 :target) .va-act--GP-0384 {
+  display: inline-flex;
+}
+
+body:has(#GP-0397:target) .va-act--GP-0397,
+body:has(.v-GP-0397 :target) .va-act--GP-0397 {
+  display: inline-flex;
+}
+
+body:has(#GP-0235:target) .va-act--GP-0235,
+body:has(.v-GP-0235 :target) .va-act--GP-0235 {
+  display: inline-flex;
+}
+
+body:has(#GP-0060:target) .va-act--GP-0060,
+body:has(.v-GP-0060 :target) .va-act--GP-0060 {
+  display: inline-flex;
+}
+
+body:has(#GP-0260:target) .va-act--GP-0260,
+body:has(.v-GP-0260 :target) .va-act--GP-0260 {
+  display: inline-flex;
+}
+
+body:has(#GP-0294:target) .va-act--GP-0294,
+body:has(.v-GP-0294 :target) .va-act--GP-0294 {
+  display: inline-flex;
+}
+
+body:has(#GP-0335:target) .va-act--GP-0335,
+body:has(.v-GP-0335 :target) .va-act--GP-0335 {
+  display: inline-flex;
+}
+
+body:has(#GP-0255:target) .va-act--GP-0255,
+body:has(.v-GP-0255 :target) .va-act--GP-0255 {
+  display: inline-flex;
+}
+
+body:has(#GP-0165:target) .va-act--GP-0165,
+body:has(.v-GP-0165 :target) .va-act--GP-0165 {
+  display: inline-flex;
+}
+
+body:has(#GP-0191:target) .va-act--GP-0191,
+body:has(.v-GP-0191 :target) .va-act--GP-0191 {
+  display: inline-flex;
+}
+
+body:has(#GP-0201:target) .va-act--GP-0201,
+body:has(.v-GP-0201 :target) .va-act--GP-0201 {
+  display: inline-flex;
+}
+
+body:has(#GP-0146:target) .va-act--GP-0146,
+body:has(.v-GP-0146 :target) .va-act--GP-0146 {
+  display: inline-flex;
+}
+
+body:has(#GP-0394:target) .va-act--GP-0394,
+body:has(.v-GP-0394 :target) .va-act--GP-0394 {
+  display: inline-flex;
+}
+
+body:has(#GP-0316:target) .va-act--GP-0316,
+body:has(.v-GP-0316 :target) .va-act--GP-0316 {
+  display: inline-flex;
+}
+
+body:has(#GP-0054:target) .va-act--GP-0054,
+body:has(.v-GP-0054 :target) .va-act--GP-0054 {
+  display: inline-flex;
+}
+
+body:has(#GP-0066:target) .va-act--GP-0066,
+body:has(.v-GP-0066 :target) .va-act--GP-0066 {
+  display: inline-flex;
+}
+
+body:has(#GP-0136:target) .va-act--GP-0136,
+body:has(.v-GP-0136 :target) .va-act--GP-0136 {
+  display: inline-flex;
+}
+
+body:has(#GP-0035:target) .va-act--GP-0035,
+body:has(.v-GP-0035 :target) .va-act--GP-0035 {
+  display: inline-flex;
+}
+
+body:has(#GP-0377:target) .va-act--GP-0377,
+body:has(.v-GP-0377 :target) .va-act--GP-0377 {
+  display: inline-flex;
+}
+
+body:has(#GP-0071:target) .va-act--GP-0071,
+body:has(.v-GP-0071 :target) .va-act--GP-0071 {
+  display: inline-flex;
+}
+
+body:has(#GP-0105:target) .va-act--GP-0105,
+body:has(.v-GP-0105 :target) .va-act--GP-0105 {
+  display: inline-flex;
+}
+
+body:has(#GP-0053:target) .va-act--GP-0053,
+body:has(.v-GP-0053 :target) .va-act--GP-0053 {
+  display: inline-flex;
+}
+
+body:has(#GP-0118:target) .va-act--GP-0118,
+body:has(.v-GP-0118 :target) .va-act--GP-0118 {
+  display: inline-flex;
+}
+
+body:has(#GP-0065:target) .va-act--GP-0065,
+body:has(.v-GP-0065 :target) .va-act--GP-0065 {
+  display: inline-flex;
+}
+
+body:has(#GP-0240:target) .va-act--GP-0240,
+body:has(.v-GP-0240 :target) .va-act--GP-0240 {
+  display: inline-flex;
+}
+
+body:has(#GP-0346:target) .va-act--GP-0346,
+body:has(.v-GP-0346 :target) .va-act--GP-0346 {
+  display: inline-flex;
+}
+
+body:has(#GP-0344:target) .va-act--GP-0344,
+body:has(.v-GP-0344 :target) .va-act--GP-0344 {
+  display: inline-flex;
+}
+
+body:has(#GP-0231:target) .va-act--GP-0231,
+body:has(.v-GP-0231 :target) .va-act--GP-0231 {
+  display: inline-flex;
+}
+
+body:has(#GP-0158:target) .va-act--GP-0158,
+body:has(.v-GP-0158 :target) .va-act--GP-0158 {
+  display: inline-flex;
+}
+
+body:has(#GP-0107:target) .va-act--GP-0107,
+body:has(.v-GP-0107 :target) .va-act--GP-0107 {
+  display: inline-flex;
+}
+
+body:has(#GP-0319:target) .va-act--GP-0319,
+body:has(.v-GP-0319 :target) .va-act--GP-0319 {
+  display: inline-flex;
+}
+
+body:has(#GP-0372:target) .va-act--GP-0372,
+body:has(.v-GP-0372 :target) .va-act--GP-0372 {
+  display: inline-flex;
+}
+
+body:has(#GP-0398:target) .va-act--GP-0398,
+body:has(.v-GP-0398 :target) .va-act--GP-0398 {
+  display: inline-flex;
+}
+
+body:has(#GP-0147:target) .va-act--GP-0147,
+body:has(.v-GP-0147 :target) .va-act--GP-0147 {
+  display: inline-flex;
+}
+
+body:has(#GP-0016:target) .va-act--GP-0016,
+body:has(.v-GP-0016 :target) .va-act--GP-0016 {
+  display: inline-flex;
+}
+
+body:has(#GP-0375:target) .va-act--GP-0375,
+body:has(.v-GP-0375 :target) .va-act--GP-0375 {
+  display: inline-flex;
+}
+
+body:has(#GP-0252:target) .va-act--GP-0252,
+body:has(.v-GP-0252 :target) .va-act--GP-0252 {
+  display: inline-flex;
+}
+
+body:has(#GP-0236:target) .va-act--GP-0236,
+body:has(.v-GP-0236 :target) .va-act--GP-0236 {
+  display: inline-flex;
+}
+
+body:has(#GP-0142:target) .va-act--GP-0142,
+body:has(.v-GP-0142 :target) .va-act--GP-0142 {
+  display: inline-flex;
+}
+
+body:has(#GP-0360:target) .va-act--GP-0360,
+body:has(.v-GP-0360 :target) .va-act--GP-0360 {
+  display: inline-flex;
+}
+
+body:has(#GP-0034:target) .va-act--GP-0034,
+body:has(.v-GP-0034 :target) .va-act--GP-0034 {
+  display: inline-flex;
+}
+
+body:has(#GP-0139:target) .va-act--GP-0139,
+body:has(.v-GP-0139 :target) .va-act--GP-0139 {
+  display: inline-flex;
+}
+
+body:has(#GP-0266:target) .va-act--GP-0266,
+body:has(.v-GP-0266 :target) .va-act--GP-0266 {
+  display: inline-flex;
+}
+
+body:has(#GP-0157:target) .va-act--GP-0157,
+body:has(.v-GP-0157 :target) .va-act--GP-0157 {
+  display: inline-flex;
+}
+
+body:has(#GP-0144:target) .va-act--GP-0144,
+body:has(.v-GP-0144 :target) .va-act--GP-0144 {
+  display: inline-flex;
+}
+
+body:has(#GP-0317:target) .va-act--GP-0317,
+body:has(.v-GP-0317 :target) .va-act--GP-0317 {
+  display: inline-flex;
+}
+
+body:has(#GP-0074:target) .va-act--GP-0074,
+body:has(.v-GP-0074 :target) .va-act--GP-0074 {
+  display: inline-flex;
+}
+
+body:has(#GP-0276:target) .va-act--GP-0276,
+body:has(.v-GP-0276 :target) .va-act--GP-0276 {
+  display: inline-flex;
+}
+
+body:has(#GP-0208:target) .va-act--GP-0208,
+body:has(.v-GP-0208 :target) .va-act--GP-0208 {
+  display: inline-flex;
+}
+
+body:has(#GP-0075:target) .va-act--GP-0075,
+body:has(.v-GP-0075 :target) .va-act--GP-0075 {
+  display: inline-flex;
+}
+
+body:has(#GP-0012:target) .va-act--GP-0012,
+body:has(.v-GP-0012 :target) .va-act--GP-0012 {
+  display: inline-flex;
+}
+
+body:has(#GP-0077:target) .va-act--GP-0077,
+body:has(.v-GP-0077 :target) .va-act--GP-0077 {
+  display: inline-flex;
+}
+
+body:has(#GP-0122:target) .va-act--GP-0122,
+body:has(.v-GP-0122 :target) .va-act--GP-0122 {
+  display: inline-flex;
+}
+
+body:has(#GP-0322:target) .va-act--GP-0322,
+body:has(.v-GP-0322 :target) .va-act--GP-0322 {
+  display: inline-flex;
+}
+
+body:has(#GP-0051:target) .va-act--GP-0051,
+body:has(.v-GP-0051 :target) .va-act--GP-0051 {
+  display: inline-flex;
+}
+
+body:has(#GP-0306:target) .va-act--GP-0306,
+body:has(.v-GP-0306 :target) .va-act--GP-0306 {
+  display: inline-flex;
+}
+
+body:has(#GP-0283:target) .va-act--GP-0283,
+body:has(.v-GP-0283 :target) .va-act--GP-0283 {
+  display: inline-flex;
+}
+
+body:has(#GP-0090:target) .va-act--GP-0090,
+body:has(.v-GP-0090 :target) .va-act--GP-0090 {
+  display: inline-flex;
+}
+
+body:has(#GP-0297:target) .va-act--GP-0297,
+body:has(.v-GP-0297 :target) .va-act--GP-0297 {
+  display: inline-flex;
+}
+
+body:has(#GP-0261:target) .va-act--GP-0261,
+body:has(.v-GP-0261 :target) .va-act--GP-0261 {
+  display: inline-flex;
+}
+
+body:has(#GP-0218:target) .va-act--GP-0218,
+body:has(.v-GP-0218 :target) .va-act--GP-0218 {
+  display: inline-flex;
+}
+
+body:has(#GP-0202:target) .va-act--GP-0202,
+body:has(.v-GP-0202 :target) .va-act--GP-0202 {
+  display: inline-flex;
+}
+
+body:has(#GP-0116:target) .va-act--GP-0116,
+body:has(.v-GP-0116 :target) .va-act--GP-0116 {
+  display: inline-flex;
+}
+
+body:has(#GP-0018:target) .va-act--GP-0018,
+body:has(.v-GP-0018 :target) .va-act--GP-0018 {
+  display: inline-flex;
+}
+
+body:has(#GP-0091:target) .va-act--GP-0091,
+body:has(.v-GP-0091 :target) .va-act--GP-0091 {
+  display: inline-flex;
+}
+
+body:has(#GP-0363:target) .va-act--GP-0363,
+body:has(.v-GP-0363 :target) .va-act--GP-0363 {
+  display: inline-flex;
+}
+
+body:has(#GP-0379:target) .va-act--GP-0379,
+body:has(.v-GP-0379 :target) .va-act--GP-0379 {
+  display: inline-flex;
+}
+
+body:has(#GP-0391:target) .va-act--GP-0391,
+body:has(.v-GP-0391 :target) .va-act--GP-0391 {
+  display: inline-flex;
+}
+
+body[data-screen=RS-18]:has(.va:target) .page-header__filters,
+body[data-screen=RS-18]:has(.variant :target) .page-header__filters {
+  display: flex;
+}
+
+body[data-screen=RS-18]:has(.va:not(#list):target) .page-header__filters .field__wrap {
+  display: none;
+}
+
+#list:target ~ .v-list {
+  display: block;
+}
+
+#GP-0289:target ~ .v-GP-0289 {
+  display: block;
+}
+
+#GP-0232:target ~ .v-GP-0232 {
+  display: block;
+}
+
+#GP-0337:target ~ .v-GP-0337 {
+  display: block;
+}
+
+#GP-0052:target ~ .v-GP-0052 {
+  display: block;
+}
+
+#GP-0099:target ~ .v-GP-0099 {
+  display: block;
+}
+
+#GP-0347:target ~ .v-GP-0347 {
+  display: block;
+}
+
+#GP-0210:target ~ .v-GP-0210 {
+  display: block;
+}
+
+#GP-0183:target ~ .v-GP-0183 {
+  display: block;
+}
+
+#GP-0353:target ~ .v-GP-0353 {
+  display: block;
+}
+
+#GP-0359:target ~ .v-GP-0359 {
+  display: block;
+}
+
+#GP-0108:target ~ .v-GP-0108 {
+  display: block;
+}
+
+#GP-0268:target ~ .v-GP-0268 {
+  display: block;
+}
+
+#GP-0299:target ~ .v-GP-0299 {
+  display: block;
+}
+
+#GP-0280:target ~ .v-GP-0280 {
+  display: block;
+}
+
+#GP-0013:target ~ .v-GP-0013 {
+  display: block;
+}
+
+#GP-0017:target ~ .v-GP-0017 {
+  display: block;
+}
+
+#GP-0247:target ~ .v-GP-0247 {
+  display: block;
+}
+
+#GP-0197:target ~ .v-GP-0197 {
+  display: block;
+}
+
+#GP-0329:target ~ .v-GP-0329 {
+  display: block;
+}
+
+#GP-0262:target ~ .v-GP-0262 {
+  display: block;
+}
+
+#GP-0254:target ~ .v-GP-0254 {
+  display: block;
+}
+
+#GP-0369:target ~ .v-GP-0369 {
+  display: block;
+}
+
+#GP-0310:target ~ .v-GP-0310 {
+  display: block;
+}
+
+#GP-0078:target ~ .v-GP-0078 {
+  display: block;
+}
+
+#GP-0257:target ~ .v-GP-0257 {
+  display: block;
+}
+
+#GP-0253:target ~ .v-GP-0253 {
+  display: block;
+}
+
+#GP-0092:target ~ .v-GP-0092 {
+  display: block;
+}
+
+#GP-0008:target ~ .v-GP-0008 {
+  display: block;
+}
+
+#GP-0288:target ~ .v-GP-0288 {
+  display: block;
+}
+
+#GP-0293:target ~ .v-GP-0293 {
+  display: block;
+}
+
+#GP-0348:target ~ .v-GP-0348 {
+  display: block;
+}
+
+#GP-0026:target ~ .v-GP-0026 {
+  display: block;
+}
+
+#GP-0015:target ~ .v-GP-0015 {
+  display: block;
+}
+
+#GP-0227:target ~ .v-GP-0227 {
+  display: block;
+}
+
+#GP-0022:target ~ .v-GP-0022 {
+  display: block;
+}
+
+#GP-0063:target ~ .v-GP-0063 {
+  display: block;
+}
+
+#GP-0115:target ~ .v-GP-0115 {
+  display: block;
+}
+
+#GP-0132:target ~ .v-GP-0132 {
+  display: block;
+}
+
+#GP-0234:target ~ .v-GP-0234 {
+  display: block;
+}
+
+#GP-0358:target ~ .v-GP-0358 {
+  display: block;
+}
+
+#GP-0168:target ~ .v-GP-0168 {
+  display: block;
+}
+
+#GP-0222:target ~ .v-GP-0222 {
+  display: block;
+}
+
+#GP-0072:target ~ .v-GP-0072 {
+  display: block;
+}
+
+#GP-0042:target ~ .v-GP-0042 {
+  display: block;
+}
+
+#GP-0098:target ~ .v-GP-0098 {
+  display: block;
+}
+
+#GP-0291:target ~ .v-GP-0291 {
+  display: block;
+}
+
+#GP-0164:target ~ .v-GP-0164 {
+  display: block;
+}
+
+#GP-0311:target ~ .v-GP-0311 {
+  display: block;
+}
+
+#GP-0361:target ~ .v-GP-0361 {
+  display: block;
+}
+
+#GP-0204:target ~ .v-GP-0204 {
+  display: block;
+}
+
+#GP-0057:target ~ .v-GP-0057 {
+  display: block;
+}
+
+#GP-0086:target ~ .v-GP-0086 {
+  display: block;
+}
+
+#GP-0263:target ~ .v-GP-0263 {
+  display: block;
+}
+
+#GP-0382:target ~ .v-GP-0382 {
+  display: block;
+}
+
+#GP-0321:target ~ .v-GP-0321 {
+  display: block;
+}
+
+#GP-0384:target ~ .v-GP-0384 {
+  display: block;
+}
+
+#GP-0397:target ~ .v-GP-0397 {
+  display: block;
+}
+
+#GP-0235:target ~ .v-GP-0235 {
+  display: block;
+}
+
+#GP-0060:target ~ .v-GP-0060 {
+  display: block;
+}
+
+#GP-0260:target ~ .v-GP-0260 {
+  display: block;
+}
+
+#GP-0294:target ~ .v-GP-0294 {
+  display: block;
+}
+
+#GP-0335:target ~ .v-GP-0335 {
+  display: block;
+}
+
+#GP-0255:target ~ .v-GP-0255 {
+  display: block;
+}
+
+#GP-0165:target ~ .v-GP-0165 {
+  display: block;
+}
+
+#GP-0191:target ~ .v-GP-0191 {
+  display: block;
+}
+
+#GP-0201:target ~ .v-GP-0201 {
+  display: block;
+}
+
+#GP-0146:target ~ .v-GP-0146 {
+  display: block;
+}
+
+#GP-0394:target ~ .v-GP-0394 {
+  display: block;
+}
+
+#GP-0316:target ~ .v-GP-0316 {
+  display: block;
+}
+
+#GP-0054:target ~ .v-GP-0054 {
+  display: block;
+}
+
+#GP-0066:target ~ .v-GP-0066 {
+  display: block;
+}
+
+#GP-0136:target ~ .v-GP-0136 {
+  display: block;
+}
+
+#GP-0035:target ~ .v-GP-0035 {
+  display: block;
+}
+
+#GP-0377:target ~ .v-GP-0377 {
+  display: block;
+}
+
+#GP-0071:target ~ .v-GP-0071 {
+  display: block;
+}
+
+#GP-0105:target ~ .v-GP-0105 {
+  display: block;
+}
+
+#GP-0053:target ~ .v-GP-0053 {
+  display: block;
+}
+
+#GP-0118:target ~ .v-GP-0118 {
+  display: block;
+}
+
+#GP-0065:target ~ .v-GP-0065 {
+  display: block;
+}
+
+#GP-0240:target ~ .v-GP-0240 {
+  display: block;
+}
+
+#GP-0346:target ~ .v-GP-0346 {
+  display: block;
+}
+
+#GP-0344:target ~ .v-GP-0344 {
+  display: block;
+}
+
+#GP-0231:target ~ .v-GP-0231 {
+  display: block;
+}
+
+#GP-0158:target ~ .v-GP-0158 {
+  display: block;
+}
+
+#GP-0107:target ~ .v-GP-0107 {
+  display: block;
+}
+
+#GP-0319:target ~ .v-GP-0319 {
+  display: block;
+}
+
+#GP-0372:target ~ .v-GP-0372 {
+  display: block;
+}
+
+#GP-0398:target ~ .v-GP-0398 {
+  display: block;
+}
+
+#GP-0147:target ~ .v-GP-0147 {
+  display: block;
+}
+
+#GP-0016:target ~ .v-GP-0016 {
+  display: block;
+}
+
+#GP-0375:target ~ .v-GP-0375 {
+  display: block;
+}
+
+#GP-0252:target ~ .v-GP-0252 {
+  display: block;
+}
+
+#GP-0236:target ~ .v-GP-0236 {
+  display: block;
+}
+
+#GP-0142:target ~ .v-GP-0142 {
+  display: block;
+}
+
+#GP-0360:target ~ .v-GP-0360 {
+  display: block;
+}
+
+#GP-0034:target ~ .v-GP-0034 {
+  display: block;
+}
+
+#GP-0139:target ~ .v-GP-0139 {
+  display: block;
+}
+
+#GP-0266:target ~ .v-GP-0266 {
+  display: block;
+}
+
+#GP-0157:target ~ .v-GP-0157 {
+  display: block;
+}
+
+#GP-0144:target ~ .v-GP-0144 {
+  display: block;
+}
+
+#GP-0317:target ~ .v-GP-0317 {
+  display: block;
+}
+
+#GP-0074:target ~ .v-GP-0074 {
+  display: block;
+}
+
+#GP-0276:target ~ .v-GP-0276 {
+  display: block;
+}
+
+#GP-0208:target ~ .v-GP-0208 {
+  display: block;
+}
+
+#GP-0075:target ~ .v-GP-0075 {
+  display: block;
+}
+
+#GP-0012:target ~ .v-GP-0012 {
+  display: block;
+}
+
+#GP-0077:target ~ .v-GP-0077 {
+  display: block;
+}
+
+#GP-0122:target ~ .v-GP-0122 {
+  display: block;
+}
+
+#GP-0322:target ~ .v-GP-0322 {
+  display: block;
+}
+
+#GP-0051:target ~ .v-GP-0051 {
+  display: block;
+}
+
+#GP-0306:target ~ .v-GP-0306 {
+  display: block;
+}
+
+#GP-0283:target ~ .v-GP-0283 {
+  display: block;
+}
+
+#GP-0090:target ~ .v-GP-0090 {
+  display: block;
+}
+
+#GP-0297:target ~ .v-GP-0297 {
+  display: block;
+}
+
+#GP-0261:target ~ .v-GP-0261 {
+  display: block;
+}
+
+#GP-0218:target ~ .v-GP-0218 {
+  display: block;
+}
+
+#GP-0202:target ~ .v-GP-0202 {
+  display: block;
+}
+
+#GP-0116:target ~ .v-GP-0116 {
+  display: block;
+}
+
+#GP-0018:target ~ .v-GP-0018 {
+  display: block;
+}
+
+#GP-0091:target ~ .v-GP-0091 {
+  display: block;
+}
+
+#GP-0363:target ~ .v-GP-0363 {
+  display: block;
+}
+
+#GP-0379:target ~ .v-GP-0379 {
+  display: block;
+}
+
+#GP-0391:target ~ .v-GP-0391 {
+  display: block;
+}
+
+/* RS-18 Guest Profile – Consent card: channels beside the consent record, privacy controls below. */
+.gp-consent {
+  padding: 20px 22px 22px;
+}
+
+.gpc-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.gpc-h .s-card-title {
+  margin: 0;
+}
+
+.gpc-h .field__hint {
+  margin: 2px 0 0;
+}
+
+.gpc-h__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+  box-shadow: inset 0 0 0 1px var(--em-100);
+}
+
+.gpc-k {
+  margin: 0 0 10px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gpc-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.gpc-ch .field__hint {
+  margin: 10px 0 0;
+}
+
+.gpc-sw {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.gpc-sw__wide {
+  grid-column: 1 / -1;
+}
+
+.gpc-sw .sw,
+.gpc-minor > .sw {
+  display: flex;
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.gp-consent .gp-dp {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-2);
+}
+
+.gpc-minor {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.gpc-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+
+.gpc-foot .field__hint {
+  flex: 1 1 360px;
+  margin: 0;
+}
+
+@media (max-width: 1240px) {
+  .gpc-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+#GP-0010:target ~ .v-GP-0010 {
+  display: block;
+}
+#GP-0027:target ~ .v-GP-0027 {
+  display: block;
+}
+#GP-0050:target ~ .v-GP-0050 {
+  display: block;
+}
+#GP-0067:target ~ .v-GP-0067 {
+  display: block;
+}
+#GP-0102:target ~ .v-GP-0102 {
+  display: block;
+}
+#GP-0106:target ~ .v-GP-0106 {
+  display: block;
+}
+#GP-0114:target ~ .v-GP-0114 {
+  display: block;
+}
+#GP-0121:target ~ .v-GP-0121 {
+  display: block;
+}
+#GP-0135:target ~ .v-GP-0135 {
+  display: block;
+}
+#GP-0182:target ~ .v-GP-0182 {
+  display: block;
+}
+#GP-0250:target ~ .v-GP-0250 {
+  display: block;
+}
+#GP-0256:target ~ .v-GP-0256 {
+  display: block;
+}
+#GP-0308:target ~ .v-GP-0308 {
+  display: block;
+}
+#GP-0323:target ~ .v-GP-0323 {
+  display: block;
+}
+#GP-0373:target ~ .v-GP-0373 {
+  display: block;
+}
+#GP-0383:target ~ .v-GP-0383 {
+  display: block;
+}

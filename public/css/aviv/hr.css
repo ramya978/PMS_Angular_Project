@@ -1,0 +1,824 @@
+/* hr.css: shared parts of the HR & Payroll (HR) screens – people avatars, hero band, checklists (from the event-day sheet), payroll chain,
+   duty roster grid, attendance, phone frame of the self-service screen, payslip paper. Brand colours only through the theme variables
+   (docs/THEME.md); status colours are literal on purpose. Phone / tablet rules are inside max-width queries at the end. */
+
+/* ───── people ───── */
+.hr-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 190px;
+}
+
+.hr-who b {
+  display: block;
+}
+
+.hr-av {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hr-av--lg {
+  width: 64px;
+  height: 64px;
+  background: rgb(255 255 255 / 0.16);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 22px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.3);
+}
+
+.hr-bar {
+  display: block;
+  width: 100%;
+  min-width: 70px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+
+.hr-bar > i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--em-600);
+}
+
+.hr-bar--bad > i {
+  background: #c53030;
+}
+
+.hr-h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 18px 0 8px;
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+.hr-h3 small {
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ───── green hero band (from the event-day sheet, shared) ───── */
+.ed-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  padding: 22px 26px;
+  border-radius: 20px;
+  background:
+    radial-gradient(90% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.28), transparent 60%),
+    linear-gradient(135deg, var(--em-800), var(--em-600));
+  color: #fff;
+  box-shadow: var(--sh-3);
+}
+
+.ed-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--br-200);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ed-hero h2 {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.ed-hero p {
+  margin-top: 4px;
+  color: rgb(255 255 255 / 0.78);
+  font-size: 13px;
+}
+
+.hr-hero__who {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.hr-hero__f {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hr-hero__f > li {
+  display: grid;
+  min-width: 96px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.16);
+  color: rgb(255 255 255 / 0.74);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.hr-hero__f > li > b {
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ───── two columns and cards (from the event-day sheet, shared) ───── */
+.ed-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 16px;
+  align-items: start;
+}
+
+.ed-main,
+.ed-side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ed-side {
+  position: sticky;
+  top: calc(var(--topbar-h) + 16px);
+}
+
+.ed-card {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  margin: 0;
+  padding: 20px 22px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.ed-card__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ed-card__t .icon {
+  color: var(--em-600);
+}
+
+.ed-card__t small {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ed-ck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.ed-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  cursor: pointer;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+}
+
+.ed-tile:has(input:checked) {
+  background: var(--ok-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ok) 35%, transparent);
+}
+
+.ed-tile:has(input:not(:checked)) {
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--warn) 40%, transparent);
+}
+
+.ed-tile__t {
+  display: grid;
+  line-height: 1.3;
+}
+
+.ed-tile__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.hr-wide {
+  width: 100%;
+  min-height: 46px;
+  justify-content: center;
+}
+
+.hr-dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.hr-dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.hr-dl dt {
+  color: var(--ink-3);
+}
+
+.hr-dl dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ───── profile form ───── */
+.hr-form {
+  display: grid;
+  gap: 14px;
+}
+
+.hr-save {
+  position: sticky;
+  bottom: 10px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+}
+
+.hr-save > .fd-muted {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+}
+
+.hr-profile .stabs__panels {
+  padding: 18px 4px 4px;
+}
+
+.hr-decl {
+  transition: opacity var(--t-fast);
+}
+
+.hr-up {
+  margin-top: 14px;
+}
+
+.hr-regime {
+  margin-top: 14px;
+}
+
+/* ───── dashboard: payroll chain and lists ───── */
+.hr-pays {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.hr-pays > div {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.hr-chain {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hr-ch {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.hr-ch b {
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.hr-ch small {
+  font-size: 11.5px;
+}
+
+.hr-ch--done {
+  background: var(--ok-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ok) 30%, transparent);
+}
+
+.hr-ch--done b {
+  color: var(--ok);
+}
+
+.hr-ch--now {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 2px var(--em-600);
+}
+
+.hr-ch--now b {
+  color: var(--em-800);
+}
+
+/* ───── duty roster ───── */
+.hr-ros {
+  min-width: 860px;
+}
+
+.hr-ros th.hr-day {
+  text-align: center;
+}
+
+.hr-ros th.hr-day small {
+  display: block;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.hr-day--today {
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.hr-who-c {
+  min-width: 210px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.hr-c {
+  padding: 4px 3px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.hr-c.is-today {
+  background: var(--em-50);
+}
+
+.hr-sel {
+  position: relative;
+  border-radius: 9px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hr-sel > select {
+  appearance: none;
+  width: 100%;
+  min-width: 56px;
+  height: 34px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  text-align-last: center;
+  cursor: pointer;
+}
+
+.hr-sel > select:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.hr-sel--M, .hr-cell--M { background: #e8f1fb; color: #1d4f86; }
+.hr-sel--E, .hr-cell--E { background: #fdf3e2; color: #8a5a12; }
+.hr-sel--N, .hr-cell--N { background: #e9e6f6; color: #43388a; }
+.hr-sel--G, .hr-cell--G { background: #e6f4ec; color: #226b46; }
+.hr-sel--K, .hr-cell--K { background: #fbeadf; color: #a8431a; }
+.hr-sel--S, .hr-cell--S { background: #e2f2f4; color: #1d6572; }
+.hr-sel--WO, .hr-cell--WO { background: #eceff3; color: #5a6472; }
+.hr-sel--HOL { background: #f9e7ef; color: #9c2a62; }
+.hr-sel--CL, .hr-sel--SL, .hr-sel--EL, .hr-sel--ML, .hr-cell--CL { background: #f2e9d6; color: #7a5d1c; }
+.hr-sel--pend { box-shadow: inset 0 0 0 1.5px #d08a1e; }
+
+.hr-cell {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hr-cell--none {
+  color: var(--ink-3);
+}
+
+.hr-covrow th,
+.hr-covrow td {
+  background: var(--surface-2);
+}
+
+.hr-cov {
+  line-height: 1.2;
+}
+
+.hr-cov b {
+  display: block;
+  font-size: 14px;
+}
+
+.hr-cov small {
+  font-size: 11px;
+}
+
+.hr-cov--ok {
+  color: #226b46;
+}
+
+.hr-cov--bad {
+  background: #fdecec !important;
+  color: #a82a2a;
+}
+
+.hr-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.hr-legend > li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ───── tablet and phone ───── */
+@media (max-width: 1024px) {
+  .ed-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ed-side {
+    position: static;
+  }
+
+  .hr-pays {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ed-hero h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .ed-hero {
+    padding: 18px;
+  }
+
+  .ed-card {
+    padding: 16px;
+  }
+
+  .hr-chain {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hr-hero__who {
+    align-items: flex-start;
+  }
+
+  .hr-av--lg {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .hr-save {
+    bottom: 0;
+  }
+}
+
+/* ───── self-service phone (HR-11) ───── */
+.hm-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 28px;
+  align-items: start;
+}
+
+.hm-side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.hm-h {
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+.hm-phone {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  max-width: 400px;
+  min-height: 720px;
+  margin-inline: auto;
+  border-radius: 34px;
+  background: var(--surface-2);
+  box-shadow: 0 0 0 9px var(--deep, #0e1a2b), var(--sh-3);
+  overflow: hidden;
+}
+
+.hm-phone > .hm-t {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hm-top {
+  display: grid;
+  gap: 2px;
+  padding: 22px 20px 14px;
+  background: linear-gradient(135deg, var(--em-800), var(--em-600));
+  color: #fff;
+}
+
+.hm-top .fd-sub {
+  color: var(--br-200);
+}
+
+.hm-hello {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hm-panes {
+  padding: 14px;
+  overflow: auto;
+}
+
+.hm-pane {
+  display: none;
+  gap: 12px;
+}
+
+.hm-pane > section {
+  display: grid;
+  gap: 12px;
+}
+
+.hm-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.hm-lab {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hm-big {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.hm-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.hm-grid,
+.hm-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hm-btn {
+  min-height: 48px;
+  justify-content: center;
+}
+
+.hm-form {
+  display: grid;
+  gap: 12px;
+}
+
+.hm-days {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hm-day {
+  display: grid;
+  grid-template-columns: 70px 52px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.hm-day small {
+  color: var(--ink-3);
+}
+
+.hm-day--now {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1.5px var(--em-600);
+}
+
+.hm-prof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hm-prof small {
+  display: block;
+  color: var(--ink-3);
+}
+
+.hm-av {
+  background: var(--em-700);
+}
+
+.hm-navbar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--surface);
+  box-shadow: 0 -1px 0 var(--line);
+}
+
+.hm-nav {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 8px 2px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hr-hero__f--light {
+  display: none;
+}
+
+.hr-res {
+  min-width: 1280px;
+}
+
+@media (max-width: 1024px) {
+  .hm-wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .hm-phone {
+    box-shadow: var(--sh-2);
+    border-radius: 22px;
+  }
+}
+
+.hr-two {
+  columns: 2;
+  column-gap: 24px;
+}
+
+.hr-two > li {
+  break-inside: avoid;
+}
+
+@media (max-width: 760px) {
+  .hr-two {
+    columns: 1;
+  }
+}
+
+.hr-wiz {
+  display: grid;
+  gap: 16px;
+}
+
+.hr-mini th {
+  background: none;
+  font-size: 12.5px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hr-mini {
+  table-layout: fixed;
+}
+
+.hr-mini td {
+  padding-right: 12px;
+}
+
+.dt__td > .btn--sm {
+  margin-top: 6px;
+}
+
+.hr-compact th,
+.hr-compact td {
+  padding-inline: 6px;
+  font-size: 11.5px;
+}
+
+.gl-note {
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+}

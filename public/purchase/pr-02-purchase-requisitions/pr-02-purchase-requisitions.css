@@ -1,0 +1,30 @@
+/* pr-02-purchase-requisitions.css: requisition list with quick views, row selection for Create PO / Send RFQ, and the #added after-state. */
+#main:not(:has(.hb-mks .pm:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-draft:target) .hv__v[data-v="v-draft"],
+#main:has(#v-wait:target) .hv__v[data-v="v-wait"],
+#main:has(#v-back:target) .hv__v[data-v="v-back"],
+#main:has(#v-appr:target) .hv__v[data-v="v-appr"],
+#main:has(#v-ord:target) .hv__v[data-v="v-ord"],
+#main:has(#v-end:target) .hv__v[data-v="v-end"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-draft:target) .pq-row:not(.pq-row--draft),
+#main:has(#v-wait:target) .pq-row:not(.pq-row--wait),
+#main:has(#v-back:target) .pq-row:not(.pq-row--back),
+#main:has(#v-appr:target) .pq-row:not(.pq-row--appr),
+#main:has(#v-ord:target) .pq-row:not(.pq-row--ord),
+#main:has(#v-end:target) .pq-row:not(.pq-row--end) {
+  display: none;
+}
+
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.pq-sel { margin: 0; }

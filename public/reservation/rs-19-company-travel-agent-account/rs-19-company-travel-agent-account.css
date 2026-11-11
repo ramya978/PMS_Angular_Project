@@ -1,0 +1,453 @@
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+#list:target ~ .v-list {
+  display: block;
+}
+
+#AC-001:target ~ .v-AC-001 {
+  display: block;
+}
+
+#AC-002:target ~ .v-AC-002 {
+  display: block;
+}
+
+#AC-003:target ~ .v-AC-003 {
+  display: block;
+}
+
+#AC-004:target ~ .v-AC-004 {
+  display: block;
+}
+
+#AC-005:target ~ .v-AC-005 {
+  display: block;
+}
+
+#AC-006:target ~ .v-AC-006 {
+  display: block;
+}
+
+#AC-007:target ~ .v-AC-007 {
+  display: block;
+}
+
+#AC-008:target ~ .v-AC-008 {
+  display: block;
+}
+
+#AC-009:target ~ .v-AC-009 {
+  display: block;
+}
+
+#AC-010:target ~ .v-AC-010 {
+  display: block;
+}
+
+#AC-011:target ~ .v-AC-011 {
+  display: block;
+}
+
+#AC-012:target ~ .v-AC-012 {
+  display: block;
+}
+
+#AC-013:target ~ .v-AC-013 {
+  display: block;
+}
+
+#AC-014:target ~ .v-AC-014 {
+  display: block;
+}
+
+#AC-015:target ~ .v-AC-015 {
+  display: block;
+}
+
+#AC-016:target ~ .v-AC-016 {
+  display: block;
+}
+
+#AC-017:target ~ .v-AC-017 {
+  display: block;
+}
+
+#AC-018:target ~ .v-AC-018 {
+  display: block;
+}
+
+#AC-019:target ~ .v-AC-019 {
+  display: block;
+}
+
+#AC-020:target ~ .v-AC-020 {
+  display: block;
+}
+
+#AC-021:target ~ .v-AC-021 {
+  display: block;
+}
+
+#AC-022:target ~ .v-AC-022 {
+  display: block;
+}
+
+#AC-023:target ~ .v-AC-023 {
+  display: block;
+}
+
+#AC-024:target ~ .v-AC-024 {
+  display: block;
+}
+
+#AC-025:target ~ .v-AC-025 {
+  display: block;
+}
+
+#AC-026:target ~ .v-AC-026 {
+  display: block;
+}
+
+#AC-027:target ~ .v-AC-027 {
+  display: block;
+}
+
+#AC-028:target ~ .v-AC-028 {
+  display: block;
+}
+
+#AC-029:target ~ .v-AC-029 {
+  display: block;
+}
+
+#AC-030:target ~ .v-AC-030 {
+  display: block;
+}
+
+/* ── RS-19 Corporate: account types, rates & discounts (2026-10-31) ── */
+
+/* views by account type (a chosen type also lets the pager step aside, like a sort) */
+.rs19-views {
+  margin-bottom: 10px;
+}
+
+.rs19-views > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rs19-views__l {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rs19-views__l label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rs19-views__l b {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  font-size: 11px;
+  text-align: center;
+}
+
+.rs19-rd {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rs19-h {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.rs19-h .field__hint {
+  margin: 2px 0 0;
+}
+
+.rs19-dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 10px 0 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rs19-d {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  box-shadow: inset -1px -1px 0 var(--line);
+}
+
+.rs19-d dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.rs19-d dd {
+  margin: 0;
+  color: var(--em-700);
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.rs19-d.is-zero dd {
+  color: var(--ink-4);
+}
+
+.rs19-kv {
+  margin-bottom: 8px;
+}
+
+/* New account sheet: sections, and the type-specific ones follow the chosen type */
+.rs19-new .modal__body {
+  display: grid;
+  gap: 14px;
+}
+
+.rs19-sec {
+  padding: 16px 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.rs19-sec__t {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rs19-ty {
+  display: none;
+}
+
+.rs19-rgrid {
+  margin: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.rs19-rgrid .field__wrap {
+  max-width: 170px;
+}
+
+.rs19-dgrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1180px) {
+  .rs19-rd {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rs19-dgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rs19-views:has(#rs19v-all:checked) label[for="rs19v-all"],
+.rs19-views:has(#rs19v-company:checked) label[for="rs19v-company"],
+.rs19-views:has(#rs19v-travel-agent:checked) label[for="rs19v-travel-agent"],
+.rs19-views:has(#rs19v-government:checked) label[for="rs19v-government"],
+.rs19-views:has(#rs19v-airline:checked) label[for="rs19v-airline"] {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong), var(--sh-1);
+  color: var(--em-800);
+}
+
+.variant:has(#rs19v-company:checked) tbody > tr:not(.ty-company) {
+  display: none;
+}
+
+.variant:has(#rs19v-travel-agent:checked) tbody > tr:not(.ty-travel-agent) {
+  display: none;
+}
+
+.variant:has(#rs19v-government:checked) tbody > tr:not(.ty-government) {
+  display: none;
+}
+
+.variant:has(#rs19v-airline:checked) tbody > tr:not(.ty-airline) {
+  display: none;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="company"]:checked) .rs19-ty--company {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="travel-agent"]:checked) .rs19-ty--travel-agent {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="government"]:checked) .rs19-ty--government {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="psu"]:checked) .rs19-ty--psu {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="airline"]:checked) .rs19-ty--airline {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="embassy"]:checked) .rs19-ty--embassy {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="ngo"]:checked) .rs19-ty--ngo {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="event"]:checked) .rs19-ty--event {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="education"]:checked) .rs19-ty--education {
+  display: block;
+}
+
+.rs19-new:has(select[name="acc-type"] option[value="other"]:checked) .rs19-ty--other {
+  display: block;
+}
+
+/* account hero figures: number over label, four even cells (they ran together as "2Bookings") */
+.hero2 .stat3 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  min-width: 460px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.6);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hero2 .stat3 > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 16px;
+}
+
+.hero2 .stat3 > div + div {
+  box-shadow: -1px 0 0 var(--line);
+}
+
+.hero2 .stat3 b {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero2 .stat3 span {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.rs19-rates .dt__td {
+  white-space: nowrap;
+}
+
+.rs19-new .field__wrap:has(.field__suffix) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rs19-new .field__wrap:has(.field__suffix) > .field__input {
+  flex: 1;
+  min-width: 0;
+}
+
+.rs19-new .field__suffix {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+
+/* ── 2026-11-04: company code, seasonal rate grid, upload ── */
+.rs19-code { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.06em; color: var(--br-600); }
+.rs19-code-in { text-transform: uppercase; letter-spacing: 0.06em; }
+.rs19-gridcard { margin-bottom: 14px; }
+.rs19-acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.rs19-seasons-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.rs19-seasons-sum li {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+}
+.rs19-seasons-sum b { margin-right: 6px; color: var(--ink); }
+.rs19-sbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.rs19-range { display: flex; gap: 10px; }
+.rs19-sbar__acts { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.rs19-gridscroll { max-height: 520px; }
+.rs19-gt .rg-in { width: 104px; text-align: right; }
+.rs19-gt td, .rs19-gt th { white-space: nowrap; }
+.rs19-savebar { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.rs19-more { align-self: start; }
+.rs19-sub { margin: 14px 0 6px; font-family: var(--font-display); font-size: 15px; font-weight: 500; }
+.rs19-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.rs19-upl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
+.rs19-upl .field__hint { flex: 1 1 260px; }
+.rs19-check { margin-top: 12px; padding: 10px 14px; border-radius: var(--r-lg); background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); font-size: 12.5px; }
+.rs19-check ul { margin: 6px 0 0; padding-left: 18px; color: var(--ink-3); }
+.ra-rule { position: relative; margin-top: 10px; padding-left: 22px; color: var(--ink-3); font-size: 12.5px; line-height: 1.5; }
+.ra-rule .icon { position: absolute; left: 0; top: 2px; color: var(--br-600); }
+@media (max-width: 760px) {
+  .rs19-sbar__acts { margin-left: 0; }
+  .rs19-gt .rg-in { width: 100%; }
+}
+
+.rs19-vis { display: grid; gap: 4px; }
+.rs19-vis label { display: flex; align-items: flex-start; gap: 8px; }
+.rs19-vis input { margin-top: 3px; flex: none; }

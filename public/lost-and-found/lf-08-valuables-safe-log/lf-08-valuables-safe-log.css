@@ -1,0 +1,26 @@
+/* lf-08-valuables-safe-log.css: alert for a valuable not yet in the safe, figure strip, safe log, safe access entry LF-P07 (two different people) and the added entry. */
+
+.lf-same {
+  display: none;
+  grid-column: 1 / -1;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fdecec;
+  color: #9b2c2c;
+  font-size: 13px;
+}
+
+.sll:has(#added:target) .lf-new {
+  display: table-row;
+}
+
+.sll:has(#added:target) .sl-alert {
+  display: none;
+}
+
+.sll:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }
+#lf-p07:has(select[name="opened_by"] option:nth-child(1):checked):has(select[name="witness"] option:nth-child(1):checked) .lf-same { display: flex; }
+#lf-p07:has(select[name="opened_by"] option:nth-child(2):checked):has(select[name="witness"] option:nth-child(2):checked) .lf-same { display: flex; }
+#lf-p07:has(select[name="opened_by"] option:nth-child(3):checked):has(select[name="witness"] option:nth-child(3):checked) .lf-same { display: flex; }

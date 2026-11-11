@@ -1,0 +1,61 @@
+/* mt-11-statutory-compliance-register.css: compliance items with valid until / next due (60 / 30 days flagged), document, owner; Renew and Upload after-states. */
+
+.cr-new,
+.cr-up {
+  display: none;
+}
+.crw:has(#renewed-cmp-01:target) #cr-cmp-01 .cr-now { display: none; }
+.crw:has(#renewed-cmp-01:target) #cr-cmp-01 .cr-new,
+.crw:has(#up-cmp-01:target) #cr-cmp-01 .cr-up { display: block; }
+.crw:has(#renewed-cmp-01:target) #t-rn-cmp-01,
+.crw:has(#up-cmp-01:target) #t-up-cmp-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-02:target) #cr-cmp-02 .cr-now { display: none; }
+.crw:has(#renewed-cmp-02:target) #cr-cmp-02 .cr-new,
+.crw:has(#up-cmp-02:target) #cr-cmp-02 .cr-up { display: block; }
+.crw:has(#renewed-cmp-02:target) #t-rn-cmp-02,
+.crw:has(#up-cmp-02:target) #t-up-cmp-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-03:target) #cr-cmp-03 .cr-now { display: none; }
+.crw:has(#renewed-cmp-03:target) #cr-cmp-03 .cr-new,
+.crw:has(#up-cmp-03:target) #cr-cmp-03 .cr-up { display: block; }
+.crw:has(#renewed-cmp-03:target) #t-rn-cmp-03,
+.crw:has(#up-cmp-03:target) #t-up-cmp-03 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-04:target) #cr-cmp-04 .cr-now { display: none; }
+.crw:has(#renewed-cmp-04:target) #cr-cmp-04 .cr-new,
+.crw:has(#up-cmp-04:target) #cr-cmp-04 .cr-up { display: block; }
+.crw:has(#renewed-cmp-04:target) #t-rn-cmp-04,
+.crw:has(#up-cmp-04:target) #t-up-cmp-04 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-05:target) #cr-cmp-05 .cr-now { display: none; }
+.crw:has(#renewed-cmp-05:target) #cr-cmp-05 .cr-new,
+.crw:has(#up-cmp-05:target) #cr-cmp-05 .cr-up { display: block; }
+.crw:has(#renewed-cmp-05:target) #t-rn-cmp-05,
+.crw:has(#up-cmp-05:target) #t-up-cmp-05 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-06:target) #cr-cmp-06 .cr-now { display: none; }
+.crw:has(#renewed-cmp-06:target) #cr-cmp-06 .cr-new,
+.crw:has(#up-cmp-06:target) #cr-cmp-06 .cr-up { display: block; }
+.crw:has(#renewed-cmp-06:target) #t-rn-cmp-06,
+.crw:has(#up-cmp-06:target) #t-up-cmp-06 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-07:target) #cr-cmp-07 .cr-now { display: none; }
+.crw:has(#renewed-cmp-07:target) #cr-cmp-07 .cr-new,
+.crw:has(#up-cmp-07:target) #cr-cmp-07 .cr-up { display: block; }
+.crw:has(#renewed-cmp-07:target) #t-rn-cmp-07,
+.crw:has(#up-cmp-07:target) #t-up-cmp-07 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-08:target) #cr-cmp-08 .cr-now { display: none; }
+.crw:has(#renewed-cmp-08:target) #cr-cmp-08 .cr-new,
+.crw:has(#up-cmp-08:target) #cr-cmp-08 .cr-up { display: block; }
+.crw:has(#renewed-cmp-08:target) #t-rn-cmp-08,
+.crw:has(#up-cmp-08:target) #t-up-cmp-08 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-09:target) #cr-cmp-09 .cr-now { display: none; }
+.crw:has(#renewed-cmp-09:target) #cr-cmp-09 .cr-new,
+.crw:has(#up-cmp-09:target) #cr-cmp-09 .cr-up { display: block; }
+.crw:has(#renewed-cmp-09:target) #t-rn-cmp-09,
+.crw:has(#up-cmp-09:target) #t-up-cmp-09 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-10:target) #cr-cmp-10 .cr-now { display: none; }
+.crw:has(#renewed-cmp-10:target) #cr-cmp-10 .cr-new,
+.crw:has(#up-cmp-10:target) #cr-cmp-10 .cr-up { display: block; }
+.crw:has(#renewed-cmp-10:target) #t-rn-cmp-10,
+.crw:has(#up-cmp-10:target) #t-up-cmp-10 { display: flex; animation: av-rise 320ms var(--ease); }
+.crw:has(#renewed-cmp-11:target) #cr-cmp-11 .cr-now { display: none; }
+.crw:has(#renewed-cmp-11:target) #cr-cmp-11 .cr-new,
+.crw:has(#up-cmp-11:target) #cr-cmp-11 .cr-up { display: block; }
+.crw:has(#renewed-cmp-11:target) #t-rn-cmp-11,
+.crw:has(#up-cmp-11:target) #t-up-cmp-11 { display: flex; animation: av-rise 320ms var(--ease); }

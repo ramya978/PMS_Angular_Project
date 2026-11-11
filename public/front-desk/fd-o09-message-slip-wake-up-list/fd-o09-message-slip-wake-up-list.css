@@ -1,0 +1,24 @@
+/* record variants */
+#slip-MS-0422-01:target ~ .v-slip-MS-0422-01 {
+  display: block;
+}
+
+#slip-MS-0422-02:target ~ .v-slip-MS-0422-02 {
+  display: block;
+}
+
+#slip-MS-0422-03:target ~ .v-slip-MS-0422-03 {
+  display: block;
+}
+
+#slip-MS-0422-04:target ~ .v-slip-MS-0422-04 {
+  display: block;
+}
+
+#slip-MS-0422-05:target ~ .v-slip-MS-0422-05 {
+  display: block;
+}
+
+#wake-list:target ~ .v-wake-list {
+  display: block;
+}

@@ -1,0 +1,121 @@
+/* in-05-message-log.css: status views, payload pop-up, resend toasts. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-sent:target) .hv__v[data-v="v-sent"],
+#main:has(#v-received:target) .hv__v[data-v="v-received"],
+#main:has(#v-failed:target) .hv__v[data-v="v-failed"],
+#main:has(#v-retrying:target) .hv__v[data-v="v-retrying"],
+#main:has(#v-queued:target) .hv__v[data-v="v-queued"] {
+  background: var(--hv-on-bg);
+  color: var(--hv-on-ink);
+  box-shadow: var(--hv-on-sh);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-sent:target) .lg-r:not(.rg-sent),
+#main:has(#v-received:target) .lg-r:not(.rg-received),
+#main:has(#v-failed:target) .lg-r:not(.rg-failed),
+#main:has(#v-retrying:target) .lg-r:not(.rg-retrying),
+#main:has(#v-queued:target) .lg-r:not(.rg-queued) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.in-pl {
+  display: none;
+  gap: 8px;
+}
+
+#in-pl:has(#pl-m-884213:target) .in-pl[data-m="m-884213"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884207:target) .in-pl[data-m="m-884207"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884199:target) .in-pl[data-m="m-884199"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884190:target) .in-pl[data-m="m-884190"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884176:target) .in-pl[data-m="m-884176"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884171:target) .in-pl[data-m="m-884171"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884160:target) .in-pl[data-m="m-884160"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884152:target) .in-pl[data-m="m-884152"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884141:target) .in-pl[data-m="m-884141"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884133:target) .in-pl[data-m="m-884133"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884120:target) .in-pl[data-m="m-884120"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884101:target) .in-pl[data-m="m-884101"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-884077:target) .in-pl[data-m="m-884077"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-883990:target) .in-pl[data-m="m-883990"] {
+  display: grid;
+}
+
+#in-pl:has(#pl-m-883702:target) .in-pl[data-m="m-883702"] {
+  display: grid;
+}
+
+.in-pre {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-2, var(--surface));
+  font-size: 12.5px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+body:has(#rs-m-884213:target) #t-rs-m-884213,
+body:has(#rs-m-884207:target) #t-rs-m-884207,
+body:has(#rs-m-884199:target) #t-rs-m-884199,
+body:has(#rs-m-884190:target) #t-rs-m-884190,
+body:has(#rs-m-884176:target) #t-rs-m-884176,
+body:has(#rs-m-884171:target) #t-rs-m-884171,
+body:has(#rs-m-884160:target) #t-rs-m-884160,
+body:has(#rs-m-884152:target) #t-rs-m-884152,
+body:has(#rs-m-884141:target) #t-rs-m-884141,
+body:has(#rs-m-884133:target) #t-rs-m-884133,
+body:has(#rs-m-884120:target) #t-rs-m-884120,
+body:has(#rs-m-884101:target) #t-rs-m-884101,
+body:has(#rs-m-884077:target) #t-rs-m-884077,
+body:has(#rs-m-883990:target) #t-rs-m-883990,
+body:has(#rs-m-883702:target) #t-rs-m-883702 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

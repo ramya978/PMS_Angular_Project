@@ -1,0 +1,7 @@
+/* da-01-my-dashboard.css – styles of DA-01 My Dashboard (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#personalised:target) #t-pers {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.da-big small { color: var(--ink-3); font-size: 13px; font-weight: 500; }

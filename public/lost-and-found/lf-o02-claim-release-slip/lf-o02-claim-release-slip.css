@@ -1,0 +1,121 @@
+/* lf-o02-claim-release-slip.css: one slip per item chosen by a marker (#cNNNN); without one the slips of released items. */
+.o3 h2 small {
+  margin-left: 8px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.o3-sum {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0;
+  margin: 16px 0 8px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  list-style: none;
+}
+
+.o3-sum li {
+  display: grid;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.o3-sum li + li {
+  border-left: 1px solid var(--line);
+}
+
+.o3-sum b {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.o3 td,
+.o3 th {
+  font-size: 11.5px;
+}
+
+.o3-chk {
+  width: 56px;
+}
+
+.o3-foot {
+  margin-top: 16px;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.o3-sign {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  font-size: 12px;
+}
+
+@media print {
+  .o3 h2 {
+    break-after: avoid;
+  }
+
+  .o3 table {
+    break-inside: auto;
+  }
+}
+
+.cs {
+  display: none;
+  margin-bottom: 16px;
+}
+
+.cs th {
+  width: 140px;
+  text-align: left;
+}
+
+.cs-sig {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.cs-sig span {
+  padding-top: 8px;
+  border-top: 1px solid #999;
+  font-size: 12px;
+}
+
+.cs-sig i {
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+
+.csw:not(:has(.pm:target)) :is(.cs--0104, .cs--0103, .cs--0102, .cs--0095),
+.csw:has(#c0112:target) .cs--0112,
+.csw:has(#c0111:target) .cs--0111,
+.csw:has(#c0110:target) .cs--0110,
+.csw:has(#c0109:target) .cs--0109,
+.csw:has(#c0108:target) .cs--0108,
+.csw:has(#c0107:target) .cs--0107,
+.csw:has(#c0106:target) .cs--0106,
+.csw:has(#c0105:target) .cs--0105,
+.csw:has(#c0104:target) .cs--0104,
+.csw:has(#c0103:target) .cs--0103,
+.csw:has(#c0102:target) .cs--0102,
+.csw:has(#c0100:target) .cs--0100,
+.csw:has(#c0099:target) .cs--0099,
+.csw:has(#c0097:target) .cs--0097,
+.csw:has(#c0095:target) .cs--0095,
+.csw:has(#c0094:target) .cs--0094,
+.csw:has(#c0090:target) .cs--0090,
+.csw:has(#c0072:target) .cs--0072,
+.csw:has(#c0063:target) .cs--0063,
+.csw:has(#c0061:target) .cs--0061,
+.csw:has(#c0058:target) .cs--0058,
+.csw:has(#c0049:target) .cs--0049 {
+  display: block;
+}

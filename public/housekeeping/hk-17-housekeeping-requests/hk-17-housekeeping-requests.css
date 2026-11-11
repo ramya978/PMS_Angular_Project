@@ -1,0 +1,170 @@
+/* hk-17-housekeeping-requests.css: Housekeeping Requests – hero, status views, request table with due / minutes left
+   (red when overdue), assignment, status + note + after-state; HK-P15 assignment, deliver and escalate pop-ups (one modal
+   each, a marker per request). Shared patterns (.hkh, .hv, .pm, .pr) are in css/aviv/housekeeping.css. */
+.rqw {
+  display: grid;
+  gap: 16px;
+}
+
+.rq-t td {
+  vertical-align: top;
+}
+
+.rq-t td:nth-child(6) {
+  min-width: 230px;
+}
+
+.hrq.is-active:has(.is-late) > td {
+  background: #fdf3f3;
+}
+
+.rq-left.is-late {
+  color: #c53030;
+  font-weight: 650;
+}
+
+.rq-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.rq-src {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+.rqw:has(#rv-active:checked) .hrq:not(.is-active), .rqw:has(#rv-delivered:checked) .hrq:not(.is-delivered), .rqw:has(#rv-cancelled:checked) .hrq:not(.is-cancelled) { display: none; }
+.rqw:has(#rv-active:checked) .hv__v[for="rv-active"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.rqw:has(#rv-delivered:checked) .hv__v[for="rv-delivered"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.rqw:has(#rv-cancelled:checked) .hv__v[for="rv-cancelled"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.rqw:has(#rv-all:checked) .hv__v[for="rv-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+#hk-p15:target .pr--def, #hk-p15:target .pb--def { display: flex; }
+#hk-p15:has(#asg-RQ-0422-01:target) :is(.pr--RQ-0422-01, .pb--RQ-0422-01) { display: flex; }
+#hk-p15:has(#asg-RQ-0422-11:target) :is(.pr--RQ-0422-11, .pb--RQ-0422-11) { display: flex; }
+#hk-p15:has(#asg-RQ-0422-12:target) :is(.pr--RQ-0422-12, .pb--RQ-0422-12) { display: flex; }
+#rq-dlv:has(#dlv-RQ-0422-01:target) :is(.pr--RQ-0422-01, .pb--RQ-0422-01) { display: flex; }
+#rq-dlv:has(#dlv-RQ-0422-02:target) :is(.pr--RQ-0422-02, .pb--RQ-0422-02) { display: flex; }
+#rq-dlv:has(#dlv-RQ-0422-11:target) :is(.pr--RQ-0422-11, .pb--RQ-0422-11) { display: flex; }
+#rq-esc:has(#esc-RQ-0422-02:target) :is(.pr--RQ-0422-02, .pb--RQ-0422-02) { display: flex; }
+#rq-esc:has(#esc-RQ-0422-11:target) :is(.pr--RQ-0422-11, .pb--RQ-0422-11) { display: flex; }
+#rq-esc:has(#esc-RQ-0422-12:target) :is(.pr--RQ-0422-12, .pb--RQ-0422-12) { display: flex; }
+body:has(#assigned-RQ-0422-01:target) #RQ-0422-01 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-01:target) #RQ-0422-01 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-01:target) #RQ-0422-01 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-01:target) #RQ-0422-01 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-01:target) #RQ-0422-01 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-01:target) #RQ-0422-01 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-01:target) #RQ-0422-01 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-01:target) #RQ-0422-01 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-01:target) #RQ-0422-01 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-01, #delivered-RQ-0422-01, #escalated-RQ-0422-01):target) .tt-rq::after { content: "RQ-0422-01"; }
+body:has(#assigned-RQ-0422-02:target) #RQ-0422-02 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-02:target) #RQ-0422-02 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-02:target) #RQ-0422-02 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-02:target) #RQ-0422-02 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-02:target) #RQ-0422-02 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-02:target) #RQ-0422-02 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-02:target) #RQ-0422-02 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-02:target) #RQ-0422-02 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-02:target) #RQ-0422-02 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-02, #delivered-RQ-0422-02, #escalated-RQ-0422-02):target) .tt-rq::after { content: "RQ-0422-02"; }
+body:has(#assigned-RQ-0422-11:target) #RQ-0422-11 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-11:target) #RQ-0422-11 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-11:target) #RQ-0422-11 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-11:target) #RQ-0422-11 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-11:target) #RQ-0422-11 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-11:target) #RQ-0422-11 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-11:target) #RQ-0422-11 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-11:target) #RQ-0422-11 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-11:target) #RQ-0422-11 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-11, #delivered-RQ-0422-11, #escalated-RQ-0422-11):target) .tt-rq::after { content: "RQ-0422-11"; }
+body:has(#assigned-RQ-0422-12:target) #RQ-0422-12 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-12:target) #RQ-0422-12 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-12:target) #RQ-0422-12 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-12:target) #RQ-0422-12 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-12:target) #RQ-0422-12 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-12:target) #RQ-0422-12 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-12:target) #RQ-0422-12 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-12:target) #RQ-0422-12 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-12:target) #RQ-0422-12 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-12, #delivered-RQ-0422-12, #escalated-RQ-0422-12):target) .tt-rq::after { content: "RQ-0422-12"; }
+body:has(#assigned-RQ-0422-06:target) #RQ-0422-06 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-06:target) #RQ-0422-06 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-06:target) #RQ-0422-06 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-06:target) #RQ-0422-06 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-06:target) #RQ-0422-06 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-06:target) #RQ-0422-06 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-06:target) #RQ-0422-06 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-06:target) #RQ-0422-06 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-06:target) #RQ-0422-06 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-06, #delivered-RQ-0422-06, #escalated-RQ-0422-06):target) .tt-rq::after { content: "RQ-0422-06"; }
+body:has(#assigned-RQ-0422-10:target) #RQ-0422-10 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0422-10:target) #RQ-0422-10 .rq-now { display: flex; }
+body:has(#assigned-RQ-0422-10:target) #RQ-0422-10 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0422-10:target) #RQ-0422-10 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0422-10:target) #RQ-0422-10 .rq-now { display: flex; }
+body:has(#delivered-RQ-0422-10:target) #RQ-0422-10 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0422-10:target) #RQ-0422-10 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0422-10:target) #RQ-0422-10 .rq-now { display: flex; }
+body:has(#escalated-RQ-0422-10:target) #RQ-0422-10 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0422-10, #delivered-RQ-0422-10, #escalated-RQ-0422-10):target) .tt-rq::after { content: "RQ-0422-10"; }
+body:has(#assigned-RQ-0421-14:target) #RQ-0421-14 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0421-14:target) #RQ-0421-14 .rq-now { display: flex; }
+body:has(#assigned-RQ-0421-14:target) #RQ-0421-14 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0421-14:target) #RQ-0421-14 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0421-14:target) #RQ-0421-14 .rq-now { display: flex; }
+body:has(#delivered-RQ-0421-14:target) #RQ-0421-14 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0421-14:target) #RQ-0421-14 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0421-14:target) #RQ-0421-14 .rq-now { display: flex; }
+body:has(#escalated-RQ-0421-14:target) #RQ-0421-14 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0421-14, #delivered-RQ-0421-14, #escalated-RQ-0421-14):target) .tt-rq::after { content: "RQ-0421-14"; }
+body:has(#assigned-RQ-0421-19:target) #RQ-0421-19 > td { background: var(--ok-bg); }
+body:has(#assigned-RQ-0421-19:target) #RQ-0421-19 .rq-now { display: flex; }
+body:has(#assigned-RQ-0421-19:target) #RQ-0421-19 .rq-now__t::after { content: "Assigned now"; }
+body:has(#delivered-RQ-0421-19:target) #RQ-0421-19 > td { background: var(--ok-bg); }
+body:has(#delivered-RQ-0421-19:target) #RQ-0421-19 .rq-now { display: flex; }
+body:has(#delivered-RQ-0421-19:target) #RQ-0421-19 .rq-now__t::after { content: "Delivered now"; }
+body:has(#escalated-RQ-0421-19:target) #RQ-0421-19 > td { background: var(--ok-bg); }
+body:has(#escalated-RQ-0421-19:target) #RQ-0421-19 .rq-now { display: flex; }
+body:has(#escalated-RQ-0421-19:target) #RQ-0421-19 .rq-now__t::after { content: "Escalated now"; }
+body:has(:is(#assigned-RQ-0421-19, #delivered-RQ-0421-19, #escalated-RQ-0421-19):target) .tt-rq::after { content: "RQ-0421-19"; }
+body:has(.pm[id^="assigned-"]:target) #t-assigned { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="delivered-"]:target) #t-delivered { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="escalated-"]:target) #t-escalated { display: flex; animation: av-rise 320ms var(--ease); }

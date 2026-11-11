@@ -1,0 +1,11 @@
+/* hks-15-guest-service-settings.css: DND, service later and green choice settings with approval tags; reward value only when a reward is chosen. */
+
+/* reward value is only needed when a reward other than None is chosen */
+.fd-form:has(#hks15-reward option[value="None"]:checked) .hks-reward-value {
+  opacity: 0.5;
+}
+
+/* green choice settings only matter when it is offered */
+.fd-form:not(:has(input[name="green_on"]:checked)) .hks-green {
+  opacity: 0.5;
+}

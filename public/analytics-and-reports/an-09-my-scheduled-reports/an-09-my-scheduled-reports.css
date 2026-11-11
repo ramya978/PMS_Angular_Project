@@ -1,0 +1,36 @@
+/* an-09-my-scheduled-reports.css – styles of AN-09 My Scheduled Reports (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#sched-saved:target) #t-sched,
+body:has(#pause-0101:target) #t-pa-0101,
+body:has(#pause-0102:target) #t-pa-0102,
+body:has(#pause-0103:target) #t-pa-0103,
+body:has(#pause-0104:target) #t-pa-0104,
+body:has(#pause-0105:target) #t-pa-0105,
+body:has(#pause-0106:target) #t-pa-0106,
+body:has(#pause-0107:target) #t-pa-0107,
+body:has(#pause-0108:target) #t-pa-0108,
+body:has(#pause-0109:target) #t-pa-0109,
+body:has(#pause-0110:target) #t-pa-0110,
+body:has(#send-0101:target) #t-se-0101,
+body:has(#send-0102:target) #t-se-0102,
+body:has(#send-0103:target) #t-se-0103,
+body:has(#send-0104:target) #t-se-0104,
+body:has(#send-0105:target) #t-se-0105,
+body:has(#send-0106:target) #t-se-0106,
+body:has(#send-0107:target) #t-se-0107,
+body:has(#send-0108:target) #t-se-0108,
+body:has(#send-0109:target) #t-se-0109,
+body:has(#send-0110:target) #t-se-0110,
+body:has(#del-0101:target) #t-de-0101,
+body:has(#del-0102:target) #t-de-0102,
+body:has(#del-0103:target) #t-de-0103,
+body:has(#del-0104:target) #t-de-0104,
+body:has(#del-0105:target) #t-de-0105,
+body:has(#del-0106:target) #t-de-0106,
+body:has(#del-0107:target) #t-de-0107,
+body:has(#del-0108:target) #t-de-0108,
+body:has(#del-0109:target) #t-de-0109,
+body:has(#del-0110:target) #t-de-0110 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,25 @@
+/* fns-02-cash-and-imprest-accounts.css: cash and imprest accounts. */
+.cs-name.field__input {
+  min-width: 200px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="FNS-02-list"] td:nth-child(3) {
+  min-width: 250px;
+}
+
+[data-code="FNS-02-list"] td:nth-child(4) {
+  min-width: 220px;
+}
+
+body:has(#added:target) .cs-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,340 @@
+/* dashboard.css: the "command centre" look of the Purchase (PR-01) and Stores (ST-01) dashboards.
+   A green hero with the day's headline, five figure cards, then a 12-column board of cards.
+   Everything is scoped to .dsh so no other screen changes. */
+
+.dsh {
+  display: grid;
+  gap: 18px;
+}
+
+/* ───── hero ───── */
+.dsh-hero {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 24px 28px;
+  overflow: hidden;
+  border-radius: 22px;
+  background:
+    radial-gradient(70% 160% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.3), transparent 62%),
+    linear-gradient(135deg, var(--em-900), var(--em-600));
+  color: #fff;
+  box-shadow: var(--sh-3);
+}
+
+.dsh-hero > div:first-child {
+  flex: 1 1 380px;
+}
+
+.dsh-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--br-200);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dsh-hero h2 {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.dsh-hero p {
+  max-width: 62ch;
+  margin-top: 6px;
+  color: rgb(255 255 255 / 0.78);
+  font-size: 13.5px;
+}
+
+.dsh-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dsh-hero__chips li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.16);
+  font-size: 12.5px;
+}
+
+.dsh-hero__chips b {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dsh-hero__chips .is-bad b {
+  color: #ffb4a8;
+}
+
+.dsh-hero__chips .is-warn b {
+  color: var(--br-200);
+}
+
+/* ───── figure cards ───── */
+.dsh .st-tiles {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.dsh .st-tile {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  gap: 4px 10px;
+  padding: 18px 18px 16px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+  text-decoration: none;
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+
+.dsh .st-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px var(--line-strong), var(--sh-2);
+}
+
+.dsh .st-tile__ic {
+  grid-column: 2;
+  grid-row: 1;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.dsh .st-tile__l {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  white-space: normal;
+}
+
+.dsh .st-tile__v {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.dsh .st-tile__n {
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.dsh .st-tile__u {
+  color: var(--ink-3);
+  font-size: 12px;
+  white-space: normal;
+}
+
+/* ───── board ───── */
+.dsh .pq-g2 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.dsh .pq-g2 > .dsh-c12 { grid-column: 1 / -1; }
+.dsh .pq-g2 > .dsh-c7 { grid-column: span 7; }
+.dsh .pq-g2 > .dsh-c6 { grid-column: span 6; }
+.dsh .pq-g2 > .dsh-c5 { grid-column: span 5; }
+
+.dsh .lf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.dsh .pq-l,
+.dsh .pq-bud:last-of-type {
+  margin-bottom: 10px;
+}
+
+.dsh .lf-card__t {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dsh .lf-card__t > .icon {
+  box-sizing: content-box;
+  padding: 7px;
+  border-radius: 11px;
+  background: var(--em-50);
+  color: var(--em-600);
+}
+
+.dsh .lf-card__t small {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* rows */
+.dsh .pq-l > li {
+  margin-inline: -12px;
+  padding: 12px;
+  border-top: 0;
+  border-radius: 12px;
+  transition: background var(--t-fast);
+}
+
+.dsh .pq-l > li:first-child {
+  padding-top: 12px;
+}
+
+.dsh .pq-l > li:hover {
+  background: var(--surface-2);
+}
+
+.dsh .pq-l > li + li {
+  box-shadow: 0 -1px 0 var(--line-2);
+}
+
+.dsh .pq-l > li:hover + li,
+.dsh .pq-l > li:hover {
+  box-shadow: none;
+}
+
+.dsh .pq-l__m > a {
+  font-weight: 650;
+}
+
+.dsh .pq-muted {
+  margin-top: auto;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+/* budget / value bars: name and figures above a thick bar */
+.dsh .pq-bud {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 12px;
+  padding: 8px 0;
+}
+
+.dsh .pq-bud > span:first-child {
+  font-weight: 600;
+}
+
+.dsh .pq-bud .pq-bar {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 10px;
+}
+
+.dsh .pq-bud b {
+  grid-row: 1;
+  grid-column: 2;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.dsh .pq-bar i {
+  background: linear-gradient(90deg, var(--em-500), var(--em-700));
+}
+
+.dsh .pq-bar--hot i {
+  background: linear-gradient(90deg, #d9a441, #b7791f);
+}
+
+.dsh .pq-bar--over i {
+  background: linear-gradient(90deg, #e07070, #c53030);
+}
+
+/* a full-width card with bars lays them out in two columns */
+.dsh .dsh-c12:has(> .pq-bud) {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 40px;
+}
+
+.dsh .dsh-c12 > .pq-bud {
+  flex: 1 1 380px;
+}
+
+.dsh .dsh-c12 > :is(.lf-card__t, .pq-muted) {
+  flex: 1 1 100%;
+}
+
+/* full-width cards: price alerts and report links open out into columns */
+.dsh > .lf-card .pq-l,
+.dsh > div > .lf-card .pq-l {
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  gap: 6px 24px;
+}
+
+.dsh .st-links {
+  gap: 10px;
+}
+
+.dsh .st-links li {
+  align-content: start;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast);
+}
+
+.dsh .st-links li:hover {
+  transform: translateY(-2px);
+  background: var(--em-50);
+}
+
+@media (max-width: 1100px) {
+  .dsh .pq-g2 > * {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .dsh-hero {
+    padding: 18px;
+  }
+
+  .dsh-hero h2 {
+    font-size: 22px;
+  }
+
+  .dsh .lf-card {
+    padding: 18px;
+  }
+}

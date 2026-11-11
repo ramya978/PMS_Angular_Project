@@ -1,0 +1,85 @@
+/* sts-02-categories-and-gl-mapping.css: sub-category grid with GL accounts and cost types, add sub-category, save. */
+.ct-name.field__input {
+  min-width: 190px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="STS-02-list"] td:nth-child(n + 2):nth-child(-n + 4) {
+  min-width: 175px;
+}
+
+[data-code="STS-02-list"] .field__wrap {
+  min-width: 160px;
+}
+
+[data-code="STS-02-list"] .ct-name.field__input {
+  min-width: 150px;
+}
+
+.vn-wait {
+  margin: 0;
+}
+
+.ct-row--new {
+  display: none;
+}
+
+body:has(#added:target) .ct-row--new {
+  display: table-row;
+}
+
+body:has(#added:target) .ct-row--new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* Category tree: categories (A), sub-category grid (B), sub-sub-categories (C). */
+.cg-row--new,
+.ss-row--new {
+  display: none;
+}
+
+body:has(#added-cat:target) .cg-row--new,
+body:has(#added-ssub:target) .ss-row--new {
+  display: table-row;
+}
+
+body:has(#added-cat:target) .cg-row--new > td,
+body:has(#added-ssub:target) .ss-row--new > td {
+  background: var(--ok-bg);
+}
+
+.cg-fresh {
+  color: var(--em-700, #2f855a);
+}
+
+[data-code="STS-02-cats"] td:nth-child(2) .fd-sub {
+  display: block;
+  max-width: 360px;
+  white-space: normal;
+}
+
+[data-code="STS-02-subsubs"] td:nth-child(3) .fd-sub {
+  display: block;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-code="STS-02-subsubs"] .ct-name.field__input {
+  min-width: 150px;
+}
+
+body:has(#added-cat:target) #t-added-cat,
+body:has(#added-ssub:target) #t-added-ssub {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

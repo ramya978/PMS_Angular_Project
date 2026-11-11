@@ -1,0 +1,1311 @@
+/* owner.css – Owner App & Multi-property Setup (OWS) and Module (OW).
+   Built from the Aviv tokens only; brand colours always through var(--deep | --gold | --em-* | --br-*). */
+
+/* ───────── property code chip ───────── */
+.ow-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.ow-chip--off {
+  background: var(--sunken);
+  color: var(--ink-3);
+}
+
+.ow-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ───────── properties read from Super Admin ───────── */
+.ow-props {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ow-prop {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg, 12px);
+  background: var(--surface);
+}
+
+.ow-prop__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ow-prop__n {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  line-height: 1.25;
+}
+
+.ow-prop__m {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ow-prop--this {
+  border-color: rgb(var(--gold-rgb, 200 169 106) / .7);
+  box-shadow: inset 0 0 0 1px rgb(var(--gold-rgb, 200 169 106) / .35);
+}
+
+/* ───────── group map (brand & regions · owners · clusters) ───────── */
+.ow-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.ow-map__col {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg, 12px);
+  background: var(--surface-2, var(--surface));
+}
+
+.ow-map__h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.ow-map__h .icon {
+  color: var(--em-600);
+}
+
+.ow-g {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.ow-g--child {
+  margin-left: 18px;
+  position: relative;
+}
+
+.ow-g--child::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: -12px;
+  width: 10px;
+  height: 28px;
+  border-bottom: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+  border-bottom-left-radius: 6px;
+}
+
+.ow-g--off {
+  opacity: .62;
+}
+
+.ow-g__t {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.ow-g__t small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+/* ───────── group × property matrix ───────── */
+.ow-mx td.ow-mx__c,
+.ow-mx th.ow-mx__c {
+  text-align: center;
+}
+
+.ow-mx td.ow-mx__c .check {
+  justify-content: center;
+  min-height: 0;
+}
+
+.ow-mx th.ow-mx__c abbr {
+  text-decoration: none;
+  cursor: help;
+}
+
+.ow-in-w {
+  min-width: 210px;
+}
+
+.ow-in-s {
+  min-width: 160px;
+}
+
+.ow-in-n {
+  min-width: 110px;
+  max-width: 140px;
+}
+
+/* ───────── owner & group users ───────── */
+.ow-users {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.ow-u {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg, 12px);
+  background: var(--surface);
+  transition: box-shadow var(--t-fast, 150ms) var(--ease), transform var(--t-fast, 150ms) var(--ease);
+}
+
+.ow-u:hover {
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-2);
+}
+
+.ow-u__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ow-av {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--deep, #0E1A2B);
+  color: var(--gold, #C8A96A);
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+.ow-u__id {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 1px;
+}
+
+.ow-u__n {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.ow-u__m {
+  overflow: hidden;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ow-u__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin: 0;
+}
+
+.ow-u__facts dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ow-u__facts dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+}
+
+.ow-u__facts .ow-u__wide {
+  grid-column: 1 / -1;
+}
+
+.ow-u .field {
+  margin: 0;
+}
+
+.ow-u__scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ow-u__scope legend {
+  margin-bottom: 6px;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ow-u__scope .check {
+  padding: 4px 10px 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12.5px;
+}
+
+.ow-u__scope .check:has(:checked) {
+  border-color: var(--em-600);
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.ow-u__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.ow-u__foot small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ow-u--off {
+  background: var(--surface-2, var(--surface));
+}
+
+/* status swap after Suspend / Reactivate (shown by :target rules of the page) */
+.ow-u .ow-alt {
+  display: none;
+}
+
+/* ───────── approval route (request → HOD → FC → GM → owner) ───────── */
+.ow-route {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--r-lg, 12px);
+  background: linear-gradient(135deg, var(--deep, #0E1A2B), color-mix(in srgb, var(--deep, #0E1A2B) 82%, var(--em-700)));
+  color: #fff;
+}
+
+.ow-route__k {
+  color: var(--gold, #C8A96A);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ow-route__t {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.ow-route ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: st;
+}
+
+.ow-route li {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border: 1px solid rgb(255 255 255 / .14);
+  border-radius: 10px;
+  background: rgb(255 255 255 / .06);
+  font-size: 12.5px;
+}
+
+.ow-route li b {
+  font-size: 13.5px;
+}
+
+.ow-route li span {
+  color: rgb(255 255 255 / .72);
+}
+
+.ow-route li.is-done {
+  border-color: rgb(47 133 90 / .7);
+}
+
+.ow-route li.is-wait {
+  border-color: rgb(183 121 31 / .85);
+}
+
+.ow-route li.is-owner {
+  border-color: rgb(var(--gold-rgb, 200 169 106) / .9);
+  background: rgb(var(--gold-rgb, 200 169 106) / .14);
+}
+
+.ow-route li .icon {
+  color: var(--gold, #C8A96A);
+}
+
+.ow-route a {
+  color: var(--gold, #C8A96A);
+  font-weight: 600;
+}
+
+/* ───────── KPI tiles + phone preview ───────── */
+.ow-app {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  align-items: start;
+  gap: 20px;
+}
+
+.ow-phone {
+  position: sticky;
+  top: calc(var(--topbar-h, 64px) + 16px);
+  justify-self: center;
+  width: 280px;
+  padding: 12px;
+  border-radius: 36px;
+  background: var(--deep, #0E1A2B);
+  box-shadow: var(--sh-3);
+}
+
+.ow-phone__scr {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+  align-content: start;
+  padding: 18px 14px 16px;
+  border-radius: 26px;
+  background: var(--bg);
+}
+
+.ow-phone__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.ow-phone__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ow-phone__logo {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--em-700);
+  color: var(--gold, #C8A96A);
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+.ow-phone__brand b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ow-phone__brand small {
+  color: var(--ink-3);
+  font-size: 10.5px;
+}
+
+.ow-phone__tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ow-phone__tiles li {
+  display: grid;
+  gap: 2px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.ow-phone__tiles li:first-child {
+  grid-column: 1 / -1;
+  border-color: transparent;
+  background: var(--em-700);
+  color: #fff;
+}
+
+.ow-phone__tiles li:first-child small {
+  color: rgb(255 255 255 / .75);
+}
+
+.ow-phone__tiles small {
+  color: var(--ink-3);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.ow-phone__tiles b {
+  font-size: 14px;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ow-phone__tiles li.ow-new {
+  display: none;
+}
+
+.ow-phone__nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-3);
+  font-size: 10px;
+}
+
+.ow-phone__nav span {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+
+.ow-phone__nav span:first-child {
+  color: var(--em-700);
+  font-weight: 700;
+}
+
+.ow-phone__cap {
+  margin-top: 10px;
+  color: rgb(255 255 255 / .72);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ───────── colour swatches of the branding section ───────── */
+.ow-brand {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 16px;
+}
+
+.ow-sw {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ow-sw input[type="color"] {
+  width: 44px;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid var(--input, #A39B88);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+/* ───────── privacy rule of OWS-05 (shown when guest profiles are shared) ───────── */
+.ow-privacy {
+  display: none;
+}
+
+.ow-share:has(#sh-profiles:checked) .ow-privacy {
+  display: grid;
+}
+
+.ow-share:has(#sh-profiles:checked) .ow-privacy-off {
+  display: none;
+}
+
+/* ───────── phone and tablet ───────── */
+@media (max-width: 1200px) {
+  .ow-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ow-phone {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .ow-users {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ow-g--child {
+    margin-left: 12px;
+  }
+
+  .ow-route ol {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .ow-u__facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ow-route ol {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ow-u__head {
+    flex-wrap: wrap;
+  }
+
+  .ow-u__id {
+    flex-basis: calc(100% - 54px);
+  }
+
+  .ow-u__m {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .ow-phone {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* ═════════════════ Owner App & Multi-property module (OW) ═════════════════ */
+
+/* hotel / group variants switched by :target markers (#h-zkc …) */
+.ow-v {
+  display: none;
+}
+
+#main:not(:has(.pm--h:target)) .ow-v[data-v="zkc"],
+#main:has(#h-zkc:target) .ow-v[data-v="zkc"],
+#main:has(#h-zmn:target) .ow-v[data-v="zmn"],
+#main:has(#h-g04:target) .ow-v[data-v="g04"] {
+  display: grid;
+  gap: 16px;
+}
+
+/* owner hero */
+.ow-hero {
+  display: grid;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / .22), transparent 55%),
+    linear-gradient(135deg, var(--deep, #0E1A2B), color-mix(in srgb, var(--deep, #0E1A2B) 78%, var(--em-700)));
+  color: #fff;
+}
+
+.ow-hero__k {
+  color: var(--gold, #C8A96A);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ow-hero__t {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.ow-hero__s {
+  color: rgb(255 255 255 / .76);
+  font-size: 13px;
+}
+
+.ow-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ow-hero .btn {
+  border-color: rgb(255 255 255 / .3);
+  background: rgb(255 255 255 / .08);
+  color: #fff;
+}
+
+.ow-hero .btn--primary {
+  border-color: var(--gold, #C8A96A);
+  background: var(--gold, #C8A96A);
+  color: var(--deep, #0E1A2B);
+}
+
+/* switcher chips */
+.ow-sw-h {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ow-sw-h a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid rgb(255 255 255 / .28);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ow-sw-h--light a {
+  border-color: var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-2);
+}
+
+#main:not(:has(.pm--h:target)) .ow-sw-h a[data-v="zkc"],
+#main:has(#h-zkc:target) .ow-sw-h a[data-v="zkc"],
+#main:has(#h-zmn:target) .ow-sw-h a[data-v="zmn"],
+#main:has(#h-g04:target) .ow-sw-h a[data-v="g04"] {
+  border-color: var(--gold, #C8A96A);
+  background: var(--gold, #C8A96A);
+  color: var(--deep, #0E1A2B);
+}
+
+/* KPI cards of the app */
+.ow-kgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.ow-k {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow var(--t-fast, 150ms) var(--ease), transform var(--t-fast, 150ms) var(--ease);
+}
+
+a.ow-k:hover {
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-2);
+  transform: translateY(-2px);
+}
+
+.ow-k__l {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ow-k__l .icon {
+  color: var(--em-600);
+}
+
+.ow-k__v {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ow-k__s {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* change chips (always arrow + sign + text) */
+.ow-d {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  width: fit-content;
+  padding: 1px 7px 1px 4px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ow-d--up {
+  background: rgb(47 133 90 / .12);
+  color: #22693F;
+}
+
+.ow-d--down {
+  background: rgb(197 48 48 / .1);
+  color: #A72828;
+}
+
+.ow-d--flat {
+  background: var(--sunken);
+  color: var(--ink-3);
+}
+
+/* cards */
+.ow-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.ow-card__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.ow-card__h small {
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ow-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 16px;
+}
+
+/* sparkline */
+.ow-spark {
+  display: grid;
+  gap: 4px;
+}
+
+.ow-spark svg {
+  width: 100%;
+  height: 64px;
+}
+
+.ow-spark polyline {
+  fill: none;
+  stroke: var(--em-600);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.ow-spark polygon {
+  fill: var(--em-600);
+  opacity: .1;
+}
+
+.ow-spark--gold polyline {
+  stroke: var(--br-500, #B8934A);
+}
+
+.ow-spark--gold polygon {
+  fill: var(--br-500, #B8934A);
+}
+
+.ow-spark__m {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+/* pending counters */
+.ow-pend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.ow-pend a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ow-pend a:hover {
+  border-color: var(--em-600);
+}
+
+.ow-pend b {
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ow-pend .icon {
+  color: var(--em-600);
+}
+
+.ow-pend span {
+  display: grid;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* bars (ageing, modes) */
+.ow-bars {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ow-bars li {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.ow-bar {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--sunken);
+}
+
+.ow-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--em-600);
+}
+
+.ow-bar--warn i {
+  background: #B7791F;
+}
+
+.ow-bar--bad i {
+  background: #C53030;
+}
+
+/* list rows inside cards */
+.ow-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ow-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+}
+
+.ow-list li:last-child {
+  border-bottom: 0;
+}
+
+.ow-list small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ow-list .num {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ow-tot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 2px solid var(--line-strong);
+  font-weight: 700;
+}
+
+/* approval and alert cards */
+.ow-reqs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.ow-req {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.ow-req__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ow-req__t {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.ow-req__amt {
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ow-req__p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+
+.ow-req__gm {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2, var(--sunken));
+  font-size: 13px;
+}
+
+.ow-req__gm b {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.ow-att {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ow-att a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 12px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.ow-req__acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.ow-req__acts > details {
+  flex-basis: 100%;
+}
+
+.ow-req__acts > details > summary {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.ow-req__acts form {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ow-req__acts form > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ow-req .ow-alt {
+  display: none;
+}
+
+.ow-req details.ow-more > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ow-req details.ow-more[open] > summary {
+  margin-bottom: 8px;
+}
+
+/* portfolio hotel cards (sorted with CSS order) */
+.ow-pf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.ow-hc {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.ow-hc__m {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin: 0;
+}
+
+.ow-hc__m dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ow-hc__m dd {
+  display: grid;
+  gap: 2px;
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ow-hc--pre {
+  background: var(--surface-2, var(--surface));
+}
+
+.ow-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ow-light::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.ow-light--g {
+  color: #2F855A;
+}
+
+.ow-light--a {
+  color: #B7791F;
+}
+
+.ow-light--r {
+  color: #C53030;
+}
+
+.ow-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.ow-sort > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ow-sort label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 4px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ow-sort > input:checked + label {
+  border-color: var(--em-600);
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.ow-sort > input:focus-visible + label {
+  box-shadow: var(--ring);
+}
+
+.ow-sort > span {
+  margin-right: 4px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .ow-hero {
+    padding: 16px;
+  }
+
+  .ow-hero__t {
+    font-size: 20px;
+  }
+
+  .ow-kgrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .ow-k {
+    padding: 12px;
+  }
+
+  .ow-k__v {
+    font-size: 19px;
+  }
+
+  .ow-reqs,
+  .ow-pf,
+  .ow-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ow-bars li {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .ow-k__v {
+    font-size: 17px;
+  }
+
+  .ow-k__s {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ow-kgrid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ow-stack {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 1100px) {
+  .ow-kgrid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* group report papers (OW-O01, OW-R01 … R05): wider, landscape when printed */
+.paper.ow-paper {
+  max-width: 1180px;
+}
+
+.ow-paper .pt th {
+  font-size: 11px;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+  }
+}
+
+.ow-paper .pt td.pq-r {
+  white-space: nowrap;
+}

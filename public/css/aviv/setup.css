@@ -1,0 +1,335 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AVIV · ATELIER — Reservation Setup module
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* cancellation and no-show policy timelines */
+.cx-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.cx-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.cx-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cx-steps {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding-left: 22px;
+}
+
+.cx-steps::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(var(--st-ready), var(--st-tentative), var(--st-cancelled));
+  opacity: 0.5;
+}
+
+.cx-step {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+
+.cx-dot {
+  position: absolute;
+  left: -22px;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--c, var(--ink-4));
+}
+
+.cx-step > div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.cx-step strong {
+  font-size: 13.5px;
+}
+
+.cx-step span:not(.cx-dot) {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.cx-step--ok {
+  --c: var(--st-ready);
+}
+
+.cx-step--mid {
+  --c: var(--st-tentative);
+}
+
+.cx-step--hi {
+  --c: var(--st-dirty);
+}
+
+.cx-step--ns {
+  --c: var(--st-cancelled);
+}
+
+.cx-quote {
+  padding: 9px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.cx-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-2);
+}
+
+/* meal plans, taxes */
+.meal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meal-chips li {
+  display: flex;
+  flex-direction: column;
+  min-width: 110px;
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  line-height: 1.3;
+}
+
+.meal-chips span {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.meal-chips strong {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.meal-chips em {
+  color: var(--ink-4);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.meal-chips li.is-on {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-200);
+}
+
+.meal-rows {
+  display: grid;
+  gap: 10px;
+}
+
+.meal-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 320px);
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.tax-rate {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+
+.page {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .meal-row,
+  .form-section__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ───────── RSS-08 Rate Calendar grid (same as the Reservation calendars in reservation.css; Setup pages do not load that file) ───────── */
+.cg {
+  min-width: 0;
+}
+
+.cg__scroll {
+  --cg-cols: 14;
+  --cg-w: 74px;
+  overflow: auto;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.cg__row {
+  display: grid;
+  grid-template-columns: 170px repeat(var(--cg-cols), minmax(var(--cg-w), 1fr));
+  min-width: calc(170px + var(--cg-cols) * var(--cg-w));
+  border-bottom: 1px solid var(--line-2);
+}
+
+.cg__row--head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--surface-2);
+  box-shadow: 0 1px 0 var(--line-strong);
+}
+
+.cg__corner {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cg__colhead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 2px;
+  line-height: 1.2;
+}
+
+.cg__dow {
+  color: var(--ink-3);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cg__dom {
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.cg__colhead.is-weekend {
+  background: color-mix(in srgb, var(--br-300) 18%, transparent);
+}
+
+.cg__colhead.is-today {
+  background: var(--em-800);
+  color: #fff;
+}
+
+.cg__colhead.is-today .cg__dow {
+  color: var(--br-300);
+}
+
+.cg__rowhead {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 14px;
+  background: var(--surface);
+  box-shadow: 1px 0 0 var(--line);
+}
+
+.cg__rowlabel {
+  font-weight: 650;
+  font-size: 13px;
+}
+
+.cg__rowsub {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.cg__cell {
+  display: grid;
+  place-items: center;
+  min-height: 38px;
+  border-left: 1px solid var(--line-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cg .lvl-0 {
+  background: var(--surface);
+  color: var(--ink-3);
+}
+
+.cg .lvl-1 {
+  background: var(--em-50, #eef5f1);
+  color: var(--em-700);
+}
+
+.cg .lvl-2 {
+  background: #d7eadf;
+  color: var(--em-800);
+}
+
+.cg .lvl-3 {
+  background: #f4e7c4;
+  color: #7a5a14;
+}
+
+.cg .lvl-4 {
+  background: #f2cfc8;
+  color: #8f2a25;
+}
+
+.cg .is-weekend {
+  background-image: linear-gradient(color-mix(in srgb, var(--br-300) 12%, transparent), color-mix(in srgb, var(--br-300) 12%, transparent));
+}
+
+.cg .is-today {
+  box-shadow: inset 0 0 0 2px var(--br-500);
+}

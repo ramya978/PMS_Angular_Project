@@ -1,0 +1,25 @@
+/* activity.css – styles of FD-18-2 Cashier Shift – the “activity” tab / step (laptop rules; phone rules sit in max-width media queries). */
+
+.variants > .variant:has(.fd-toast:target) {
+  display: block;
+}
+
+.variants:has(.variant:not(.is-default) .fd-toast:target) > .variant.is-default {
+  display: none;
+}
+
+.kpi4,
+.fd-kpis--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* record variants */
+#c1:target ~ .v-c1 {
+  display: block;
+}
+
+#c2:target ~ .v-c2 {
+  display: block;
+}
+
+/* fd-18-cashier-shift-activity.css: no screen-specific rules, this screen uses the shared styles. */

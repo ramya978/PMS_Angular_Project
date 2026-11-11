@@ -1,0 +1,1818 @@
+/* hk-02-room-status-board.css: Room Status Board – house-status command card (status mix + view tabs), quick views,
+   rooms as tiles grouped by floor (HK-02-1), the list (HK-02-2), the floor plan (HK-02-3), the floating selection bar
+   and the room-specific content of the pop-ups HK-P01 / P03 / P18 (one modal each, a :target marker per room). */
+
+.hb {
+  display: grid;
+  gap: 16px;
+  counter-reset: hbsel;
+}
+
+.hb-tg,
+.hv__r,
+.fp__r,
+.pm {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* ───────── command card: status mix + view tabs ───────── */
+.hb-cmd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 32px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background:
+    radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.22), transparent 60%),
+    radial-gradient(50% 120% at 0% 100%, rgb(var(--forest-rgb, 31 61 51) / 0.9), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 22px 44px -32px rgb(var(--deep-rgb, 14 26 43) / 0.75);
+  color: #fff;
+}
+
+.hb-mix {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.hb-mix__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+}
+
+.hb-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hb-live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4cc38a;
+  box-shadow: 0 0 0 4px rgb(76 195 138 / 0.18);
+}
+
+.hb-mix__n {
+  color: rgb(255 255 255 / 0.78);
+  font-size: 13px;
+}
+
+.hb-mix__n b {
+  color: #fff;
+  font-size: 15px;
+}
+
+.hb-mix__bar {
+  display: flex;
+  gap: 3px;
+  height: 10px;
+}
+
+.hb-mix__bar i {
+  border-radius: 999px;
+  background: var(--hk);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+.hb-mix__leg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.hb-mix__leg li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hb-mix__leg .icon {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  border-radius: 5px;
+  background: var(--hk);
+  color: #fff;
+}
+
+.hb-mix__leg b {
+  color: #fff;
+}
+
+.hb-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+.hb-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 9px;
+  color: rgb(255 255 255 / 0.82);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hb-tab:hover {
+  background: rgb(255 255 255 / 0.08);
+  color: #fff;
+}
+
+/* the selected view: tiles unless the list or plan is the target */
+main:not(:has(#hk-02-2:target, #hk-02-3:target)) .hb-tab--1,
+main:has(#hk-02-2:target) .hb-tab--2,
+main:has(#hk-02-3:target) .hb-tab--3 {
+  background: #fff;
+  color: var(--em-800);
+  box-shadow: 0 4px 12px -6px rgb(0 0 0 / 0.5);
+}
+
+.hb-view {
+  display: none;
+}
+
+main:not(:has(#hk-02-2:target, #hk-02-3:target)) #hk-02-1,
+#hk-02-2:target,
+#hk-02-3:target {
+  display: grid;
+  gap: 16px;
+  scroll-margin-top: 120px;
+}
+
+/* ───────── quick views (the rail itself is in housekeeping.css) ───────── */
+.hb:has(#hv-all:checked):not(:has(.hb-tg:target)) .hv__v[for="hv-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+.hv__r:focus-visible + * {
+  outline: none;
+}
+
+.hv__r:focus-visible + .hv__v {
+  outline: 2px solid var(--br-400);
+  outline-offset: 2px;
+}
+
+.hv__clear {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 0 10px;
+  color: var(--em-700);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.hb:has(.hb-tg:target) .hv__clear {
+  display: inline-flex;
+}
+
+.hb-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: -6px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.hb-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ───────── HK-02-1 tiles by floor ───────── */
+.fl {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.fl__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.fl__badge {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, var(--em-600), var(--em-800));
+  color: #fff;
+  font-weight: 700;
+}
+
+.fl__t {
+  display: grid;
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fl__t small {
+  color: var(--ink-3);
+  font-family: var(--font-ui, inherit);
+  font-size: 12px;
+}
+
+.fl__sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.fl__c {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px 3px 4px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--hk) 9%, var(--surface));
+  color: color-mix(in srgb, var(--hk) 80%, #000);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fl__c .icon {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  border-radius: 5px;
+  background: var(--hk);
+  color: #fff;
+}
+
+.fl__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+  gap: 10px;
+}
+
+.rt {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px 12px 9px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--hk) 7%, var(--surface)), var(--surface) 46px);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hk) 22%, var(--line));
+  transition: box-shadow 160ms ease-out;
+}
+
+.rt:hover {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hk) 45%, var(--line)), 0 10px 22px -16px rgb(16 24 40 / 0.45);
+}
+
+.rt:has(.rt__sel:checked) {
+  box-shadow: inset 0 0 0 2px var(--em-500);
+}
+
+.rt__h {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rt__sel {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--em-600);
+  counter-increment: hbsel;
+}
+
+.rt__sel:not(:checked) {
+  counter-increment: none;
+}
+
+.rt__no {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.rt__no:hover {
+  color: var(--em-700);
+  text-decoration: underline;
+}
+
+.rt__type {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--line-2);
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 650;
+}
+
+.rt__feat {
+  display: inline-grid;
+  color: var(--ink-3);
+}
+
+.rt__st {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 2px 8px 2px 3px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--hk) 11%, var(--surface));
+  color: color-mix(in srgb, var(--hk) 82%, #000);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rt__st .icon {
+  width: 18px;
+  height: 18px;
+  padding: 3px;
+  border-radius: 5px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  color: #fff;
+}
+
+.rt__st:hover {
+  box-shadow: inset 0 0 0 1px var(--hk);
+}
+
+.rt__more {
+  position: relative;
+}
+
+.rt__more > summary {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  color: var(--ink-3);
+  list-style: none;
+  cursor: pointer;
+}
+
+.rt__more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.rt__more > summary:hover,
+.rt__more[open] > summary {
+  background: var(--line-2);
+  color: var(--ink);
+}
+
+.rt__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 232px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 18px 36px -18px rgb(16 24 40 / 0.45);
+}
+
+.rt__menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.rt__menu a:hover {
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.rt__menu .icon {
+  color: var(--ink-3);
+}
+
+.rt__fo {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rt__g {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.rt__g small {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.rt__g--muted {
+  color: var(--ink-4);
+  font-weight: 500;
+}
+
+.rt__vip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--br-100);
+  color: var(--br-700);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.rt__flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 22px;
+}
+
+.rt__f {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--line-2);
+  color: var(--ink-2);
+}
+
+.rt__f--dnd { background: #fdecec; color: #b42318; }
+.rt__f--rush { background: #fff1e6; color: #c05621; }
+.rt__f--queue { background: #fdf3dc; color: #946200; }
+.rt__f--turndown { background: #eef0fb; color: #4b4fa8; }
+.rt__f--makeup { background: var(--br-50); color: var(--br-700); }
+.rt__f--green { background: var(--ok-bg); color: #2f855a; }
+.rt__f--sleepout { background: #f1eef9; color: #6b46c1; }
+.rt__f--linen { background: #e8f2fb; color: #2b6cb0; }
+.rt__f--cond { background: var(--em-50, #eef5f1); color: var(--em-700); }
+.rt__f--wo { background: #fdecec; color: #c53030; }
+
+.rt__ft {
+  padding-top: 7px;
+  border-top: 1px dashed var(--line);
+}
+
+.rt__task {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 12px;
+}
+
+.rt__task > span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+.rt__task b {
+  overflow: hidden;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rt__task small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.rt__task--none {
+  color: var(--ink-4);
+}
+
+.rt__av {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--em-100);
+  color: var(--em-800);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.rt__av--none {
+  background: #fdf3dc;
+  color: #946200;
+}
+
+.rt__task--progress .rt__av {
+  background: #fff1e6;
+  color: #c05621;
+  box-shadow: 0 0 0 2px #f6c9a6;
+}
+
+.rt__task--progress small {
+  color: #c05621;
+  font-weight: 600;
+}
+
+.rt__task--done .rt__av {
+  background: var(--ok-bg);
+  color: #2f855a;
+}
+
+.rt__last {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  color: var(--ink-4);
+  font-size: 10.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ───────── HK-02-2 list ───────── */
+.hb-scroll {
+  max-height: 68vh;
+}
+
+.hb-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.hb-table tbody tr:nth-child(even) > .dt__td {
+  background: var(--surface-2);
+}
+
+.hb-table .rt__more > summary {
+  display: inline-grid;
+  vertical-align: middle;
+}
+
+.hb-table .rt__sel {
+  counter-increment: none;
+}
+
+.hb-notes {
+  min-width: 220px;
+  font-size: 12px;
+}
+
+.hb-notes .icon {
+  vertical-align: -2px;
+  color: var(--ink-3);
+}
+
+.hb-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ───────── HK-02-3 floor plan ───────── */
+.fp-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+}
+
+.fp-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.fp-tabs label {
+  display: grid;
+  padding: 6px 14px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fp-tabs small {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+#hk-02-3:has(#fp-1:checked) label[for="fp-1"],
+#hk-02-3:has(#fp-2:checked) label[for="fp-2"],
+#hk-02-3:has(#fp-3:checked) label[for="fp-3"],
+#hk-02-3:has(#fp-4:checked) label[for="fp-4"],
+#hk-02-3:has(#fp-5:checked) label[for="fp-5"] {
+  background: var(--em-700);
+  color: #fff;
+}
+
+#hk-02-3:has(#fp-1:checked) label[for="fp-1"] small,
+#hk-02-3:has(#fp-2:checked) label[for="fp-2"] small,
+#hk-02-3:has(#fp-3:checked) label[for="fp-3"] small,
+#hk-02-3:has(#fp-4:checked) label[for="fp-4"] small,
+#hk-02-3:has(#fp-5:checked) label[for="fp-5"] small {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.fp-src {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.fp-stage {
+  padding: 28px;
+  overflow-x: auto;
+  border-radius: 18px;
+  background:
+    #fbfaf6;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.fp {
+  display: none;
+  gap: 0;
+  min-width: 980px;
+  padding: 10px;
+  border: 3px solid #26343f;
+  border-radius: 10px;
+  background: #fff;
+}
+
+#hk-02-3:has(#fp-1:checked) .fp[data-floor="1"],
+#hk-02-3:has(#fp-2:checked) .fp[data-floor="2"],
+#hk-02-3:has(#fp-3:checked) .fp[data-floor="3"],
+#hk-02-3:has(#fp-4:checked) .fp[data-floor="4"],
+#hk-02-3:has(#fp-5:checked) .fp[data-floor="5"] {
+  display: grid;
+}
+
+.fp__row {
+  display: flex;
+  gap: 4px;
+}
+
+.pc {
+  position: relative;
+  flex: 1 1 0;
+  display: grid;
+  align-content: space-between;
+  gap: 4px;
+  min-width: 0;
+  height: 96px;
+  padding: 8px;
+  border: 2px solid color-mix(in srgb, var(--hk) 55%, #fff);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--hk) 13%, #fff);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pc--suite {
+  flex-grow: 1.7;
+}
+
+.pc:hover {
+  background: color-mix(in srgb, var(--hk) 22%, #fff);
+}
+
+.pc b {
+  font-size: 15px;
+}
+
+.pc span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: color-mix(in srgb, var(--hk) 85%, #000);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pc span .icon {
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border-radius: 4px;
+  background: var(--hk);
+  color: #fff;
+}
+
+.pc i {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 2px;
+  color: var(--ink-2);
+}
+
+.fp__core {
+  display: grid;
+  flex: 0 0 72px;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #eef1ef 0 6px, #f8f9f8 6px 12px);
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.fp__corr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  margin: 4px 0;
+  padding: 0 14px;
+  border-radius: 4px;
+  background: #f1efe8;
+  color: var(--ink-3);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fp__pantry {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ───────── floating selection bar ───────── */
+.hb-bulk {
+  position: sticky;
+  bottom: 20px;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  justify-self: center;
+  padding: 10px 12px 10px 18px;
+  border-radius: 14px;
+  background: var(--em-900);
+  color: #fff;
+  box-shadow: 0 18px 40px -16px rgb(var(--em-950-rgb, 6 28 22) / 0.7);
+}
+
+.hb:has(.rt__sel:checked) .hb-bulk {
+  display: inline-flex;
+  animation: av-rise 220ms var(--ease);
+}
+
+.hb-bulk__n b::before {
+  content: counter(hbsel);
+}
+
+.hb:has(#hk-02-2 .rt__sel:checked) .hb-bulk__n b::before {
+  content: "";
+}
+
+.hb-bulk__n {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.hb-bulk__hint {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 12px;
+}
+
+/* ───────── pop-ups: one modal, the targeted room's content ───────── */
+.modal:has(.pm:target) {
+  display: grid;
+  animation: av-fade 200ms ease-out;
+}
+
+.pr,
+.po,
+.pb,
+.p01-back {
+  display: none;
+}
+
+.pr {
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pr + .pr {
+  margin-top: 8px;
+}
+
+.pr__no {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pr__t {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.pr__t small {
+  color: var(--ink-3);
+}
+
+#hk-p01:target :is(.pr--315, .pb--315, .from-vc),
+#hk-p03:target :is(.pr--210, .pb--210),
+#hk-p18:target :is(.pr--def, .pb--def) {
+  display: flex;
+}
+
+.p01-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+}
+
+.po {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.po:has(:checked) {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 2px var(--em-500);
+}
+
+.po small {
+  flex-basis: 100%;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.p01-back {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff7e6;
+  color: #6e4a0e;
+}
+
+.p02-sel {
+  display: grid;
+  gap: 8px;
+}
+
+.p02-rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p03-kind .check small,
+.p02-sel + .hks-note,
+.fd-multi .check small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 400;
+}
+
+@media (max-width: 1100px) {
+  .hb-cmd {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fl__grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .fl__sum {
+    margin-left: 0;
+  }
+}
+
+
+.hb-table td:nth-child(2) { min-width: 150px; }
+.hb-table td:nth-child(3) { min-width: 150px; }
+.hb-table td:nth-child(5) { min-width: 200px; }
+.hb-table td:nth-child(6) { min-width: 120px; }
+.hb-table td:nth-child(7) { min-width: 210px; }
+.hb-table td:nth-child(8) { min-width: 110px; }
+.hb-table .fd-sub { white-space: normal; }
+
+.fp__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 12px;
+  padding: 10px 4px 0;
+  border-top: 1px dashed var(--line);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.fp__foot .fl__sum {
+  margin-left: auto;
+}
+
+.p01-opts {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.po--on {
+  display: flex;
+}
+
+.p02-l {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.p02-l b {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.p02-skip,
+.p01-back {
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff7e6;
+  color: #6e4a0e;
+}
+
+/* ───────── generated: quick views, dashboard filters, per-room pop-up content and saved highlight ───────── */
+.hb:has(#hv-vd:checked) .rx:not(.is-vd),
+.hb:has(#hv-vd:checked) .fl:not(:has(.is-vd)) { display: none; }
+.hb:has(#hv-vd:checked) .hv__v[for="hv-vd"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-ready:checked) .rx:not(.is-ready),
+.hb:has(#hv-ready:checked) .fl:not(:has(.is-ready)) { display: none; }
+.hb:has(#hv-ready:checked) .hv__v[for="hv-ready"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-occ:checked) .rx:not(.is-occ),
+.hb:has(#hv-occ:checked) .fl:not(:has(.is-occ)) { display: none; }
+.hb:has(#hv-occ:checked) .hv__v[for="hv-occ"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-dot:checked) .rx:not(.is-dot),
+.hb:has(#hv-dot:checked) .fl:not(:has(.is-dot)) { display: none; }
+.hb:has(#hv-dot:checked) .hv__v[for="hv-dot"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-arr:checked) .rx:not(.is-arr),
+.hb:has(#hv-arr:checked) .fl:not(:has(.is-arr)) { display: none; }
+.hb:has(#hv-arr:checked) .hv__v[for="hv-arr"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-vip:checked) .rx:not(.is-vip),
+.hb:has(#hv-vip:checked) .fl:not(:has(.is-vip)) { display: none; }
+.hb:has(#hv-vip:checked) .hv__v[for="hv-vip"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-flag:checked) .rx:not(.is-flag),
+.hb:has(#hv-flag:checked) .fl:not(:has(.is-flag)) { display: none; }
+.hb:has(#hv-flag:checked) .hv__v[for="hv-flag"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#hv-ooo:checked) .rx:not(.is-ooo),
+.hb:has(#hv-ooo:checked) .fl:not(:has(.is-ooo)) { display: none; }
+.hb:has(#hv-ooo:checked) .hv__v[for="hv-ooo"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#f-vd:target):has(#hv-all:checked) :is(.rx:not(.is-vd), .fl:not(:has(.is-vd))) { display: none; }
+.hb:has(#f-vd:target):has(#hv-all:checked) .hv__v[for="hv-vd"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#f-ready:target):has(#hv-all:checked) :is(.rx:not(.is-ready), .fl:not(:has(.is-ready))) { display: none; }
+.hb:has(#f-ready:target):has(#hv-all:checked) .hv__v[for="hv-ready"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#f-occupied:target):has(#hv-all:checked) :is(.rx:not(.is-occ), .fl:not(:has(.is-occ))) { display: none; }
+.hb:has(#f-occupied:target):has(#hv-all:checked) .hv__v[for="hv-occ"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#f-dueout:target):has(#hv-all:checked) :is(.rx:not(.is-dot), .fl:not(:has(.is-dot))) { display: none; }
+.hb:has(#f-dueout:target):has(#hv-all:checked) .hv__v[for="hv-dot"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#f-arrivals:target):has(#hv-all:checked) :is(.rx:not(.is-arr), .fl:not(:has(.is-arr))) { display: none; }
+.hb:has(#f-arrivals:target):has(#hv-all:checked) .hv__v[for="hv-arr"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.hb:has(#sec-s1:target):has(#hv-all:checked) :is(.rx:not(.sec-s1), .fl:not(:has(.sec-s1))) { display: none; }
+.hb:has(#sec-s2:target):has(#hv-all:checked) :is(.rx:not(.sec-s2), .fl:not(:has(.sec-s2))) { display: none; }
+.hb:has(#sec-s3:target):has(#hv-all:checked) :is(.rx:not(.sec-s3), .fl:not(:has(.sec-s3))) { display: none; }
+.hb:has(#sec-s4:target):has(#hv-all:checked) :is(.rx:not(.sec-s4), .fl:not(:has(.sec-s4))) { display: none; }
+.hb:has(#sec-s5:target):has(#hv-all:checked) :is(.rx:not(.sec-s5), .fl:not(:has(.sec-s5))) { display: none; }
+.hb:has(#sec-s6:target):has(#hv-all:checked) :is(.rx:not(.sec-s6), .fl:not(:has(.sec-s6))) { display: none; }
+.hb:has(#sec-s7:target):has(#hv-all:checked) :is(.rx:not(.sec-s7), .fl:not(:has(.sec-s7))) { display: none; }
+#hk-p01:has(#p01-101:target) :is(.pr--101, .pb--101) { display: flex; }
+#hk-p01:has(#p01-101:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-101:target) :is(.pr--101, .pb--101) { display: flex; }
+#hk-p18:has(#p18-101:target) :is(.pr--101, .pb--101) { display: flex; }
+#hk-p01:has(#p01-102:target) :is(.pr--102, .pb--102) { display: flex; }
+#hk-p01:has(#p01-102:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-102:target) :is(.pr--102, .pb--102) { display: flex; }
+#hk-p01:has(#p01-103:target) :is(.pr--103, .pb--103) { display: flex; }
+#hk-p01:has(#p01-103:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-103:target) :is(.pr--103, .pb--103) { display: flex; }
+#hk-p18:has(#p18-103:target) :is(.pr--103, .pb--103) { display: flex; }
+#hk-p01:has(#p01-104:target) :is(.pr--104, .pb--104) { display: flex; }
+#hk-p01:has(#p01-104:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-104:target) :is(.pr--104, .pb--104) { display: flex; }
+#hk-p18:has(#p18-104:target) :is(.pr--104, .pb--104) { display: flex; }
+#hk-p01:has(#p01-105:target) :is(.pr--105, .pb--105) { display: flex; }
+#hk-p01:has(#p01-105:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-105:target) :is(.pr--105, .pb--105) { display: flex; }
+#hk-p18:has(#p18-105:target) :is(.pr--105, .pb--105) { display: flex; }
+#hk-p01:has(#p01-106:target) :is(.pr--106, .pb--106) { display: flex; }
+#hk-p01:has(#p01-106:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-106:target) :is(.pr--106, .pb--106) { display: flex; }
+#hk-p01:has(#p01-107:target) :is(.pr--107, .pb--107) { display: flex; }
+#hk-p01:has(#p01-107:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-107:target) :is(.pr--107, .pb--107) { display: flex; }
+#hk-p18:has(#p18-107:target) :is(.pr--107, .pb--107) { display: flex; }
+#hk-p01:has(#p01-108:target) :is(.pr--108, .pb--108) { display: flex; }
+#hk-p01:has(#p01-108:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-108:target) :is(.pr--108, .pb--108) { display: flex; }
+#hk-p18:has(#p18-108:target) :is(.pr--108, .pb--108) { display: flex; }
+#hk-p01:has(#p01-109:target) :is(.pr--109, .pb--109) { display: flex; }
+#hk-p01:has(#p01-109:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-109:target) :is(.pr--109, .pb--109) { display: flex; }
+#hk-p18:has(#p18-109:target) :is(.pr--109, .pb--109) { display: flex; }
+#hk-p01:has(#p01-110:target) :is(.pr--110, .pb--110) { display: flex; }
+#hk-p01:has(#p01-110:target) .from-od { display: flex; }
+#hk-p03:has(#p03-110:target) :is(.pr--110, .pb--110) { display: flex; }
+#hk-p18:has(#p18-110:target) :is(.pr--110, .pb--110) { display: flex; }
+#hk-p01:has(#p01-111:target) :is(.pr--111, .pb--111) { display: flex; }
+#hk-p01:has(#p01-111:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-111:target) :is(.pr--111, .pb--111) { display: flex; }
+#hk-p18:has(#p18-111:target) :is(.pr--111, .pb--111) { display: flex; }
+#hk-p01:has(#p01-112:target) :is(.pr--112, .pb--112) { display: flex; }
+#hk-p01:has(#p01-112:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-112:target) :is(.pr--112, .pb--112) { display: flex; }
+#hk-p18:has(#p18-112:target) :is(.pr--112, .pb--112) { display: flex; }
+#hk-p01:has(#p01-113:target) :is(.pr--113, .pb--113) { display: flex; }
+#hk-p01:has(#p01-113:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-113:target) :is(.pr--113, .pb--113) { display: flex; }
+#hk-p18:has(#p18-113:target) :is(.pr--113, .pb--113) { display: flex; }
+#hk-p01:has(#p01-114:target) :is(.pr--114, .pb--114) { display: flex; }
+#hk-p01:has(#p01-114:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-114:target) :is(.pr--114, .pb--114) { display: flex; }
+#hk-p18:has(#p18-114:target) :is(.pr--114, .pb--114) { display: flex; }
+#hk-p01:has(#p01-115:target) :is(.pr--115, .pb--115) { display: flex; }
+#hk-p01:has(#p01-115:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-115:target) :is(.pr--115, .pb--115) { display: flex; }
+#hk-p18:has(#p18-115:target) :is(.pr--115, .pb--115) { display: flex; }
+#hk-p01:has(#p01-116:target) :is(.pr--116, .pb--116) { display: flex; }
+#hk-p01:has(#p01-116:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-116:target) :is(.pr--116, .pb--116) { display: flex; }
+#hk-p18:has(#p18-116:target) :is(.pr--116, .pb--116) { display: flex; }
+#hk-p01:has(#p01-117:target) :is(.pr--117, .pb--117) { display: flex; }
+#hk-p01:has(#p01-117:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-117:target) :is(.pr--117, .pb--117) { display: flex; }
+#hk-p01:has(#p01-118:target) :is(.pr--118, .pb--118) { display: flex; }
+#hk-p01:has(#p01-118:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-118:target) :is(.pr--118, .pb--118) { display: flex; }
+#hk-p18:has(#p18-118:target) :is(.pr--118, .pb--118) { display: flex; }
+#hk-p01:has(#p01-119:target) :is(.pr--119, .pb--119) { display: flex; }
+#hk-p01:has(#p01-119:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-119:target) :is(.pr--119, .pb--119) { display: flex; }
+#hk-p18:has(#p18-119:target) :is(.pr--119, .pb--119) { display: flex; }
+#hk-p01:has(#p01-201:target) :is(.pr--201, .pb--201) { display: flex; }
+#hk-p01:has(#p01-201:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-201:target) :is(.pr--201, .pb--201) { display: flex; }
+#hk-p18:has(#p18-201:target) :is(.pr--201, .pb--201) { display: flex; }
+#hk-p01:has(#p01-202:target) :is(.pr--202, .pb--202) { display: flex; }
+#hk-p01:has(#p01-202:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-202:target) :is(.pr--202, .pb--202) { display: flex; }
+#hk-p18:has(#p18-202:target) :is(.pr--202, .pb--202) { display: flex; }
+#hk-p01:has(#p01-203:target) :is(.pr--203, .pb--203) { display: flex; }
+#hk-p01:has(#p01-203:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-203:target) :is(.pr--203, .pb--203) { display: flex; }
+#hk-p01:has(#p01-204:target) :is(.pr--204, .pb--204) { display: flex; }
+#hk-p01:has(#p01-204:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-204:target) :is(.pr--204, .pb--204) { display: flex; }
+#hk-p01:has(#p01-205:target) :is(.pr--205, .pb--205) { display: flex; }
+#hk-p01:has(#p01-205:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-205:target) :is(.pr--205, .pb--205) { display: flex; }
+#hk-p18:has(#p18-205:target) :is(.pr--205, .pb--205) { display: flex; }
+#hk-p01:has(#p01-206:target) :is(.pr--206, .pb--206) { display: flex; }
+#hk-p01:has(#p01-206:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-206:target) :is(.pr--206, .pb--206) { display: flex; }
+#hk-p01:has(#p01-207:target) :is(.pr--207, .pb--207) { display: flex; }
+#hk-p01:has(#p01-207:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-207:target) :is(.pr--207, .pb--207) { display: flex; }
+#hk-p18:has(#p18-207:target) :is(.pr--207, .pb--207) { display: flex; }
+#hk-p01:has(#p01-208:target) :is(.pr--208, .pb--208) { display: flex; }
+#hk-p01:has(#p01-208:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-208:target) :is(.pr--208, .pb--208) { display: flex; }
+#hk-p18:has(#p18-208:target) :is(.pr--208, .pb--208) { display: flex; }
+#hk-p01:has(#p01-209:target) :is(.pr--209, .pb--209) { display: flex; }
+#hk-p01:has(#p01-209:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-209:target) :is(.pr--209, .pb--209) { display: flex; }
+#hk-p18:has(#p18-209:target) :is(.pr--209, .pb--209) { display: flex; }
+#hk-p01:has(#p01-210:target) :is(.pr--210, .pb--210) { display: flex; }
+#hk-p01:has(#p01-210:target) .from-vc { display: flex; }
+#hk-p03:has(#p03-210:target) :is(.pr--210, .pb--210) { display: flex; }
+#hk-p18:has(#p18-210:target) :is(.pr--210, .pb--210) { display: flex; }
+#hk-p01:has(#p01-211:target) :is(.pr--211, .pb--211) { display: flex; }
+#hk-p01:has(#p01-211:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-211:target) :is(.pr--211, .pb--211) { display: flex; }
+#hk-p18:has(#p18-211:target) :is(.pr--211, .pb--211) { display: flex; }
+#hk-p01:has(#p01-212:target) :is(.pr--212, .pb--212) { display: flex; }
+#hk-p01:has(#p01-212:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-212:target) :is(.pr--212, .pb--212) { display: flex; }
+#hk-p18:has(#p18-212:target) :is(.pr--212, .pb--212) { display: flex; }
+#hk-p01:has(#p01-213:target) :is(.pr--213, .pb--213) { display: flex; }
+#hk-p01:has(#p01-213:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-213:target) :is(.pr--213, .pb--213) { display: flex; }
+#hk-p18:has(#p18-213:target) :is(.pr--213, .pb--213) { display: flex; }
+#hk-p03:has(#p03-214:target) :is(.pr--214, .pb--214) { display: flex; }
+#hk-p01:has(#p01-215:target) :is(.pr--215, .pb--215) { display: flex; }
+#hk-p01:has(#p01-215:target) .from-vc { display: flex; }
+#hk-p03:has(#p03-215:target) :is(.pr--215, .pb--215) { display: flex; }
+#hk-p18:has(#p18-215:target) :is(.pr--215, .pb--215) { display: flex; }
+#hk-p01:has(#p01-216:target) :is(.pr--216, .pb--216) { display: flex; }
+#hk-p01:has(#p01-216:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-216:target) :is(.pr--216, .pb--216) { display: flex; }
+#hk-p18:has(#p18-216:target) :is(.pr--216, .pb--216) { display: flex; }
+#hk-p01:has(#p01-217:target) :is(.pr--217, .pb--217) { display: flex; }
+#hk-p01:has(#p01-217:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-217:target) :is(.pr--217, .pb--217) { display: flex; }
+#hk-p18:has(#p18-217:target) :is(.pr--217, .pb--217) { display: flex; }
+#hk-p01:has(#p01-218:target) :is(.pr--218, .pb--218) { display: flex; }
+#hk-p01:has(#p01-218:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-218:target) :is(.pr--218, .pb--218) { display: flex; }
+#hk-p18:has(#p18-218:target) :is(.pr--218, .pb--218) { display: flex; }
+#hk-p01:has(#p01-219:target) :is(.pr--219, .pb--219) { display: flex; }
+#hk-p01:has(#p01-219:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-219:target) :is(.pr--219, .pb--219) { display: flex; }
+#hk-p18:has(#p18-219:target) :is(.pr--219, .pb--219) { display: flex; }
+#hk-p01:has(#p01-301:target) :is(.pr--301, .pb--301) { display: flex; }
+#hk-p01:has(#p01-301:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-301:target) :is(.pr--301, .pb--301) { display: flex; }
+#hk-p18:has(#p18-301:target) :is(.pr--301, .pb--301) { display: flex; }
+#hk-p01:has(#p01-302:target) :is(.pr--302, .pb--302) { display: flex; }
+#hk-p01:has(#p01-302:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-302:target) :is(.pr--302, .pb--302) { display: flex; }
+#hk-p01:has(#p01-303:target) :is(.pr--303, .pb--303) { display: flex; }
+#hk-p01:has(#p01-303:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-303:target) :is(.pr--303, .pb--303) { display: flex; }
+#hk-p18:has(#p18-303:target) :is(.pr--303, .pb--303) { display: flex; }
+#hk-p01:has(#p01-304:target) :is(.pr--304, .pb--304) { display: flex; }
+#hk-p01:has(#p01-304:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-304:target) :is(.pr--304, .pb--304) { display: flex; }
+#hk-p18:has(#p18-304:target) :is(.pr--304, .pb--304) { display: flex; }
+#hk-p01:has(#p01-305:target) :is(.pr--305, .pb--305) { display: flex; }
+#hk-p01:has(#p01-305:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-305:target) :is(.pr--305, .pb--305) { display: flex; }
+#hk-p18:has(#p18-305:target) :is(.pr--305, .pb--305) { display: flex; }
+#hk-p01:has(#p01-306:target) :is(.pr--306, .pb--306) { display: flex; }
+#hk-p01:has(#p01-306:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-306:target) :is(.pr--306, .pb--306) { display: flex; }
+#hk-p18:has(#p18-306:target) :is(.pr--306, .pb--306) { display: flex; }
+#hk-p01:has(#p01-307:target) :is(.pr--307, .pb--307) { display: flex; }
+#hk-p01:has(#p01-307:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-307:target) :is(.pr--307, .pb--307) { display: flex; }
+#hk-p01:has(#p01-308:target) :is(.pr--308, .pb--308) { display: flex; }
+#hk-p01:has(#p01-308:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-308:target) :is(.pr--308, .pb--308) { display: flex; }
+#hk-p18:has(#p18-308:target) :is(.pr--308, .pb--308) { display: flex; }
+#hk-p01:has(#p01-309:target) :is(.pr--309, .pb--309) { display: flex; }
+#hk-p01:has(#p01-309:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-309:target) :is(.pr--309, .pb--309) { display: flex; }
+#hk-p18:has(#p18-309:target) :is(.pr--309, .pb--309) { display: flex; }
+#hk-p01:has(#p01-310:target) :is(.pr--310, .pb--310) { display: flex; }
+#hk-p01:has(#p01-310:target) .from-od { display: flex; }
+#hk-p03:has(#p03-310:target) :is(.pr--310, .pb--310) { display: flex; }
+#hk-p18:has(#p18-310:target) :is(.pr--310, .pb--310) { display: flex; }
+#hk-p01:has(#p01-311:target) :is(.pr--311, .pb--311) { display: flex; }
+#hk-p01:has(#p01-311:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-311:target) :is(.pr--311, .pb--311) { display: flex; }
+#hk-p01:has(#p01-312:target) :is(.pr--312, .pb--312) { display: flex; }
+#hk-p01:has(#p01-312:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-312:target) :is(.pr--312, .pb--312) { display: flex; }
+#hk-p01:has(#p01-313:target) :is(.pr--313, .pb--313) { display: flex; }
+#hk-p01:has(#p01-313:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-313:target) :is(.pr--313, .pb--313) { display: flex; }
+#hk-p18:has(#p18-313:target) :is(.pr--313, .pb--313) { display: flex; }
+#hk-p01:has(#p01-314:target) :is(.pr--314, .pb--314) { display: flex; }
+#hk-p01:has(#p01-314:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-314:target) :is(.pr--314, .pb--314) { display: flex; }
+#hk-p01:has(#p01-315:target) :is(.pr--315, .pb--315) { display: flex; }
+#hk-p01:has(#p01-315:target) .from-vc { display: flex; }
+#hk-p03:has(#p03-315:target) :is(.pr--315, .pb--315) { display: flex; }
+#hk-p18:has(#p18-315:target) :is(.pr--315, .pb--315) { display: flex; }
+#hk-p01:has(#p01-316:target) :is(.pr--316, .pb--316) { display: flex; }
+#hk-p01:has(#p01-316:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-316:target) :is(.pr--316, .pb--316) { display: flex; }
+#hk-p18:has(#p18-316:target) :is(.pr--316, .pb--316) { display: flex; }
+#hk-p01:has(#p01-317:target) :is(.pr--317, .pb--317) { display: flex; }
+#hk-p01:has(#p01-317:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-317:target) :is(.pr--317, .pb--317) { display: flex; }
+#hk-p01:has(#p01-318:target) :is(.pr--318, .pb--318) { display: flex; }
+#hk-p01:has(#p01-318:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-318:target) :is(.pr--318, .pb--318) { display: flex; }
+#hk-p18:has(#p18-318:target) :is(.pr--318, .pb--318) { display: flex; }
+#hk-p01:has(#p01-319:target) :is(.pr--319, .pb--319) { display: flex; }
+#hk-p01:has(#p01-319:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-319:target) :is(.pr--319, .pb--319) { display: flex; }
+#hk-p18:has(#p18-319:target) :is(.pr--319, .pb--319) { display: flex; }
+#hk-p01:has(#p01-401:target) :is(.pr--401, .pb--401) { display: flex; }
+#hk-p01:has(#p01-401:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-401:target) :is(.pr--401, .pb--401) { display: flex; }
+#hk-p18:has(#p18-401:target) :is(.pr--401, .pb--401) { display: flex; }
+#hk-p01:has(#p01-402:target) :is(.pr--402, .pb--402) { display: flex; }
+#hk-p01:has(#p01-402:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-402:target) :is(.pr--402, .pb--402) { display: flex; }
+#hk-p18:has(#p18-402:target) :is(.pr--402, .pb--402) { display: flex; }
+#hk-p01:has(#p01-403:target) :is(.pr--403, .pb--403) { display: flex; }
+#hk-p01:has(#p01-403:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-403:target) :is(.pr--403, .pb--403) { display: flex; }
+#hk-p18:has(#p18-403:target) :is(.pr--403, .pb--403) { display: flex; }
+#hk-p01:has(#p01-404:target) :is(.pr--404, .pb--404) { display: flex; }
+#hk-p01:has(#p01-404:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-404:target) :is(.pr--404, .pb--404) { display: flex; }
+#hk-p18:has(#p18-404:target) :is(.pr--404, .pb--404) { display: flex; }
+#hk-p01:has(#p01-405:target) :is(.pr--405, .pb--405) { display: flex; }
+#hk-p01:has(#p01-405:target) .from-vc { display: flex; }
+#hk-p03:has(#p03-405:target) :is(.pr--405, .pb--405) { display: flex; }
+#hk-p18:has(#p18-405:target) :is(.pr--405, .pb--405) { display: flex; }
+#hk-p01:has(#p01-406:target) :is(.pr--406, .pb--406) { display: flex; }
+#hk-p01:has(#p01-406:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-406:target) :is(.pr--406, .pb--406) { display: flex; }
+#hk-p18:has(#p18-406:target) :is(.pr--406, .pb--406) { display: flex; }
+#hk-p01:has(#p01-407:target) :is(.pr--407, .pb--407) { display: flex; }
+#hk-p01:has(#p01-407:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-407:target) :is(.pr--407, .pb--407) { display: flex; }
+#hk-p18:has(#p18-407:target) :is(.pr--407, .pb--407) { display: flex; }
+#hk-p01:has(#p01-408:target) :is(.pr--408, .pb--408) { display: flex; }
+#hk-p01:has(#p01-408:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-408:target) :is(.pr--408, .pb--408) { display: flex; }
+#hk-p18:has(#p18-408:target) :is(.pr--408, .pb--408) { display: flex; }
+#hk-p01:has(#p01-409:target) :is(.pr--409, .pb--409) { display: flex; }
+#hk-p01:has(#p01-409:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-409:target) :is(.pr--409, .pb--409) { display: flex; }
+#hk-p18:has(#p18-409:target) :is(.pr--409, .pb--409) { display: flex; }
+#hk-p01:has(#p01-410:target) :is(.pr--410, .pb--410) { display: flex; }
+#hk-p01:has(#p01-410:target) .from-od { display: flex; }
+#hk-p03:has(#p03-410:target) :is(.pr--410, .pb--410) { display: flex; }
+#hk-p18:has(#p18-410:target) :is(.pr--410, .pb--410) { display: flex; }
+#hk-p01:has(#p01-411:target) :is(.pr--411, .pb--411) { display: flex; }
+#hk-p01:has(#p01-411:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-411:target) :is(.pr--411, .pb--411) { display: flex; }
+#hk-p01:has(#p01-412:target) :is(.pr--412, .pb--412) { display: flex; }
+#hk-p01:has(#p01-412:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-412:target) :is(.pr--412, .pb--412) { display: flex; }
+#hk-p01:has(#p01-413:target) :is(.pr--413, .pb--413) { display: flex; }
+#hk-p01:has(#p01-413:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-413:target) :is(.pr--413, .pb--413) { display: flex; }
+#hk-p01:has(#p01-414:target) :is(.pr--414, .pb--414) { display: flex; }
+#hk-p01:has(#p01-414:target) .from-vi { display: flex; }
+#hk-p03:has(#p03-414:target) :is(.pr--414, .pb--414) { display: flex; }
+#hk-p01:has(#p01-415:target) :is(.pr--415, .pb--415) { display: flex; }
+#hk-p01:has(#p01-415:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-415:target) :is(.pr--415, .pb--415) { display: flex; }
+#hk-p18:has(#p18-415:target) :is(.pr--415, .pb--415) { display: flex; }
+#hk-p01:has(#p01-416:target) :is(.pr--416, .pb--416) { display: flex; }
+#hk-p01:has(#p01-416:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-416:target) :is(.pr--416, .pb--416) { display: flex; }
+#hk-p18:has(#p18-416:target) :is(.pr--416, .pb--416) { display: flex; }
+#hk-p01:has(#p01-417:target) :is(.pr--417, .pb--417) { display: flex; }
+#hk-p01:has(#p01-417:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-417:target) :is(.pr--417, .pb--417) { display: flex; }
+#hk-p18:has(#p18-417:target) :is(.pr--417, .pb--417) { display: flex; }
+#hk-p01:has(#p01-418:target) :is(.pr--418, .pb--418) { display: flex; }
+#hk-p01:has(#p01-418:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-418:target) :is(.pr--418, .pb--418) { display: flex; }
+#hk-p18:has(#p18-418:target) :is(.pr--418, .pb--418) { display: flex; }
+#hk-p01:has(#p01-501:target) :is(.pr--501, .pb--501) { display: flex; }
+#hk-p01:has(#p01-501:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-501:target) :is(.pr--501, .pb--501) { display: flex; }
+#hk-p18:has(#p18-501:target) :is(.pr--501, .pb--501) { display: flex; }
+#hk-p01:has(#p01-502:target) :is(.pr--502, .pb--502) { display: flex; }
+#hk-p01:has(#p01-502:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-502:target) :is(.pr--502, .pb--502) { display: flex; }
+#hk-p18:has(#p18-502:target) :is(.pr--502, .pb--502) { display: flex; }
+#hk-p01:has(#p01-503:target) :is(.pr--503, .pb--503) { display: flex; }
+#hk-p01:has(#p01-503:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-503:target) :is(.pr--503, .pb--503) { display: flex; }
+#hk-p18:has(#p18-503:target) :is(.pr--503, .pb--503) { display: flex; }
+#hk-p01:has(#p01-504:target) :is(.pr--504, .pb--504) { display: flex; }
+#hk-p01:has(#p01-504:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-504:target) :is(.pr--504, .pb--504) { display: flex; }
+#hk-p18:has(#p18-504:target) :is(.pr--504, .pb--504) { display: flex; }
+#hk-p01:has(#p01-505:target) :is(.pr--505, .pb--505) { display: flex; }
+#hk-p01:has(#p01-505:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-505:target) :is(.pr--505, .pb--505) { display: flex; }
+#hk-p18:has(#p18-505:target) :is(.pr--505, .pb--505) { display: flex; }
+#hk-p01:has(#p01-506:target) :is(.pr--506, .pb--506) { display: flex; }
+#hk-p01:has(#p01-506:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-506:target) :is(.pr--506, .pb--506) { display: flex; }
+#hk-p18:has(#p18-506:target) :is(.pr--506, .pb--506) { display: flex; }
+#hk-p01:has(#p01-507:target) :is(.pr--507, .pb--507) { display: flex; }
+#hk-p01:has(#p01-507:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-507:target) :is(.pr--507, .pb--507) { display: flex; }
+#hk-p18:has(#p18-507:target) :is(.pr--507, .pb--507) { display: flex; }
+#hk-p01:has(#p01-508:target) :is(.pr--508, .pb--508) { display: flex; }
+#hk-p01:has(#p01-508:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-508:target) :is(.pr--508, .pb--508) { display: flex; }
+#hk-p18:has(#p18-508:target) :is(.pr--508, .pb--508) { display: flex; }
+#hk-p01:has(#p01-509:target) :is(.pr--509, .pb--509) { display: flex; }
+#hk-p01:has(#p01-509:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-509:target) :is(.pr--509, .pb--509) { display: flex; }
+#hk-p18:has(#p18-509:target) :is(.pr--509, .pb--509) { display: flex; }
+#hk-p01:has(#p01-510:target) :is(.pr--510, .pb--510) { display: flex; }
+#hk-p01:has(#p01-510:target) .from-od { display: flex; }
+#hk-p03:has(#p03-510:target) :is(.pr--510, .pb--510) { display: flex; }
+#hk-p18:has(#p18-510:target) :is(.pr--510, .pb--510) { display: flex; }
+#hk-p01:has(#p01-511:target) :is(.pr--511, .pb--511) { display: flex; }
+#hk-p01:has(#p01-511:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-511:target) :is(.pr--511, .pb--511) { display: flex; }
+#hk-p18:has(#p18-511:target) :is(.pr--511, .pb--511) { display: flex; }
+#hk-p01:has(#p01-512:target) :is(.pr--512, .pb--512) { display: flex; }
+#hk-p01:has(#p01-512:target) .from-vd { display: flex; }
+#hk-p03:has(#p03-512:target) :is(.pr--512, .pb--512) { display: flex; }
+#hk-p18:has(#p18-512:target) :is(.pr--512, .pb--512) { display: flex; }
+#hk-p03:has(#p03-513:target) :is(.pr--513, .pb--513) { display: flex; }
+#hk-p01:has(#p01-514:target) :is(.pr--514, .pb--514) { display: flex; }
+#hk-p01:has(#p01-514:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-514:target) :is(.pr--514, .pb--514) { display: flex; }
+#hk-p18:has(#p18-514:target) :is(.pr--514, .pb--514) { display: flex; }
+#hk-p01:has(#p01-515:target) :is(.pr--515, .pb--515) { display: flex; }
+#hk-p01:has(#p01-515:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-515:target) :is(.pr--515, .pb--515) { display: flex; }
+#hk-p18:has(#p18-515:target) :is(.pr--515, .pb--515) { display: flex; }
+#hk-p01:has(#p01-516:target) :is(.pr--516, .pb--516) { display: flex; }
+#hk-p01:has(#p01-516:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-516:target) :is(.pr--516, .pb--516) { display: flex; }
+#hk-p18:has(#p18-516:target) :is(.pr--516, .pb--516) { display: flex; }
+#hk-p01:has(#p01-517:target) :is(.pr--517, .pb--517) { display: flex; }
+#hk-p01:has(#p01-517:target) .from-oc { display: flex; }
+#hk-p03:has(#p03-517:target) :is(.pr--517, .pb--517) { display: flex; }
+#hk-p18:has(#p18-517:target) :is(.pr--517, .pb--517) { display: flex; }
+#hk-p01:has(#p01-101:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-102:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-102:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-103:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-104:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-105:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-106:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-106:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-107:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-108:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-109:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-112:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-113:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-114:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-115:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-116:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-117:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-117:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-119:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-201:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-202:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-203:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-203:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-204:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-204:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-205:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-206:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-206:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-207:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-208:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-210:target):has(.po.from-vc input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-211:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-212:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-213:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-215:target):has(.po.from-vc input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-216:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-217:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-218:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-219:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-301:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-302:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-302:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-303:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-304:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-305:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-306:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-307:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-307:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-309:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-311:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-311:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-312:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-312:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-313:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-314:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-314:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-315:target):has(.po.from-vc input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-316:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-317:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-317:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-318:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-319:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-401:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-402:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-403:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-404:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-405:target):has(.po.from-vc input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-406:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-407:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-408:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-409:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-411:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-411:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-412:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-412:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-413:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-413:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-414:target):has(.po.from-vi input[value="VD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-414:target):has(.po.from-vi input[value="PU"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-415:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-416:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-417:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-501:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-503:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-504:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-505:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-506:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-507:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-508:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-509:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-511:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-514:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-515:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-516:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+#hk-p01:has(#p01-517:target):has(.po.from-oc input[value="OD"]:checked) .p01-back { display: flex; }
+body:has(:is(#s-101, #c-101, #cr-101, #u-101, #m-101):target) :is(#r-101, #l-101 > td),
+body:has(:is(#s-102, #c-102, #cr-102, #u-102, #m-102):target) :is(#r-102, #l-102 > td),
+body:has(:is(#s-103, #c-103, #cr-103, #u-103, #m-103):target) :is(#r-103, #l-103 > td),
+body:has(:is(#s-104, #c-104, #cr-104, #u-104, #m-104):target) :is(#r-104, #l-104 > td),
+body:has(:is(#s-105, #c-105, #cr-105, #u-105, #m-105):target) :is(#r-105, #l-105 > td),
+body:has(:is(#s-106, #c-106, #cr-106, #u-106, #m-106):target) :is(#r-106, #l-106 > td),
+body:has(:is(#s-107, #c-107, #cr-107, #u-107, #m-107):target) :is(#r-107, #l-107 > td),
+body:has(:is(#s-108, #c-108, #cr-108, #u-108, #m-108):target) :is(#r-108, #l-108 > td),
+body:has(:is(#s-109, #c-109, #cr-109, #u-109, #m-109):target) :is(#r-109, #l-109 > td),
+body:has(:is(#s-110, #c-110, #cr-110, #u-110, #m-110):target) :is(#r-110, #l-110 > td),
+body:has(:is(#s-111, #c-111, #cr-111, #u-111, #m-111):target) :is(#r-111, #l-111 > td),
+body:has(:is(#s-112, #c-112, #cr-112, #u-112, #m-112):target) :is(#r-112, #l-112 > td),
+body:has(:is(#s-113, #c-113, #cr-113, #u-113, #m-113):target) :is(#r-113, #l-113 > td),
+body:has(:is(#s-114, #c-114, #cr-114, #u-114, #m-114):target) :is(#r-114, #l-114 > td),
+body:has(:is(#s-115, #c-115, #cr-115, #u-115, #m-115):target) :is(#r-115, #l-115 > td),
+body:has(:is(#s-116, #c-116, #cr-116, #u-116, #m-116):target) :is(#r-116, #l-116 > td),
+body:has(:is(#s-117, #c-117, #cr-117, #u-117, #m-117):target) :is(#r-117, #l-117 > td),
+body:has(:is(#s-118, #c-118, #cr-118, #u-118, #m-118):target) :is(#r-118, #l-118 > td),
+body:has(:is(#s-119, #c-119, #cr-119, #u-119, #m-119):target) :is(#r-119, #l-119 > td),
+body:has(:is(#s-201, #c-201, #cr-201, #u-201, #m-201):target) :is(#r-201, #l-201 > td),
+body:has(:is(#s-202, #c-202, #cr-202, #u-202, #m-202):target) :is(#r-202, #l-202 > td),
+body:has(:is(#s-203, #c-203, #cr-203, #u-203, #m-203):target) :is(#r-203, #l-203 > td),
+body:has(:is(#s-204, #c-204, #cr-204, #u-204, #m-204):target) :is(#r-204, #l-204 > td),
+body:has(:is(#s-205, #c-205, #cr-205, #u-205, #m-205):target) :is(#r-205, #l-205 > td),
+body:has(:is(#s-206, #c-206, #cr-206, #u-206, #m-206):target) :is(#r-206, #l-206 > td),
+body:has(:is(#s-207, #c-207, #cr-207, #u-207, #m-207):target) :is(#r-207, #l-207 > td),
+body:has(:is(#s-208, #c-208, #cr-208, #u-208, #m-208):target) :is(#r-208, #l-208 > td),
+body:has(:is(#s-209, #c-209, #cr-209, #u-209, #m-209):target) :is(#r-209, #l-209 > td),
+body:has(:is(#s-210, #c-210, #cr-210, #u-210, #m-210):target) :is(#r-210, #l-210 > td),
+body:has(:is(#s-211, #c-211, #cr-211, #u-211, #m-211):target) :is(#r-211, #l-211 > td),
+body:has(:is(#s-212, #c-212, #cr-212, #u-212, #m-212):target) :is(#r-212, #l-212 > td),
+body:has(:is(#s-213, #c-213, #cr-213, #u-213, #m-213):target) :is(#r-213, #l-213 > td),
+body:has(:is(#s-214, #c-214, #cr-214, #u-214, #m-214):target) :is(#r-214, #l-214 > td),
+body:has(:is(#s-215, #c-215, #cr-215, #u-215, #m-215):target) :is(#r-215, #l-215 > td),
+body:has(:is(#s-216, #c-216, #cr-216, #u-216, #m-216):target) :is(#r-216, #l-216 > td),
+body:has(:is(#s-217, #c-217, #cr-217, #u-217, #m-217):target) :is(#r-217, #l-217 > td),
+body:has(:is(#s-218, #c-218, #cr-218, #u-218, #m-218):target) :is(#r-218, #l-218 > td),
+body:has(:is(#s-219, #c-219, #cr-219, #u-219, #m-219):target) :is(#r-219, #l-219 > td),
+body:has(:is(#s-301, #c-301, #cr-301, #u-301, #m-301):target) :is(#r-301, #l-301 > td),
+body:has(:is(#s-302, #c-302, #cr-302, #u-302, #m-302):target) :is(#r-302, #l-302 > td),
+body:has(:is(#s-303, #c-303, #cr-303, #u-303, #m-303):target) :is(#r-303, #l-303 > td),
+body:has(:is(#s-304, #c-304, #cr-304, #u-304, #m-304):target) :is(#r-304, #l-304 > td),
+body:has(:is(#s-305, #c-305, #cr-305, #u-305, #m-305):target) :is(#r-305, #l-305 > td),
+body:has(:is(#s-306, #c-306, #cr-306, #u-306, #m-306):target) :is(#r-306, #l-306 > td),
+body:has(:is(#s-307, #c-307, #cr-307, #u-307, #m-307):target) :is(#r-307, #l-307 > td),
+body:has(:is(#s-308, #c-308, #cr-308, #u-308, #m-308):target) :is(#r-308, #l-308 > td),
+body:has(:is(#s-309, #c-309, #cr-309, #u-309, #m-309):target) :is(#r-309, #l-309 > td),
+body:has(:is(#s-310, #c-310, #cr-310, #u-310, #m-310):target) :is(#r-310, #l-310 > td),
+body:has(:is(#s-311, #c-311, #cr-311, #u-311, #m-311):target) :is(#r-311, #l-311 > td),
+body:has(:is(#s-312, #c-312, #cr-312, #u-312, #m-312):target) :is(#r-312, #l-312 > td),
+body:has(:is(#s-313, #c-313, #cr-313, #u-313, #m-313):target) :is(#r-313, #l-313 > td),
+body:has(:is(#s-314, #c-314, #cr-314, #u-314, #m-314):target) :is(#r-314, #l-314 > td),
+body:has(:is(#s-315, #c-315, #cr-315, #u-315, #m-315):target) :is(#r-315, #l-315 > td),
+body:has(:is(#s-316, #c-316, #cr-316, #u-316, #m-316):target) :is(#r-316, #l-316 > td),
+body:has(:is(#s-317, #c-317, #cr-317, #u-317, #m-317):target) :is(#r-317, #l-317 > td),
+body:has(:is(#s-318, #c-318, #cr-318, #u-318, #m-318):target) :is(#r-318, #l-318 > td),
+body:has(:is(#s-319, #c-319, #cr-319, #u-319, #m-319):target) :is(#r-319, #l-319 > td),
+body:has(:is(#s-401, #c-401, #cr-401, #u-401, #m-401):target) :is(#r-401, #l-401 > td),
+body:has(:is(#s-402, #c-402, #cr-402, #u-402, #m-402):target) :is(#r-402, #l-402 > td),
+body:has(:is(#s-403, #c-403, #cr-403, #u-403, #m-403):target) :is(#r-403, #l-403 > td),
+body:has(:is(#s-404, #c-404, #cr-404, #u-404, #m-404):target) :is(#r-404, #l-404 > td),
+body:has(:is(#s-405, #c-405, #cr-405, #u-405, #m-405):target) :is(#r-405, #l-405 > td),
+body:has(:is(#s-406, #c-406, #cr-406, #u-406, #m-406):target) :is(#r-406, #l-406 > td),
+body:has(:is(#s-407, #c-407, #cr-407, #u-407, #m-407):target) :is(#r-407, #l-407 > td),
+body:has(:is(#s-408, #c-408, #cr-408, #u-408, #m-408):target) :is(#r-408, #l-408 > td),
+body:has(:is(#s-409, #c-409, #cr-409, #u-409, #m-409):target) :is(#r-409, #l-409 > td),
+body:has(:is(#s-410, #c-410, #cr-410, #u-410, #m-410):target) :is(#r-410, #l-410 > td),
+body:has(:is(#s-411, #c-411, #cr-411, #u-411, #m-411):target) :is(#r-411, #l-411 > td),
+body:has(:is(#s-412, #c-412, #cr-412, #u-412, #m-412):target) :is(#r-412, #l-412 > td),
+body:has(:is(#s-413, #c-413, #cr-413, #u-413, #m-413):target) :is(#r-413, #l-413 > td),
+body:has(:is(#s-414, #c-414, #cr-414, #u-414, #m-414):target) :is(#r-414, #l-414 > td),
+body:has(:is(#s-415, #c-415, #cr-415, #u-415, #m-415):target) :is(#r-415, #l-415 > td),
+body:has(:is(#s-416, #c-416, #cr-416, #u-416, #m-416):target) :is(#r-416, #l-416 > td),
+body:has(:is(#s-417, #c-417, #cr-417, #u-417, #m-417):target) :is(#r-417, #l-417 > td),
+body:has(:is(#s-418, #c-418, #cr-418, #u-418, #m-418):target) :is(#r-418, #l-418 > td),
+body:has(:is(#s-501, #c-501, #cr-501, #u-501, #m-501):target) :is(#r-501, #l-501 > td),
+body:has(:is(#s-502, #c-502, #cr-502, #u-502, #m-502):target) :is(#r-502, #l-502 > td),
+body:has(:is(#s-503, #c-503, #cr-503, #u-503, #m-503):target) :is(#r-503, #l-503 > td),
+body:has(:is(#s-504, #c-504, #cr-504, #u-504, #m-504):target) :is(#r-504, #l-504 > td),
+body:has(:is(#s-505, #c-505, #cr-505, #u-505, #m-505):target) :is(#r-505, #l-505 > td),
+body:has(:is(#s-506, #c-506, #cr-506, #u-506, #m-506):target) :is(#r-506, #l-506 > td),
+body:has(:is(#s-507, #c-507, #cr-507, #u-507, #m-507):target) :is(#r-507, #l-507 > td),
+body:has(:is(#s-508, #c-508, #cr-508, #u-508, #m-508):target) :is(#r-508, #l-508 > td),
+body:has(:is(#s-509, #c-509, #cr-509, #u-509, #m-509):target) :is(#r-509, #l-509 > td),
+body:has(:is(#s-510, #c-510, #cr-510, #u-510, #m-510):target) :is(#r-510, #l-510 > td),
+body:has(:is(#s-511, #c-511, #cr-511, #u-511, #m-511):target) :is(#r-511, #l-511 > td),
+body:has(:is(#s-512, #c-512, #cr-512, #u-512, #m-512):target) :is(#r-512, #l-512 > td),
+body:has(:is(#s-513, #c-513, #cr-513, #u-513, #m-513):target) :is(#r-513, #l-513 > td),
+body:has(:is(#s-514, #c-514, #cr-514, #u-514, #m-514):target) :is(#r-514, #l-514 > td),
+body:has(:is(#s-515, #c-515, #cr-515, #u-515, #m-515):target) :is(#r-515, #l-515 > td),
+body:has(:is(#s-516, #c-516, #cr-516, #u-516, #m-516):target) :is(#r-516, #l-516 > td),
+body:has(:is(#s-517, #c-517, #cr-517, #u-517, #m-517):target) :is(#r-517, #l-517 > td) {
+  background: var(--ok-bg);
+  box-shadow: 0 0 0 2px var(--em-500);
+}
+body:has(:is(#c-101, #s-101, #m-101):target) .tt-room::after { content: "101"; }
+body:has(:is(#c-102, #s-102):target) .tt-room::after { content: "102"; }
+body:has(:is(#c-103, #s-103, #m-103):target) .tt-room::after { content: "103"; }
+body:has(:is(#c-104, #s-104, #m-104):target) .tt-room::after { content: "104"; }
+body:has(:is(#c-105, #s-105, #m-105):target) .tt-room::after { content: "105"; }
+body:has(:is(#c-106, #s-106):target) .tt-room::after { content: "106"; }
+body:has(:is(#c-107, #s-107, #m-107):target) .tt-room::after { content: "107"; }
+body:has(:is(#c-108, #s-108, #m-108):target) .tt-room::after { content: "108"; }
+body:has(:is(#c-109, #s-109, #m-109):target) .tt-room::after { content: "109"; }
+body:has(:is(#c-110, #s-110, #u-110, #m-110):target) .tt-room::after { content: "110"; }
+body:has(#u-110:target) .tt-who::after { content: "Remya K and the supervisor Beena Thomas"; }
+body:has(:is(#c-111, #s-111, #m-111):target) .tt-room::after { content: "111"; }
+body:has(:is(#c-112, #s-112, #m-112):target) .tt-room::after { content: "112"; }
+body:has(:is(#c-113, #s-113, #m-113):target) .tt-room::after { content: "113"; }
+body:has(:is(#c-114, #s-114, #m-114):target) .tt-room::after { content: "114"; }
+body:has(:is(#c-115, #s-115, #m-115):target) .tt-room::after { content: "115"; }
+body:has(:is(#c-116, #s-116, #m-116):target) .tt-room::after { content: "116"; }
+body:has(:is(#c-117, #s-117, #cr-117):target) .tt-room::after { content: "117"; }
+body:has(#cr-117:target) .tt-cond::after { content: "Show room – sales visit 11:30"; }
+body:has(:is(#c-118, #s-118, #u-118, #m-118):target) .tt-room::after { content: "118"; }
+body:has(#u-118:target) .tt-who::after { content: "Divya M and the supervisor Beena Thomas"; }
+body:has(:is(#c-119, #s-119, #m-119):target) .tt-room::after { content: "119"; }
+body:has(:is(#c-201, #s-201, #m-201):target) .tt-room::after { content: "201"; }
+body:has(:is(#c-202, #s-202, #m-202):target) .tt-room::after { content: "202"; }
+body:has(:is(#c-203, #s-203):target) .tt-room::after { content: "203"; }
+body:has(:is(#c-204, #s-204):target) .tt-room::after { content: "204"; }
+body:has(:is(#c-205, #s-205, #u-205, #m-205):target) .tt-room::after { content: "205"; }
+body:has(#u-205:target) .tt-who::after { content: "Divya M and the supervisor Beena Thomas"; }
+body:has(:is(#c-206, #s-206, #cr-206):target) .tt-room::after { content: "206"; }
+body:has(#cr-206:target) .tt-cond::after { content: "Baby cot in room"; }
+body:has(:is(#c-207, #s-207, #u-207, #m-207):target) .tt-room::after { content: "207"; }
+body:has(#u-207:target) .tt-who::after { content: "Divya M and the supervisor Beena Thomas"; }
+body:has(:is(#c-208, #s-208, #m-208):target) .tt-room::after { content: "208"; }
+body:has(:is(#c-209, #s-209, #u-209, #m-209):target) .tt-room::after { content: "209"; }
+body:has(#u-209:target) .tt-who::after { content: "Mariamma Varghese and the supervisor Beena Thomas"; }
+body:has(:is(#c-210, #s-210, #m-210):target) .tt-room::after { content: "210"; }
+body:has(:is(#c-211, #s-211, #m-211):target) .tt-room::after { content: "211"; }
+body:has(:is(#c-212, #s-212, #m-212):target) .tt-room::after { content: "212"; }
+body:has(:is(#c-213, #s-213, #m-213):target) .tt-room::after { content: "213"; }
+body:has(:is(#c-214):target) .tt-room::after { content: "214"; }
+body:has(:is(#c-215, #s-215, #m-215):target) .tt-room::after { content: "215"; }
+body:has(:is(#c-216, #s-216, #u-216, #m-216):target) .tt-room::after { content: "216"; }
+body:has(#u-216:target) .tt-who::after { content: "Mariamma Varghese and the supervisor Beena Thomas"; }
+body:has(:is(#c-217, #s-217, #m-217):target) .tt-room::after { content: "217"; }
+body:has(:is(#c-218, #s-218, #m-218):target) .tt-room::after { content: "218"; }
+body:has(:is(#c-219, #s-219, #m-219):target) .tt-room::after { content: "219"; }
+body:has(:is(#c-301, #s-301, #m-301):target) .tt-room::after { content: "301"; }
+body:has(:is(#c-302, #s-302, #cr-302):target) .tt-room::after { content: "302"; }
+body:has(#cr-302:target) .tt-cond::after { content: "Twin made as king"; }
+body:has(:is(#c-303, #s-303, #m-303):target) .tt-room::after { content: "303"; }
+body:has(:is(#c-304, #s-304, #m-304):target) .tt-room::after { content: "304"; }
+body:has(:is(#c-305, #s-305, #u-305, #m-305):target) .tt-room::after { content: "305"; }
+body:has(#u-305:target) .tt-who::after { content: "Shiny Joseph and the supervisor Joseph Paul"; }
+body:has(:is(#c-306, #s-306, #m-306):target) .tt-room::after { content: "306"; }
+body:has(:is(#c-307, #s-307):target) .tt-room::after { content: "307"; }
+body:has(:is(#c-308, #s-308, #u-308, #m-308):target) .tt-room::after { content: "308"; }
+body:has(#u-308:target) .tt-who::after { content: "Shiny Joseph and the supervisor Joseph Paul"; }
+body:has(:is(#c-309, #s-309, #m-309):target) .tt-room::after { content: "309"; }
+body:has(:is(#c-310, #s-310, #u-310, #m-310):target) .tt-room::after { content: "310"; }
+body:has(#u-310:target) .tt-who::after { content: "Shiny Joseph and the supervisor Joseph Paul"; }
+body:has(:is(#c-311, #s-311):target) .tt-room::after { content: "311"; }
+body:has(:is(#c-312, #s-312):target) .tt-room::after { content: "312"; }
+body:has(:is(#c-313, #s-313, #m-313):target) .tt-room::after { content: "313"; }
+body:has(:is(#c-314, #s-314):target) .tt-room::after { content: "314"; }
+body:has(:is(#c-315, #s-315, #m-315):target) .tt-room::after { content: "315"; }
+body:has(:is(#c-316, #s-316, #u-316, #m-316):target) .tt-room::after { content: "316"; }
+body:has(#u-316:target) .tt-who::after { content: "Rekha S and the supervisor Joseph Paul"; }
+body:has(:is(#c-317, #s-317):target) .tt-room::after { content: "317"; }
+body:has(:is(#c-318, #s-318, #m-318):target) .tt-room::after { content: "318"; }
+body:has(:is(#c-319, #s-319, #u-319, #m-319):target) .tt-room::after { content: "319"; }
+body:has(#u-319:target) .tt-who::after { content: "Rekha S and the supervisor Joseph Paul"; }
+body:has(:is(#c-401, #s-401, #m-401):target) .tt-room::after { content: "401"; }
+body:has(:is(#c-402, #s-402, #m-402):target) .tt-room::after { content: "402"; }
+body:has(:is(#c-403, #s-403, #m-403):target) .tt-room::after { content: "403"; }
+body:has(:is(#c-404, #s-404, #u-404, #m-404):target) .tt-room::after { content: "404"; }
+body:has(#u-404:target) .tt-who::after { content: "Rekha S and the supervisor Joseph Paul"; }
+body:has(:is(#c-405, #s-405, #m-405):target) .tt-room::after { content: "405"; }
+body:has(:is(#c-406, #s-406, #u-406, #m-406):target) .tt-room::after { content: "406"; }
+body:has(#u-406:target) .tt-who::after { content: "Rekha S and the supervisor Joseph Paul"; }
+body:has(:is(#c-407, #s-407, #m-407):target) .tt-room::after { content: "407"; }
+body:has(:is(#c-408, #s-408, #m-408):target) .tt-room::after { content: "408"; }
+body:has(:is(#c-409, #s-409, #m-409):target) .tt-room::after { content: "409"; }
+body:has(:is(#c-410, #s-410, #u-410, #m-410):target) .tt-room::after { content: "410"; }
+body:has(#u-410:target) .tt-who::after { content: "Lissy George and the supervisor Joseph Paul"; }
+body:has(:is(#c-411, #s-411):target) .tt-room::after { content: "411"; }
+body:has(:is(#c-412, #s-412):target) .tt-room::after { content: "412"; }
+body:has(:is(#c-413, #s-413):target) .tt-room::after { content: "413"; }
+body:has(:is(#c-414, #s-414):target) .tt-room::after { content: "414"; }
+body:has(:is(#c-415, #s-415, #u-415, #m-415):target) .tt-room::after { content: "415"; }
+body:has(#u-415:target) .tt-who::after { content: "Lissy George and the supervisor Joseph Paul"; }
+body:has(:is(#c-416, #s-416, #u-416, #m-416):target) .tt-room::after { content: "416"; }
+body:has(#u-416:target) .tt-who::after { content: "Lissy George and the supervisor Joseph Paul"; }
+body:has(:is(#c-417, #s-417, #m-417):target) .tt-room::after { content: "417"; }
+body:has(:is(#c-418, #s-418, #u-418, #m-418):target) .tt-room::after { content: "418"; }
+body:has(#u-418:target) .tt-who::after { content: "Lissy George and the supervisor Joseph Paul"; }
+body:has(:is(#c-501, #s-501, #m-501):target) .tt-room::after { content: "501"; }
+body:has(:is(#c-502, #s-502, #u-502, #m-502):target) .tt-room::after { content: "502"; }
+body:has(#u-502:target) .tt-who::after { content: "Rani V and the supervisor Joseph Paul"; }
+body:has(:is(#c-503, #s-503, #u-503, #m-503):target) .tt-room::after { content: "503"; }
+body:has(#u-503:target) .tt-who::after { content: "Lissy George and the supervisor Joseph Paul"; }
+body:has(:is(#c-504, #s-504, #m-504):target) .tt-room::after { content: "504"; }
+body:has(:is(#c-505, #s-505, #u-505, #m-505):target) .tt-room::after { content: "505"; }
+body:has(#u-505:target) .tt-who::after { content: "Saritha K and the supervisor Latha Nathan"; }
+body:has(:is(#c-506, #s-506, #m-506):target) .tt-room::after { content: "506"; }
+body:has(:is(#c-507, #s-507, #m-507):target) .tt-room::after { content: "507"; }
+body:has(:is(#c-508, #s-508, #m-508):target) .tt-room::after { content: "508"; }
+body:has(:is(#c-509, #s-509, #m-509):target) .tt-room::after { content: "509"; }
+body:has(:is(#c-510, #s-510, #u-510, #m-510):target) .tt-room::after { content: "510"; }
+body:has(#u-510:target) .tt-who::after { content: "Saritha K and the supervisor Latha Nathan"; }
+body:has(:is(#c-511, #s-511, #m-511):target) .tt-room::after { content: "511"; }
+body:has(:is(#c-512, #s-512, #u-512, #m-512):target) .tt-room::after { content: "512"; }
+body:has(#u-512:target) .tt-who::after { content: "Saritha K and the supervisor Latha Nathan"; }
+body:has(:is(#c-513):target) .tt-room::after { content: "513"; }
+body:has(:is(#c-514, #s-514, #m-514):target) .tt-room::after { content: "514"; }
+body:has(:is(#c-515, #s-515, #u-515, #m-515):target) .tt-room::after { content: "515"; }
+body:has(#u-515:target) .tt-who::after { content: "the floor supervisor and the supervisor Sunita Ranjan"; }
+body:has(:is(#c-516, #s-516, #u-516, #m-516):target) .tt-room::after { content: "516"; }
+body:has(#u-516:target) .tt-who::after { content: "the floor supervisor and the supervisor Sunita Ranjan"; }
+body:has(:is(#c-517, #s-517, #u-517, #m-517):target) .tt-room::after { content: "517"; }
+body:has(#u-517:target) .tt-who::after { content: "the floor supervisor and the supervisor Sunita Ranjan"; }
+.hb-mks:has(.mk-s:target) ~ .hb-toast--s,
+.hb-mks:has(.mk-c:target) ~ .hb-toast--c,
+.hb-mks:has(.mk-cr:target) ~ .hb-toast--cr,
+.hb-mks:has(.mk-u:target) ~ .hb-toast--u,
+.hb-mks:has(.mk-m:target) ~ .hb-toast--m {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

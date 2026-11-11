@@ -1,0 +1,5 @@
+/* lg-07-login-policy.css */
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

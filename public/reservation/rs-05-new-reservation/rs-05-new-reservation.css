@@ -1,0 +1,1206 @@
+/* RS-05 New Reservation — a guided form: stay · guest · rooms & rates · billing */
+.s-stepnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-2);
+}
+
+.rs05-stay {
+  display: grid;
+  gap: 14px;
+}
+
+.rb {
+  display: grid;
+  gap: 14px;
+}
+
+.rb__rt,
+.rb__rp {
+  font-weight: 600;
+}
+
+.rb__auto {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: var(--br-100);
+  color: var(--br-700);
+  font-size: 9.5px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rb__fetched {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-100);
+}
+
+.rb__r strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.rb__u {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.rb__cap {
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rb__meal {
+  gap: 8px;
+}
+
+.ar {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  border: 1px dashed var(--line-strong);
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) .ar {
+  background: var(--warn-bg);
+  border-style: solid;
+  border-color: var(--gold-light, #ecd9a8);
+}
+
+.ar__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ar__head .icon {
+  color: var(--st-tentative);
+}
+
+.ar__off {
+  display: block;
+}
+
+/* the seven steps as one wide stepper bar */
+.stabs--steps > .stabs__list {
+  display: flex;
+  width: 100%;
+  border-radius: var(--r-lg);
+  padding: 5px;
+}
+
+.stabs--steps > .stabs__list label {
+  flex: 1 1 0;
+  justify-content: center;
+  border-radius: var(--r-md);
+}
+
+.stabs--steps .stabs__n {
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.rs05-main {
+  min-width: 0;
+}
+
+.rb__disc {
+  color: var(--st-ready);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rb__r,
+.rb__capx,
+.rb__m,
+.ar__t,
+.ar__custom,
+.ar__on,
+.ar__more {
+  display: none;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked) .rb__cap--GDLX {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="BAR-CP"]:checked) .rb__r[data-k="GDLX-BAR-CP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="BAR-EP"]:checked) .rb__r[data-k="GDLX-BAR-EP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="BAR-MAP"]:checked) .rb__r[data-k="GDLX-BAR-MAP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="BAR-AP"]:checked) .rb__r[data-k="GDLX-BAR-AP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="CLUB"]:checked) .rb__r[data-k="GDLX-CLUB"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="CORP"]:checked) .rb__r[data-k="GDLX-CORP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="AGENT"]:checked) .rb__r[data-k="GDLX-AGENT"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="ADV15"]:checked) .rb__r[data-k="GDLX-ADV15"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked) .rb__cap--PDLX {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="BAR-CP"]:checked) .rb__r[data-k="PDLX-BAR-CP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="BAR-EP"]:checked) .rb__r[data-k="PDLX-BAR-EP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="BAR-MAP"]:checked) .rb__r[data-k="PDLX-BAR-MAP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="BAR-AP"]:checked) .rb__r[data-k="PDLX-BAR-AP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="CLUB"]:checked) .rb__r[data-k="PDLX-CLUB"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="CORP"]:checked) .rb__r[data-k="PDLX-CORP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="AGENT"]:checked) .rb__r[data-k="PDLX-AGENT"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="ADV15"]:checked) .rb__r[data-k="PDLX-ADV15"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked) .rb__cap--DLXS {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="BAR-CP"]:checked) .rb__r[data-k="DLXS-BAR-CP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="BAR-EP"]:checked) .rb__r[data-k="DLXS-BAR-EP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="BAR-MAP"]:checked) .rb__r[data-k="DLXS-BAR-MAP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="BAR-AP"]:checked) .rb__r[data-k="DLXS-BAR-AP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="CLUB"]:checked) .rb__r[data-k="DLXS-CLUB"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="CORP"]:checked) .rb__r[data-k="DLXS-CORP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="AGENT"]:checked) .rb__r[data-k="DLXS-AGENT"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="ADV15"]:checked) .rb__r[data-k="DLXS-ADV15"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked) .rb__cap--PRMS {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="BAR-CP"]:checked) .rb__r[data-k="PRMS-BAR-CP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="BAR-EP"]:checked) .rb__r[data-k="PRMS-BAR-EP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="BAR-MAP"]:checked) .rb__r[data-k="PRMS-BAR-MAP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="BAR-AP"]:checked) .rb__r[data-k="PRMS-BAR-AP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="CLUB"]:checked) .rb__r[data-k="PRMS-CLUB"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="CORP"]:checked) .rb__r[data-k="PRMS-CORP"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="AGENT"]:checked) .rb__r[data-k="PRMS-AGENT"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="ADV15"]:checked) .rb__r[data-k="PRMS-ADV15"] {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.rb:has(input[name="mealPlan"][value="EP"]:checked) .rb__m--EP {
+  display: inline;
+}
+
+.rb:has(input[name="mealPlan"][value="CP"]:checked) .rb__m--CP {
+  display: inline;
+}
+
+.rb:has(input[name="mealPlan"][value="MAP"]:checked) .rb__m--MAP {
+  display: inline;
+}
+
+.rb:has(input[name="mealPlan"][value="AP"]:checked) .rb__m--AP {
+  display: inline;
+}
+
+.rs05-stay:has(.ar__sel option[value="24"]:checked) .ar__t--24 {
+  display: inline;
+}
+
+.rs05-stay:has(.ar__sel option[value="48"]:checked) .ar__t--48 {
+  display: inline;
+}
+
+.rs05-stay:has(.ar__sel option[value="72"]:checked) .ar__t--72 {
+  display: inline;
+}
+
+.rs05-stay:has(.ar__sel option[value="96"]:checked) .ar__t--96 {
+  display: inline;
+}
+
+.rs05-stay:has(.ar__sel option[value="custom"]:checked) .ar__custom {
+  display: block;
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) :is(.ar__on,
+.ar__more) {
+  display: block;
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) .ar__off {
+  display: none;
+}
+
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+.rb:has(input[value="EP"]:checked) .rb__m--EP {
+  display: inline;
+}
+
+.rb:has(input[value="CP"]:checked) .rb__m--CP {
+  display: inline;
+}
+
+.rb:has(input[value="MAP"]:checked) .rb__m--MAP {
+  display: inline;
+}
+
+.rb:has(input[value="AP"]:checked) .rb__m--AP {
+  display: inline;
+}
+
+.ar:has(.ar__sel option[value="72"]:checked) .ar__t--72 {
+  display: inline;
+}
+
+.ar:has(.ar__sel option[value="24"]:checked) .ar__t--24 {
+  display: inline;
+}
+
+.ar:has(.ar__sel option[value="48"]:checked) .ar__t--48 {
+  display: inline;
+}
+
+.ar:has(.ar__sel option[value="96"]:checked) .ar__t--96 {
+  display: inline;
+}
+
+.ar:has(.ar__sel option[value="custom"]:checked) .ar__custom {
+  display: block;
+}
+
+.ar:has(.ar__sel option[value="custom"]:checked) .ar__t {
+  display: none;
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) .ar__on {
+  display: grid;
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) .ar__off {
+  display: none;
+}
+
+.rs05:has(.rs05-status option[value="tentative"]:checked) .sum-hold {
+  display: block;
+}
+
+.rb:has(.rb__rt option[value="GDLX"]:checked) .rb__cap--GDLX {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="PDLX"]:checked) .rb__cap--PDLX {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="DLXS"]:checked) .rb__cap--DLXS {
+  display: inline;
+}
+
+.rb:has(.rb__rt option[value="PRMS"]:checked) .rb__cap--PRMS {
+  display: inline;
+}
+
+.rs05-stay:has(.rs05-status option[value="tentative"]:checked) .ar__more {
+  display: block;
+}
+
+#new:target ~ .v-new {
+  display: block;
+}
+
+#EQ-26-27-0001:target ~ .v-EQ-26-27-0001 {
+  display: block;
+}
+
+#EQ-26-27-0002:target ~ .v-EQ-26-27-0002 {
+  display: block;
+}
+
+#EQ-26-27-0003:target ~ .v-EQ-26-27-0003 {
+  display: block;
+}
+
+#EQ-26-27-0004:target ~ .v-EQ-26-27-0004 {
+  display: block;
+}
+
+#EQ-26-27-0005:target ~ .v-EQ-26-27-0005 {
+  display: block;
+}
+
+#EQ-26-27-0006:target ~ .v-EQ-26-27-0006 {
+  display: block;
+}
+
+#EQ-26-27-0007:target ~ .v-EQ-26-27-0007 {
+  display: block;
+}
+
+#EQ-26-27-0008:target ~ .v-EQ-26-27-0008 {
+  display: block;
+}
+
+#EQ-26-27-0009:target ~ .v-EQ-26-27-0009 {
+  display: block;
+}
+
+#EQ-26-27-0010:target ~ .v-EQ-26-27-0010 {
+  display: block;
+}
+
+#EQ-26-27-0011:target ~ .v-EQ-26-27-0011 {
+  display: block;
+}
+
+#EQ-26-27-0012:target ~ .v-EQ-26-27-0012 {
+  display: block;
+}
+
+#EQ-26-27-0013:target ~ .v-EQ-26-27-0013 {
+  display: block;
+}
+
+#EQ-26-27-0014:target ~ .v-EQ-26-27-0014 {
+  display: block;
+}
+
+#EQ-26-27-0015:target ~ .v-EQ-26-27-0015 {
+  display: block;
+}
+
+#EQ-26-27-0016:target ~ .v-EQ-26-27-0016 {
+  display: block;
+}
+
+/* RS-05 New Reservation.
+   Two columns: the seven-step form in one white card made of titled sections, and a sticky booking ticket beside it.
+   The :has() mechanics (tentative, rate, meal plan) stay in css/pages/rs-05-new-reservation.css. */
+.rs05 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 344px;
+  gap: 20px;
+  align-items: start;
+}
+
+.rs05-main {
+  min-width: 0;
+}
+
+.rs05-main .stabs__panels {
+  margin-top: 16px;
+}
+
+/* ── the form card ── */
+.rs05-main .stabs__panel {
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+  overflow: hidden;
+}
+
+.rs05-stay {
+  display: block;
+}
+
+.rs05-avail {
+  padding: 12px 24px;
+  background: var(--em-50);
+  border-bottom: 1px solid var(--em-100);
+}
+
+.rs05-avail .s-note {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rs05-finder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 14px 24px;
+  background: var(--br-50);
+  border-bottom: 1px solid var(--br-200);
+}
+
+.rs05-finder__t {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.rs05-finder__t .icon {
+  color: var(--br-600);
+}
+
+.rs05-finder__b {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── a titled section ── */
+.rs05-sec {
+  padding: 22px 24px 24px;
+}
+
+.rs05-sec + .rs05-sec {
+  border-top: 1px solid var(--line-2);
+}
+
+.rs05-sec__h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rs05-sec__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+  box-shadow: inset 0 0 0 1px var(--em-100);
+}
+
+.rs05-sec__t {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.rs05-sec__d {
+  margin: 2px 0 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.rs05-sec__b {
+  display: grid;
+  gap: 16px;
+}
+
+.rs05-sec__b .row {
+  gap: 10px 22px;
+}
+
+.rs05-wide {
+  grid-column: span 2;
+  min-width: 0;
+}
+
+.rs05-einv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* consent and messages: tiles instead of loose lines */
+.rs05-consent {
+  display: grid;
+  gap: 16px;
+}
+
+.rs05-consent__ch,
+.rs05-sw2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rs05-consent__ch .check,
+.rs05-sw2 .sw {
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rs05-send {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+/* ── room line (step C) ── */
+.rs05-stay > .rs05-line {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 22px 24px 0;
+  padding: 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rs05-line__img {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 64px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--em-700), var(--em-950));
+  color: var(--br-300);
+}
+
+.rs05-line__main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.rs05-line__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.rs05-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 16px 24px 22px;
+}
+
+/* ── step navigation as the card footer ── */
+.rs05-main .stabs__panel > .s-stepnav {
+  margin: 0;
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+/* ── booking ticket ── */
+.rs05-summary {
+  position: sticky;
+  top: calc(var(--topbar-h) + 16px);
+  display: grid;
+  gap: 16px;
+}
+
+.rs05-ticket {
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-3);
+}
+
+.rs05-ticket__h,
+.rs05-ticket__tot {
+  background: var(--em-900);
+  color: #fff;
+}
+
+.rs05-ticket__h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 20px 0;
+}
+
+.rs05-ticket__k {
+  color: var(--br-300);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rs05-ticket__tot {
+  display: grid;
+  gap: 2px;
+  padding: 10px 20px 20px;
+}
+
+.rs05-ticket__tot > span {
+  color: var(--em-200, #bcd9cc);
+  font-size: 12px;
+}
+
+.rs05-ticket__tot strong {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.rs05-ticket__tot small {
+  color: var(--em-200, #bcd9cc);
+  font-size: 12px;
+}
+
+.rs05-ticket__tot small b {
+  color: #fff;
+  font-weight: 650;
+}
+
+.rs05-ticket__b {
+  display: grid;
+  gap: 0;
+  padding: 16px 20px 20px;
+}
+
+.rs05-ticket__b .s-kv {
+  margin: 0;
+}
+
+.rs05-ticket__sep {
+  height: 1px;
+  margin: 12px 0;
+  background: var(--line);
+}
+
+.rs05-ticket__pol {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.rs05-ticket__pol .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.rs05-ticket__act {
+  display: grid;
+  gap: 12px;
+}
+
+.rs05-ticket__act .btn--primary {
+  justify-content: center;
+  min-height: 44px;
+  width: 100%;
+}
+
+.rs05-prev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.rs05-prev__k {
+  flex-basis: 100%;
+  color: var(--ink-4);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rs05-prev .btn {
+  min-height: 28px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+/* ── after saving ── */
+.rs05-next {
+  padding: 16px 18px 12px;
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.rs05-next__h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rs05-next__h .s-card-title {
+  margin: 0;
+}
+
+.rs05-next__h .field__hint {
+  margin: 1px 0 0;
+}
+
+.rs05-check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--br-100);
+  color: var(--br-700);
+}
+
+.rs05-next__l {
+  display: grid;
+  gap: 2px;
+  margin-top: 12px;
+}
+
+.rs05-next .rs05-next__a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--r-md);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--t-fast);
+}
+
+.rs05-next .rs05-next__a:hover {
+  background: var(--surface-2);
+}
+
+.rs05-next .rs05-next__a > .icon:first-child {
+  color: var(--em-600);
+}
+
+.rs05-next .rs05-next__a > .icon:last-child {
+  margin-left: auto;
+  color: var(--ink-4);
+}
+
+/* ── narrower screens ── */
+@media (max-width: 1320px) {
+  .rs05 {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  .rs05-main .s-grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .rs05-wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .rs05 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rs05-summary {
+    position: static;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .rs05-summary,
+  .rs05-send,
+  .rs05-consent__ch,
+  .rs05-sw2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rs05-main .s-grid3,
+  .rs05-main .s-grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* the seven steps always stay on one row */
+.rs05-main .stabs--steps > .stabs__list {
+  flex-wrap: nowrap;
+}
+
+.rs05-main .stabs--steps > .stabs__list label {
+  gap: 6px;
+  min-width: 0;
+  padding: 6px 8px;
+}
+
+/* the tentative note shows only when the status is Tentative */
+.sum-hold {
+  display: none;
+}
+
+.sum-hold .s-note {
+  margin-bottom: 14px;
+}
+
+/* Save sits right under the total so it is always on screen */
+.rs05-ticket__act {
+  padding: 16px 20px 0;
+}
+
+.rs05-ticket__b {
+  padding-top: 18px;
+}
+
+.rs05-summary {
+  max-height: calc(100vh - var(--topbar-h) - 32px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 1100px) {
+  .rs05-summary {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* individual bookings stop at 5 rooms; more rooms go to a group reservation (user 2026-10-31, RSS-14 parameter) */
+.rs05-max {
+  margin-top: 12px;
+}
+
+/* the 5th room line is the last one: "Add another room" is switched off there */
+.stabs__panel:has(.rs05-line:nth-of-type(5)) .rs05-more .btn {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* channel manager and OTA rates for the chosen dates (user 2026-10-31) */
+.rs05-chr {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.rs05-chr > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rs05-chr > summary .icon {
+  color: var(--em-600);
+}
+
+.rs05-chr[open] > summary {
+  margin-bottom: 10px;
+}
+
+.rs05-chr .s-scroll {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.rs05-chr .chr-master > td {
+  background: var(--em-50);
+  font-weight: 700;
+}
+
+/* ── 2026-11-04: contract rates of the chosen company, nightly rates, group conversion, over-booking ── */
+.rs05-cr__p { display: none; margin-top: 10px; padding: 12px 14px; border-radius: var(--r-lg); background: color-mix(in srgb, var(--br-500) 7%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--br-500) 22%, var(--line)); }
+.rs05-co:has(option[value="MSE"]:checked) .rs05-cr__p[data-co="MSE"] { display: block; }
+.rs05-co:has(option[value="CMS"]:checked) .rs05-cr__p[data-co="CMS"] { display: block; }
+.rs05-co:has(option[value="PIS"]:checked) .rs05-cr__p[data-co="PIS"] { display: block; }
+.rs05-co:has(option[value="WLIL"]:checked) .rs05-cr__p[data-co="WLIL"] { display: block; }
+.rs05-co:has(option[value="BAAC"]:checked) .rs05-cr__p[data-co="BAAC"] { display: block; }
+.rs05-co:has(option[value="KHF"]:checked) .rs05-cr__p[data-co="KHF"] { display: block; }
+.rs05-co:has(option[value="EPD"]:checked) .rs05-cr__p[data-co="EPD"] { display: block; }
+.rs05-co:has(option[value="ASSA"]:checked) .rs05-cr__p[data-co="ASSA"] { display: block; }
+.rs05-co:has(option[value="SRHC"]:checked) .rs05-cr__p[data-co="SRHC"] { display: block; }
+.rs05-co:has(option[value="TKS"]:checked) .rs05-cr__p[data-co="TKS"] { display: block; }
+.rs05-co:has(option[value="STAH"]:checked) .rs05-cr__p[data-co="STAH"] { display: block; }
+.rs05-co:has(option[value="CCI"]:checked) .rs05-cr__p[data-co="CCI"] { display: block; }
+.rs05-co:has(option[value="VEW"]:checked) .rs05-cr__p[data-co="VEW"] { display: block; }
+.rs05-co:has(option[value="TMHE"]:checked) .rs05-cr__p[data-co="TMHE"] { display: block; }
+.rs05-co:has(option[value="DCA"]:checked) .rs05-cr__p[data-co="DCA"] { display: block; }
+.rs05-co:has(option[value="PTT"]:checked) .rs05-cr__p[data-co="PTT"] { display: block; }
+.rs05-co:has(option[value="BHAC"]:checked) .rs05-cr__p[data-co="BHAC"] { display: block; }
+.rs05-co:has(option[value="KTT"]:checked) .rs05-cr__p[data-co="KTT"] { display: block; }
+.rs05-co:has(option[value="SCJ"]:checked) .rs05-cr__p[data-co="SCJ"] { display: block; }
+.rs05-co:has(option[value="HRT"]:checked) .rs05-cr__p[data-co="HRT"] { display: block; }
+.rs05-co:has(option[value="BTM"]:checked) .rs05-cr__p[data-co="BTM"] { display: block; }
+.rs05-co:has(option[value="MMH"]:checked) .rs05-cr__p[data-co="MMH"] { display: block; }
+.rs05-co:has(option[value="GKT"]:checked) .rs05-cr__p[data-co="GKT"] { display: block; }
+.rs05-co:has(option[value="STI"]:checked) .rs05-cr__p[data-co="STI"] { display: block; }
+.rs05-co:has(option[value="FKE"]:checked) .rs05-cr__p[data-co="FKE"] { display: block; }
+.rs05-co:has(option[value="GPD"]:checked) .rs05-cr__p[data-co="GPD"] { display: block; }
+.rs05-co:has(option[value="SST"]:checked) .rs05-cr__p[data-co="SST"] { display: block; }
+.rs05-co:has(option[value="KSDO"]:checked) .rs05-cr__p[data-co="KSDO"] { display: block; }
+.rs05-co:has(option[value="SACD"]:checked) .rs05-cr__p[data-co="SACD"] { display: block; }
+.rs05-co:has(option[value="MET"]:checked) .rs05-cr__p[data-co="MET"] { display: block; }
+
+.rs05-cr__h { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: var(--st-ready); }
+.rs05-cr__h b { color: var(--ink); }
+.rs05-cr__d { display: grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); gap: 12px; margin: 10px 0 8px; }
+.rs05-cr .s-scroll { margin-top: 6px; }
+.rs05-nights { margin-top: 14px; padding: 14px 16px; border-radius: var(--r-lg); background: var(--surface); box-shadow: 0 0 0 1px var(--line), var(--sh-1); }
+.rs05-nights__h { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.rs05-tot > td { background: var(--surface-2); }
+.rs05-more__n { color: var(--ink-3); font-size: 12.5px; }
+.rs05-more__n b { color: var(--ink); }
+.rs05-nort-note { margin: 8px 0 12px; }
+.rs05-nort__s { display: grid; gap: 2px; margin-bottom: 12px; padding: 10px 14px; border-radius: var(--r-lg); background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); font-size: 13px; }
+.rs05-nort__s span { color: var(--ink-3); font-size: 12.5px; }
+.rs05-nort__flow { display: grid; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; counter-reset: nf; }
+.rs05-nort__flow li { position: relative; display: grid; gap: 2px; padding: 8px 12px 8px 44px; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); counter-increment: nf; font-size: 13px; }
+.rs05-nort__flow li::before { content: counter(nf); position: absolute; left: 12px; top: 8px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--br-600); color: #fff; font-size: 12px; font-weight: 700; }
+.rs05-nort__flow span { color: var(--ink-3); font-size: 12.5px; }
+.rg-in { width: 96px; text-align: right; }
+@media (max-width: 760px) { .rs05-cr__d { grid-template-columns: 1fr; } .rg-in { width: 100%; } }
+
+
+/* Facts of the chosen room type and rate plan (RSS-03, RSS-07) */
+.rbi { margin-top: 12px; }
+.rbi__g { display: none; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 16px; margin: 0 0 8px; padding: 12px; border: 1px solid var(--line, #e7e3da); border-radius: 10px; }
+.rbi__g dt { font-size: 12px; color: var(--ink-3); }
+.rbi__g dd { margin: 0; font-size: 13px; }
+.rb:has(.rb__rt option[value="GDLX"]:checked) .rbi__t--GDLX { display: grid; }
+.rb:has(.rb__rt option[value="PDLX"]:checked) .rbi__t--PDLX { display: grid; }
+.rb:has(.rb__rt option[value="DLXS"]:checked) .rbi__t--DLXS { display: grid; }
+.rb:has(.rb__rt option[value="PRMS"]:checked) .rbi__t--PRMS { display: grid; }
+.rb:has(.rb__rp option[value="BAR-CP"]:checked) .rbi__p--BAR-CP { display: grid; }
+.rb:has(.rb__rp option[value="BAR-EP"]:checked) .rbi__p--BAR-EP { display: grid; }
+.rb:has(.rb__rp option[value="BAR-MAP"]:checked) .rbi__p--BAR-MAP { display: grid; }
+.rb:has(.rb__rp option[value="BAR-AP"]:checked) .rbi__p--BAR-AP { display: grid; }
+.rb:has(.rb__rp option[value="CLUB"]:checked) .rbi__p--CLUB { display: grid; }
+.rb:has(.rb__rp option[value="ADV15"]:checked) .rbi__p--ADV15 { display: grid; }
+.rb:has(.rb__rp option[value="CORP"]:checked) .rbi__p--CORP { display: grid; }
+.rb:has(.rb__rp option[value="AGENT"]:checked) .rbi__p--AGENT { display: grid; }
+.rb:has(.rb__rp option[value="GROUP"]:checked) .rbi__p--GROUP { display: grid; }
+.rb:has(.rb__rp option[value="PKG-AYUR"]:checked) .rbi__p--PKG-AYUR { display: grid; }
+.rb:has(.rb__rp option[value="COMP"]:checked) .rbi__p--COMP { display: grid; }
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="GROUP"]:checked) .rb__r[data-k="GDLX-GROUP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="PKG-AYUR"]:checked) .rb__r[data-k="GDLX-PKG-AYUR"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="GDLX"]:checked):has(.rb__rp option[value="COMP"]:checked) .rb__r[data-k="GDLX-COMP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="GROUP"]:checked) .rb__r[data-k="PDLX-GROUP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="PKG-AYUR"]:checked) .rb__r[data-k="PDLX-PKG-AYUR"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PDLX"]:checked):has(.rb__rp option[value="COMP"]:checked) .rb__r[data-k="PDLX-COMP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="GROUP"]:checked) .rb__r[data-k="DLXS-GROUP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="PKG-AYUR"]:checked) .rb__r[data-k="DLXS-PKG-AYUR"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="DLXS"]:checked):has(.rb__rp option[value="COMP"]:checked) .rb__r[data-k="DLXS-COMP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="GROUP"]:checked) .rb__r[data-k="PRMS-GROUP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="PKG-AYUR"]:checked) .rb__r[data-k="PRMS-PKG-AYUR"] { display: inline-flex; align-items: baseline; gap: 6px; }
+.rb:has(.rb__rt option[value="PRMS"]:checked):has(.rb__rp option[value="COMP"]:checked) .rb__r[data-k="PRMS-COMP"] { display: inline-flex; align-items: baseline; gap: 6px; }
+
+/* the side column scrolls: leave room inside it so its overflow does not cut the outline and shadow of the cards */
+@media (min-width: 761px) {
+  .rs05-summary {
+    margin: -6px -8px -18px;
+    padding: 6px 8px 18px;
+  }
+}
+
+/* discount value and its % / ₹ switch on one row (the name .rb__disc is also the small text in the rate lines) */
+.field > .rb__disc:has(input) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 84px;
+  gap: 6px;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+
+/* 2026-11-11 · tax-inclusive price option, banner for bookings started from the room calendar */
+.rb-taxmode { display: grid; gap: 10px; margin: 0 0 12px; padding: 12px 14px; border-radius: 14px; background: var(--sunken, #f6f4ee); }
+.rb-taxmode__r { gap: 18px; flex-wrap: wrap; }
+.rb-taxmode__x { display: none; }
+.rb-taxmode:has(input[value="incl"]:checked) .rb-taxmode__x--incl { display: grid; gap: 8px; }
+.rb-taxmode:has(input[value="excl"]:checked) .rb-taxmode__x--excl { display: block; }
+.rb-taxmode__t th, .rb-taxmode__t td { padding: 6px 12px; }
+.rs05-cal { display: none; align-items: center; gap: 12px; margin: 0 0 14px; padding: 12px 16px; border-radius: 14px; background: var(--br-50); box-shadow: 0 0 0 1px var(--br-300); color: var(--ink); }
+.rs05-cal:target { display: flex; }
+.rs05-cal > span { flex: 1 1 auto; min-width: 0; }
+.rs05-cal > svg { flex: none; color: var(--em-600); }
+@media (max-width: 760px) {
+  .rs05-cal { flex-wrap: wrap; }
+  .rs05-cal .btn { flex: 1 1 100%; justify-content: center; }
+}

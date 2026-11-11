@@ -1,0 +1,14 @@
+/* an-06-guest-statistics.css – styles of AN-06 Guest Statistics (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.rv-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 1024px) {
+  .rv-two {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

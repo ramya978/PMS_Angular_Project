@@ -1,0 +1,323 @@
+/* bq-07-event-day-sheet.css: event-day form. On a laptop the event sits in a green banner, the work (function, checklist,
+   extras, incidents) in a wide column and the closing steps (actual pax, sign-off, Close function) in a column that
+   stays in view. On a phone everything stacks, one thumb-sized block after the other. */
+.ed {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ───── event banner ───── */
+.ed-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  padding: 22px 26px;
+  border-radius: 20px;
+  background:
+    radial-gradient(90% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.28), transparent 60%),
+    linear-gradient(135deg, var(--em-800), var(--em-600));
+  color: #fff;
+  box-shadow: var(--sh-3);
+}
+
+.ed-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--br-200);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ed-hero h2 {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.ed-hero p {
+  margin-top: 4px;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 13px;
+}
+
+.ev-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.ev-sum > div {
+  min-width: 120px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.16);
+}
+
+.ev-sum dt {
+  color: rgb(255 255 255 / 0.7);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ev-sum dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ───── two columns ───── */
+.ed-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 16px;
+  align-items: start;
+}
+
+.ed-main,
+.ed-side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ed-side {
+  position: sticky;
+  top: calc(var(--topbar-h) + 16px);
+}
+
+.ed-card {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  margin: 0;
+  padding: 20px 22px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.ed-card__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  float: none;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ed-card__t .icon {
+  color: var(--em-600);
+}
+
+.ed-card__t small {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+/* ───── function: big segmented choice ───── */
+.ed-seg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.ed-seg .check {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0;
+  min-height: 64px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-align: center;
+  cursor: pointer;
+}
+
+.ed-seg .check .check__box {
+  position: absolute;
+  opacity: 0;
+}
+
+.ed-seg .check span:not(.check__box) {
+  font-weight: 650;
+}
+
+.ed-seg .check small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ed-seg .check:has(input:checked) {
+  background: var(--em-700);
+  box-shadow: 0 8px 18px -10px var(--em-700);
+  color: #fff;
+}
+
+.ed-seg .check:has(input:checked) small {
+  color: var(--br-200);
+}
+
+.ed-seg--sm .check {
+  min-height: 44px;
+}
+
+/* ───── checklist as tiles ───── */
+.ed-ck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.ed-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  cursor: pointer;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+}
+
+.ed-tile:has(input:checked) {
+  background: var(--ok-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ok) 35%, transparent);
+}
+
+.ed-tile:has(input:not(:checked)) {
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--warn) 40%, transparent);
+}
+
+.ed-tile__t {
+  display: grid;
+  line-height: 1.3;
+}
+
+.ed-tile__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* ───── extras ───── */
+.ed-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px;
+}
+
+.ed-add > .field {
+  flex: 1 1 260px;
+}
+
+.ed-add > .ed-add__q {
+  flex: 0 1 130px;
+}
+
+/* ───── actual pax and sign-off ───── */
+.ed-pax .field__input[type="number"] {
+  height: 60px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ed-sig {
+  display: grid;
+  place-items: center;
+  height: 110px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 30px;
+}
+
+.ed-foot {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+}
+
+.ed-foot .btn {
+  min-height: 48px;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .ed-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ed-side {
+    position: static;
+  }
+
+  .ed-foot {
+    position: sticky;
+    bottom: 8px;
+  }
+
+  .ed-hero h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .ed-hero {
+    padding: 18px;
+  }
+
+  .ed-card {
+    padding: 16px;
+  }
+
+  .ed-foot {
+    bottom: 0;
+  }
+}
+
+/* the Function title is a fieldset legend: floated so it sits inside the card instead of on its border */
+.ed-fn {
+  display: block;
+}
+
+.ed-fn > legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.ed-fn > legend + * {
+  clear: both;
+}

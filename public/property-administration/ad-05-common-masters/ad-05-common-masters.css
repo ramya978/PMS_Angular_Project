@@ -1,0 +1,32 @@
+/* ad-05-common-masters.css */
+.ac-tabs > input:nth-of-type(1):checked ~ .stabs__panels > .stabs__panel:nth-child(1),
+.ac-tabs > input:nth-of-type(2):checked ~ .stabs__panels > .stabs__panel:nth-child(2),
+.ac-tabs > input:nth-of-type(3):checked ~ .stabs__panels > .stabs__panel:nth-child(3),
+.ac-tabs > input:nth-of-type(4):checked ~ .stabs__panels > .stabs__panel:nth-child(4),
+.ac-tabs > input:nth-of-type(5):checked ~ .stabs__panels > .stabs__panel:nth-child(5),
+.ac-tabs > input:nth-of-type(6):checked ~ .stabs__panels > .stabs__panel:nth-child(6),
+.ac-tabs > input:nth-of-type(7):checked ~ .stabs__panels > .stabs__panel:nth-child(7),
+.ac-tabs > input:nth-of-type(8):checked ~ .stabs__panels > .stabs__panel:nth-child(8),
+.ac-tabs > input:nth-of-type(9):checked ~ .stabs__panels > .stabs__panel:nth-child(9) {
+  display: block;
+}
+
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) table.dt__table tr.hr-new--cities-pin-codes {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.ad-w {
+  min-width: 260px;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#imported:target) #t-imported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,3344 @@
+/* lg-02-users.css: status views, per-user reset / deactivate pop-ups and after-states. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-active:target) .hv__v[data-v="v-active"],
+#main:has(#v-locked:target) .hv__v[data-v="v-locked"],
+#main:has(#v-inactive:target) .hv__v[data-v="v-inactive"],
+#main:has(#v-pending:target) .hv__v[data-v="v-pending"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-active:target) .lg-r:not(.rg-active),
+#main:has(#v-locked:target) .lg-r:not(.rg-locked),
+#main:has(#v-inactive:target) .lg-r:not(.rg-inactive),
+#main:has(#v-pending:target) .lg-r:not(.rg-pending) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.lg-who,
+.lg-go,
+.lg-st2 {
+  display: none;
+}
+
+body:has(#dx-emp-2001:target) #row-emp-2001 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2001:target) #row-emp-2001 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2001:target) #row-emp-2001 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2002:target) #row-emp-2002 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2002:target) #row-emp-2002 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2002:target) #row-emp-2002 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2003:target) #row-emp-2003 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2003:target) #row-emp-2003 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2003:target) #row-emp-2003 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2004:target) #row-emp-2004 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2004:target) #row-emp-2004 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2004:target) #row-emp-2004 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2005:target) #row-emp-2005 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2005:target) #row-emp-2005 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2005:target) #row-emp-2005 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2006:target) #row-emp-2006 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2006:target) #row-emp-2006 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2006:target) #row-emp-2006 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2007:target) #row-emp-2007 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2007:target) #row-emp-2007 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2007:target) #row-emp-2007 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2008:target) #row-emp-2008 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2008:target) #row-emp-2008 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2008:target) #row-emp-2008 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2009:target) #row-emp-2009 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2009:target) #row-emp-2009 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2009:target) #row-emp-2009 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2010:target) #row-emp-2010 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2010:target) #row-emp-2010 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2010:target) #row-emp-2010 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2011:target) #row-emp-2011 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2011:target) #row-emp-2011 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2011:target) #row-emp-2011 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2012:target) #row-emp-2012 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2012:target) #row-emp-2012 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2012:target) #row-emp-2012 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2013:target) #row-emp-2013 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2013:target) #row-emp-2013 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2013:target) #row-emp-2013 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2014:target) #row-emp-2014 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2014:target) #row-emp-2014 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2014:target) #row-emp-2014 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2015:target) #row-emp-2015 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2015:target) #row-emp-2015 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2015:target) #row-emp-2015 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2016:target) #row-emp-2016 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2016:target) #row-emp-2016 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2016:target) #row-emp-2016 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2023:target) #row-emp-2023 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2023:target) #row-emp-2023 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2023:target) #row-emp-2023 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2024:target) #row-emp-2024 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2024:target) #row-emp-2024 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2024:target) #row-emp-2024 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2025:target) #row-emp-2025 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2025:target) #row-emp-2025 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2025:target) #row-emp-2025 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-2026:target) #row-emp-2026 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-2026:target) #row-emp-2026 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-2026:target) #row-emp-2026 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3001:target) #row-emp-3001 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3001:target) #row-emp-3001 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3001:target) #row-emp-3001 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3002:target) #row-emp-3002 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3002:target) #row-emp-3002 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3002:target) #row-emp-3002 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3003:target) #row-emp-3003 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3003:target) #row-emp-3003 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3003:target) #row-emp-3003 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3004:target) #row-emp-3004 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3004:target) #row-emp-3004 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3004:target) #row-emp-3004 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3005:target) #row-emp-3005 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3005:target) #row-emp-3005 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3005:target) #row-emp-3005 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3006:target) #row-emp-3006 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3006:target) #row-emp-3006 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3006:target) #row-emp-3006 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3007:target) #row-emp-3007 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3007:target) #row-emp-3007 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3007:target) #row-emp-3007 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3008:target) #row-emp-3008 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3008:target) #row-emp-3008 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3008:target) #row-emp-3008 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3009:target) #row-emp-3009 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3009:target) #row-emp-3009 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3009:target) #row-emp-3009 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3010:target) #row-emp-3010 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3010:target) #row-emp-3010 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3010:target) #row-emp-3010 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3011:target) #row-emp-3011 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3011:target) #row-emp-3011 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3011:target) #row-emp-3011 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-3012:target) #row-emp-3012 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-3012:target) #row-emp-3012 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-3012:target) #row-emp-3012 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1001:target) #row-emp-1001 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1001:target) #row-emp-1001 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1001:target) #row-emp-1001 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1002:target) #row-emp-1002 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1002:target) #row-emp-1002 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1002:target) #row-emp-1002 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1003:target) #row-emp-1003 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1003:target) #row-emp-1003 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1003:target) #row-emp-1003 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1004:target) #row-emp-1004 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1004:target) #row-emp-1004 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1004:target) #row-emp-1004 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1005:target) #row-emp-1005 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1005:target) #row-emp-1005 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1005:target) #row-emp-1005 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1006:target) #row-emp-1006 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1006:target) #row-emp-1006 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1006:target) #row-emp-1006 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1007:target) #row-emp-1007 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1007:target) #row-emp-1007 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1007:target) #row-emp-1007 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1008:target) #row-emp-1008 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1008:target) #row-emp-1008 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1008:target) #row-emp-1008 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1009:target) #row-emp-1009 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1009:target) #row-emp-1009 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1009:target) #row-emp-1009 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1010:target) #row-emp-1010 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1010:target) #row-emp-1010 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1010:target) #row-emp-1010 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1011:target) #row-emp-1011 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1011:target) #row-emp-1011 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1011:target) #row-emp-1011 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1012:target) #row-emp-1012 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1012:target) #row-emp-1012 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1012:target) #row-emp-1012 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1013:target) #row-emp-1013 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1013:target) #row-emp-1013 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1013:target) #row-emp-1013 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1014:target) #row-emp-1014 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1014:target) #row-emp-1014 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1014:target) #row-emp-1014 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1015:target) #row-emp-1015 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1015:target) #row-emp-1015 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1015:target) #row-emp-1015 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1016:target) #row-emp-1016 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1016:target) #row-emp-1016 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1016:target) #row-emp-1016 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1017:target) #row-emp-1017 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1017:target) #row-emp-1017 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1017:target) #row-emp-1017 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1018:target) #row-emp-1018 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1018:target) #row-emp-1018 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1018:target) #row-emp-1018 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1019:target) #row-emp-1019 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1019:target) #row-emp-1019 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1019:target) #row-emp-1019 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1020:target) #row-emp-1020 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1020:target) #row-emp-1020 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1020:target) #row-emp-1020 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1021:target) #row-emp-1021 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1021:target) #row-emp-1021 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1021:target) #row-emp-1021 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1022:target) #row-emp-1022 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1022:target) #row-emp-1022 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1022:target) #row-emp-1022 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1023:target) #row-emp-1023 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1023:target) #row-emp-1023 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1023:target) #row-emp-1023 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-1024:target) #row-emp-1024 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-1024:target) #row-emp-1024 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-1024:target) #row-emp-1024 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4001:target) #row-emp-4001 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4001:target) #row-emp-4001 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4001:target) #row-emp-4001 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4002:target) #row-emp-4002 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4002:target) #row-emp-4002 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4002:target) #row-emp-4002 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4003:target) #row-emp-4003 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4003:target) #row-emp-4003 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4003:target) #row-emp-4003 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4004:target) #row-emp-4004 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4004:target) #row-emp-4004 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4004:target) #row-emp-4004 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4005:target) #row-emp-4005 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4005:target) #row-emp-4005 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4005:target) #row-emp-4005 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4006:target) #row-emp-4006 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4006:target) #row-emp-4006 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4006:target) #row-emp-4006 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4007:target) #row-emp-4007 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4007:target) #row-emp-4007 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4007:target) #row-emp-4007 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4008:target) #row-emp-4008 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4008:target) #row-emp-4008 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4008:target) #row-emp-4008 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4009:target) #row-emp-4009 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4009:target) #row-emp-4009 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4009:target) #row-emp-4009 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4010:target) #row-emp-4010 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4010:target) #row-emp-4010 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4010:target) #row-emp-4010 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4011:target) #row-emp-4011 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4011:target) #row-emp-4011 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4011:target) #row-emp-4011 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4012:target) #row-emp-4012 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4012:target) #row-emp-4012 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4012:target) #row-emp-4012 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4013:target) #row-emp-4013 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4013:target) #row-emp-4013 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4013:target) #row-emp-4013 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4014:target) #row-emp-4014 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4014:target) #row-emp-4014 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4014:target) #row-emp-4014 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4015:target) #row-emp-4015 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4015:target) #row-emp-4015 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4015:target) #row-emp-4015 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4016:target) #row-emp-4016 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4016:target) #row-emp-4016 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4016:target) #row-emp-4016 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4017:target) #row-emp-4017 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4017:target) #row-emp-4017 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4017:target) #row-emp-4017 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4101:target) #row-emp-4101 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4101:target) #row-emp-4101 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4101:target) #row-emp-4101 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4102:target) #row-emp-4102 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4102:target) #row-emp-4102 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4102:target) #row-emp-4102 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4103:target) #row-emp-4103 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4103:target) #row-emp-4103 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4103:target) #row-emp-4103 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4104:target) #row-emp-4104 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4104:target) #row-emp-4104 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4104:target) #row-emp-4104 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4105:target) #row-emp-4105 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4105:target) #row-emp-4105 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4105:target) #row-emp-4105 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4106:target) #row-emp-4106 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4106:target) #row-emp-4106 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4106:target) #row-emp-4106 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4107:target) #row-emp-4107 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4107:target) #row-emp-4107 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4107:target) #row-emp-4107 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4108:target) #row-emp-4108 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4108:target) #row-emp-4108 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4108:target) #row-emp-4108 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4109:target) #row-emp-4109 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4109:target) #row-emp-4109 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4109:target) #row-emp-4109 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4110:target) #row-emp-4110 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4110:target) #row-emp-4110 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4110:target) #row-emp-4110 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4111:target) #row-emp-4111 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4111:target) #row-emp-4111 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4111:target) #row-emp-4111 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4112:target) #row-emp-4112 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4112:target) #row-emp-4112 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4112:target) #row-emp-4112 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4113:target) #row-emp-4113 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4113:target) #row-emp-4113 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4113:target) #row-emp-4113 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4114:target) #row-emp-4114 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4114:target) #row-emp-4114 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4114:target) #row-emp-4114 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4115:target) #row-emp-4115 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4115:target) #row-emp-4115 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4115:target) #row-emp-4115 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4116:target) #row-emp-4116 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4116:target) #row-emp-4116 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4116:target) #row-emp-4116 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4117:target) #row-emp-4117 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4117:target) #row-emp-4117 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4117:target) #row-emp-4117 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4118:target) #row-emp-4118 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4118:target) #row-emp-4118 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4118:target) #row-emp-4118 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4119:target) #row-emp-4119 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4119:target) #row-emp-4119 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4119:target) #row-emp-4119 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4120:target) #row-emp-4120 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4120:target) #row-emp-4120 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4120:target) #row-emp-4120 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4121:target) #row-emp-4121 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4121:target) #row-emp-4121 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4121:target) #row-emp-4121 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4122:target) #row-emp-4122 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4122:target) #row-emp-4122 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4122:target) #row-emp-4122 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4123:target) #row-emp-4123 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4123:target) #row-emp-4123 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4123:target) #row-emp-4123 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4124:target) #row-emp-4124 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4124:target) #row-emp-4124 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4124:target) #row-emp-4124 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4125:target) #row-emp-4125 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4125:target) #row-emp-4125 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4125:target) #row-emp-4125 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4126:target) #row-emp-4126 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4126:target) #row-emp-4126 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4126:target) #row-emp-4126 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4201:target) #row-emp-4201 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4201:target) #row-emp-4201 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4201:target) #row-emp-4201 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4202:target) #row-emp-4202 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4202:target) #row-emp-4202 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4202:target) #row-emp-4202 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4203:target) #row-emp-4203 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4203:target) #row-emp-4203 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4203:target) #row-emp-4203 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4204:target) #row-emp-4204 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4204:target) #row-emp-4204 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4204:target) #row-emp-4204 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4205:target) #row-emp-4205 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4205:target) #row-emp-4205 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4205:target) #row-emp-4205 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4206:target) #row-emp-4206 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4206:target) #row-emp-4206 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4206:target) #row-emp-4206 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4207:target) #row-emp-4207 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4207:target) #row-emp-4207 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4207:target) #row-emp-4207 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4208:target) #row-emp-4208 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4208:target) #row-emp-4208 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4208:target) #row-emp-4208 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4209:target) #row-emp-4209 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4209:target) #row-emp-4209 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4209:target) #row-emp-4209 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4210:target) #row-emp-4210 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4210:target) #row-emp-4210 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4210:target) #row-emp-4210 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4211:target) #row-emp-4211 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4211:target) #row-emp-4211 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4211:target) #row-emp-4211 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4212:target) #row-emp-4212 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4212:target) #row-emp-4212 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4212:target) #row-emp-4212 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4213:target) #row-emp-4213 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4213:target) #row-emp-4213 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4213:target) #row-emp-4213 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4214:target) #row-emp-4214 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4214:target) #row-emp-4214 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4214:target) #row-emp-4214 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4215:target) #row-emp-4215 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4215:target) #row-emp-4215 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4215:target) #row-emp-4215 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4216:target) #row-emp-4216 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4216:target) #row-emp-4216 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4216:target) #row-emp-4216 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4217:target) #row-emp-4217 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4217:target) #row-emp-4217 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4217:target) #row-emp-4217 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4218:target) #row-emp-4218 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4218:target) #row-emp-4218 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4218:target) #row-emp-4218 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4219:target) #row-emp-4219 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4219:target) #row-emp-4219 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4219:target) #row-emp-4219 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4220:target) #row-emp-4220 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4220:target) #row-emp-4220 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4220:target) #row-emp-4220 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4221:target) #row-emp-4221 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4221:target) #row-emp-4221 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4221:target) #row-emp-4221 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4222:target) #row-emp-4222 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4222:target) #row-emp-4222 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4222:target) #row-emp-4222 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4401:target) #row-emp-4401 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4401:target) #row-emp-4401 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4401:target) #row-emp-4401 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4402:target) #row-emp-4402 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4402:target) #row-emp-4402 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4402:target) #row-emp-4402 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4403:target) #row-emp-4403 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4403:target) #row-emp-4403 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4403:target) #row-emp-4403 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4404:target) #row-emp-4404 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4404:target) #row-emp-4404 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4404:target) #row-emp-4404 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4405:target) #row-emp-4405 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4405:target) #row-emp-4405 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4405:target) #row-emp-4405 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4406:target) #row-emp-4406 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4406:target) #row-emp-4406 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4406:target) #row-emp-4406 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4407:target) #row-emp-4407 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4407:target) #row-emp-4407 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4407:target) #row-emp-4407 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4501:target) #row-emp-4501 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4501:target) #row-emp-4501 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4501:target) #row-emp-4501 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4502:target) #row-emp-4502 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4502:target) #row-emp-4502 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4502:target) #row-emp-4502 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4503:target) #row-emp-4503 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4503:target) #row-emp-4503 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4503:target) #row-emp-4503 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4504:target) #row-emp-4504 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4504:target) #row-emp-4504 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4504:target) #row-emp-4504 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4505:target) #row-emp-4505 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4505:target) #row-emp-4505 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4505:target) #row-emp-4505 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4506:target) #row-emp-4506 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4506:target) #row-emp-4506 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4506:target) #row-emp-4506 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4601:target) #row-emp-4601 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4601:target) #row-emp-4601 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4601:target) #row-emp-4601 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4602:target) #row-emp-4602 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4602:target) #row-emp-4602 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4602:target) #row-emp-4602 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4603:target) #row-emp-4603 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4603:target) #row-emp-4603 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4603:target) #row-emp-4603 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4701:target) #row-emp-4701 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4701:target) #row-emp-4701 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4701:target) #row-emp-4701 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4702:target) #row-emp-4702 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4702:target) #row-emp-4702 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4702:target) #row-emp-4702 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4801:target) #row-emp-4801 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4801:target) #row-emp-4801 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4801:target) #row-emp-4801 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4802:target) #row-emp-4802 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4802:target) #row-emp-4802 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4802:target) #row-emp-4802 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4803:target) #row-emp-4803 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4803:target) #row-emp-4803 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4803:target) #row-emp-4803 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4804:target) #row-emp-4804 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4804:target) #row-emp-4804 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4804:target) #row-emp-4804 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4901:target) #row-emp-4901 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4901:target) #row-emp-4901 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4901:target) #row-emp-4901 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4902:target) #row-emp-4902 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4902:target) #row-emp-4902 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4902:target) #row-emp-4902 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4903:target) #row-emp-4903 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4903:target) #row-emp-4903 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4903:target) #row-emp-4903 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4904:target) #row-emp-4904 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4904:target) #row-emp-4904 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4904:target) #row-emp-4904 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4905:target) #row-emp-4905 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4905:target) #row-emp-4905 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4905:target) #row-emp-4905 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4906:target) #row-emp-4906 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4906:target) #row-emp-4906 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4906:target) #row-emp-4906 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4907:target) #row-emp-4907 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4907:target) #row-emp-4907 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4907:target) #row-emp-4907 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-4908:target) #row-emp-4908 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-4908:target) #row-emp-4908 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-4908:target) #row-emp-4908 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-emp-5005:target) #row-emp-5005 .lg-st {
+  display: none;
+}
+
+body:has(#dx-emp-5005:target) #row-emp-5005 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-emp-5005:target) #row-emp-5005 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-arjun-dev:target) #row-usr-arjun-dev .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-arjun-dev:target) #row-usr-arjun-dev .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-arjun-dev:target) #row-usr-arjun-dev {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-rahul-vijay:target) #row-usr-rahul-vijay .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-rahul-vijay:target) #row-usr-rahul-vijay .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-rahul-vijay:target) #row-usr-rahul-vijay {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-george-mathew:target) #row-usr-george-mathew .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-george-mathew:target) #row-usr-george-mathew .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-george-mathew:target) #row-usr-george-mathew {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-sneha-joseph:target) #row-usr-sneha-joseph .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-sneha-joseph:target) #row-usr-sneha-joseph .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-sneha-joseph:target) #row-usr-sneha-joseph {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-sneha-thomas:target) #row-usr-sneha-thomas .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-sneha-thomas:target) #row-usr-sneha-thomas .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-sneha-thomas:target) #row-usr-sneha-thomas {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-usr-anjali-vijay:target) #row-usr-anjali-vijay .lg-st {
+  display: none;
+}
+
+body:has(#dx-usr-anjali-vijay:target) #row-usr-anjali-vijay .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-usr-anjali-vijay:target) #row-usr-anjali-vijay {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u01:target) #row-own-u01 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u01:target) #row-own-u01 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u01:target) #row-own-u01 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u02:target) #row-own-u02 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u02:target) #row-own-u02 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u02:target) #row-own-u02 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u03:target) #row-own-u03 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u03:target) #row-own-u03 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u03:target) #row-own-u03 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u04:target) #row-own-u04 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u04:target) #row-own-u04 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u04:target) #row-own-u04 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u05:target) #row-own-u05 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u05:target) #row-own-u05 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u05:target) #row-own-u05 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u06:target) #row-own-u06 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u06:target) #row-own-u06 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u06:target) #row-own-u06 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u07:target) #row-own-u07 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u07:target) #row-own-u07 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u07:target) #row-own-u07 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-own-u10:target) #row-own-u10 .lg-st {
+  display: none;
+}
+
+body:has(#dx-own-u10:target) #row-own-u10 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-own-u10:target) #row-own-u10 {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-ext-k-ramachandran:target) #row-ext-k-ramachandran .lg-st {
+  display: none;
+}
+
+body:has(#dx-ext-k-ramachandran:target) #row-ext-k-ramachandran .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-ext-k-ramachandran:target) #row-ext-k-ramachandran {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-ext-vinod-sunny:target) #row-ext-vinod-sunny .lg-st {
+  display: none;
+}
+
+body:has(#dx-ext-vinod-sunny:target) #row-ext-vinod-sunny .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-ext-vinod-sunny:target) #row-ext-vinod-sunny {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-svc-channel-manager:target) #row-svc-channel-manager .lg-st {
+  display: none;
+}
+
+body:has(#dx-svc-channel-manager:target) #row-svc-channel-manager .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-svc-channel-manager:target) #row-svc-channel-manager {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-svc-payment-gateway:target) #row-svc-payment-gateway .lg-st {
+  display: none;
+}
+
+body:has(#dx-svc-payment-gateway:target) #row-svc-payment-gateway .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-svc-payment-gateway:target) #row-svc-payment-gateway {
+  background: var(--bad-bg);
+}
+
+body:has(#dx-svc-einvoice:target) #row-svc-einvoice .lg-st {
+  display: none;
+}
+
+body:has(#dx-svc-einvoice:target) #row-svc-einvoice .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-svc-einvoice:target) #row-svc-einvoice {
+  background: var(--bad-bg);
+}
+
+#lg-p01:has(#r-emp-2001:target) .lg-who[data-u="emp-2001"],
+#lg-cf:has(#cf-emp-2001:target) .lg-who[data-u="emp-2001"],
+#lg-cf:has(#cf-emp-2001:target) .lg-go[data-u="emp-2001"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2002:target) .lg-who[data-u="emp-2002"],
+#lg-cf:has(#cf-emp-2002:target) .lg-who[data-u="emp-2002"],
+#lg-cf:has(#cf-emp-2002:target) .lg-go[data-u="emp-2002"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2003:target) .lg-who[data-u="emp-2003"],
+#lg-cf:has(#cf-emp-2003:target) .lg-who[data-u="emp-2003"],
+#lg-cf:has(#cf-emp-2003:target) .lg-go[data-u="emp-2003"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2004:target) .lg-who[data-u="emp-2004"],
+#lg-cf:has(#cf-emp-2004:target) .lg-who[data-u="emp-2004"],
+#lg-cf:has(#cf-emp-2004:target) .lg-go[data-u="emp-2004"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2005:target) .lg-who[data-u="emp-2005"],
+#lg-cf:has(#cf-emp-2005:target) .lg-who[data-u="emp-2005"],
+#lg-cf:has(#cf-emp-2005:target) .lg-go[data-u="emp-2005"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2006:target) .lg-who[data-u="emp-2006"],
+#lg-cf:has(#cf-emp-2006:target) .lg-who[data-u="emp-2006"],
+#lg-cf:has(#cf-emp-2006:target) .lg-go[data-u="emp-2006"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2007:target) .lg-who[data-u="emp-2007"],
+#lg-cf:has(#cf-emp-2007:target) .lg-who[data-u="emp-2007"],
+#lg-cf:has(#cf-emp-2007:target) .lg-go[data-u="emp-2007"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2008:target) .lg-who[data-u="emp-2008"],
+#lg-cf:has(#cf-emp-2008:target) .lg-who[data-u="emp-2008"],
+#lg-cf:has(#cf-emp-2008:target) .lg-go[data-u="emp-2008"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2009:target) .lg-who[data-u="emp-2009"],
+#lg-cf:has(#cf-emp-2009:target) .lg-who[data-u="emp-2009"],
+#lg-cf:has(#cf-emp-2009:target) .lg-go[data-u="emp-2009"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2010:target) .lg-who[data-u="emp-2010"],
+#lg-cf:has(#cf-emp-2010:target) .lg-who[data-u="emp-2010"],
+#lg-cf:has(#cf-emp-2010:target) .lg-go[data-u="emp-2010"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2011:target) .lg-who[data-u="emp-2011"],
+#lg-cf:has(#cf-emp-2011:target) .lg-who[data-u="emp-2011"],
+#lg-cf:has(#cf-emp-2011:target) .lg-go[data-u="emp-2011"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2012:target) .lg-who[data-u="emp-2012"],
+#lg-cf:has(#cf-emp-2012:target) .lg-who[data-u="emp-2012"],
+#lg-cf:has(#cf-emp-2012:target) .lg-go[data-u="emp-2012"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2013:target) .lg-who[data-u="emp-2013"],
+#lg-cf:has(#cf-emp-2013:target) .lg-who[data-u="emp-2013"],
+#lg-cf:has(#cf-emp-2013:target) .lg-go[data-u="emp-2013"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2014:target) .lg-who[data-u="emp-2014"],
+#lg-cf:has(#cf-emp-2014:target) .lg-who[data-u="emp-2014"],
+#lg-cf:has(#cf-emp-2014:target) .lg-go[data-u="emp-2014"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2015:target) .lg-who[data-u="emp-2015"],
+#lg-cf:has(#cf-emp-2015:target) .lg-who[data-u="emp-2015"],
+#lg-cf:has(#cf-emp-2015:target) .lg-go[data-u="emp-2015"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2016:target) .lg-who[data-u="emp-2016"],
+#lg-cf:has(#cf-emp-2016:target) .lg-who[data-u="emp-2016"],
+#lg-cf:has(#cf-emp-2016:target) .lg-go[data-u="emp-2016"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2023:target) .lg-who[data-u="emp-2023"],
+#lg-cf:has(#cf-emp-2023:target) .lg-who[data-u="emp-2023"],
+#lg-cf:has(#cf-emp-2023:target) .lg-go[data-u="emp-2023"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2024:target) .lg-who[data-u="emp-2024"],
+#lg-cf:has(#cf-emp-2024:target) .lg-who[data-u="emp-2024"],
+#lg-cf:has(#cf-emp-2024:target) .lg-go[data-u="emp-2024"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2025:target) .lg-who[data-u="emp-2025"],
+#lg-cf:has(#cf-emp-2025:target) .lg-who[data-u="emp-2025"],
+#lg-cf:has(#cf-emp-2025:target) .lg-go[data-u="emp-2025"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-2026:target) .lg-who[data-u="emp-2026"],
+#lg-cf:has(#cf-emp-2026:target) .lg-who[data-u="emp-2026"],
+#lg-cf:has(#cf-emp-2026:target) .lg-go[data-u="emp-2026"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3001:target) .lg-who[data-u="emp-3001"],
+#lg-cf:has(#cf-emp-3001:target) .lg-who[data-u="emp-3001"],
+#lg-cf:has(#cf-emp-3001:target) .lg-go[data-u="emp-3001"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3002:target) .lg-who[data-u="emp-3002"],
+#lg-cf:has(#cf-emp-3002:target) .lg-who[data-u="emp-3002"],
+#lg-cf:has(#cf-emp-3002:target) .lg-go[data-u="emp-3002"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3003:target) .lg-who[data-u="emp-3003"],
+#lg-cf:has(#cf-emp-3003:target) .lg-who[data-u="emp-3003"],
+#lg-cf:has(#cf-emp-3003:target) .lg-go[data-u="emp-3003"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3004:target) .lg-who[data-u="emp-3004"],
+#lg-cf:has(#cf-emp-3004:target) .lg-who[data-u="emp-3004"],
+#lg-cf:has(#cf-emp-3004:target) .lg-go[data-u="emp-3004"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3005:target) .lg-who[data-u="emp-3005"],
+#lg-cf:has(#cf-emp-3005:target) .lg-who[data-u="emp-3005"],
+#lg-cf:has(#cf-emp-3005:target) .lg-go[data-u="emp-3005"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3006:target) .lg-who[data-u="emp-3006"],
+#lg-cf:has(#cf-emp-3006:target) .lg-who[data-u="emp-3006"],
+#lg-cf:has(#cf-emp-3006:target) .lg-go[data-u="emp-3006"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3007:target) .lg-who[data-u="emp-3007"],
+#lg-cf:has(#cf-emp-3007:target) .lg-who[data-u="emp-3007"],
+#lg-cf:has(#cf-emp-3007:target) .lg-go[data-u="emp-3007"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3008:target) .lg-who[data-u="emp-3008"],
+#lg-cf:has(#cf-emp-3008:target) .lg-who[data-u="emp-3008"],
+#lg-cf:has(#cf-emp-3008:target) .lg-go[data-u="emp-3008"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3009:target) .lg-who[data-u="emp-3009"],
+#lg-cf:has(#cf-emp-3009:target) .lg-who[data-u="emp-3009"],
+#lg-cf:has(#cf-emp-3009:target) .lg-go[data-u="emp-3009"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3010:target) .lg-who[data-u="emp-3010"],
+#lg-cf:has(#cf-emp-3010:target) .lg-who[data-u="emp-3010"],
+#lg-cf:has(#cf-emp-3010:target) .lg-go[data-u="emp-3010"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3011:target) .lg-who[data-u="emp-3011"],
+#lg-cf:has(#cf-emp-3011:target) .lg-who[data-u="emp-3011"],
+#lg-cf:has(#cf-emp-3011:target) .lg-go[data-u="emp-3011"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3012:target) .lg-who[data-u="emp-3012"],
+#lg-cf:has(#cf-emp-3012:target) .lg-who[data-u="emp-3012"],
+#lg-cf:has(#cf-emp-3012:target) .lg-go[data-u="emp-3012"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3013:target) .lg-who[data-u="emp-3013"],
+#lg-cf:has(#cf-emp-3013:target) .lg-who[data-u="emp-3013"],
+#lg-cf:has(#cf-emp-3013:target) .lg-go[data-u="emp-3013"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-3014:target) .lg-who[data-u="emp-3014"],
+#lg-cf:has(#cf-emp-3014:target) .lg-who[data-u="emp-3014"],
+#lg-cf:has(#cf-emp-3014:target) .lg-go[data-u="emp-3014"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1001:target) .lg-who[data-u="emp-1001"],
+#lg-cf:has(#cf-emp-1001:target) .lg-who[data-u="emp-1001"],
+#lg-cf:has(#cf-emp-1001:target) .lg-go[data-u="emp-1001"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1002:target) .lg-who[data-u="emp-1002"],
+#lg-cf:has(#cf-emp-1002:target) .lg-who[data-u="emp-1002"],
+#lg-cf:has(#cf-emp-1002:target) .lg-go[data-u="emp-1002"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1003:target) .lg-who[data-u="emp-1003"],
+#lg-cf:has(#cf-emp-1003:target) .lg-who[data-u="emp-1003"],
+#lg-cf:has(#cf-emp-1003:target) .lg-go[data-u="emp-1003"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1004:target) .lg-who[data-u="emp-1004"],
+#lg-cf:has(#cf-emp-1004:target) .lg-who[data-u="emp-1004"],
+#lg-cf:has(#cf-emp-1004:target) .lg-go[data-u="emp-1004"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1005:target) .lg-who[data-u="emp-1005"],
+#lg-cf:has(#cf-emp-1005:target) .lg-who[data-u="emp-1005"],
+#lg-cf:has(#cf-emp-1005:target) .lg-go[data-u="emp-1005"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1006:target) .lg-who[data-u="emp-1006"],
+#lg-cf:has(#cf-emp-1006:target) .lg-who[data-u="emp-1006"],
+#lg-cf:has(#cf-emp-1006:target) .lg-go[data-u="emp-1006"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1007:target) .lg-who[data-u="emp-1007"],
+#lg-cf:has(#cf-emp-1007:target) .lg-who[data-u="emp-1007"],
+#lg-cf:has(#cf-emp-1007:target) .lg-go[data-u="emp-1007"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1008:target) .lg-who[data-u="emp-1008"],
+#lg-cf:has(#cf-emp-1008:target) .lg-who[data-u="emp-1008"],
+#lg-cf:has(#cf-emp-1008:target) .lg-go[data-u="emp-1008"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1009:target) .lg-who[data-u="emp-1009"],
+#lg-cf:has(#cf-emp-1009:target) .lg-who[data-u="emp-1009"],
+#lg-cf:has(#cf-emp-1009:target) .lg-go[data-u="emp-1009"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1010:target) .lg-who[data-u="emp-1010"],
+#lg-cf:has(#cf-emp-1010:target) .lg-who[data-u="emp-1010"],
+#lg-cf:has(#cf-emp-1010:target) .lg-go[data-u="emp-1010"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1011:target) .lg-who[data-u="emp-1011"],
+#lg-cf:has(#cf-emp-1011:target) .lg-who[data-u="emp-1011"],
+#lg-cf:has(#cf-emp-1011:target) .lg-go[data-u="emp-1011"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1012:target) .lg-who[data-u="emp-1012"],
+#lg-cf:has(#cf-emp-1012:target) .lg-who[data-u="emp-1012"],
+#lg-cf:has(#cf-emp-1012:target) .lg-go[data-u="emp-1012"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1013:target) .lg-who[data-u="emp-1013"],
+#lg-cf:has(#cf-emp-1013:target) .lg-who[data-u="emp-1013"],
+#lg-cf:has(#cf-emp-1013:target) .lg-go[data-u="emp-1013"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1014:target) .lg-who[data-u="emp-1014"],
+#lg-cf:has(#cf-emp-1014:target) .lg-who[data-u="emp-1014"],
+#lg-cf:has(#cf-emp-1014:target) .lg-go[data-u="emp-1014"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1015:target) .lg-who[data-u="emp-1015"],
+#lg-cf:has(#cf-emp-1015:target) .lg-who[data-u="emp-1015"],
+#lg-cf:has(#cf-emp-1015:target) .lg-go[data-u="emp-1015"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1016:target) .lg-who[data-u="emp-1016"],
+#lg-cf:has(#cf-emp-1016:target) .lg-who[data-u="emp-1016"],
+#lg-cf:has(#cf-emp-1016:target) .lg-go[data-u="emp-1016"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1017:target) .lg-who[data-u="emp-1017"],
+#lg-cf:has(#cf-emp-1017:target) .lg-who[data-u="emp-1017"],
+#lg-cf:has(#cf-emp-1017:target) .lg-go[data-u="emp-1017"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1018:target) .lg-who[data-u="emp-1018"],
+#lg-cf:has(#cf-emp-1018:target) .lg-who[data-u="emp-1018"],
+#lg-cf:has(#cf-emp-1018:target) .lg-go[data-u="emp-1018"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1019:target) .lg-who[data-u="emp-1019"],
+#lg-cf:has(#cf-emp-1019:target) .lg-who[data-u="emp-1019"],
+#lg-cf:has(#cf-emp-1019:target) .lg-go[data-u="emp-1019"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1020:target) .lg-who[data-u="emp-1020"],
+#lg-cf:has(#cf-emp-1020:target) .lg-who[data-u="emp-1020"],
+#lg-cf:has(#cf-emp-1020:target) .lg-go[data-u="emp-1020"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1021:target) .lg-who[data-u="emp-1021"],
+#lg-cf:has(#cf-emp-1021:target) .lg-who[data-u="emp-1021"],
+#lg-cf:has(#cf-emp-1021:target) .lg-go[data-u="emp-1021"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1022:target) .lg-who[data-u="emp-1022"],
+#lg-cf:has(#cf-emp-1022:target) .lg-who[data-u="emp-1022"],
+#lg-cf:has(#cf-emp-1022:target) .lg-go[data-u="emp-1022"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1023:target) .lg-who[data-u="emp-1023"],
+#lg-cf:has(#cf-emp-1023:target) .lg-who[data-u="emp-1023"],
+#lg-cf:has(#cf-emp-1023:target) .lg-go[data-u="emp-1023"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1024:target) .lg-who[data-u="emp-1024"],
+#lg-cf:has(#cf-emp-1024:target) .lg-who[data-u="emp-1024"],
+#lg-cf:has(#cf-emp-1024:target) .lg-go[data-u="emp-1024"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4001:target) .lg-who[data-u="emp-4001"],
+#lg-cf:has(#cf-emp-4001:target) .lg-who[data-u="emp-4001"],
+#lg-cf:has(#cf-emp-4001:target) .lg-go[data-u="emp-4001"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4002:target) .lg-who[data-u="emp-4002"],
+#lg-cf:has(#cf-emp-4002:target) .lg-who[data-u="emp-4002"],
+#lg-cf:has(#cf-emp-4002:target) .lg-go[data-u="emp-4002"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4003:target) .lg-who[data-u="emp-4003"],
+#lg-cf:has(#cf-emp-4003:target) .lg-who[data-u="emp-4003"],
+#lg-cf:has(#cf-emp-4003:target) .lg-go[data-u="emp-4003"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4004:target) .lg-who[data-u="emp-4004"],
+#lg-cf:has(#cf-emp-4004:target) .lg-who[data-u="emp-4004"],
+#lg-cf:has(#cf-emp-4004:target) .lg-go[data-u="emp-4004"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4005:target) .lg-who[data-u="emp-4005"],
+#lg-cf:has(#cf-emp-4005:target) .lg-who[data-u="emp-4005"],
+#lg-cf:has(#cf-emp-4005:target) .lg-go[data-u="emp-4005"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4006:target) .lg-who[data-u="emp-4006"],
+#lg-cf:has(#cf-emp-4006:target) .lg-who[data-u="emp-4006"],
+#lg-cf:has(#cf-emp-4006:target) .lg-go[data-u="emp-4006"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4007:target) .lg-who[data-u="emp-4007"],
+#lg-cf:has(#cf-emp-4007:target) .lg-who[data-u="emp-4007"],
+#lg-cf:has(#cf-emp-4007:target) .lg-go[data-u="emp-4007"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4008:target) .lg-who[data-u="emp-4008"],
+#lg-cf:has(#cf-emp-4008:target) .lg-who[data-u="emp-4008"],
+#lg-cf:has(#cf-emp-4008:target) .lg-go[data-u="emp-4008"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4009:target) .lg-who[data-u="emp-4009"],
+#lg-cf:has(#cf-emp-4009:target) .lg-who[data-u="emp-4009"],
+#lg-cf:has(#cf-emp-4009:target) .lg-go[data-u="emp-4009"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4010:target) .lg-who[data-u="emp-4010"],
+#lg-cf:has(#cf-emp-4010:target) .lg-who[data-u="emp-4010"],
+#lg-cf:has(#cf-emp-4010:target) .lg-go[data-u="emp-4010"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4011:target) .lg-who[data-u="emp-4011"],
+#lg-cf:has(#cf-emp-4011:target) .lg-who[data-u="emp-4011"],
+#lg-cf:has(#cf-emp-4011:target) .lg-go[data-u="emp-4011"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4012:target) .lg-who[data-u="emp-4012"],
+#lg-cf:has(#cf-emp-4012:target) .lg-who[data-u="emp-4012"],
+#lg-cf:has(#cf-emp-4012:target) .lg-go[data-u="emp-4012"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4013:target) .lg-who[data-u="emp-4013"],
+#lg-cf:has(#cf-emp-4013:target) .lg-who[data-u="emp-4013"],
+#lg-cf:has(#cf-emp-4013:target) .lg-go[data-u="emp-4013"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4014:target) .lg-who[data-u="emp-4014"],
+#lg-cf:has(#cf-emp-4014:target) .lg-who[data-u="emp-4014"],
+#lg-cf:has(#cf-emp-4014:target) .lg-go[data-u="emp-4014"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4015:target) .lg-who[data-u="emp-4015"],
+#lg-cf:has(#cf-emp-4015:target) .lg-who[data-u="emp-4015"],
+#lg-cf:has(#cf-emp-4015:target) .lg-go[data-u="emp-4015"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4016:target) .lg-who[data-u="emp-4016"],
+#lg-cf:has(#cf-emp-4016:target) .lg-who[data-u="emp-4016"],
+#lg-cf:has(#cf-emp-4016:target) .lg-go[data-u="emp-4016"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4017:target) .lg-who[data-u="emp-4017"],
+#lg-cf:has(#cf-emp-4017:target) .lg-who[data-u="emp-4017"],
+#lg-cf:has(#cf-emp-4017:target) .lg-go[data-u="emp-4017"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4101:target) .lg-who[data-u="emp-4101"],
+#lg-cf:has(#cf-emp-4101:target) .lg-who[data-u="emp-4101"],
+#lg-cf:has(#cf-emp-4101:target) .lg-go[data-u="emp-4101"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4102:target) .lg-who[data-u="emp-4102"],
+#lg-cf:has(#cf-emp-4102:target) .lg-who[data-u="emp-4102"],
+#lg-cf:has(#cf-emp-4102:target) .lg-go[data-u="emp-4102"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4103:target) .lg-who[data-u="emp-4103"],
+#lg-cf:has(#cf-emp-4103:target) .lg-who[data-u="emp-4103"],
+#lg-cf:has(#cf-emp-4103:target) .lg-go[data-u="emp-4103"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4104:target) .lg-who[data-u="emp-4104"],
+#lg-cf:has(#cf-emp-4104:target) .lg-who[data-u="emp-4104"],
+#lg-cf:has(#cf-emp-4104:target) .lg-go[data-u="emp-4104"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4105:target) .lg-who[data-u="emp-4105"],
+#lg-cf:has(#cf-emp-4105:target) .lg-who[data-u="emp-4105"],
+#lg-cf:has(#cf-emp-4105:target) .lg-go[data-u="emp-4105"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4106:target) .lg-who[data-u="emp-4106"],
+#lg-cf:has(#cf-emp-4106:target) .lg-who[data-u="emp-4106"],
+#lg-cf:has(#cf-emp-4106:target) .lg-go[data-u="emp-4106"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4107:target) .lg-who[data-u="emp-4107"],
+#lg-cf:has(#cf-emp-4107:target) .lg-who[data-u="emp-4107"],
+#lg-cf:has(#cf-emp-4107:target) .lg-go[data-u="emp-4107"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4108:target) .lg-who[data-u="emp-4108"],
+#lg-cf:has(#cf-emp-4108:target) .lg-who[data-u="emp-4108"],
+#lg-cf:has(#cf-emp-4108:target) .lg-go[data-u="emp-4108"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4109:target) .lg-who[data-u="emp-4109"],
+#lg-cf:has(#cf-emp-4109:target) .lg-who[data-u="emp-4109"],
+#lg-cf:has(#cf-emp-4109:target) .lg-go[data-u="emp-4109"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4110:target) .lg-who[data-u="emp-4110"],
+#lg-cf:has(#cf-emp-4110:target) .lg-who[data-u="emp-4110"],
+#lg-cf:has(#cf-emp-4110:target) .lg-go[data-u="emp-4110"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4111:target) .lg-who[data-u="emp-4111"],
+#lg-cf:has(#cf-emp-4111:target) .lg-who[data-u="emp-4111"],
+#lg-cf:has(#cf-emp-4111:target) .lg-go[data-u="emp-4111"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4112:target) .lg-who[data-u="emp-4112"],
+#lg-cf:has(#cf-emp-4112:target) .lg-who[data-u="emp-4112"],
+#lg-cf:has(#cf-emp-4112:target) .lg-go[data-u="emp-4112"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4113:target) .lg-who[data-u="emp-4113"],
+#lg-cf:has(#cf-emp-4113:target) .lg-who[data-u="emp-4113"],
+#lg-cf:has(#cf-emp-4113:target) .lg-go[data-u="emp-4113"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4114:target) .lg-who[data-u="emp-4114"],
+#lg-cf:has(#cf-emp-4114:target) .lg-who[data-u="emp-4114"],
+#lg-cf:has(#cf-emp-4114:target) .lg-go[data-u="emp-4114"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4115:target) .lg-who[data-u="emp-4115"],
+#lg-cf:has(#cf-emp-4115:target) .lg-who[data-u="emp-4115"],
+#lg-cf:has(#cf-emp-4115:target) .lg-go[data-u="emp-4115"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4116:target) .lg-who[data-u="emp-4116"],
+#lg-cf:has(#cf-emp-4116:target) .lg-who[data-u="emp-4116"],
+#lg-cf:has(#cf-emp-4116:target) .lg-go[data-u="emp-4116"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4117:target) .lg-who[data-u="emp-4117"],
+#lg-cf:has(#cf-emp-4117:target) .lg-who[data-u="emp-4117"],
+#lg-cf:has(#cf-emp-4117:target) .lg-go[data-u="emp-4117"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4118:target) .lg-who[data-u="emp-4118"],
+#lg-cf:has(#cf-emp-4118:target) .lg-who[data-u="emp-4118"],
+#lg-cf:has(#cf-emp-4118:target) .lg-go[data-u="emp-4118"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4119:target) .lg-who[data-u="emp-4119"],
+#lg-cf:has(#cf-emp-4119:target) .lg-who[data-u="emp-4119"],
+#lg-cf:has(#cf-emp-4119:target) .lg-go[data-u="emp-4119"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4120:target) .lg-who[data-u="emp-4120"],
+#lg-cf:has(#cf-emp-4120:target) .lg-who[data-u="emp-4120"],
+#lg-cf:has(#cf-emp-4120:target) .lg-go[data-u="emp-4120"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4121:target) .lg-who[data-u="emp-4121"],
+#lg-cf:has(#cf-emp-4121:target) .lg-who[data-u="emp-4121"],
+#lg-cf:has(#cf-emp-4121:target) .lg-go[data-u="emp-4121"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4122:target) .lg-who[data-u="emp-4122"],
+#lg-cf:has(#cf-emp-4122:target) .lg-who[data-u="emp-4122"],
+#lg-cf:has(#cf-emp-4122:target) .lg-go[data-u="emp-4122"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4123:target) .lg-who[data-u="emp-4123"],
+#lg-cf:has(#cf-emp-4123:target) .lg-who[data-u="emp-4123"],
+#lg-cf:has(#cf-emp-4123:target) .lg-go[data-u="emp-4123"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4124:target) .lg-who[data-u="emp-4124"],
+#lg-cf:has(#cf-emp-4124:target) .lg-who[data-u="emp-4124"],
+#lg-cf:has(#cf-emp-4124:target) .lg-go[data-u="emp-4124"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4125:target) .lg-who[data-u="emp-4125"],
+#lg-cf:has(#cf-emp-4125:target) .lg-who[data-u="emp-4125"],
+#lg-cf:has(#cf-emp-4125:target) .lg-go[data-u="emp-4125"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4126:target) .lg-who[data-u="emp-4126"],
+#lg-cf:has(#cf-emp-4126:target) .lg-who[data-u="emp-4126"],
+#lg-cf:has(#cf-emp-4126:target) .lg-go[data-u="emp-4126"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4201:target) .lg-who[data-u="emp-4201"],
+#lg-cf:has(#cf-emp-4201:target) .lg-who[data-u="emp-4201"],
+#lg-cf:has(#cf-emp-4201:target) .lg-go[data-u="emp-4201"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4202:target) .lg-who[data-u="emp-4202"],
+#lg-cf:has(#cf-emp-4202:target) .lg-who[data-u="emp-4202"],
+#lg-cf:has(#cf-emp-4202:target) .lg-go[data-u="emp-4202"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4203:target) .lg-who[data-u="emp-4203"],
+#lg-cf:has(#cf-emp-4203:target) .lg-who[data-u="emp-4203"],
+#lg-cf:has(#cf-emp-4203:target) .lg-go[data-u="emp-4203"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4204:target) .lg-who[data-u="emp-4204"],
+#lg-cf:has(#cf-emp-4204:target) .lg-who[data-u="emp-4204"],
+#lg-cf:has(#cf-emp-4204:target) .lg-go[data-u="emp-4204"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4205:target) .lg-who[data-u="emp-4205"],
+#lg-cf:has(#cf-emp-4205:target) .lg-who[data-u="emp-4205"],
+#lg-cf:has(#cf-emp-4205:target) .lg-go[data-u="emp-4205"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4206:target) .lg-who[data-u="emp-4206"],
+#lg-cf:has(#cf-emp-4206:target) .lg-who[data-u="emp-4206"],
+#lg-cf:has(#cf-emp-4206:target) .lg-go[data-u="emp-4206"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4207:target) .lg-who[data-u="emp-4207"],
+#lg-cf:has(#cf-emp-4207:target) .lg-who[data-u="emp-4207"],
+#lg-cf:has(#cf-emp-4207:target) .lg-go[data-u="emp-4207"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4208:target) .lg-who[data-u="emp-4208"],
+#lg-cf:has(#cf-emp-4208:target) .lg-who[data-u="emp-4208"],
+#lg-cf:has(#cf-emp-4208:target) .lg-go[data-u="emp-4208"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4209:target) .lg-who[data-u="emp-4209"],
+#lg-cf:has(#cf-emp-4209:target) .lg-who[data-u="emp-4209"],
+#lg-cf:has(#cf-emp-4209:target) .lg-go[data-u="emp-4209"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4210:target) .lg-who[data-u="emp-4210"],
+#lg-cf:has(#cf-emp-4210:target) .lg-who[data-u="emp-4210"],
+#lg-cf:has(#cf-emp-4210:target) .lg-go[data-u="emp-4210"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4211:target) .lg-who[data-u="emp-4211"],
+#lg-cf:has(#cf-emp-4211:target) .lg-who[data-u="emp-4211"],
+#lg-cf:has(#cf-emp-4211:target) .lg-go[data-u="emp-4211"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4212:target) .lg-who[data-u="emp-4212"],
+#lg-cf:has(#cf-emp-4212:target) .lg-who[data-u="emp-4212"],
+#lg-cf:has(#cf-emp-4212:target) .lg-go[data-u="emp-4212"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4213:target) .lg-who[data-u="emp-4213"],
+#lg-cf:has(#cf-emp-4213:target) .lg-who[data-u="emp-4213"],
+#lg-cf:has(#cf-emp-4213:target) .lg-go[data-u="emp-4213"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4214:target) .lg-who[data-u="emp-4214"],
+#lg-cf:has(#cf-emp-4214:target) .lg-who[data-u="emp-4214"],
+#lg-cf:has(#cf-emp-4214:target) .lg-go[data-u="emp-4214"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4215:target) .lg-who[data-u="emp-4215"],
+#lg-cf:has(#cf-emp-4215:target) .lg-who[data-u="emp-4215"],
+#lg-cf:has(#cf-emp-4215:target) .lg-go[data-u="emp-4215"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4216:target) .lg-who[data-u="emp-4216"],
+#lg-cf:has(#cf-emp-4216:target) .lg-who[data-u="emp-4216"],
+#lg-cf:has(#cf-emp-4216:target) .lg-go[data-u="emp-4216"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4217:target) .lg-who[data-u="emp-4217"],
+#lg-cf:has(#cf-emp-4217:target) .lg-who[data-u="emp-4217"],
+#lg-cf:has(#cf-emp-4217:target) .lg-go[data-u="emp-4217"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4218:target) .lg-who[data-u="emp-4218"],
+#lg-cf:has(#cf-emp-4218:target) .lg-who[data-u="emp-4218"],
+#lg-cf:has(#cf-emp-4218:target) .lg-go[data-u="emp-4218"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4219:target) .lg-who[data-u="emp-4219"],
+#lg-cf:has(#cf-emp-4219:target) .lg-who[data-u="emp-4219"],
+#lg-cf:has(#cf-emp-4219:target) .lg-go[data-u="emp-4219"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4220:target) .lg-who[data-u="emp-4220"],
+#lg-cf:has(#cf-emp-4220:target) .lg-who[data-u="emp-4220"],
+#lg-cf:has(#cf-emp-4220:target) .lg-go[data-u="emp-4220"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4221:target) .lg-who[data-u="emp-4221"],
+#lg-cf:has(#cf-emp-4221:target) .lg-who[data-u="emp-4221"],
+#lg-cf:has(#cf-emp-4221:target) .lg-go[data-u="emp-4221"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4222:target) .lg-who[data-u="emp-4222"],
+#lg-cf:has(#cf-emp-4222:target) .lg-who[data-u="emp-4222"],
+#lg-cf:has(#cf-emp-4222:target) .lg-go[data-u="emp-4222"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4401:target) .lg-who[data-u="emp-4401"],
+#lg-cf:has(#cf-emp-4401:target) .lg-who[data-u="emp-4401"],
+#lg-cf:has(#cf-emp-4401:target) .lg-go[data-u="emp-4401"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4402:target) .lg-who[data-u="emp-4402"],
+#lg-cf:has(#cf-emp-4402:target) .lg-who[data-u="emp-4402"],
+#lg-cf:has(#cf-emp-4402:target) .lg-go[data-u="emp-4402"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4403:target) .lg-who[data-u="emp-4403"],
+#lg-cf:has(#cf-emp-4403:target) .lg-who[data-u="emp-4403"],
+#lg-cf:has(#cf-emp-4403:target) .lg-go[data-u="emp-4403"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4404:target) .lg-who[data-u="emp-4404"],
+#lg-cf:has(#cf-emp-4404:target) .lg-who[data-u="emp-4404"],
+#lg-cf:has(#cf-emp-4404:target) .lg-go[data-u="emp-4404"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4405:target) .lg-who[data-u="emp-4405"],
+#lg-cf:has(#cf-emp-4405:target) .lg-who[data-u="emp-4405"],
+#lg-cf:has(#cf-emp-4405:target) .lg-go[data-u="emp-4405"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4406:target) .lg-who[data-u="emp-4406"],
+#lg-cf:has(#cf-emp-4406:target) .lg-who[data-u="emp-4406"],
+#lg-cf:has(#cf-emp-4406:target) .lg-go[data-u="emp-4406"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4407:target) .lg-who[data-u="emp-4407"],
+#lg-cf:has(#cf-emp-4407:target) .lg-who[data-u="emp-4407"],
+#lg-cf:has(#cf-emp-4407:target) .lg-go[data-u="emp-4407"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4501:target) .lg-who[data-u="emp-4501"],
+#lg-cf:has(#cf-emp-4501:target) .lg-who[data-u="emp-4501"],
+#lg-cf:has(#cf-emp-4501:target) .lg-go[data-u="emp-4501"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4502:target) .lg-who[data-u="emp-4502"],
+#lg-cf:has(#cf-emp-4502:target) .lg-who[data-u="emp-4502"],
+#lg-cf:has(#cf-emp-4502:target) .lg-go[data-u="emp-4502"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4503:target) .lg-who[data-u="emp-4503"],
+#lg-cf:has(#cf-emp-4503:target) .lg-who[data-u="emp-4503"],
+#lg-cf:has(#cf-emp-4503:target) .lg-go[data-u="emp-4503"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4504:target) .lg-who[data-u="emp-4504"],
+#lg-cf:has(#cf-emp-4504:target) .lg-who[data-u="emp-4504"],
+#lg-cf:has(#cf-emp-4504:target) .lg-go[data-u="emp-4504"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4505:target) .lg-who[data-u="emp-4505"],
+#lg-cf:has(#cf-emp-4505:target) .lg-who[data-u="emp-4505"],
+#lg-cf:has(#cf-emp-4505:target) .lg-go[data-u="emp-4505"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4506:target) .lg-who[data-u="emp-4506"],
+#lg-cf:has(#cf-emp-4506:target) .lg-who[data-u="emp-4506"],
+#lg-cf:has(#cf-emp-4506:target) .lg-go[data-u="emp-4506"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4601:target) .lg-who[data-u="emp-4601"],
+#lg-cf:has(#cf-emp-4601:target) .lg-who[data-u="emp-4601"],
+#lg-cf:has(#cf-emp-4601:target) .lg-go[data-u="emp-4601"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4602:target) .lg-who[data-u="emp-4602"],
+#lg-cf:has(#cf-emp-4602:target) .lg-who[data-u="emp-4602"],
+#lg-cf:has(#cf-emp-4602:target) .lg-go[data-u="emp-4602"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4603:target) .lg-who[data-u="emp-4603"],
+#lg-cf:has(#cf-emp-4603:target) .lg-who[data-u="emp-4603"],
+#lg-cf:has(#cf-emp-4603:target) .lg-go[data-u="emp-4603"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4701:target) .lg-who[data-u="emp-4701"],
+#lg-cf:has(#cf-emp-4701:target) .lg-who[data-u="emp-4701"],
+#lg-cf:has(#cf-emp-4701:target) .lg-go[data-u="emp-4701"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4702:target) .lg-who[data-u="emp-4702"],
+#lg-cf:has(#cf-emp-4702:target) .lg-who[data-u="emp-4702"],
+#lg-cf:has(#cf-emp-4702:target) .lg-go[data-u="emp-4702"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4801:target) .lg-who[data-u="emp-4801"],
+#lg-cf:has(#cf-emp-4801:target) .lg-who[data-u="emp-4801"],
+#lg-cf:has(#cf-emp-4801:target) .lg-go[data-u="emp-4801"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4802:target) .lg-who[data-u="emp-4802"],
+#lg-cf:has(#cf-emp-4802:target) .lg-who[data-u="emp-4802"],
+#lg-cf:has(#cf-emp-4802:target) .lg-go[data-u="emp-4802"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4803:target) .lg-who[data-u="emp-4803"],
+#lg-cf:has(#cf-emp-4803:target) .lg-who[data-u="emp-4803"],
+#lg-cf:has(#cf-emp-4803:target) .lg-go[data-u="emp-4803"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4804:target) .lg-who[data-u="emp-4804"],
+#lg-cf:has(#cf-emp-4804:target) .lg-who[data-u="emp-4804"],
+#lg-cf:has(#cf-emp-4804:target) .lg-go[data-u="emp-4804"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4901:target) .lg-who[data-u="emp-4901"],
+#lg-cf:has(#cf-emp-4901:target) .lg-who[data-u="emp-4901"],
+#lg-cf:has(#cf-emp-4901:target) .lg-go[data-u="emp-4901"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4902:target) .lg-who[data-u="emp-4902"],
+#lg-cf:has(#cf-emp-4902:target) .lg-who[data-u="emp-4902"],
+#lg-cf:has(#cf-emp-4902:target) .lg-go[data-u="emp-4902"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4903:target) .lg-who[data-u="emp-4903"],
+#lg-cf:has(#cf-emp-4903:target) .lg-who[data-u="emp-4903"],
+#lg-cf:has(#cf-emp-4903:target) .lg-go[data-u="emp-4903"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4904:target) .lg-who[data-u="emp-4904"],
+#lg-cf:has(#cf-emp-4904:target) .lg-who[data-u="emp-4904"],
+#lg-cf:has(#cf-emp-4904:target) .lg-go[data-u="emp-4904"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4905:target) .lg-who[data-u="emp-4905"],
+#lg-cf:has(#cf-emp-4905:target) .lg-who[data-u="emp-4905"],
+#lg-cf:has(#cf-emp-4905:target) .lg-go[data-u="emp-4905"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4906:target) .lg-who[data-u="emp-4906"],
+#lg-cf:has(#cf-emp-4906:target) .lg-who[data-u="emp-4906"],
+#lg-cf:has(#cf-emp-4906:target) .lg-go[data-u="emp-4906"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4907:target) .lg-who[data-u="emp-4907"],
+#lg-cf:has(#cf-emp-4907:target) .lg-who[data-u="emp-4907"],
+#lg-cf:has(#cf-emp-4907:target) .lg-go[data-u="emp-4907"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-4908:target) .lg-who[data-u="emp-4908"],
+#lg-cf:has(#cf-emp-4908:target) .lg-who[data-u="emp-4908"],
+#lg-cf:has(#cf-emp-4908:target) .lg-go[data-u="emp-4908"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-5005:target) .lg-who[data-u="emp-5005"],
+#lg-cf:has(#cf-emp-5005:target) .lg-who[data-u="emp-5005"],
+#lg-cf:has(#cf-emp-5005:target) .lg-go[data-u="emp-5005"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-arjun-dev:target) .lg-who[data-u="usr-arjun-dev"],
+#lg-cf:has(#cf-usr-arjun-dev:target) .lg-who[data-u="usr-arjun-dev"],
+#lg-cf:has(#cf-usr-arjun-dev:target) .lg-go[data-u="usr-arjun-dev"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-rahul-vijay:target) .lg-who[data-u="usr-rahul-vijay"],
+#lg-cf:has(#cf-usr-rahul-vijay:target) .lg-who[data-u="usr-rahul-vijay"],
+#lg-cf:has(#cf-usr-rahul-vijay:target) .lg-go[data-u="usr-rahul-vijay"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-george-mathew:target) .lg-who[data-u="usr-george-mathew"],
+#lg-cf:has(#cf-usr-george-mathew:target) .lg-who[data-u="usr-george-mathew"],
+#lg-cf:has(#cf-usr-george-mathew:target) .lg-go[data-u="usr-george-mathew"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-sneha-joseph:target) .lg-who[data-u="usr-sneha-joseph"],
+#lg-cf:has(#cf-usr-sneha-joseph:target) .lg-who[data-u="usr-sneha-joseph"],
+#lg-cf:has(#cf-usr-sneha-joseph:target) .lg-go[data-u="usr-sneha-joseph"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-sneha-thomas:target) .lg-who[data-u="usr-sneha-thomas"],
+#lg-cf:has(#cf-usr-sneha-thomas:target) .lg-who[data-u="usr-sneha-thomas"],
+#lg-cf:has(#cf-usr-sneha-thomas:target) .lg-go[data-u="usr-sneha-thomas"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-usr-anjali-vijay:target) .lg-who[data-u="usr-anjali-vijay"],
+#lg-cf:has(#cf-usr-anjali-vijay:target) .lg-who[data-u="usr-anjali-vijay"],
+#lg-cf:has(#cf-usr-anjali-vijay:target) .lg-go[data-u="usr-anjali-vijay"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1931:target) .lg-who[data-u="emp-1931"],
+#lg-cf:has(#cf-emp-1931:target) .lg-who[data-u="emp-1931"],
+#lg-cf:has(#cf-emp-1931:target) .lg-go[data-u="emp-1931"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1944:target) .lg-who[data-u="emp-1944"],
+#lg-cf:has(#cf-emp-1944:target) .lg-who[data-u="emp-1944"],
+#lg-cf:has(#cf-emp-1944:target) .lg-go[data-u="emp-1944"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1952:target) .lg-who[data-u="emp-1952"],
+#lg-cf:has(#cf-emp-1952:target) .lg-who[data-u="emp-1952"],
+#lg-cf:has(#cf-emp-1952:target) .lg-go[data-u="emp-1952"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1960:target) .lg-who[data-u="emp-1960"],
+#lg-cf:has(#cf-emp-1960:target) .lg-who[data-u="emp-1960"],
+#lg-cf:has(#cf-emp-1960:target) .lg-go[data-u="emp-1960"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-emp-1967:target) .lg-who[data-u="emp-1967"],
+#lg-cf:has(#cf-emp-1967:target) .lg-who[data-u="emp-1967"],
+#lg-cf:has(#cf-emp-1967:target) .lg-go[data-u="emp-1967"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u01:target) .lg-who[data-u="own-u01"],
+#lg-cf:has(#cf-own-u01:target) .lg-who[data-u="own-u01"],
+#lg-cf:has(#cf-own-u01:target) .lg-go[data-u="own-u01"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u02:target) .lg-who[data-u="own-u02"],
+#lg-cf:has(#cf-own-u02:target) .lg-who[data-u="own-u02"],
+#lg-cf:has(#cf-own-u02:target) .lg-go[data-u="own-u02"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u03:target) .lg-who[data-u="own-u03"],
+#lg-cf:has(#cf-own-u03:target) .lg-who[data-u="own-u03"],
+#lg-cf:has(#cf-own-u03:target) .lg-go[data-u="own-u03"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u04:target) .lg-who[data-u="own-u04"],
+#lg-cf:has(#cf-own-u04:target) .lg-who[data-u="own-u04"],
+#lg-cf:has(#cf-own-u04:target) .lg-go[data-u="own-u04"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u05:target) .lg-who[data-u="own-u05"],
+#lg-cf:has(#cf-own-u05:target) .lg-who[data-u="own-u05"],
+#lg-cf:has(#cf-own-u05:target) .lg-go[data-u="own-u05"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u06:target) .lg-who[data-u="own-u06"],
+#lg-cf:has(#cf-own-u06:target) .lg-who[data-u="own-u06"],
+#lg-cf:has(#cf-own-u06:target) .lg-go[data-u="own-u06"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u07:target) .lg-who[data-u="own-u07"],
+#lg-cf:has(#cf-own-u07:target) .lg-who[data-u="own-u07"],
+#lg-cf:has(#cf-own-u07:target) .lg-go[data-u="own-u07"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u08:target) .lg-who[data-u="own-u08"],
+#lg-cf:has(#cf-own-u08:target) .lg-who[data-u="own-u08"],
+#lg-cf:has(#cf-own-u08:target) .lg-go[data-u="own-u08"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u09:target) .lg-who[data-u="own-u09"],
+#lg-cf:has(#cf-own-u09:target) .lg-who[data-u="own-u09"],
+#lg-cf:has(#cf-own-u09:target) .lg-go[data-u="own-u09"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-own-u10:target) .lg-who[data-u="own-u10"],
+#lg-cf:has(#cf-own-u10:target) .lg-who[data-u="own-u10"],
+#lg-cf:has(#cf-own-u10:target) .lg-go[data-u="own-u10"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-ext-k-ramachandran:target) .lg-who[data-u="ext-k-ramachandran"],
+#lg-cf:has(#cf-ext-k-ramachandran:target) .lg-who[data-u="ext-k-ramachandran"],
+#lg-cf:has(#cf-ext-k-ramachandran:target) .lg-go[data-u="ext-k-ramachandran"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-ext-vinod-sunny:target) .lg-who[data-u="ext-vinod-sunny"],
+#lg-cf:has(#cf-ext-vinod-sunny:target) .lg-who[data-u="ext-vinod-sunny"],
+#lg-cf:has(#cf-ext-vinod-sunny:target) .lg-go[data-u="ext-vinod-sunny"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-svc-channel-manager:target) .lg-who[data-u="svc-channel-manager"],
+#lg-cf:has(#cf-svc-channel-manager:target) .lg-who[data-u="svc-channel-manager"],
+#lg-cf:has(#cf-svc-channel-manager:target) .lg-go[data-u="svc-channel-manager"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-svc-payment-gateway:target) .lg-who[data-u="svc-payment-gateway"],
+#lg-cf:has(#cf-svc-payment-gateway:target) .lg-who[data-u="svc-payment-gateway"],
+#lg-cf:has(#cf-svc-payment-gateway:target) .lg-go[data-u="svc-payment-gateway"] {
+  display: inline;
+}
+
+#lg-p01:has(#r-svc-einvoice:target) .lg-who[data-u="svc-einvoice"],
+#lg-cf:has(#cf-svc-einvoice:target) .lg-who[data-u="svc-einvoice"],
+#lg-cf:has(#cf-svc-einvoice:target) .lg-go[data-u="svc-einvoice"] {
+  display: inline;
+}
+
+body:has(#created:target) #row-emp-3014 {
+  background: var(--ok-bg);
+}
+
+body:has(#dx-emp-2001:target) #t-dx-emp-2001,
+body:has(#dx-emp-2002:target) #t-dx-emp-2002,
+body:has(#dx-emp-2003:target) #t-dx-emp-2003,
+body:has(#dx-emp-2004:target) #t-dx-emp-2004,
+body:has(#dx-emp-2005:target) #t-dx-emp-2005,
+body:has(#dx-emp-2006:target) #t-dx-emp-2006,
+body:has(#dx-emp-2007:target) #t-dx-emp-2007,
+body:has(#dx-emp-2008:target) #t-dx-emp-2008,
+body:has(#dx-emp-2009:target) #t-dx-emp-2009,
+body:has(#dx-emp-2010:target) #t-dx-emp-2010,
+body:has(#dx-emp-2011:target) #t-dx-emp-2011,
+body:has(#dx-emp-2012:target) #t-dx-emp-2012,
+body:has(#dx-emp-2013:target) #t-dx-emp-2013,
+body:has(#dx-emp-2014:target) #t-dx-emp-2014,
+body:has(#dx-emp-2015:target) #t-dx-emp-2015,
+body:has(#dx-emp-2016:target) #t-dx-emp-2016,
+body:has(#dx-emp-2023:target) #t-dx-emp-2023,
+body:has(#dx-emp-2024:target) #t-dx-emp-2024,
+body:has(#dx-emp-2025:target) #t-dx-emp-2025,
+body:has(#dx-emp-2026:target) #t-dx-emp-2026,
+body:has(#dx-emp-3001:target) #t-dx-emp-3001,
+body:has(#dx-emp-3002:target) #t-dx-emp-3002,
+body:has(#dx-emp-3003:target) #t-dx-emp-3003,
+body:has(#dx-emp-3004:target) #t-dx-emp-3004,
+body:has(#dx-emp-3005:target) #t-dx-emp-3005,
+body:has(#dx-emp-3006:target) #t-dx-emp-3006,
+body:has(#dx-emp-3007:target) #t-dx-emp-3007,
+body:has(#dx-emp-3008:target) #t-dx-emp-3008,
+body:has(#dx-emp-3009:target) #t-dx-emp-3009,
+body:has(#dx-emp-3010:target) #t-dx-emp-3010,
+body:has(#dx-emp-3011:target) #t-dx-emp-3011,
+body:has(#dx-emp-3012:target) #t-dx-emp-3012,
+body:has(#dx-emp-1001:target) #t-dx-emp-1001,
+body:has(#dx-emp-1002:target) #t-dx-emp-1002,
+body:has(#dx-emp-1003:target) #t-dx-emp-1003,
+body:has(#dx-emp-1004:target) #t-dx-emp-1004,
+body:has(#dx-emp-1005:target) #t-dx-emp-1005,
+body:has(#dx-emp-1006:target) #t-dx-emp-1006,
+body:has(#dx-emp-1007:target) #t-dx-emp-1007,
+body:has(#dx-emp-1008:target) #t-dx-emp-1008,
+body:has(#dx-emp-1009:target) #t-dx-emp-1009,
+body:has(#dx-emp-1010:target) #t-dx-emp-1010,
+body:has(#dx-emp-1011:target) #t-dx-emp-1011,
+body:has(#dx-emp-1012:target) #t-dx-emp-1012,
+body:has(#dx-emp-1013:target) #t-dx-emp-1013,
+body:has(#dx-emp-1014:target) #t-dx-emp-1014,
+body:has(#dx-emp-1015:target) #t-dx-emp-1015,
+body:has(#dx-emp-1016:target) #t-dx-emp-1016,
+body:has(#dx-emp-1017:target) #t-dx-emp-1017,
+body:has(#dx-emp-1018:target) #t-dx-emp-1018,
+body:has(#dx-emp-1019:target) #t-dx-emp-1019,
+body:has(#dx-emp-1020:target) #t-dx-emp-1020,
+body:has(#dx-emp-1021:target) #t-dx-emp-1021,
+body:has(#dx-emp-1022:target) #t-dx-emp-1022,
+body:has(#dx-emp-1023:target) #t-dx-emp-1023,
+body:has(#dx-emp-1024:target) #t-dx-emp-1024,
+body:has(#dx-emp-4001:target) #t-dx-emp-4001,
+body:has(#dx-emp-4002:target) #t-dx-emp-4002,
+body:has(#dx-emp-4003:target) #t-dx-emp-4003,
+body:has(#dx-emp-4004:target) #t-dx-emp-4004,
+body:has(#dx-emp-4005:target) #t-dx-emp-4005,
+body:has(#dx-emp-4006:target) #t-dx-emp-4006,
+body:has(#dx-emp-4007:target) #t-dx-emp-4007,
+body:has(#dx-emp-4008:target) #t-dx-emp-4008,
+body:has(#dx-emp-4009:target) #t-dx-emp-4009,
+body:has(#dx-emp-4010:target) #t-dx-emp-4010,
+body:has(#dx-emp-4011:target) #t-dx-emp-4011,
+body:has(#dx-emp-4012:target) #t-dx-emp-4012,
+body:has(#dx-emp-4013:target) #t-dx-emp-4013,
+body:has(#dx-emp-4014:target) #t-dx-emp-4014,
+body:has(#dx-emp-4015:target) #t-dx-emp-4015,
+body:has(#dx-emp-4016:target) #t-dx-emp-4016,
+body:has(#dx-emp-4017:target) #t-dx-emp-4017,
+body:has(#dx-emp-4101:target) #t-dx-emp-4101,
+body:has(#dx-emp-4102:target) #t-dx-emp-4102,
+body:has(#dx-emp-4103:target) #t-dx-emp-4103,
+body:has(#dx-emp-4104:target) #t-dx-emp-4104,
+body:has(#dx-emp-4105:target) #t-dx-emp-4105,
+body:has(#dx-emp-4106:target) #t-dx-emp-4106,
+body:has(#dx-emp-4107:target) #t-dx-emp-4107,
+body:has(#dx-emp-4108:target) #t-dx-emp-4108,
+body:has(#dx-emp-4109:target) #t-dx-emp-4109,
+body:has(#dx-emp-4110:target) #t-dx-emp-4110,
+body:has(#dx-emp-4111:target) #t-dx-emp-4111,
+body:has(#dx-emp-4112:target) #t-dx-emp-4112,
+body:has(#dx-emp-4113:target) #t-dx-emp-4113,
+body:has(#dx-emp-4114:target) #t-dx-emp-4114,
+body:has(#dx-emp-4115:target) #t-dx-emp-4115,
+body:has(#dx-emp-4116:target) #t-dx-emp-4116,
+body:has(#dx-emp-4117:target) #t-dx-emp-4117,
+body:has(#dx-emp-4118:target) #t-dx-emp-4118,
+body:has(#dx-emp-4119:target) #t-dx-emp-4119,
+body:has(#dx-emp-4120:target) #t-dx-emp-4120,
+body:has(#dx-emp-4121:target) #t-dx-emp-4121,
+body:has(#dx-emp-4122:target) #t-dx-emp-4122,
+body:has(#dx-emp-4123:target) #t-dx-emp-4123,
+body:has(#dx-emp-4124:target) #t-dx-emp-4124,
+body:has(#dx-emp-4125:target) #t-dx-emp-4125,
+body:has(#dx-emp-4126:target) #t-dx-emp-4126,
+body:has(#dx-emp-4201:target) #t-dx-emp-4201,
+body:has(#dx-emp-4202:target) #t-dx-emp-4202,
+body:has(#dx-emp-4203:target) #t-dx-emp-4203,
+body:has(#dx-emp-4204:target) #t-dx-emp-4204,
+body:has(#dx-emp-4205:target) #t-dx-emp-4205,
+body:has(#dx-emp-4206:target) #t-dx-emp-4206,
+body:has(#dx-emp-4207:target) #t-dx-emp-4207,
+body:has(#dx-emp-4208:target) #t-dx-emp-4208,
+body:has(#dx-emp-4209:target) #t-dx-emp-4209,
+body:has(#dx-emp-4210:target) #t-dx-emp-4210,
+body:has(#dx-emp-4211:target) #t-dx-emp-4211,
+body:has(#dx-emp-4212:target) #t-dx-emp-4212,
+body:has(#dx-emp-4213:target) #t-dx-emp-4213,
+body:has(#dx-emp-4214:target) #t-dx-emp-4214,
+body:has(#dx-emp-4215:target) #t-dx-emp-4215,
+body:has(#dx-emp-4216:target) #t-dx-emp-4216,
+body:has(#dx-emp-4217:target) #t-dx-emp-4217,
+body:has(#dx-emp-4218:target) #t-dx-emp-4218,
+body:has(#dx-emp-4219:target) #t-dx-emp-4219,
+body:has(#dx-emp-4220:target) #t-dx-emp-4220,
+body:has(#dx-emp-4221:target) #t-dx-emp-4221,
+body:has(#dx-emp-4222:target) #t-dx-emp-4222,
+body:has(#dx-emp-4401:target) #t-dx-emp-4401,
+body:has(#dx-emp-4402:target) #t-dx-emp-4402,
+body:has(#dx-emp-4403:target) #t-dx-emp-4403,
+body:has(#dx-emp-4404:target) #t-dx-emp-4404,
+body:has(#dx-emp-4405:target) #t-dx-emp-4405,
+body:has(#dx-emp-4406:target) #t-dx-emp-4406,
+body:has(#dx-emp-4407:target) #t-dx-emp-4407,
+body:has(#dx-emp-4501:target) #t-dx-emp-4501,
+body:has(#dx-emp-4502:target) #t-dx-emp-4502,
+body:has(#dx-emp-4503:target) #t-dx-emp-4503,
+body:has(#dx-emp-4504:target) #t-dx-emp-4504,
+body:has(#dx-emp-4505:target) #t-dx-emp-4505,
+body:has(#dx-emp-4506:target) #t-dx-emp-4506,
+body:has(#dx-emp-4601:target) #t-dx-emp-4601,
+body:has(#dx-emp-4602:target) #t-dx-emp-4602,
+body:has(#dx-emp-4603:target) #t-dx-emp-4603,
+body:has(#dx-emp-4701:target) #t-dx-emp-4701,
+body:has(#dx-emp-4702:target) #t-dx-emp-4702,
+body:has(#dx-emp-4801:target) #t-dx-emp-4801,
+body:has(#dx-emp-4802:target) #t-dx-emp-4802,
+body:has(#dx-emp-4803:target) #t-dx-emp-4803,
+body:has(#dx-emp-4804:target) #t-dx-emp-4804,
+body:has(#dx-emp-4901:target) #t-dx-emp-4901,
+body:has(#dx-emp-4902:target) #t-dx-emp-4902,
+body:has(#dx-emp-4903:target) #t-dx-emp-4903,
+body:has(#dx-emp-4904:target) #t-dx-emp-4904,
+body:has(#dx-emp-4905:target) #t-dx-emp-4905,
+body:has(#dx-emp-4906:target) #t-dx-emp-4906,
+body:has(#dx-emp-4907:target) #t-dx-emp-4907,
+body:has(#dx-emp-4908:target) #t-dx-emp-4908,
+body:has(#dx-emp-5005:target) #t-dx-emp-5005,
+body:has(#dx-usr-arjun-dev:target) #t-dx-usr-arjun-dev,
+body:has(#dx-usr-rahul-vijay:target) #t-dx-usr-rahul-vijay,
+body:has(#dx-usr-george-mathew:target) #t-dx-usr-george-mathew,
+body:has(#dx-usr-sneha-joseph:target) #t-dx-usr-sneha-joseph,
+body:has(#dx-usr-sneha-thomas:target) #t-dx-usr-sneha-thomas,
+body:has(#dx-usr-anjali-vijay:target) #t-dx-usr-anjali-vijay,
+body:has(#dx-own-u01:target) #t-dx-own-u01,
+body:has(#dx-own-u02:target) #t-dx-own-u02,
+body:has(#dx-own-u03:target) #t-dx-own-u03,
+body:has(#dx-own-u04:target) #t-dx-own-u04,
+body:has(#dx-own-u05:target) #t-dx-own-u05,
+body:has(#dx-own-u06:target) #t-dx-own-u06,
+body:has(#dx-own-u07:target) #t-dx-own-u07,
+body:has(#dx-own-u10:target) #t-dx-own-u10,
+body:has(#dx-ext-k-ramachandran:target) #t-dx-ext-k-ramachandran,
+body:has(#dx-ext-vinod-sunny:target) #t-dx-ext-vinod-sunny,
+body:has(#dx-svc-channel-manager:target) #t-dx-svc-channel-manager,
+body:has(#dx-svc-payment-gateway:target) #t-dx-svc-payment-gateway,
+body:has(#dx-svc-einvoice:target) #t-dx-svc-einvoice,
+body:has(#reset-done:target) #t-reset-done,
+body:has(#imported:target) #t-imported,
+body:has(#saved:target) #t-saved,
+body:has(#created:target) #t-created,
+body:has(#sent:target) #t-sent {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

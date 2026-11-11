@@ -1,0 +1,39 @@
+/* rt-08-table-booking.css: bookings and waitlist with status (Booked, Confirmed, Seated, No-show, Cancelled, Waitlist), Seat → RT-P01, No-show / Cancel after-states, new booking. */
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.bk-ns,
+.bk-cx {
+  display: none;
+}
+
+.bkw:has(#booked:target) .lf-new {
+  display: table-row;
+}
+
+.bkw:has(#booked:target) #t-booked { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0241, #cx-tb-0241):target) #bk-tb-0241 .bk-now { display: none; }
+.bkw:has(#ns-tb-0241:target) #bk-tb-0241 .bk-ns, .bkw:has(#cx-tb-0241:target) #bk-tb-0241 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0241:target) #t-ns-tb-0241, .bkw:has(#cx-tb-0241:target) #t-cx-tb-0241 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0242, #cx-tb-0242):target) #bk-tb-0242 .bk-now { display: none; }
+.bkw:has(#ns-tb-0242:target) #bk-tb-0242 .bk-ns, .bkw:has(#cx-tb-0242:target) #bk-tb-0242 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0242:target) #t-ns-tb-0242, .bkw:has(#cx-tb-0242:target) #t-cx-tb-0242 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0240, #cx-tb-0240):target) #bk-tb-0240 .bk-now { display: none; }
+.bkw:has(#ns-tb-0240:target) #bk-tb-0240 .bk-ns, .bkw:has(#cx-tb-0240:target) #bk-tb-0240 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0240:target) #t-ns-tb-0240, .bkw:has(#cx-tb-0240:target) #t-cx-tb-0240 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0243, #cx-tb-0243):target) #bk-tb-0243 .bk-now { display: none; }
+.bkw:has(#ns-tb-0243:target) #bk-tb-0243 .bk-ns, .bkw:has(#cx-tb-0243:target) #bk-tb-0243 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0243:target) #t-ns-tb-0243, .bkw:has(#cx-tb-0243:target) #t-cx-tb-0243 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0244, #cx-tb-0244):target) #bk-tb-0244 .bk-now { display: none; }
+.bkw:has(#ns-tb-0244:target) #bk-tb-0244 .bk-ns, .bkw:has(#cx-tb-0244:target) #bk-tb-0244 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0244:target) #t-ns-tb-0244, .bkw:has(#cx-tb-0244:target) #t-cx-tb-0244 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0238, #cx-tb-0238):target) #bk-tb-0238 .bk-now { display: none; }
+.bkw:has(#ns-tb-0238:target) #bk-tb-0238 .bk-ns, .bkw:has(#cx-tb-0238:target) #bk-tb-0238 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0238:target) #t-ns-tb-0238, .bkw:has(#cx-tb-0238:target) #t-cx-tb-0238 { display: flex; animation: av-rise 320ms var(--ease); }
+.bkw:has(:is(#ns-tb-0239, #cx-tb-0239):target) #bk-tb-0239 .bk-now { display: none; }
+.bkw:has(#ns-tb-0239:target) #bk-tb-0239 .bk-ns, .bkw:has(#cx-tb-0239:target) #bk-tb-0239 .bk-cx { display: inline-flex; }
+.bkw:has(#ns-tb-0239:target) #t-ns-tb-0239, .bkw:has(#cx-tb-0239:target) #t-cx-tb-0239 { display: flex; animation: av-rise 320ms var(--ease); }

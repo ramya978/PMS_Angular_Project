@@ -1,0 +1,262 @@
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+body:has(#new:target) .va-act--new,
+body:has(.v-new :target) .va-act--new {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0001:target) .va-act--EQ-26-27-0001,
+body:has(.v-EQ-26-27-0001 :target) .va-act--EQ-26-27-0001 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0002:target) .va-act--EQ-26-27-0002,
+body:has(.v-EQ-26-27-0002 :target) .va-act--EQ-26-27-0002 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0003:target) .va-act--EQ-26-27-0003,
+body:has(.v-EQ-26-27-0003 :target) .va-act--EQ-26-27-0003 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0004:target) .va-act--EQ-26-27-0004,
+body:has(.v-EQ-26-27-0004 :target) .va-act--EQ-26-27-0004 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0005:target) .va-act--EQ-26-27-0005,
+body:has(.v-EQ-26-27-0005 :target) .va-act--EQ-26-27-0005 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0006:target) .va-act--EQ-26-27-0006,
+body:has(.v-EQ-26-27-0006 :target) .va-act--EQ-26-27-0006 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0007:target) .va-act--EQ-26-27-0007,
+body:has(.v-EQ-26-27-0007 :target) .va-act--EQ-26-27-0007 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0008:target) .va-act--EQ-26-27-0008,
+body:has(.v-EQ-26-27-0008 :target) .va-act--EQ-26-27-0008 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0009:target) .va-act--EQ-26-27-0009,
+body:has(.v-EQ-26-27-0009 :target) .va-act--EQ-26-27-0009 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0010:target) .va-act--EQ-26-27-0010,
+body:has(.v-EQ-26-27-0010 :target) .va-act--EQ-26-27-0010 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0011:target) .va-act--EQ-26-27-0011,
+body:has(.v-EQ-26-27-0011 :target) .va-act--EQ-26-27-0011 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0012:target) .va-act--EQ-26-27-0012,
+body:has(.v-EQ-26-27-0012 :target) .va-act--EQ-26-27-0012 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0013:target) .va-act--EQ-26-27-0013,
+body:has(.v-EQ-26-27-0013 :target) .va-act--EQ-26-27-0013 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0014:target) .va-act--EQ-26-27-0014,
+body:has(.v-EQ-26-27-0014 :target) .va-act--EQ-26-27-0014 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0015:target) .va-act--EQ-26-27-0015,
+body:has(.v-EQ-26-27-0015 :target) .va-act--EQ-26-27-0015 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0016:target) .va-act--EQ-26-27-0016,
+body:has(.v-EQ-26-27-0016 :target) .va-act--EQ-26-27-0016 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0017:target) .va-act--EQ-26-27-0017,
+body:has(.v-EQ-26-27-0017 :target) .va-act--EQ-26-27-0017 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0018:target) .va-act--EQ-26-27-0018,
+body:has(.v-EQ-26-27-0018 :target) .va-act--EQ-26-27-0018 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0019:target) .va-act--EQ-26-27-0019,
+body:has(.v-EQ-26-27-0019 :target) .va-act--EQ-26-27-0019 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0020:target) .va-act--EQ-26-27-0020,
+body:has(.v-EQ-26-27-0020 :target) .va-act--EQ-26-27-0020 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0021:target) .va-act--EQ-26-27-0021,
+body:has(.v-EQ-26-27-0021 :target) .va-act--EQ-26-27-0021 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0022:target) .va-act--EQ-26-27-0022,
+body:has(.v-EQ-26-27-0022 :target) .va-act--EQ-26-27-0022 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0023:target) .va-act--EQ-26-27-0023,
+body:has(.v-EQ-26-27-0023 :target) .va-act--EQ-26-27-0023 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0024:target) .va-act--EQ-26-27-0024,
+body:has(.v-EQ-26-27-0024 :target) .va-act--EQ-26-27-0024 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0025:target) .va-act--EQ-26-27-0025,
+body:has(.v-EQ-26-27-0025 :target) .va-act--EQ-26-27-0025 {
+  display: inline-flex;
+}
+
+body:has(#EQ-26-27-0026:target) .va-act--EQ-26-27-0026,
+body:has(.v-EQ-26-27-0026 :target) .va-act--EQ-26-27-0026 {
+  display: inline-flex;
+}
+
+body:not(:has(.va:target)):not(:has(.variant :target)) .va-act--new {
+  display: inline-flex;
+}
+
+#new:target ~ .v-new {
+  display: block;
+}
+
+#EQ-26-27-0001:target ~ .v-EQ-26-27-0001 {
+  display: block;
+}
+
+#EQ-26-27-0002:target ~ .v-EQ-26-27-0002 {
+  display: block;
+}
+
+#EQ-26-27-0003:target ~ .v-EQ-26-27-0003 {
+  display: block;
+}
+
+#EQ-26-27-0004:target ~ .v-EQ-26-27-0004 {
+  display: block;
+}
+
+#EQ-26-27-0005:target ~ .v-EQ-26-27-0005 {
+  display: block;
+}
+
+#EQ-26-27-0006:target ~ .v-EQ-26-27-0006 {
+  display: block;
+}
+
+#EQ-26-27-0007:target ~ .v-EQ-26-27-0007 {
+  display: block;
+}
+
+#EQ-26-27-0008:target ~ .v-EQ-26-27-0008 {
+  display: block;
+}
+
+#EQ-26-27-0009:target ~ .v-EQ-26-27-0009 {
+  display: block;
+}
+
+#EQ-26-27-0010:target ~ .v-EQ-26-27-0010 {
+  display: block;
+}
+
+#EQ-26-27-0011:target ~ .v-EQ-26-27-0011 {
+  display: block;
+}
+
+#EQ-26-27-0012:target ~ .v-EQ-26-27-0012 {
+  display: block;
+}
+
+#EQ-26-27-0013:target ~ .v-EQ-26-27-0013 {
+  display: block;
+}
+
+#EQ-26-27-0014:target ~ .v-EQ-26-27-0014 {
+  display: block;
+}
+
+#EQ-26-27-0015:target ~ .v-EQ-26-27-0015 {
+  display: block;
+}
+
+#EQ-26-27-0016:target ~ .v-EQ-26-27-0016 {
+  display: block;
+}
+
+#EQ-26-27-0017:target ~ .v-EQ-26-27-0017 {
+  display: block;
+}
+
+#EQ-26-27-0018:target ~ .v-EQ-26-27-0018 {
+  display: block;
+}
+
+#EQ-26-27-0019:target ~ .v-EQ-26-27-0019 {
+  display: block;
+}
+
+#EQ-26-27-0020:target ~ .v-EQ-26-27-0020 {
+  display: block;
+}
+
+#EQ-26-27-0021:target ~ .v-EQ-26-27-0021 {
+  display: block;
+}
+
+#EQ-26-27-0022:target ~ .v-EQ-26-27-0022 {
+  display: block;
+}
+
+#EQ-26-27-0023:target ~ .v-EQ-26-27-0023 {
+  display: block;
+}
+
+#EQ-26-27-0024:target ~ .v-EQ-26-27-0024 {
+  display: block;
+}
+
+#EQ-26-27-0025:target ~ .v-EQ-26-27-0025 {
+  display: block;
+}
+
+#EQ-26-27-0026:target ~ .v-EQ-26-27-0026 {
+  display: block;
+}
+
+/* only the buttons of the enquiry on screen: the other enquiries' buttons stay hidden until that enquiry opens */
+.page-header__actions > a[data-flow="opener"] {
+  display: none;
+}
+
+body:has(#EQ-26-27-0017:target, .v-EQ-26-27-0017 :target) .page-header__actions > a[href$="-0017"],
+body:has(#EQ-26-27-0018:target, .v-EQ-26-27-0018 :target) .page-header__actions > a[href$="-0018"],
+body:has(#EQ-26-27-0019:target, .v-EQ-26-27-0019 :target) .page-header__actions > a[href$="-0019"] {
+  display: inline-flex;
+}
+
+/* 2026-11-11 · enquiry type: the group fields appear when "Group booking" is chosen */
+.eq-grp-fields { display: none; }
+.variant:has(select.eq-type option[value="grp"]:checked) .eq-grp-fields { display: contents; }

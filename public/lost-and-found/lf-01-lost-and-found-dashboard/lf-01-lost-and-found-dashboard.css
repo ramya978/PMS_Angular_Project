@@ -1,0 +1,112 @@
+/* lf-01-lost-and-found-dashboard.css: navy hero with actions, valuable alert, 7 tiles (each opens its list filtered), storage by category, today's activity. */
+.lfd-hello {
+  margin: 4px 0 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.lfd-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lfd-t:first-child {
+  grid-row: span 2;
+  align-content: center;
+}
+
+.lfd-t:first-child b {
+  font-size: 34px;
+}
+
+.lfd .lf-tl > li {
+  grid-template-columns: 52px 1fr;
+}
+
+.lfd-t {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 160ms var(--ease), transform 160ms var(--ease);
+}
+
+.lfd-t:hover {
+  box-shadow: 0 0 0 1px var(--hk), 0 10px 22px -16px rgb(16 24 40 / 0.4);
+  transform: translateY(-2px);
+}
+
+.lfd-t__i {
+  display: grid;
+  grid-row: span 3;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--hk) 14%, transparent);
+  color: var(--hk);
+}
+
+.lfd-t__k,
+.lfd-t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lfd-t b {
+  font-size: 22px;
+}
+
+.lfd-g {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 16px;
+}
+
+.lfd-cats {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lfd-cats li {
+  display: grid;
+  grid-template-columns: 150px 1fr 28px;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.lfd-bar i {
+  display: block;
+  width: var(--w);
+  height: 8px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--em-600), var(--br-400));
+}
+
+.lad-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .lfd-g {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

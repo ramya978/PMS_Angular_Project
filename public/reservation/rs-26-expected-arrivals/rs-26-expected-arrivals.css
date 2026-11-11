@@ -1,0 +1,38 @@
+/* RS-26 Expected Arrivals – shared compact list (.arl) plus CSS-only filters and a summary under the list. */
+
+main:has(select[name="ea-day"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.ea-22) { display: none; }
+main:has(select[name="ea-day"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.ea-23) { display: none; }
+main:has(select[name="ea-day"] option:nth-child(4):checked) .arl-t > tbody > tr:not(.ea-24) { display: none; }
+main:has(select[name="ea-day"] option:nth-child(5):checked) .arl-t > tbody > tr:not(.ea-25) { display: none; }
+main:has(select[name="ea-st"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.st-guaranteed) { display: none; }
+main:has(select[name="ea-st"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.st-confirmed) { display: none; }
+main:has(select[name="ea-st"] option:nth-child(4):checked) .arl-t > tbody > tr:not(.st-tentative) { display: none; }
+main:has(select[name="ea-rt"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.rt-GDLX) { display: none; }
+main:has(select[name="ea-rt"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.rt-PDLX) { display: none; }
+main:has(select[name="ea-rt"] option:nth-child(4):checked) .arl-t > tbody > tr:not(.rt-DLXS) { display: none; }
+main:has(select[name="ea-rt"] option:nth-child(5):checked) .arl-t > tbody > tr:not(.rt-PRMS) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.ag-agoda) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.ag-booking-com) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(4):checked) .arl-t > tbody > tr:not(.ag-cochin-marine-services-ltd) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(5):checked) .arl-t > tbody > tr:not(.ag-email) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(6):checked) .arl-t > tbody > tr:not(.ag-expedia) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(7):checked) .arl-t > tbody > tr:not(.ag-kerala-holidays-tours) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(8):checked) .arl-t > tbody > tr:not(.ag-makemytrip-goibibo) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(9):checked) .arl-t > tbody > tr:not(.ag-malabar-spice-exports-pvt-ltd) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(10):checked) .arl-t > tbody > tr:not(.ag-phone) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(11):checked) .arl-t > tbody > tr:not(.ag-self-booking) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(12):checked) .arl-t > tbody > tr:not(.ag-aviv-mobile-app) { display: none; }
+main:has(select[name="ea-ag"] option:nth-child(13):checked) .arl-t > tbody > tr:not(.ag-aviv-website) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.gc-corporate) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.gc-regular) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(4):checked) .arl-t > tbody > tr:not(.gc-vip) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(5):checked) .arl-t > tbody > tr:not(.gc-aviv-club-gold) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(6):checked) .arl-t > tbody > tr:not(.gc-aviv-club-platinum) { display: none; }
+main:has(select[name="ea-gc"] option:nth-child(7):checked) .arl-t > tbody > tr:not(.gc-aviv-club-silver) { display: none; }
+main:has(select[name="ea-al"] option:nth-child(2):checked) .arl-t > tbody > tr:not(.al-yes) { display: none; }
+main:has(select[name="ea-al"] option:nth-child(3):checked) .arl-t > tbody > tr:not(.al-no) { display: none; }
+
+.arl-t td.arl-gn { white-space: nowrap; }
+.ea-summary { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 14px; margin-top: 14px; }
+@media (max-width: 1024px) { .ea-summary { grid-template-columns: 1fr; } }
+

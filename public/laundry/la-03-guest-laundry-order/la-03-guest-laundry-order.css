@@ -1,0 +1,456 @@
+/* la-03-guest-laundry-order.css: one order form per order (opened by #o<order-no>, the default is LDY-20261022-003),
+   the new-order form (#new), item grid with category tabs, charges / status panel with status-dependent buttons,
+   pop-ups LA-P02 count difference, LA-P03 damage claim (one marker per order), LA-P04 delivery, cancel confirmation. */
+.lo3-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: start;
+  gap: 16px;
+}
+
+.lo3-main {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.lo3-flag {
+  margin-bottom: 16px;
+}
+
+.lo3-flag + .lo3-flag {
+  margin-top: -6px;
+}
+
+.lo3-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lo3-id > .pill {
+  margin-left: auto;
+}
+
+.lo3-id .la-room {
+  min-width: 52px;
+  height: 44px;
+  font-size: 17px;
+}
+
+.lo3-h {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.lo3-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.lo3-grid > .field--wide {
+  grid-column: 1 / -1;
+}
+
+.lo3-lines td {
+  vertical-align: middle;
+}
+
+.lo3-lines tr.is-diff > td {
+  background: var(--warn-bg);
+}
+
+.lo3-in--dt {
+  margin-top: 6px;
+}
+
+.lo3-ph {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.lo3-ph--add {
+  color: var(--em-700);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lo3-empty {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.lo3-empty b {
+  color: var(--ink);
+}
+
+.lo3-add > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.lo3-add[open] > summary {
+  margin-bottom: 12px;
+}
+
+.lo3-tab__r {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lo3-tabbar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.lo3-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 9px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lo3-tab b {
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--line-2);
+  font-size: 11.5px;
+}
+
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(1):checked) .lo3-tab:nth-child(1),
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(2):checked) .lo3-tab:nth-child(2),
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(3):checked) .lo3-tab:nth-child(3),
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(4):checked) .lo3-tab:nth-child(4) {
+  background: var(--em-700);
+  color: #fff;
+}
+
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(1):checked) .lo3-tab:nth-child(1) b,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(2):checked) .lo3-tab:nth-child(2) b,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(3):checked) .lo3-tab:nth-child(3) b,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(4):checked) .lo3-tab:nth-child(4) b {
+  background: rgb(255 255 255 / 0.2);
+}
+
+.lo3-tabs:has(.lo3-tab__r:focus-visible) .lo3-tabbar {
+  box-shadow: var(--ring);
+}
+
+.lo3-pane {
+  display: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(1):checked) .lo3-pane--0,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(2):checked) .lo3-pane--1,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(3):checked) .lo3-pane--2,
+.lo3-tabs:has(.lo3-tab__r:nth-of-type(4):checked) .lo3-pane--3 {
+  display: grid;
+}
+
+.lo3-pi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 13px;
+}
+
+.lo3-pi span {
+  display: grid;
+  min-width: 0;
+}
+
+.lo3-pi small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.lo3-pi:has(input:not(:placeholder-shown)) {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-200);
+}
+
+.lo3-note {
+  min-height: 0;
+  padding-block: 8px;
+  color: var(--st-tentative);
+  font-weight: 500;
+}
+
+.lo3-sum {
+  position: sticky;
+  top: calc(var(--topbar-h) + 12px);
+}
+
+.lo3-tot {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.lo3-tot > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.lo3-tot dt {
+  color: var(--ink-3);
+}
+
+.lo3-tot dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.lo3-tot__t {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.lo3-tot__t :is(dt, dd) {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.lo3-calc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lo3-disc > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.lo3-disc__b {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.lo3-bill {
+  display: grid;
+  gap: 6px;
+}
+
+.lo3-st {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lo3-acts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lo3-acts > :first-child {
+  grid-column: 1 / -1;
+}
+
+.lo3-acts .btn {
+  justify-content: center;
+}
+
+.lo3-acts .is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.lo3-logt {
+  margin: 4px 0 0;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lo3-log {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+}
+
+.lo3-log li {
+  display: grid;
+}
+
+.lo3-log b {
+  color: var(--ink);
+}
+
+.lo3-log span {
+  color: var(--ink-3);
+}
+
+.lo3-sig {
+  min-height: 64px;
+  border-style: dashed;
+}
+
+.lo3-cxlq {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.lo3-addrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.p3o,
+.p4o,
+.p4b {
+  display: none;
+}
+
+.p3o {
+  gap: 12px;
+}
+
+@media (max-width: 1240px) {
+  .lo3-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .lo3-sum {
+    position: static;
+  }
+
+  .lo3-grid,
+  .lo3-pane {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.lo3w .lo3 { display: none; }
+.lo3w:not(:has(:is(#o20261022-001, #o20261022-002, #o20261022-003, #o20261022-004, #o20261022-005, #o20261022-006, #o20261022-007, #o20261022-008, #o20261022-009, #o20261022-010, #o20261022-011, #o20261022-012, #o20261022-013, #o20261022-014, #saved-o20261022-014, #o20261021-005, #o20261021-007, #o20261021-010, #o20261021-012, #o20261021-006, #o20261020-014, #o20261020-004, #o20261019-011, #o20261018-006, #o20261017-009, #new):target)) .lo3--o20261022-003 { display: block; }
+body:has(:is(#la-p02, #la-p03, #la-cxl, #p02-saved, #cxl-done):target) .lo3w .lo3--o20261022-003 { display: block; }
+.lo3w:has(:is(#o20261022-001, #saved-o20261022-001, #held-o20261022-001, #p03-o20261022-001, #p04-o20261022-001):target) .lo3--o20261022-001 { display: block; }
+.lo3w:has(:is(#o20261022-002, #saved-o20261022-002, #held-o20261022-002, #p03-o20261022-002, #p04-o20261022-002):target) .lo3--o20261022-002 { display: block; }
+.lo3w:has(:is(#o20261022-003, #saved-o20261022-003, #held-o20261022-003, #p03-o20261022-003, #p04-o20261022-003):target) .lo3--o20261022-003 { display: block; }
+.lo3w:has(:is(#o20261022-004, #saved-o20261022-004, #held-o20261022-004, #p03-o20261022-004, #p04-o20261022-004):target) .lo3--o20261022-004 { display: block; }
+.lo3w:has(:is(#o20261022-005, #saved-o20261022-005, #held-o20261022-005, #p03-o20261022-005, #p04-o20261022-005):target) .lo3--o20261022-005 { display: block; }
+.lo3w:has(:is(#o20261022-006, #saved-o20261022-006, #held-o20261022-006, #p03-o20261022-006, #p04-o20261022-006):target) .lo3--o20261022-006 { display: block; }
+.lo3w:has(:is(#o20261022-007, #saved-o20261022-007, #held-o20261022-007, #p03-o20261022-007, #p04-o20261022-007):target) .lo3--o20261022-007 { display: block; }
+.lo3w:has(:is(#o20261022-008, #saved-o20261022-008, #held-o20261022-008, #p03-o20261022-008, #p04-o20261022-008):target) .lo3--o20261022-008 { display: block; }
+.lo3w:has(:is(#o20261022-009, #saved-o20261022-009, #held-o20261022-009, #p03-o20261022-009, #p04-o20261022-009):target) .lo3--o20261022-009 { display: block; }
+.lo3w:has(:is(#o20261022-010, #saved-o20261022-010, #held-o20261022-010, #p03-o20261022-010, #p04-o20261022-010):target) .lo3--o20261022-010 { display: block; }
+.lo3w:has(:is(#o20261022-011, #saved-o20261022-011, #held-o20261022-011, #p03-o20261022-011, #p04-o20261022-011):target) .lo3--o20261022-011 { display: block; }
+.lo3w:has(:is(#o20261022-012, #saved-o20261022-012, #held-o20261022-012, #p03-o20261022-012, #p04-o20261022-012):target) .lo3--o20261022-012 { display: block; }
+.lo3w:has(:is(#o20261022-013, #saved-o20261022-013, #held-o20261022-013, #p03-o20261022-013, #p04-o20261022-013):target) .lo3--o20261022-013 { display: block; }
+.lo3w:has(:is(#o20261021-005, #saved-o20261021-005, #held-o20261021-005, #p03-o20261021-005, #p04-o20261021-005):target) .lo3--o20261021-005 { display: block; }
+.lo3w:has(:is(#o20261021-007, #saved-o20261021-007, #held-o20261021-007, #p03-o20261021-007, #p04-o20261021-007):target) .lo3--o20261021-007 { display: block; }
+.lo3w:has(:is(#o20261021-010, #saved-o20261021-010, #held-o20261021-010, #p03-o20261021-010, #p04-o20261021-010):target) .lo3--o20261021-010 { display: block; }
+.lo3w:has(:is(#o20261021-012, #saved-o20261021-012, #held-o20261021-012, #p03-o20261021-012, #p04-o20261021-012):target) .lo3--o20261021-012 { display: block; }
+.lo3w:has(:is(#o20261021-006, #saved-o20261021-006, #held-o20261021-006, #p03-o20261021-006, #p04-o20261021-006):target) .lo3--o20261021-006 { display: block; }
+.lo3w:has(:is(#o20261020-014, #saved-o20261020-014, #held-o20261020-014, #p03-o20261020-014, #p04-o20261020-014):target) .lo3--o20261020-014 { display: block; }
+.lo3w:has(:is(#o20261020-004, #saved-o20261020-004, #held-o20261020-004, #p03-o20261020-004, #p04-o20261020-004):target) .lo3--o20261020-004 { display: block; }
+.lo3w:has(:is(#o20261019-011, #saved-o20261019-011, #held-o20261019-011, #p03-o20261019-011, #p04-o20261019-011):target) .lo3--o20261019-011 { display: block; }
+.lo3w:has(:is(#o20261018-006, #saved-o20261018-006, #held-o20261018-006, #p03-o20261018-006, #p04-o20261018-006):target) .lo3--o20261018-006 { display: block; }
+.lo3w:has(:is(#o20261017-009, #saved-o20261017-009, #held-o20261017-009, #p03-o20261017-009, #p04-o20261017-009):target) .lo3--o20261017-009 { display: block; }
+.lo3w:has(:is(#new, #saved-new, #held-new, #p03-new, #p04-new):target) .lo3--new { display: block; }
+.lo3w:has(:is(#o20261022-001, #saved-o20261022-001, #held-o20261022-001, #p03-o20261022-001, #p04-o20261022-001, #o20261022-002, #saved-o20261022-002, #held-o20261022-002, #p03-o20261022-002, #p04-o20261022-002, #o20261022-004, #saved-o20261022-004, #held-o20261022-004, #p03-o20261022-004, #p04-o20261022-004, #o20261022-005, #saved-o20261022-005, #held-o20261022-005, #p03-o20261022-005, #p04-o20261022-005, #o20261022-006, #saved-o20261022-006, #held-o20261022-006, #p03-o20261022-006, #p04-o20261022-006, #o20261022-007, #saved-o20261022-007, #held-o20261022-007, #p03-o20261022-007, #p04-o20261022-007, #o20261022-008, #saved-o20261022-008, #held-o20261022-008, #p03-o20261022-008, #p04-o20261022-008, #o20261022-009, #saved-o20261022-009, #held-o20261022-009, #p03-o20261022-009, #p04-o20261022-009, #o20261022-010, #saved-o20261022-010, #held-o20261022-010, #p03-o20261022-010, #p04-o20261022-010, #o20261022-011, #saved-o20261022-011, #held-o20261022-011, #p03-o20261022-011, #p04-o20261022-011, #o20261022-012, #saved-o20261022-012, #held-o20261022-012, #p03-o20261022-012, #p04-o20261022-012, #o20261022-013, #saved-o20261022-013, #held-o20261022-013, #p03-o20261022-013, #p04-o20261022-013, #o20261021-005, #saved-o20261021-005, #held-o20261021-005, #p03-o20261021-005, #p04-o20261021-005, #o20261021-007, #saved-o20261021-007, #held-o20261021-007, #p03-o20261021-007, #p04-o20261021-007, #o20261021-010, #saved-o20261021-010, #held-o20261021-010, #p03-o20261021-010, #p04-o20261021-010, #o20261021-012, #saved-o20261021-012, #held-o20261021-012, #p03-o20261021-012, #p04-o20261021-012, #o20261021-006, #saved-o20261021-006, #held-o20261021-006, #p03-o20261021-006, #p04-o20261021-006, #o20261020-014, #saved-o20261020-014, #held-o20261020-014, #p03-o20261020-014, #p04-o20261020-014, #o20261020-004, #saved-o20261020-004, #held-o20261020-004, #p03-o20261020-004, #p04-o20261020-004, #o20261019-011, #saved-o20261019-011, #held-o20261019-011, #p03-o20261019-011, #p04-o20261019-011, #o20261018-006, #saved-o20261018-006, #held-o20261018-006, #p03-o20261018-006, #p04-o20261018-006, #o20261017-009, #saved-o20261017-009, #held-o20261017-009, #p03-o20261017-009, #p04-o20261017-009, #new, #saved-new, #held-new, #p03-new, #p04-new):target) .lo3--o20261022-003 { display: none; }
+body:has(#saved-o20261022-001:target) #t-saved-o20261022-001, body:has(#held-o20261022-001:target) #t-held-o20261022-001 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-002:target) #t-saved-o20261022-002, body:has(#held-o20261022-002:target) #t-held-o20261022-002 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-003:target) #t-saved-o20261022-003, body:has(#held-o20261022-003:target) #t-held-o20261022-003 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-004:target) #t-saved-o20261022-004, body:has(#held-o20261022-004:target) #t-held-o20261022-004 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-005:target) #t-saved-o20261022-005, body:has(#held-o20261022-005:target) #t-held-o20261022-005 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-006:target) #t-saved-o20261022-006, body:has(#held-o20261022-006:target) #t-held-o20261022-006 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-007:target) #t-saved-o20261022-007, body:has(#held-o20261022-007:target) #t-held-o20261022-007 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-008:target) #t-saved-o20261022-008, body:has(#held-o20261022-008:target) #t-held-o20261022-008 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-009:target) #t-saved-o20261022-009, body:has(#held-o20261022-009:target) #t-held-o20261022-009 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-010:target) #t-saved-o20261022-010, body:has(#held-o20261022-010:target) #t-held-o20261022-010 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-011:target) #t-saved-o20261022-011, body:has(#held-o20261022-011:target) #t-held-o20261022-011 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-012:target) #t-saved-o20261022-012, body:has(#held-o20261022-012:target) #t-held-o20261022-012 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261022-013:target) #t-saved-o20261022-013, body:has(#held-o20261022-013:target) #t-held-o20261022-013 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261021-005:target) #t-saved-o20261021-005, body:has(#held-o20261021-005:target) #t-held-o20261021-005 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261021-007:target) #t-saved-o20261021-007, body:has(#held-o20261021-007:target) #t-held-o20261021-007 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261021-010:target) #t-saved-o20261021-010, body:has(#held-o20261021-010:target) #t-held-o20261021-010 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261021-012:target) #t-saved-o20261021-012, body:has(#held-o20261021-012:target) #t-held-o20261021-012 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261021-006:target) #t-saved-o20261021-006, body:has(#held-o20261021-006:target) #t-held-o20261021-006 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261020-014:target) #t-saved-o20261020-014, body:has(#held-o20261020-014:target) #t-held-o20261020-014 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261020-004:target) #t-saved-o20261020-004, body:has(#held-o20261020-004:target) #t-held-o20261020-004 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261019-011:target) #t-saved-o20261019-011, body:has(#held-o20261019-011:target) #t-held-o20261019-011 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261018-006:target) #t-saved-o20261018-006, body:has(#held-o20261018-006:target) #t-held-o20261018-006 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-o20261017-009:target) #t-saved-o20261017-009, body:has(#held-o20261017-009:target) #t-held-o20261017-009 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#cxl-done:target) #t-cxl { display: flex; }
+#la-p03:has(#p03-o20261022-001:target) .p3o--o20261022-001 { display: grid; }
+#la-p03:has(#p03-o20261022-002:target) .p3o--o20261022-002 { display: grid; }
+#la-p03:has(#p03-o20261022-003:target) .p3o--o20261022-003 { display: grid; }
+#la-p03:has(#p03-o20261022-004:target) .p3o--o20261022-004 { display: grid; }
+#la-p03:has(#p03-o20261022-005:target) .p3o--o20261022-005 { display: grid; }
+#la-p03:has(#p03-o20261022-006:target) .p3o--o20261022-006 { display: grid; }
+#la-p03:has(#p03-o20261022-007:target) .p3o--o20261022-007 { display: grid; }
+#la-p03:has(#p03-o20261022-009:target) .p3o--o20261022-009 { display: grid; }
+#la-p03:has(#p03-o20261022-010:target) .p3o--o20261022-010 { display: grid; }
+#la-p03:has(#p03-o20261022-011:target) .p3o--o20261022-011 { display: grid; }
+#la-p03:has(#p03-o20261021-005:target) .p3o--o20261021-005 { display: grid; }
+#la-p03:has(#p03-o20261021-007:target) .p3o--o20261021-007 { display: grid; }
+#la-p03:has(#p03-o20261021-010:target) .p3o--o20261021-010 { display: grid; }
+#la-p03:has(#p03-o20261021-012:target) .p3o--o20261021-012 { display: grid; }
+#la-p03:has(#p03-o20261021-006:target) .p3o--o20261021-006 { display: grid; }
+#la-p03:has(#p03-o20261020-014:target) .p3o--o20261020-014 { display: grid; }
+#la-p03:has(#p03-o20261020-004:target) .p3o--o20261020-004 { display: grid; }
+#la-p03:has(#p03-o20261019-011:target) .p3o--o20261019-011 { display: grid; }
+#la-p03:has(#p03-o20261018-006:target) .p3o--o20261018-006 { display: grid; }
+#la-p03:has(#p03-o20261017-009:target) .p3o--o20261017-009 { display: grid; }
+#la-p03:not(:has(.pm:target)) .p3o--o20261022-003 { display: grid; }
+#la-p04:has(#p04-o20261022-007:target) :is(.p4o--o20261022-007, .p4b--o20261022-007) { display: flex; }
+#la-p04:has(#p04-o20261021-005:target) :is(.p4o--o20261021-005, .p4b--o20261021-005) { display: flex; }
+#la-p04:has(#p04-o20261021-007:target) :is(.p4o--o20261021-007, .p4b--o20261021-007) { display: flex; }
+#la-p04:target :is(.p4o--o20261022-007, .p4b--o20261022-007) { display: flex; }
+.lo3w:has(:is(#o20261022-014, #saved-o20261022-014):target) .lo3--o20261022-014 { display: block; }
+body:has(#saved-o20261022-014:target) #t-saved-o20261022-014 { display: flex; animation: av-rise 320ms var(--ease); }

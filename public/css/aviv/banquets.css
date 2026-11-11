@@ -1,0 +1,175 @@
+/* banquets.css: shared styles of Banquets & Events Setup (BQS) and Banquets & Events (BQ) – section strip, before / after states, rate panes, floor plans. */
+.bqs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.bqs-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bqs-nav a:hover {
+  color: var(--ink);
+}
+
+.bqs-nav a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.bq-new {
+  display: none;
+}
+
+.bqs-pane {
+  display: none;
+}
+
+.bqs-days {
+  margin-bottom: 4px;
+}
+
+.bqs-th {
+  display: block;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.bqs-rate {
+  width: 92px;
+  max-width: 92px;
+  margin-left: auto;
+}
+
+.bqs-pane td {
+  padding-inline: 8px;
+}
+
+.bqs-plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.bqs-plan__t {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+}
+
+.bqs-plan__f {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+/* ───── Banquets & Events (BQ) ───── */
+.bq-g2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+/* cards and grid items may shrink below their content (wide tables scroll inside them) */
+.law > *,
+.bq-g2 > *,
+.law .lf-card {
+  min-width: 0;
+}
+
+.law .lf-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 760px) {
+  .bqs-nav {
+    flex-wrap: nowrap;
+    width: auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    scrollbar-width: none;
+  }
+
+  .bq-ev__t {
+    min-width: 0;
+  }
+}
+
+/* event header: fields fold behind a toggle on phones only */
+.ev-tg,
+.ev-tgl {
+  display: none;
+}
+
+.ev-flds {
+  display: contents;
+}
+
+@media (max-width: 760px) {
+  .ev-tgl {
+    display: inline-flex;
+    width: fit-content;
+  }
+
+  .ev-flds {
+    display: none;
+  }
+
+  .ev-tg:checked ~ .ev-flds {
+    display: grid;
+    gap: 12px;
+  }
+
+  .ev-acts .btn {
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+  }
+}
+
+/* venue diary on tablets and phones: keep readable day columns, scroll sideways inside the card */
+@media (max-width: 1024px) {
+  .dyw .dpane table.dg.dt__table {
+    min-width: 960px;
+  }
+}
+
+@media (max-width: 760px) {
+  .dyw .dpane table.dg.dt__table {
+    min-width: 880px;
+  }
+
+  .dyw .dg th.dv {
+    width: 116px;
+  }
+
+  .dyw .dg tbody th.dv > span:first-child {
+    font-size: 12px;
+  }
+}

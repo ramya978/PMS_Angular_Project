@@ -1,0 +1,16 @@
+/* hr-05-duty-roster.css – styles of HR-05 Duty Roster (laptop rules; phone rules sit in max-width media queries). */
+
+.ac-tabs > input:nth-of-type(1):checked ~ .stabs__panels > .stabs__panel:nth-child(1),
+.ac-tabs > input:nth-of-type(2):checked ~ .stabs__panels > .stabs__panel:nth-child(2),
+.ac-tabs > input:nth-of-type(3):checked ~ .stabs__panels > .stabs__panel:nth-child(3),
+.ac-tabs > input:nth-of-type(4):checked ~ .stabs__panels > .stabs__panel:nth-child(4),
+.ac-tabs > input:nth-of-type(5):checked ~ .stabs__panels > .stabs__panel:nth-child(5) {
+  display: block;
+}
+
+body:has(#copied:target) #t-copied,
+body:has(#saved:target) #t-saved,
+body:has(#published:target) #t-pub {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,12 @@
+/* rv-08-competitor-rates.css – styles of RV-08 Competitor Rates (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#refreshed:target) #t-ref,
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.rv-so {
+  color: #a82a2a;
+  font-size: 11.5px;
+  font-weight: 700;
+}

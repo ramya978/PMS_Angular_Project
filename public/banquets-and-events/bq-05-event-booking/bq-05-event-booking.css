@@ -1,0 +1,152 @@
+/* bq-05-event-booking.css: event header (event, client, contacts, status, option, owner), action bar, tabs BQ-05-1 … 6 as pages, pop-ups BQ-P04 advance and BQ-P05 cancellation. */
+.bq-l {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bq-ev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.bq-ev:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.bq-ev__t {
+  min-width: 96px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.bq-ev__m {
+  display: grid;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.bq-ev__m small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.bq-ev__s {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ev-h {
+  display: grid;
+  gap: 12px;
+}
+
+.ev-st {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ev-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ev-ct td .field__input {
+  min-width: 120px;
+}
+
+.ev-x,
+.ev-new {
+  display: none;
+}
+
+.evw:has(#ev-cancelled:target) .ev-now {
+  display: none;
+}
+
+.evw:has(#ev-cancelled:target) .ev-x {
+  display: inline-flex;
+}
+
+.ev-sum {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.ev-sum div {
+  display: grid;
+  gap: 2px;
+}
+
+.ev-sum dt {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ev-sum dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.ev-tot td {
+  font-weight: 700;
+}
+
+.ev-in {
+  max-width: 110px;
+}
+
+.ev-in--w {
+  max-width: 200px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip-c {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 12.5px;
+}
+
+.chip-c--on {
+  background: var(--ok-bg);
+  color: var(--st-ready);
+  font-weight: 600;
+}
+
+.evw:has(#saved:target) #t-saved { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#adv-saved:target) #t-adv-saved { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#ev-cancelled:target) #t-ev-cancelled { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#def-blocked:target) #t-def-blocked { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#fn-added:target) #t-fn-added { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#x-added:target) #t-x-added { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#doc-up:target) #t-doc-up { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#sent-c:target) #t-sent-c { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#beo-made:target) #t-beo-made { display: flex; animation: av-rise 320ms var(--ease); }
+.evw:has(#fn-added:target) .ev-new, .evw:has(#x-added:target) .ev-new {
+  display: table-row;
+}

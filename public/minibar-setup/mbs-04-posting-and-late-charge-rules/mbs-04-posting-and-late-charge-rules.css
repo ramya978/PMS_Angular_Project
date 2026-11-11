@@ -1,0 +1,20 @@
+/* mbs-04-posting-and-late-charge-rules.css: settings form in the title-rail layout of fds.css. */
+.m4-code {
+  display: block;
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.m4-code .icon {
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+
+.m4-link .btn {
+  align-self: flex-start;
+  justify-self: start;
+  width: auto;
+}

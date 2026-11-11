@@ -1,0 +1,56 @@
+/* st-03-goods-received-note.css: purchase orders to receive, GRN register with views, and the GRN forms (one per open PO). */
+.st-h {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.gr-no {
+  font-weight: 650;
+}
+
+[data-code="ST-03-list"] :is(th, td),
+[data-code="ST-03-due"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="ST-03-list"] td:nth-child(5) {
+  min-width: 180px;
+  max-width: 240px;
+}
+
+[data-code="ST-03-list"] .gr-bill {
+  min-width: 150px;
+  max-width: 220px;
+}
+
+.gr-acts {
+  display: flex;
+  gap: 6px;
+}
+
+.gr-off {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-po:target) .hv__v[data-v="v-po"],
+#main:has(#v-direct:target) .hv__v[data-v="v-direct"],
+#main:has(#v-rej:target) .hv__v[data-v="v-rej"],
+#main:has(#v-nobill:target) .hv__v[data-v="v-nobill"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-po:target) .gr-row:not(.gr-row--po),
+#main:has(#v-direct:target) .gr-row:not(.gr-row--direct),
+#main:has(#v-rej:target) .gr-row:not(.gr-row--rej),
+#main:has(#v-nobill:target) .gr-row:not(.gr-row--nobill) {
+  display: none;
+}

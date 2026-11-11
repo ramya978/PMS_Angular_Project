@@ -1,0 +1,81 @@
+/* lfs-06-templates-and-numbering.css: message templates as radio tabs (email / WhatsApp / SMS), numbering, tag layout, preview after-state. */
+
+.lf-tabs,
+.fd-sec--wide > .lf-tabs {
+  grid-column: 2;
+  margin: 0 28px 20px;
+}
+
+.lf-tpl > .field--wide {
+  grid-column: auto;
+}
+
+.lf-tpl > .field--wide:first-child {
+  grid-column: 1 / -1;
+}
+
+.lf-tpl textarea {
+  min-height: 96px;
+}
+
+.lf-prev {
+  display: none;
+}
+
+body:has(#preview:target) .lf-prev {
+  display: block;
+  animation: av-rise 320ms var(--ease);
+}
+
+.lf-prev__g {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 16px;
+}
+
+.lf-msg {
+  padding: 12px 14px;
+  border-radius: 14px 14px 14px 4px;
+  background: #e7f6ec;
+  font-size: 13px;
+}
+
+.lf-msg p {
+  margin: 6px 0;
+}
+
+.lf-msg__k {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.lf-msg small {
+  color: var(--ink-3);
+}
+
+.lf-tagp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 300px;
+  padding: 12px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 12px;
+}
+
+.lf-tagp b {
+  display: block;
+  font-size: 15px;
+}
+
+.lf-tagp span {
+  display: block;
+  color: var(--ink-2);
+}

@@ -1,0 +1,10 @@
+/* da-04-approval-detail.css – styles of DA-04 Approval – Rate override 12 % – FK-10115 (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#d-approved:target) #t-ap,
+body:has(#d-change:target) #t-ch,
+body:has(#d-back:target) #t-bk,
+body:has(#d-rejected:target) #t-rj,
+body:has(#d-question:target) #t-q {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,6 @@
+/* ow-01-owner-home.css: hotel switch toasts (the views are in owner.css). */
+body:has(#h-zmn:target) #t-h-zmn,
+body:has(#h-g04:target) #t-h-g04 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

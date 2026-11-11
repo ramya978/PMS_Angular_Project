@@ -1,0 +1,11 @@
+/* ms-02-budget-versions.css – styles of MS-02 Budget Versions (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#consolidated:target) #t-cons,
+body:has(#created:target) #t-created {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.ms-acts { display: flex; flex-wrap: wrap; gap: 6px; }
+.ms-appr { min-width: 240px; }
+.btn.is-disabled { opacity: 0.5; pointer-events: none; }
+.fd-multi-stack { display: grid; gap: 14px; margin-bottom: 14px; }

@@ -1,0 +1,71 @@
+/* fd-07-in-house-guests.css – styles of FD-07 In-house Guests (laptop rules; phone rules sit in max-width media queries). */
+
+.ih:has(#f-dot:target) .ih-r:not(.r-dot) {
+  display: none;
+}
+
+.ih:has(#f-dot:target) .rb-chip--f-dot {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-tom:target) .ih-r:not(.r-tom) {
+  display: none;
+}
+
+.ih:has(#f-tom:target) .rb-chip--f-tom {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-for:target) .ih-r:not(.r-for) {
+  display: none;
+}
+
+.ih:has(#f-for:target) .rb-chip--f-for {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-vip:target) .ih-r:not(.r-vip) {
+  display: none;
+}
+
+.ih:has(#f-vip:target) .rb-chip--f-vip {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-new:target) .ih-r:not(.r-new) {
+  display: none;
+}
+
+.ih:has(#f-new:target) .rb-chip--f-new {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-comp:target) .ih-r:not(.r-comp) {
+  display: none;
+}
+
+.ih:has(#f-comp:target) .rb-chip--f-comp {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ih:has(#f-over:target) .ih-r:not(.r-over) {
+  display: none;
+}
+
+.ih:has(#f-over:target) .rb-chip--f-over {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}

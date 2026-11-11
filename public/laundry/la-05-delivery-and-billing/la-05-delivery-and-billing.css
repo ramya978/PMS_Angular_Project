@@ -1,0 +1,123 @@
+/* la-05-delivery-and-billing.css: hero, three tabs as :target panes (LA-05-1 ready to deliver by floor – the default,
+   LA-05-2 delivered not billed with "Post selected", LA-05-3 late charges with a late-charge menu), run sheet shown
+   on #run-sheet, write-off confirmations, after-states of a delivery (from LA-P04) and of a posting. */
+.la5-t td {
+  vertical-align: top;
+}
+
+.la5-fl th {
+  padding-block: 8px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.la5-fl td {
+  background: var(--surface-2);
+}
+
+.la5-lock {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--ink-3);
+}
+
+.la-is {
+  display: none;
+}
+
+.la5-rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 16px 12px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.la5-form {
+  display: grid;
+  gap: 10px;
+}
+
+.la5-run {
+  display: none;
+}
+
+.la5:has(#run-sheet:target) .la5-run,
+.la5-run:target {
+  display: grid;
+}
+
+.la5-run__b {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.la5-run__b h4 {
+  grid-column: span 1;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.la5-run__b ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.la5-run__b li span {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.la5 .rt__menu {
+  min-width: 300px;
+}
+
+.la-views .hv__v {
+  text-decoration: none;
+}
+.la5-pane { display: none; }
+.la5:not(:has(:is(#la-05-2, #la-05-3, #posted-sel):target)) .la5-pane--la-05-1 { display: block; }
+.la5:not(:has(:is(#la-05-2, #la-05-3, #posted-sel):target)) .hv__v[data-v="la-05-1"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.la5:has(:is(#la-05-2, #posted-sel):target) .la5-pane--la-05-2, .la5:has(#la-05-3:target) .la5-pane--la-05-3 { display: block; }
+.la5:has(:is(#la-05-2, #posted-sel):target) .hv__v[data-v="la-05-2"], .la5:has(#la-05-3:target) .hv__v[data-v="la-05-3"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+body:has(#posted-sel:target) .la5-r.is-post > td { background: var(--ok-bg); }
+body:has(#posted-sel:target) .la5-r.is-post :is(.la-now--post) { display: flex; }
+body:has(#posted-sel:target) .la5-r.is-post .la-was { display: none; }
+body:has(#posted-sel:target) .la5-r.is-post .la-is { display: inline; }
+body:has(#posted-sel:target) #t-posted, body:has(#run-sheet:target) #t-run { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#delivered-o20261022-007:target) #d-o20261022-007 > td { background: var(--ok-bg); }
+body:has(#delivered-o20261022-007:target) .la-now--o20261022-007, body:has(#delivered-o20261022-007:target) #t-dl-o20261022-007 { display: flex; }
+body:has(#delivered-o20261021-005:target) #d-o20261021-005 > td { background: var(--ok-bg); }
+body:has(#delivered-o20261021-005:target) .la-now--o20261021-005, body:has(#delivered-o20261021-005:target) #t-dl-o20261021-005 { display: flex; }
+body:has(#delivered-o20261021-007:target) #d-o20261021-007 > td { background: var(--ok-bg); }
+body:has(#delivered-o20261021-007:target) .la-now--o20261021-007, body:has(#delivered-o20261021-007:target) #t-dl-o20261021-007 { display: flex; }

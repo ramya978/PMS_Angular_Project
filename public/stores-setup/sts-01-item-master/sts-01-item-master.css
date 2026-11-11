@@ -1,0 +1,298 @@
+/* sts-01-item-master.css: item list with views, summary tiles, row after-states (save, deactivate, activate, add, import) and the item form (STS-P01). */
+.vn-wait__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vn-wait__list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.7);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.vn-wait__list li > .fd-muted {
+  grid-row: 2;
+  font-size: 12px;
+}
+
+.vn-wait__list .btn {
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+
+.vn-list {
+  display: grid;
+  gap: 12px;
+}
+
+.vn-views {
+  justify-self: start;
+  max-width: 100%;
+}
+
+.it-name {
+  font-weight: 650;
+}
+
+[data-code="STS-01-list"] :is(th, td) {
+  padding-inline: 10px;
+}
+
+[data-code="STS-01-list"] td:first-child {
+  min-width: 190px;
+}
+
+[data-code="STS-01-list"] td:nth-child(5) {
+  min-width: 140px;
+  max-width: 170px;
+}
+
+.it-vendor {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.it-fix {
+  color: var(--bad, #c53030);
+}
+
+.it-fix .icon {
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.it-fresh {
+  color: var(--em-700, #2f855a);
+}
+
+.it-acts {
+  display: flex;
+  gap: 6px;
+}
+
+.it-acts > .btn {
+  justify-content: center;
+}
+
+.vn-legend {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.vn-legend .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* views */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-food:target) .hv__v[data-v="v-food"],
+#main:has(#v-bev:target) .hv__v[data-v="v-bev"],
+#main:has(#v-hk:target) .hv__v[data-v="v-hk"],
+#main:has(#v-amn:target) .hv__v[data-v="v-amn"],
+#main:has(#v-lin:target) .hv__v[data-v="v-lin"],
+#main:has(#v-eng:target) .hv__v[data-v="v-eng"],
+#main:has(#v-oth:target) .hv__v[data-v="v-oth"],
+#main:has(#v-inact:target) .hv__v[data-v="v-inact"],
+#main:has(#v-attn:target) .hv__v[data-v="v-attn"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-food:target) .it-row:not(.it-row--food),
+#main:has(#v-bev:target) .it-row:not(.it-row--bev),
+#main:has(#v-hk:target) .it-row:not(.it-row--hk),
+#main:has(#v-amn:target) .it-row:not(.it-row--amn),
+#main:has(#v-lin:target) .it-row:not(.it-row--lin),
+#main:has(#v-eng:target) .it-row:not(.it-row--eng),
+#main:has(#v-oth:target) .it-row:not(.it-row--oth),
+#main:has(#v-inact:target) .it-row:not(.it-row--inact),
+#main:has(#v-attn:target) .it-row:not(.it-row--attn) {
+  display: none;
+}
+
+/* rows that exist only after an action: the item of "Add item" and the imported items */
+.it-row--new,
+.it-row--imp {
+  display: none;
+}
+
+body:has(#added:target) .it-row--new,
+body:has(#imported:target) .it-row--imp {
+  display: table-row;
+}
+
+/* inside a sortable table (.srt, aviv.css) the rows are grid rows */
+table.srt > tbody > tr:is(.it-row--new, .it-row--imp) {
+  display: none;
+}
+
+body:has(#added:target) table.srt > tbody > tr.it-row--new,
+body:has(#imported:target) table.srt > tbody > tr.it-row--imp {
+  display: grid;
+}
+
+body:has(#added:target) .it-row--new > td,
+body:has(#imported:target) .it-row--imp > td {
+  background: var(--ok-bg);
+}
+
+/* the changed item */
+.it-row:has(.pm:target) > td {
+  background: var(--ok-bg);
+}
+
+/* row after-states: the marker sits in the row, so one rule serves every item */
+.it-to {
+  display: none;
+}
+
+.it-row:has(.pm--off:target) .it-to--inact,
+.it-row:has(.pm--on:target) .it-to--act {
+  display: inline-flex;
+}
+
+.it-row:has(:is(.pm--off, .pm--on):target) :is(.it-now, .it-acts) {
+  display: none;
+}
+
+/* toasts */
+body:has(#added:target) #t-added,
+body:has(#imported:target) #t-imported,
+body:has(#template:target) #t-template,
+body:has(.pm--off:target) #t-off,
+body:has(.pm--on:target) #t-on,
+body:has(.pm--sv:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* item form (STS-P01) */
+.vn-code {
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vn-form {
+  display: grid;
+  gap: 16px;
+}
+
+.vn-sec {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.vn-sec__t {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.vn-x01 {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--ok-bg);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.vn-x01--bad {
+  background: #fdecec;
+}
+
+.vn-x01 .icon {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--em-600);
+  vertical-align: -2px;
+}
+
+.vn-x01--bad .icon {
+  color: var(--bad, #c53030);
+}
+
+.it-batch {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.it-batch:has(.check__input:not(:checked)) .it-shelf {
+  opacity: 0.45;
+}
+
+.it-rate {
+  display: flex;
+  align-items: center;
+  background: var(--surface-2);
+}
+
+/* import sheet */
+.it-imp {
+  display: grid;
+  gap: 12px;
+}
+
+.it-imp__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.it-imp__step b {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .vn-sec {
+    padding: 14px;
+  }
+
+  .it-batch {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vn-views {
+    justify-self: stretch;
+  }
+}

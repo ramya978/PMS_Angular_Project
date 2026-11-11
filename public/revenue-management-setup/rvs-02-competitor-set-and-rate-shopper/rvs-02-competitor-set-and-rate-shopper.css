@@ -1,0 +1,17 @@
+/* rvs-02-competitor-set-and-rate-shopper.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.rv-w { min-width: 220px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

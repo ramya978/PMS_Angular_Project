@@ -1,0 +1,16 @@
+/* record variants */
+#L-03:target ~ .v-L-03 {
+  display: block;
+}
+
+#L-07:target ~ .v-L-07 {
+  display: block;
+}
+
+#L-14:target ~ .v-L-14 {
+  display: block;
+}
+
+#new:target ~ .v-new {
+  display: block;
+}

@@ -1,0 +1,65 @@
+/* mt-14-technician-my-jobs.css: technician's job list on a phone frame – accept / start / pause / photo / complete after-states, parts and raise new job. */
+.tj-h {
+  display: grid;
+}
+
+.tj-h span,
+.tj-k {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.tj-k {
+  margin: 0;
+  text-align: center;
+}
+
+.tj-a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tj-a .btn {
+  min-height: 44px;
+}
+
+.tj-s:not(.tj-s--now),
+.tj-f {
+  display: none;
+}
+
+.tj-f {
+  gap: 6px;
+}
+
+.tj-new {
+  justify-content: center;
+  min-height: 48px;
+}
+.tjw:has(:is(#start-2233, #pause-2233, #done-2233):target) #j-2233 .tj-s--now { display: none; }
+.tjw:has(#start-2233:target) #j-2233 .tj-s--start,
+.tjw:has(#pause-2233:target) #j-2233 .tj-s--pause,
+.tjw:has(#done-2233:target) #j-2233 .tj-s--done { display: inline-flex; }
+.tjw:has(#start-2233:target) #j-2233 .tj-f { display: grid; }
+.tjw:has(#start-2233:target) #t-start-2233,
+.tjw:has(#pause-2233:target) #t-pause-2233,
+.tjw:has(#photo-2233:target) #t-photo-2233,
+.tjw:has(#done-2233:target) #t-done-2233 { display: flex; animation: av-rise 320ms var(--ease); }
+.tjw:has(:is(#start-2214, #pause-2214, #done-2214):target) #j-2214 .tj-s--now { display: none; }
+.tjw:has(#start-2214:target) #j-2214 .tj-s--start,
+.tjw:has(#pause-2214:target) #j-2214 .tj-s--pause,
+.tjw:has(#done-2214:target) #j-2214 .tj-s--done { display: inline-flex; }
+.tjw:has(#start-2214:target) #j-2214 .tj-f { display: grid; }
+.tjw:has(#start-2214:target) #t-start-2214,
+.tjw:has(#pause-2214:target) #t-pause-2214,
+.tjw:has(#photo-2214:target) #t-photo-2214,
+.tjw:has(#done-2214:target) #t-done-2214 { display: flex; animation: av-rise 320ms var(--ease); }
+.tjw:has(#done-2233:target) #j-2233 .tj-a,
+.tjw:has(#done-2214:target) #j-2214 .tj-a {
+  display: none;
+}
+
+.tjw:not(:has(.pm:target)) #j-2233 .tj-f {
+  display: grid;
+}

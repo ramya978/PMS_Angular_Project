@@ -1,0 +1,104 @@
+/* la-o03-vendor-challan.css: LA-O03 delivery challan – one per challan (#0405 … #0411, #new = LCH-2026-0412 just saved), original on screen, duplicate added in print. */
+.lo-w:not(.low6) > :is(.paper-bar, .lo-pick) {
+  width: min(820px, 100%);
+  margin-inline: auto;
+  justify-content: flex-start;
+}
+
+.lo-w {
+  display: grid;
+  gap: 16px;
+}
+
+.lo-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.lo-pick > span {
+  margin-right: 4px;
+  color: var(--ink-3);
+}
+
+.lo-pick a {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.lo-pick a:hover {
+  border-color: var(--em-600);
+  color: var(--em-800);
+}
+
+.lo-copy {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  border: 1px solid var(--ink-3);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lo-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--ok-bg);
+  color: var(--em-800);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.lo-stamp--warn {
+  background: #fdf3e7;
+  color: #8a4b0f;
+}
+
+.la-doc tfoot td.lbl {
+  text-align: right;
+  font-weight: 500;
+}
+.low3 .lo3 { display: none; }
+body:has(#new:target) .low3 .lo3--new { display: block; }
+body:has(#new:target) .low3 .lo-pick a[href="#new"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0411:target) .low3 .lo3--0411 { display: block; }
+body:has(#0411:target) .low3 .lo-pick a[href="#0411"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0410:target) .low3 .lo3--0410 { display: block; }
+body:has(#0410:target) .low3 .lo-pick a[href="#0410"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0409:target) .low3 .lo3--0409 { display: block; }
+body:has(#0409:target) .low3 .lo-pick a[href="#0409"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0408:target) .low3 .lo3--0408 { display: block; }
+body:has(#0408:target) .low3 .lo-pick a[href="#0408"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0407:target) .low3 .lo3--0407 { display: block; }
+body:has(#0407:target) .low3 .lo-pick a[href="#0407"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0406:target) .low3 .lo3--0406 { display: block; }
+body:has(#0406:target) .low3 .lo-pick a[href="#0406"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#0405:target) .low3 .lo3--0405 { display: block; }
+body:has(#0405:target) .low3 .lo-pick a[href="#0405"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:not(:has(:is(#new, #0411, #0410, #0409, #0408, #0407, #0406, #0405):target)) .low3 .lo3--0411 { display: block; }
+body:not(:has(:is(#new, #0411, #0410, #0409, #0408, #0407, #0406, #0405):target)) .low3 .lo-pick a[href="#0411"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+.low3 .lo3-dup { display: none !important; }
+@media print {
+  .low3 .lo3-dup { break-before: page; }
+  body:has(#new:target) .low3 .lo3-dup.lo3--new { display: block !important; }
+  body:has(#0411:target) .low3 .lo3-dup.lo3--0411 { display: block !important; }
+  body:has(#0410:target) .low3 .lo3-dup.lo3--0410 { display: block !important; }
+  body:has(#0409:target) .low3 .lo3-dup.lo3--0409 { display: block !important; }
+  body:has(#0408:target) .low3 .lo3-dup.lo3--0408 { display: block !important; }
+  body:has(#0407:target) .low3 .lo3-dup.lo3--0407 { display: block !important; }
+  body:has(#0406:target) .low3 .lo3-dup.lo3--0406 { display: block !important; }
+  body:has(#0405:target) .low3 .lo3-dup.lo3--0405 { display: block !important; }
+}
+body:has(#new:target) #t-new { display: flex; }

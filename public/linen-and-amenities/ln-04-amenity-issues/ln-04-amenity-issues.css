@@ -1,0 +1,35 @@
+/* ln-04-amenity-issues.css: today's issues, amenity issue LN-P02 – one sheet, a marker per VIP / special room pre-fills its standard (HKS-09). */
+.ag,
+.ai-new {
+  display: none;
+}
+
+body:has(#issued-512:target) .ai-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+body:has(#issued-512:target) #t-issued { display: flex; animation: av-rise 320ms var(--ease); }
+#ln-p02:has(#p02-111:target) :is(.pc--111, .ag--111) { display: block; }
+#ln-p02:has(#p02-512:target) :is(.pc--512, .ag--512) { display: block; }
+#ln-p02:has(#p02-517:target) :is(.pc--517, .ag--517) { display: block; }
+#ln-p02:has(#p02-302:target) :is(.pc--302, .ag--302) { display: block; }
+#ln-p02:has(#p02-106:target) :is(.pc--106, .ag--106) { display: block; }
+#ln-p02:has(#p02-205:target) :is(.pc--205, .ag--205) { display: block; }
+#ln-p02:has(#p02-314:target) :is(.pc--314, .ag--314) { display: block; }
+#ln-p02:has(#p02-504:target) :is(.pc--504, .ag--504) { display: block; }
+#ln-p02:has(#p02-207:target) :is(.pc--207, .ag--207) { display: block; }
+#ln-p02:has(#p02-102:target) :is(.pc--102, .ag--102) { display: block; }
+#ln-p02:has(#p02-new:target) :is(.pc--new, .ag--new) { display: block; }
+#ln-p02 .pc { display: none; }
+#ln-p02:has(#p02-111:target) .pc--111 { display: flex; }
+#ln-p02:has(#p02-512:target) .pc--512 { display: flex; }
+#ln-p02:has(#p02-517:target) .pc--517 { display: flex; }
+#ln-p02:has(#p02-302:target) .pc--302 { display: flex; }
+#ln-p02:has(#p02-106:target) .pc--106 { display: flex; }
+#ln-p02:has(#p02-205:target) .pc--205 { display: flex; }
+#ln-p02:has(#p02-314:target) .pc--314 { display: flex; }
+#ln-p02:has(#p02-504:target) .pc--504 { display: flex; }
+#ln-p02:has(#p02-207:target) .pc--207 { display: flex; }
+#ln-p02:has(#p02-102:target) .pc--102 { display: flex; }
+#ln-p02:has(#p02-new:target) .pc--new { display: flex; }

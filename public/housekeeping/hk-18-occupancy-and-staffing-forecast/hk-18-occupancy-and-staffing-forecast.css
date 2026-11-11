@@ -1,0 +1,165 @@
+/* hk-18-occupancy-and-staffing-forecast.css: Occupancy & Staffing Forecast – hero with a 14-day bar chart (credits needed
+   against the capacity of the rostered attendants), forecast table with occupancy bars and the staffing gap. */
+.sfw {
+  display: grid;
+  gap: 16px;
+}
+
+.sf-key {
+  display: flex;
+  gap: 18px;
+  margin: 12px 0 0;
+  padding: 0;
+  color: rgb(255 255 255 / 0.75);
+  font-size: 12px;
+  list-style: none;
+}
+
+.sf-key li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.k-bar {
+  width: 10px;
+  height: 14px;
+  border-radius: 3px;
+  background: #8fb3d9;
+}
+
+.k-line {
+  width: 16px;
+  height: 2px;
+  background: var(--gold-light, #e6d3a8);
+}
+
+.sf-bars {
+  display: grid;
+  grid-template-columns: repeat(14, 26px);
+  align-items: end;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sf-bars li {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+}
+
+.sf-b {
+  position: relative;
+  width: 18px;
+  height: 96px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.08);
+}
+
+.sf-b i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  background: #8fb3d9;
+}
+
+.sf-b em {
+  position: absolute;
+  right: -3px;
+  left: -3px;
+  height: 2px;
+  background: var(--gold-light, #e6d3a8);
+}
+
+.sf-bars .is-short i {
+  background: #f08a7a;
+}
+
+.sf-bars .is-today i {
+  background: #4cc38a;
+}
+
+.sf-bars small {
+  color: rgb(255 255 255 / 0.65);
+  font-size: 10px;
+}
+
+.sf-t tbody tr.is-today > td {
+  background: var(--em-50);
+}
+
+.sf-t tbody tr.is-short > td {
+  background: #fdf3f3;
+}
+
+.sf-t td {
+  white-space: nowrap;
+}
+
+.sf-t td:nth-last-child(2) {
+  white-space: normal;
+}
+
+.sf-t td:last-child,
+.sf-t td:nth-last-child(2) {
+  min-width: 120px;
+}
+
+.sf-t td:nth-last-child(2) {
+  min-width: 240px;
+}
+
+.sf-occ {
+  display: inline-block;
+  width: 60px;
+  height: 6px;
+  margin-right: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line-2);
+  vertical-align: middle;
+}
+
+.sf-occ i {
+  display: block;
+  height: 100%;
+  background: var(--em-500);
+}
+
+.sf-gap {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.sf-gap--ok {
+  background: var(--ok-bg);
+  color: #2f855a;
+}
+
+.sf-gap--short {
+  background: #fdecec;
+  color: #c53030;
+}
+
+.sf-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.sf-note .icon {
+  flex: none;
+  margin-top: 2px;
+}

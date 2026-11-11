@@ -1,0 +1,169 @@
+/* kt-02-station-display.css: tickets of one station in time order, coloured by waiting time, flags, items with allergens and struck-through cancellations;
+   tap item / Bump after-states; item availability KT-P01. Large touch targets for the kitchen tablet. */
+.kt-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.kt-st {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kt-lg,
+.kt-fl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.kf {
+  padding: 1px 8px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.kf--rush { background: #c53030; }
+.kf--vip { background: var(--br-600, #94722a); }
+.kf--refire { background: #b83280; }
+.kf--modified { background: #2b6cb0; }
+.kf--held { background: #718096; }
+
+.kt-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 16px;
+}
+
+/* every ticket is the same size: header, notes and items on top, the action pinned to the bottom edge */
+.kt-tk {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 300px;
+  padding: 18px 16px 16px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--surface) 60%, var(--surface-2));
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.05), 0 16px 28px -22px rgb(var(--deep-rgb, 14 26 43) / 0.45);
+}
+
+.kt-tk--ok { --hk: #2f855a; }
+.kt-tk--amber { --hk: #b7791f; }
+.kt-tk--red { --hk: #c53030; }
+
+.kt-tk header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.kt-tm {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hk) 12%, var(--surface));
+  color: var(--hk);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.kt-w {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.kl-l {
+  display: grid;
+  flex: 1 1 auto;
+  align-content: start;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kl {
+  display: grid;
+  gap: 2px;
+}
+
+.kl__a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.kl small {
+  padding-left: 8px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.kl .kl-alg {
+  color: #c53030;
+  font-weight: 700;
+}
+
+.kl--x b {
+  text-decoration: line-through;
+  color: var(--ink-3);
+}
+
+.kl-new {
+  display: none;
+}
+
+.kt-bump {
+  justify-content: center;
+  min-height: 48px;
+  margin-top: auto;
+}
+
+#kt-p01:has(input[name="status"][value="limited"]:checked) .lf-if--lim {
+  display: flex;
+}
+
+.ktw:has(#avail-saved:target) #t-avail-saved { display: flex; animation: av-rise 320ms var(--ease); }
+.ktw:has(#bump-049:target) #tk-049 { display: none; }
+.ktw:has(#bump-049:target) #t-bump-049 { display: flex; animation: av-rise 320ms var(--ease); }
+.ktw:has(#tap-049-0:target) #l-049-0 .kl-now { display: none; }
+.ktw:has(#tap-049-0:target) #l-049-0 .kl-new { display: inline-flex; }
+.ktw:has(#tap-049-1:target) #l-049-1 .kl-now { display: none; }
+.ktw:has(#tap-049-1:target) #l-049-1 .kl-new { display: inline-flex; }
+.ktw:has(#bump-053:target) #tk-053 { display: none; }
+.ktw:has(#bump-053:target) #t-bump-053 { display: flex; animation: av-rise 320ms var(--ease); }
+.ktw:has(#tap-053-0:target) #l-053-0 .kl-now { display: none; }
+.ktw:has(#tap-053-0:target) #l-053-0 .kl-new { display: inline-flex; }
+.ktw:has(#tap-053-1:target) #l-053-1 .kl-now { display: none; }
+.ktw:has(#tap-053-1:target) #l-053-1 .kl-new { display: inline-flex; }
+.ktw:has(#bump-052:target) #tk-052 { display: none; }
+.ktw:has(#bump-052:target) #t-bump-052 { display: flex; animation: av-rise 320ms var(--ease); }
+.ktw:has(#tap-052-0:target) #l-052-0 .kl-now { display: none; }
+.ktw:has(#tap-052-0:target) #l-052-0 .kl-new { display: inline-flex; }

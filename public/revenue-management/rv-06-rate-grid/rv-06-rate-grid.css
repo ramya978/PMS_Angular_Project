@@ -1,0 +1,9 @@
+/* rv-06-rate-grid.css – styles of RV-06 Rate Grid (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#cell-saved:target) #t-cell,
+body:has(#published:target) #t-pub,
+body:has(#bulk-applied:target) #t-bulk,
+body:has(#log-exported:target) #t-log {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

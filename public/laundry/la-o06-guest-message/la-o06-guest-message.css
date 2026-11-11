@@ -1,0 +1,189 @@
+/* la-o06-guest-message.css: LA-O06 guest message (WhatsApp / SMS) – count difference (#count-o20261022-003, from LA-P02), ready and delay messages. */
+.lo-w:not(.low6) > :is(.paper-bar, .lo-pick) {
+  width: min(820px, 100%);
+  margin-inline: auto;
+  justify-content: flex-start;
+}
+
+.lo-w {
+  display: grid;
+  gap: 16px;
+}
+
+.lo-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.lo-pick > span {
+  margin-right: 4px;
+  color: var(--ink-3);
+}
+
+.lo-pick a {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.lo-pick a:hover {
+  border-color: var(--em-600);
+  color: var(--em-800);
+}
+
+.lo-copy {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  border: 1px solid var(--ink-3);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lo-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--ok-bg);
+  color: var(--em-800);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.lo-stamp--warn {
+  background: #fdf3e7;
+  color: #8a4b0f;
+}
+
+.la-doc tfoot td.lbl {
+  text-align: right;
+  font-weight: 500;
+}
+.low6 .lo6 { display: none; }
+body:has(#count-o20261022-003:target) .low6 .lo6--count-o20261022-003 { display: block; }
+body:has(#count-o20261022-003:target) .low6 .lo-pick a[href="#count-o20261022-003"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#ready-o20261022-007:target) .low6 .lo6--ready-o20261022-007 { display: block; }
+body:has(#ready-o20261022-007:target) .low6 .lo-pick a[href="#ready-o20261022-007"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#delay-o20261022-011:target) .low6 .lo6--delay-o20261022-011 { display: block; }
+body:has(#delay-o20261022-011:target) .low6 .lo-pick a[href="#delay-o20261022-011"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:not(:has(:is(#count-o20261022-003, #ready-o20261022-007, #delay-o20261022-011):target)) .low6 .lo6--count-o20261022-003 { display: block; }
+body:not(:has(:is(#count-o20261022-003, #ready-o20261022-007, #delay-o20261022-011):target)) .low6 .lo-pick a[href="#count-o20261022-003"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+
+.low6 > .paper-bar {
+  justify-content: flex-start;
+}
+
+body:has(#count-o20261022-003:target) #t-count {
+  display: flex;
+}
+
+.lo6--count-o20261022-003,
+.lo6--ready-o20261022-007,
+.lo6--delay-o20261022-011 {
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+body:has(#count-o20261022-003:target) .low6 .lo6--count-o20261022-003,
+body:has(#ready-o20261022-007:target) .low6 .lo6--ready-o20261022-007,
+body:has(#delay-o20261022-011:target) .low6 .lo6--delay-o20261022-011,
+body:not(:has(:is(#count-o20261022-003, #ready-o20261022-007, #delay-o20261022-011):target)) .low6 .lo6--count-o20261022-003 {
+  display: grid;
+}
+
+.ph {
+  overflow: hidden;
+  border: 8px solid #111;
+  border-radius: 28px;
+  background: #ece5dd;
+}
+
+.ph__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--em-800);
+  color: #fff;
+}
+
+.ph__top b,
+.ph__top small {
+  display: block;
+}
+
+.ph__top small {
+  opacity: 0.8;
+  font-size: 11.5px;
+}
+
+.ph__av {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--br-500, #c8a96a);
+  color: #111;
+  font-weight: 700;
+}
+
+.ph__body {
+  display: grid;
+  gap: 10px;
+  min-height: 380px;
+  align-content: start;
+  padding: 14px;
+}
+
+.ph__day {
+  justify-self: center;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.ph__msg {
+  justify-self: start;
+  max-width: 92%;
+  margin: 0;
+  padding: 10px 12px 6px;
+  border-radius: 0 10px 10px 10px;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ph__msg small {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  text-align: right;
+}
+
+.lo6-meta {
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.lo6-meta .la-doc__meta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}

@@ -1,0 +1,63 @@
+/* Home Launcher scene: Architect's Blueprint. HTML + CSS only; colours come from the theme variables (docs/THEME.md). */
+html, body { height: 100%; margin: 0; overflow: hidden; background: var(--deep, #0e1a2b); }
+.hsc {
+  --g: var(--gold, #c8a96a);
+  --d: var(--deep, #0e1a2b);
+  --d2: var(--deep-2, var(--d));
+  --b: var(--em-700, #174a3c);
+  --b5: var(--em-500, #2b7561);
+  --lit: color-mix(in srgb, var(--g) 68%, #fff);
+  --sil: color-mix(in srgb, var(--d2) 82%, #000);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.hsc-l { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+.sp1 { stop-color: color-mix(in srgb, var(--b) 62%, var(--d)); }
+.sp2 { stop-color: var(--d2); }
+.g1 { fill: none; stroke: var(--lit); stroke-opacity: .05; stroke-width: 1; }
+.g2 { fill: none; stroke: var(--lit); stroke-opacity: .13; stroke-width: 1; }
+.sc0 { stop-color: var(--g); stop-opacity: 0; }
+.sc1 { stop-color: var(--g); stop-opacity: .035; }
+.sc2 { stop-color: var(--lit); stop-opacity: .28; }
+.ln, .ln2, .ln3, .ln4, .cl, .dim { fill: none; stroke-linecap: round; }
+.ln { stroke: var(--lit); stroke-width: 1.3; stroke-opacity: .85; }
+.ln2 { stroke: #fff; stroke-width: 2.2; }
+.ln3 { stroke: var(--lit); stroke-width: .9; stroke-opacity: .72; }
+.ln4 { stroke: var(--g); stroke-width: .9; }
+.cl { stroke: var(--g); stroke-width: 1; stroke-opacity: .42; }
+.dim { stroke: var(--g); stroke-width: 1.2; }
+.dr { stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw var(--dr) ease-in-out var(--dl) backwards; }
+.fd { animation: fade 1.6s ease-out var(--dl) backwards; }
+.wn { fill: var(--g); opacity: .46; animation: on 1.2s ease-out var(--dl) backwards; }
+.wn--tw { animation: on 1.2s ease-out var(--dl) backwards, room var(--t) ease-in-out var(--e) infinite; }
+.nd1 { fill: var(--g); }
+.nd2 { fill: none; stroke: var(--lit); stroke-width: 1.3; }
+.nd3 { fill: #fff; }
+.needle { animation: needle 16s ease-in-out infinite alternate; }
+.tb { fill: var(--lit); opacity: .26; }
+.node { fill: var(--g); }
+.node-r { fill: none; stroke: var(--g); stroke-width: 1.3; animation: ping 5s ease-out var(--d) infinite; }
+.scan { animation: scan 22s linear -4s infinite; }
+/* thumbnail on CM-07: already drawn, and heavier lines so it reads at small size */
+.thumb .dr, .thumb .fd, .thumb .wn { animation-delay: 0s; animation-duration: .01s; }
+.thumb .wn--tw { animation: none; }
+.thumb .ln3 { stroke-width: 1.8; stroke-opacity: 1; }
+.thumb .ln { stroke-width: 2; }
+.thumb .ln2 { stroke-width: 3.4; }
+.thumb .scan { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  .hsc-l { top: 50%; height: 118vw; overflow: visible; transform: translateY(-50%); }
+}
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes fade { from { opacity: 0; } }
+@keyframes on { from { opacity: 0; } }
+@keyframes room { 0%, 42%, 100% { opacity: .46; } 50%, 86% { opacity: .03; } }
+@keyframes needle { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+@keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(5); opacity: 0; } }
+@keyframes scan { 0% { transform: translateX(0); } 60%, 100% { transform: translateX(1880px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hsc *, .hsc *::before, .hsc *::after { animation: none !important; }
+}

@@ -1,0 +1,44 @@
+/* lns-05-par-levels.css: multiplier, per-room quantity grid with calculated par and reorder point, pantry par grid, recalculate after-state. */
+.pr-in {
+  width: 78px;
+}
+
+.pr-calc b {
+  color: var(--em-700);
+}
+
+.ln-calc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.ln-done {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+body:has(#recalc:target) .ln-done,
+body:has(#recalc:target) #t-recalc {
+  display: flex;
+}
+
+th small {
+  color: var(--ink-4);
+  font-weight: 500;
+}
+
+.fd-sec--wide .pgw {
+  grid-column: 2;
+  padding: 0 28px 24px;
+}

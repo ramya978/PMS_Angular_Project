@@ -1,0 +1,22 @@
+/* cc-06-beverage-control.css: spirits by bottle and peg, bar count pop-up. */
+.bv-neg {
+  color: #a12626;
+}
+
+.bv-row--bad > td {
+  background: color-mix(in srgb, #fdecec 45%, transparent);
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+[data-code="CC-06-brands"] td:first-child {
+  min-width: 190px;
+}
+
+body:has(#counted:target) #t-counted,
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,127 @@
+/* ow-08-portfolio-view.css: hotel ranking (CSS order), view switch and toast. */
+#main:has(#so-rev:checked) .ow-hc[data-h="zkc"] {
+  order: 1;
+}
+
+#main:has(#so-rev:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-rev:checked) .ow-hc[data-h="zal"] {
+  order: 3;
+}
+
+#main:has(#so-rev:checked) .ow-hc[data-h="zcb"] {
+  order: 4;
+}
+
+#main:has(#so-occ:checked) .ow-hc[data-h="zal"] {
+  order: 1;
+}
+
+#main:has(#so-occ:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-occ:checked) .ow-hc[data-h="zkc"] {
+  order: 3;
+}
+
+#main:has(#so-occ:checked) .ow-hc[data-h="zcb"] {
+  order: 4;
+}
+
+#main:has(#so-adr:checked) .ow-hc[data-h="zal"] {
+  order: 1;
+}
+
+#main:has(#so-adr:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-adr:checked) .ow-hc[data-h="zkc"] {
+  order: 3;
+}
+
+#main:has(#so-adr:checked) .ow-hc[data-h="zcb"] {
+  order: 4;
+}
+
+#main:has(#so-revpar:checked) .ow-hc[data-h="zal"] {
+  order: 1;
+}
+
+#main:has(#so-revpar:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-revpar:checked) .ow-hc[data-h="zkc"] {
+  order: 3;
+}
+
+#main:has(#so-revpar:checked) .ow-hc[data-h="zcb"] {
+  order: 4;
+}
+
+#main:has(#so-gop:checked) .ow-hc[data-h="zal"] {
+  order: 1;
+}
+
+#main:has(#so-gop:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-gop:checked) .ow-hc[data-h="zkc"] {
+  order: 3;
+}
+
+#main:has(#so-gop:checked) .ow-hc[data-h="zcb"] {
+  order: 4;
+}
+
+#main:has(#so-coll:checked) .ow-hc[data-h="zkc"] {
+  order: 1;
+}
+
+#main:has(#so-coll:checked) .ow-hc[data-h="zcb"] {
+  order: 2;
+}
+
+#main:has(#so-coll:checked) .ow-hc[data-h="zmn"] {
+  order: 3;
+}
+
+#main:has(#so-coll:checked) .ow-hc[data-h="zal"] {
+  order: 4;
+}
+
+#main:has(#so-out:checked) .ow-hc[data-h="zal"] {
+  order: 1;
+}
+
+#main:has(#so-out:checked) .ow-hc[data-h="zmn"] {
+  order: 2;
+}
+
+#main:has(#so-out:checked) .ow-hc[data-h="zcb"] {
+  order: 3;
+}
+
+#main:has(#so-out:checked) .ow-hc[data-h="zkc"] {
+  order: 4;
+}
+
+.ow-hc[data-h="ztv"] {
+  order: 9;
+}
+
+#main:has(#pv-mine:checked) .ow-hc:not(.rg-mine),
+#main:has(#pv-mine:checked) .ow-tot-all,
+#main:has(#pv-all:checked) .ow-tot-mine {
+  display: none;
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

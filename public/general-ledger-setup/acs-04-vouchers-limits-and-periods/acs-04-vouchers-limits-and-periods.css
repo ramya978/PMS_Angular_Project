@@ -1,0 +1,19 @@
+/* acs-04-vouchers-limits-and-periods.css: voucher numbering, approval limits, attachments and periods. */
+.nm-fmt.field__input {
+  min-width: 200px;
+}
+
+tr.vl-new {
+  display: none;
+}
+
+body:has(#added:target) tr.vl-new {
+  display: table-row;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

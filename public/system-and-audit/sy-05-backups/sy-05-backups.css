@@ -1,0 +1,23 @@
+/* sy-05-backups.css */
+.sy-sch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#tested:target) table.dt__table tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+body:has(#tested:target) #t-tested,
+body:has(#asked:target) #t-asked {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

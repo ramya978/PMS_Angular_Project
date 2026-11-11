@@ -1,0 +1,30 @@
+/* fn-09-ageing.css: debtor and creditor ageing with a radio switch. */
+.ag-type {
+  display: grid;
+  gap: 14px;
+}
+
+.ag-body--cred {
+  display: none;
+}
+
+.ag-panel:has(input[value="Creditors"]:checked) .ag-body--cred {
+  display: block;
+}
+
+.ag-panel:has(input[value="Creditors"]:checked) .ag-body--debt {
+  display: none;
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

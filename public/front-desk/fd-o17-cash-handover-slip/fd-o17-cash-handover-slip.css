@@ -1,0 +1,20 @@
+/* record variants */
+#HO-26-27-0187:target ~ .v-HO-26-27-0187 {
+  display: block;
+}
+
+#HO-26-27-0186:target ~ .v-HO-26-27-0186 {
+  display: block;
+}
+
+#HO-26-27-0185:target ~ .v-HO-26-27-0185 {
+  display: block;
+}
+
+#HO-26-27-0184:target ~ .v-HO-26-27-0184 {
+  display: block;
+}
+
+#new:target ~ .v-new {
+  display: block;
+}

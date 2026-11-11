@@ -1,0 +1,117 @@
+/* st-02-material-requisitions.css: requisition list with views, HOD approval after-states and the new requisition sheet (ST-P01). */
+.mr-no {
+  font-weight: 650;
+}
+
+[data-code="ST-02-list"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="ST-02-list"] td:first-child {
+  min-width: 170px;
+}
+
+[data-code="ST-02-list"] td:nth-child(2) {
+  min-width: 210px;
+}
+
+[data-code="ST-02-list"] td:nth-child(4) {
+  min-width: 190px;
+  max-width: 260px;
+}
+
+.mr-acts {
+  display: grid;
+  gap: 4px;
+}
+
+.mr-acts > .btn {
+  justify-content: center;
+}
+
+.st-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.st-note .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* the requisition created by "Submit" in the sheet */
+.mr-row--new {
+  display: none;
+}
+
+body:has(#added:target) .mr-row--new {
+  display: table-row;
+}
+
+table.srt > tbody > tr.mr-row--new {
+  display: none;
+}
+
+body:has(#added:target) table.srt > tbody > tr.mr-row--new {
+  display: grid;
+}
+
+body:has(#added:target) .mr-row--new > td {
+  background: var(--ok-bg);
+}
+
+/* row after-states: submit, approve, reject */
+.mr-to {
+  display: none;
+}
+
+.mr-row:has(.pm--sub:target) .mr-to--sub,
+.mr-row:has(.pm--ap:target) .mr-to--ap,
+.mr-row:has(.pm--rj:target) .mr-to--rj {
+  display: inline-flex;
+}
+
+.mr-row:has(:is(.pm--sub, .pm--ap, .pm--rj):target) :is(.mr-now, .mr-acts) {
+  display: none;
+}
+
+.mr-row:has(:is(.pm--sub, .pm--ap, .pm--rj):target) > td {
+  background: var(--ok-bg);
+}
+
+.mr-item.field__input {
+  min-width: 260px;
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-draft:target) .hv__v[data-v="v-draft"],
+#main:has(#v-wait:target) .hv__v[data-v="v-wait"],
+#main:has(#v-issue:target) .hv__v[data-v="v-issue"],
+#main:has(#v-done:target) .hv__v[data-v="v-done"],
+#main:has(#v-rej:target) .hv__v[data-v="v-rej"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-draft:target) .mr-row:not(.mr-row--draft),
+#main:has(#v-wait:target) .mr-row:not(.mr-row--wait),
+#main:has(#v-issue:target) .mr-row:not(.mr-row--issue),
+#main:has(#v-done:target) .mr-row:not(.mr-row--done),
+#main:has(#v-rej:target) .mr-row:not(.mr-row--rej) {
+  display: none;
+}
+
+body:has(#added:target) #t-added,
+body:has(#drafted:target) #t-drafted,
+body:has(.pm--sub:target) #t-sub,
+body:has(.pm--ap:target) #t-ap,
+body:has(.pm--rj:target) #t-rj {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

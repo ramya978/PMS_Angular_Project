@@ -1,0 +1,48 @@
+/* da-05-alerts.css – styles of DA-05 Alerts (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#al-ok-0241:target) #t-ok-0241,
+body:has(#al-ok-0239:target) #t-ok-0239,
+body:has(#al-ok-0237:target) #t-ok-0237,
+body:has(#al-ok-0234:target) #t-ok-0234,
+body:has(#al-as-0241:target) #t-as-0241,
+body:has(#al-as-0240:target) #t-as-0240,
+body:has(#al-as-0239:target) #t-as-0239,
+body:has(#al-as-0238:target) #t-as-0238,
+body:has(#al-as-0237:target) #t-as-0237,
+body:has(#al-as-0236:target) #t-as-0236,
+body:has(#al-as-0234:target) #t-as-0234,
+body:has(#al-as-0233:target) #t-as-0233 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-new:target) .hv__v[data-v="v-new"],
+#main:has(#v-ack:target) .hv__v[data-v="v-ack"],
+#main:has(#v-res:target) .hv__v[data-v="v-res"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-new:target) .gl-row:not(.al-new),
+#main:has(#v-ack:target) .gl-row:not(.al-ack),
+#main:has(#v-res:target) .gl-row:not(.al-res) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+.al-ok-0241 { display: none; }
+body:has(#al-ok-0241:target) .al-now-0241 { display: none; }
+body:has(#al-ok-0241:target) .al-ok-0241 { display: inline-flex; }
+.al-ok-0239 { display: none; }
+body:has(#al-ok-0239:target) .al-now-0239 { display: none; }
+body:has(#al-ok-0239:target) .al-ok-0239 { display: inline-flex; }
+.al-ok-0237 { display: none; }
+body:has(#al-ok-0237:target) .al-now-0237 { display: none; }
+body:has(#al-ok-0237:target) .al-ok-0237 { display: inline-flex; }
+.al-ok-0234 { display: none; }
+body:has(#al-ok-0234:target) .al-now-0234 { display: none; }
+body:has(#al-ok-0234:target) .al-ok-0234 { display: inline-flex; }

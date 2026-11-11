@@ -1,0 +1,40 @@
+/* fn-08-petty-cash-and-cash-handovers.css: handovers, deposit and petty cash. */
+.pm--v {
+  position: absolute;
+}
+
+.ho-a {
+  display: none;
+}
+
+body:has(#rcv-2:target) #ho-row-2 .ho-b, body:has(#rcv-2:target) #ho-row-2 .ho-btn { display: none; }
+body:has(#rcv-2:target) #ho-row-2 .ho-a { display: inline-flex; }
+body:has(#rcv-2:target) #ho-row-2 > td { background: var(--ok-bg); }
+body:has(#rcv-5:target) #ho-row-5 .ho-b, body:has(#rcv-5:target) #ho-row-5 .ho-btn { display: none; }
+body:has(#rcv-5:target) #ho-row-5 .ho-a { display: inline-flex; }
+body:has(#rcv-5:target) #ho-row-5 > td { background: var(--ok-bg); }
+
+body:has(#deposited:target) .ho-dep,
+body:has(#repl-sto:target) a[href="#repl-sto"],
+body:has(#repl-eng:target) a[href="#repl-eng"],
+body:has(#repl-hr:target) a[href="#repl-hr"] {
+  display: none;
+}
+
+[data-code="FN-08-handovers"] td:nth-child(2) {
+  min-width: 250px;
+}
+
+[data-code="FN-08-vouchers"] td:nth-child(2) {
+  min-width: 240px;
+}
+
+body:has(#rcv-2:target) #t-rcv-2,
+body:has(#rcv-5:target) #t-rcv-5,
+body:has(#deposited:target) #t-deposited,
+body:has(#repl-sto:target) #t-repl-sto,
+body:has(#repl-eng:target) #t-repl-eng,
+body:has(#repl-hr:target) #t-repl-hr {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,110 @@
+/* hk-o05-out-of-order-notice.css: HK-O05 door notice for an out-of-order / out-of-service room. */
+
+.o3 h2 small {
+  margin-left: 8px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.o3-sum {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0;
+  margin: 16px 0 8px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  list-style: none;
+}
+
+.o3-sum li {
+  display: grid;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.o3-sum li + li {
+  border-left: 1px solid var(--line);
+}
+
+.o3-sum b {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.o3 td,
+.o3 th {
+  font-size: 11.5px;
+}
+
+.o3-chk {
+  width: 56px;
+}
+
+.o3-foot {
+  margin-top: 16px;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.o3-sign {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  font-size: 12px;
+}
+
+@media print {
+  .o3 h2 {
+    break-after: avoid;
+  }
+
+  .o3 table {
+    break-inside: auto;
+  }
+}
+
+.o5 + .o5 {
+  margin-top: 24px;
+}
+
+.o5 {
+  scroll-margin-top: 80px;
+}
+
+.o5-big {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 16px 0;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #fdecec;
+  color: #9b2c2c;
+}
+
+.o5-room {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.o5-big b {
+  display: block;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+
+.o5 th {
+  width: 160px;
+  text-align: left;
+}
+
+@media print {
+  .o5 {
+    break-after: page;
+  }
+}

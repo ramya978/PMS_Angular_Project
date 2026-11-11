@@ -1,0 +1,185 @@
+/* lg-09-active-sessions.css: force log-out pop-up and after-states. */
+.lg-who,
+.lg-go {
+  display: none;
+}
+
+body:has(#fo-s01:target) #s-s01 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s01:target) .lg-who[data-u="s01"],
+#lg-fo:has(#cf-s01:target) .lg-go[data-u="s01"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s02:target) #s-s02 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s02:target) .lg-who[data-u="s02"],
+#lg-fo:has(#cf-s02:target) .lg-go[data-u="s02"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s03:target) #s-s03 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s03:target) .lg-who[data-u="s03"],
+#lg-fo:has(#cf-s03:target) .lg-go[data-u="s03"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s04:target) #s-s04 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s04:target) .lg-who[data-u="s04"],
+#lg-fo:has(#cf-s04:target) .lg-go[data-u="s04"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s05:target) #s-s05 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s05:target) .lg-who[data-u="s05"],
+#lg-fo:has(#cf-s05:target) .lg-go[data-u="s05"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s06:target) #s-s06 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s06:target) .lg-who[data-u="s06"],
+#lg-fo:has(#cf-s06:target) .lg-go[data-u="s06"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s07:target) #s-s07 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s07:target) .lg-who[data-u="s07"],
+#lg-fo:has(#cf-s07:target) .lg-go[data-u="s07"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s08:target) #s-s08 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s08:target) .lg-who[data-u="s08"],
+#lg-fo:has(#cf-s08:target) .lg-go[data-u="s08"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s09:target) #s-s09 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s09:target) .lg-who[data-u="s09"],
+#lg-fo:has(#cf-s09:target) .lg-go[data-u="s09"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s10:target) #s-s10 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s10:target) .lg-who[data-u="s10"],
+#lg-fo:has(#cf-s10:target) .lg-go[data-u="s10"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s11:target) #s-s11 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s11:target) .lg-who[data-u="s11"],
+#lg-fo:has(#cf-s11:target) .lg-go[data-u="s11"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s12:target) #s-s12 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s12:target) .lg-who[data-u="s12"],
+#lg-fo:has(#cf-s12:target) .lg-go[data-u="s12"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s13:target) #s-s13 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s13:target) .lg-who[data-u="s13"],
+#lg-fo:has(#cf-s13:target) .lg-go[data-u="s13"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s14:target) #s-s14 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s14:target) .lg-who[data-u="s14"],
+#lg-fo:has(#cf-s14:target) .lg-go[data-u="s14"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s15:target) #s-s15 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s15:target) .lg-who[data-u="s15"],
+#lg-fo:has(#cf-s15:target) .lg-go[data-u="s15"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s16:target) #s-s16 {
+  opacity: .45;
+  text-decoration: line-through;
+}
+
+#lg-fo:has(#cf-s16:target) .lg-who[data-u="s16"],
+#lg-fo:has(#cf-s16:target) .lg-go[data-u="s16"] {
+  display: inline-flex;
+}
+
+body:has(#fo-s01:target) #t-fo-s01,
+body:has(#fo-s02:target) #t-fo-s02,
+body:has(#fo-s03:target) #t-fo-s03,
+body:has(#fo-s04:target) #t-fo-s04,
+body:has(#fo-s05:target) #t-fo-s05,
+body:has(#fo-s06:target) #t-fo-s06,
+body:has(#fo-s07:target) #t-fo-s07,
+body:has(#fo-s08:target) #t-fo-s08,
+body:has(#fo-s09:target) #t-fo-s09,
+body:has(#fo-s10:target) #t-fo-s10,
+body:has(#fo-s11:target) #t-fo-s11,
+body:has(#fo-s12:target) #t-fo-s12,
+body:has(#fo-s13:target) #t-fo-s13,
+body:has(#fo-s14:target) #t-fo-s14,
+body:has(#fo-s15:target) #t-fo-s15,
+body:has(#fo-s16:target) #t-fo-s16 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

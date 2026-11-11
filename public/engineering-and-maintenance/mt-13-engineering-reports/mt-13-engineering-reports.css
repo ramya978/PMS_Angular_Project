@@ -1,0 +1,19 @@
+/* mt-13-engineering-reports.css: report library (pattern of HK-21). */
+.rlw {
+  display: grid;
+  gap: 16px;
+}
+
+.rl-prod {
+  background: #fff;
+  color: var(--em-800);
+}
+
+.rl-f {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* the report cards (.rl-list / .rl) are shared – see housekeeping.css */

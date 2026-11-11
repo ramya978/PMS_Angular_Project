@@ -1,0 +1,41 @@
+/* tx-09-tax-reports.css: report library cards. */
+.tx-reps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.tx-rep {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  transition: box-shadow var(--t-fast), transform var(--t-fast);
+}
+
+.tx-rep:hover {
+  box-shadow: inset 0 0 0 1.5px var(--em-600), var(--sh-1);
+  transform: translateY(-2px);
+}
+
+.tx-rep__ic {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.tx-rep small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}

@@ -1,0 +1,5 @@
+/* ad-04-modules-and-licence.css */
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,395 @@
+/* costcontrol.css: shared styles of the Cost Control Setup (CCS) and Cost Control (CC) pages – the section strip,
+   status chips, the small figure tiles, "was" notes under changed values and the info lines.
+   Linked after purchase.css, before the screen stylesheet. Everything for phones sits inside the max-width queries. */
+
+/* section strip linking the setup screens (same look as the other setup strips) */
+.ccs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.ccs-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ccs-nav a:hover {
+  color: var(--ink);
+}
+
+.ccs-nav a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+/* status chips: colour + icon + label (the .pill.hk-pill look of aviv.css) */
+.cc--draft { --hk: #718096; }
+.cc--wait { --hk: #b7791f; }
+.cc--ok { --hk: #2f855a; }
+.cc--info { --hk: #2b6cb0; }
+.cc--done { --hk: #4a5568; }
+.cc--warn { --hk: #c05621; }
+.cc--bad { --hk: #c53030; }
+
+.pill.hk-pill[class*="cc--"] > .icon {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--hk);
+  color: #fff;
+}
+
+/* figures at the top of a screen: plain white tiles with a thin border, no shading. The label is small, the figure
+   large, the note quiet. A coloured dot before the label says how the figure stands (green fine, amber watch, red act). */
+.cc-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cc-kpi {
+  --k: var(--ink-4);
+  --k-ink: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 14px 18px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  transition: border-color var(--t-fast);
+}
+
+.cc-kpi:hover {
+  border-color: var(--line-strong);
+}
+
+.cc-kpi--ok { --k: #2f855a; --k-ink: #226b46; }
+.cc-kpi--warn { --k: #d08a1e; --k-ink: #a8590f; }
+.cc-kpi--bad { --k: #c53030; --k-ink: #b42318; }
+
+.cc-kpi__l {
+  order: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cc-kpi__l::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--k);
+}
+
+.cc-kpi__v {
+  order: 2;
+  overflow: hidden;
+  color: var(--k-ink);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cc-kpi__s {
+  order: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* "was 32" under a value that differs from the active version */
+.cc-was {
+  display: block;
+  margin-top: 2px;
+  color: #a8590f;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* info and warning lines inside a section */
+.cc-now,
+.cc-warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+}
+
+.cc-now {
+  background: var(--ok-bg);
+  color: var(--ink-2);
+}
+
+.cc-now .icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--em-600);
+}
+
+.cc-warn {
+  background: #fdf3dc;
+  color: #7a5200;
+}
+
+.cc-warn .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.cc-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.cc-note .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* unit written after a number input (%, ml) */
+.cc-unit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.cc-unit > span {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+/* the audit-log panel (CCS-X01) */
+.cc-log {
+  margin: 0;
+}
+
+/* ───────── Cost Control (CC) ───────── */
+
+/* a cost % bar with a tick for the target */
+.cc-bar {
+  position: relative;
+  display: block;
+  height: 6px;
+  min-width: 110px;
+  margin-top: 6px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.cc-bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--em-500, #3a7a62), var(--em-700, #1f3d33));
+}
+
+.cc-bar > b {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: var(--ink);
+}
+
+/* daily columns (CC-01): one column for each day, a line for the target */
+.cc-days {
+  position: relative;
+  height: 150px;
+}
+
+.cc-days ol {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: end;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cc-days li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  height: 100%;
+  min-width: 0;
+}
+
+.cc-days li > span {
+  display: block;
+  flex: none;
+  max-height: calc(100% - 18px);
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--em-500, #3a7a62), var(--em-700, #1f3d33));
+}
+
+.cc-days li > span.cc-days__b--over {
+  background: linear-gradient(180deg, #e05252, #c53030);
+}
+
+.cc-days small {
+  height: 18px;
+  color: var(--ink-3);
+  font-size: 10px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.cc-days__t {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 0;
+  border-top: 1.5px dashed var(--ink-2);
+  pointer-events: none;
+}
+
+.cc-days__t em {
+  position: absolute;
+  right: 0;
+  top: -17px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 10.5px;
+  font-style: normal;
+}
+
+/* a wide card spans the whole card grid; the figure tiles above a list use the same width */
+.lf-card--wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 760px) {
+  .cc-days {
+    height: 130px;
+  }
+
+  .cc-days ol {
+    gap: 2px;
+  }
+
+  .cc-days small {
+    font-size: 8.5px;
+  }
+}
+
+@media (max-width: 760px) {
+  .ccs-nav {
+    flex-wrap: nowrap;
+    width: auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    scrollbar-width: none;
+  }
+
+  .cc-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .cc-kpi {
+    padding: 12px;
+  }
+
+  .cc-kpi__v {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .cc-kpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* a little air between the figure tiles and the filter or chips below them */
+.cc-kpis + form,
+.cc-kpis + nav {
+  margin-top: 12px;
+}
+
+/* a note on the left and the buttons on the right under a table or section (CC, FN, ACS) */
+.dd-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.dd-foot__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 70ch;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.dd-foot__note .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.bp-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+.cv-neg {
+  color: #a12626;
+}

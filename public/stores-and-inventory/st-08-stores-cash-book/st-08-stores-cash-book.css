@@ -1,0 +1,54 @@
+/* st-08-stores-cash-book.css: imprest figures, cash purchase entries, add entry and replenishment request. */
+.gr-no {
+  font-weight: 650;
+}
+
+.st-h {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+[data-code="ST-08-list"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+.cb-bal--new {
+  display: none;
+}
+
+body:has(#added:target) .cb-bal--now {
+  display: none;
+}
+
+body:has(#added:target) .cb-bal--new {
+  display: inline;
+}
+
+.cb-row--new {
+  display: none;
+}
+
+body:has(#added:target) .cb-row--new {
+  display: table-row;
+}
+
+body:has(#added:target) .cb-row--new > td {
+  background: var(--ok-bg);
+}
+
+.cb-after {
+  display: none;
+  margin: 0;
+}
+
+body:has(#replenish:target) .cb-after {
+  display: flex;
+}
+
+body:has(#added:target) #t-added,
+body:has(#replenish:target) #t-repl {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

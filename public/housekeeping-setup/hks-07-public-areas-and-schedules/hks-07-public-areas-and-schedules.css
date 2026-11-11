@@ -1,0 +1,340 @@
+/* hks-07-public-areas-and-schedules.css: areas and schedules tabs, QR block, frequency fields that show only for the chosen type, preview day. */
+
+.hks-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font-size: 12.5px;
+}
+
+.hks-note .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.hks-qr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hks-qr__img {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: var(--r-sm, 8px);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+}
+
+.hks-qr > span:last-child {
+  display: grid;
+  gap: 2px;
+}
+
+.hks-inline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+/* only the fields of the chosen frequency type are shown */
+.hks-form:not(:has(input[name="ftype"][value="N"]:checked)) .hks-f-n,
+.hks-form:not(:has(input[name="ftype"][value="D"]:checked)) .hks-f-d,
+.hks-form:not(:has(input[name="ftype"][value="W"]:checked)) .hks-f-w,
+.hks-form:not(:has(input[name="ftype"][value="M"]:checked)) .hks-f-m {
+  display: none;
+}
+
+/* preview day */
+.hks-preview {
+  display: none;
+}
+
+.hks-preview:target {
+  display: block;
+}
+
+.hks-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.hks-kpis > div {
+  display: grid;
+  gap: 2px;
+  padding: 12px 16px;
+}
+
+.hks-kpis > div + div {
+  box-shadow: inset 1px 0 0 var(--line);
+}
+
+.hks-kpis strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hks-kpis span {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.hks-off td {
+  background: var(--surface-2);
+}
+
+/* a saved row is highlighted when the page is opened after Save */
+.dt__table tbody tr:target td {
+  background: var(--ok-bg);
+}
+
+/* saved toasts: shown with the row that was saved */
+body:has(#saved-a1:target) #t-a1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a2:target) #t-a2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a3:target) #t-a3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a4:target) #t-a4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a5:target) #t-a5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a6:target) #t-a6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a7:target) #t-a7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a8:target) #t-a8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a9:target) #t-a9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a10:target) #t-a10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a11:target) #t-a11 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a12:target) #t-a12 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a13:target) #t-a13 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a14:target) #t-a14 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a15:target) #t-a15 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a16:target) #t-a16 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a17:target) #t-a17 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a18:target) #t-a18 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-a19:target) #t-a19 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s1:target) #t-s1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s2:target) #t-s2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s3:target) #t-s3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s4:target) #t-s4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s5:target) #t-s5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s6:target) #t-s6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s7:target) #t-s7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s8:target) #t-s8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s9:target) #t-s9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s10:target) #t-s10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s11:target) #t-s11 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s12:target) #t-s12 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s13:target) #t-s13 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s14:target) #t-s14 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s15:target) #t-s15 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s16:target) #t-s16 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s17:target) #t-s17 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s18:target) #t-s18 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s19:target) #t-s19 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s20:target) #t-s20 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s21:target) #t-s21 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s22:target) #t-s22 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s23:target) #t-s23 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s24:target) #t-s24 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s25:target) #t-s25 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s26:target) #t-s26 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 1100px) {
+  .hks-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

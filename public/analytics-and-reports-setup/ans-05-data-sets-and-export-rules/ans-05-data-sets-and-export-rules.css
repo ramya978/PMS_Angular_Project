@@ -1,0 +1,18 @@
+/* ans-05-data-sets-and-export-rules.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.da-w2 { min-width: 300px; }
+.fd-multi-stack { display: grid; gap: 14px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

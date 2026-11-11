@@ -1,0 +1,9 @@
+/* pr-o02-purchase-order.css: printable purchase order po-2026-00312. */
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+body:has(#sent:target) #t-sent {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

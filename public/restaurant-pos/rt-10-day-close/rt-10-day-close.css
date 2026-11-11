@@ -1,0 +1,20 @@
+/* rt-10-day-close.css: wizard steps as :target panels (checks, cash count, summary), Close shift (→ RT-O03, FD-P58) and Close outlet day after-states. */
+.dcw:not(:has(:is(#st-2, #st-3):target)) .lf-tabs a[data-t="1"],
+.dcw:has(#st-2:target) .lf-tabs a[data-t="2"],
+.dcw:has(#st-3:target) .lf-tabs a[data-t="3"] {
+  background: var(--surface);
+  color: var(--em-800);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.mt-in-n {
+  width: 92px;
+}
+
+.dc-a {
+  display: flex;
+  gap: 8px;
+}
+
+.dcw:has(#closed:target) #t-closed,
+.dcw:has(#dayclosed:target) #t-dayclosed { display: flex; animation: av-rise 320ms var(--ease); }

@@ -1,0 +1,9 @@
+/* pr-r03-price-trend.css: printable price trend. */
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+body:has(#sent:target) #t-sent {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

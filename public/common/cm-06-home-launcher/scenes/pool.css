@@ -1,0 +1,79 @@
+/* Home Launcher scene: Infinity Pool at Sunset. HTML + CSS only; colours come from the theme variables (docs/THEME.md). */
+html, body { height: 100%; margin: 0; overflow: hidden; background: var(--deep, #0e1a2b); }
+.hsc {
+  --g: var(--gold, #c8a96a);
+  --d: var(--deep, #0e1a2b);
+  --d2: var(--deep-2, var(--d));
+  --b: var(--em-700, #174a3c);
+  --b5: var(--em-500, #2b7561);
+  --lit: color-mix(in srgb, var(--g) 68%, #fff);
+  --sil: color-mix(in srgb, var(--d2) 82%, #000);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.hsc-l { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+.a1 { stop-color: color-mix(in srgb, var(--b) 62%, var(--d)); }
+.a2 { stop-color: color-mix(in srgb, var(--g) 56%, var(--b)); }
+.a3 { stop-color: color-mix(in srgb, var(--g) 86%, var(--b)); }
+.a4 { stop-color: color-mix(in srgb, var(--lit) 80%, #fff); }
+.b1 { stop-color: color-mix(in srgb, var(--g) 60%, var(--b)); }
+.b2 { stop-color: color-mix(in srgb, var(--b) 72%, var(--d)); }
+.c1 { stop-color: color-mix(in srgb, var(--g) 54%, var(--b5)); }
+.c2 { stop-color: var(--b5); }
+.c3 { stop-color: var(--b); }
+.e1 { stop-color: #fff; }
+.e2 { stop-color: var(--lit); }
+.f1 { stop-color: color-mix(in srgb, var(--g) 58%, var(--d)); }
+.f2 { stop-color: color-mix(in srgb, var(--g) 26%, var(--d2)); }
+.h1 { stop-color: #fff; stop-opacity: .8; }
+.h2 { stop-color: var(--lit); stop-opacity: .3; }
+.h3 { stop-color: var(--lit); stop-opacity: 0; }
+.halo { animation: breathe 9s ease-in-out infinite alternate; }
+.sun { animation: sunset 90s ease-in-out infinite alternate; }
+.streak { fill: #fff; opacity: var(--o); animation: drift var(--t) ease-in-out var(--d) infinite alternate; }
+.land2 { fill: color-mix(in srgb, var(--b) 72%, var(--d)); }
+.glit { fill: #fff; animation: shim var(--t) ease-in-out var(--d) infinite; }
+.glit2 { fill: var(--lit); animation: shim var(--t) ease-in-out var(--d) infinite; }
+.edge { stroke: #fff; stroke-opacity: .5; stroke-width: 2; }
+.sail { animation: sail 180s linear -60s infinite; }
+.sail__s { fill: #fff; opacity: .92; }
+.sail__h { fill: var(--d); }
+.gulls { fill: none; stroke: var(--d); stroke-linecap: round; stroke-width: 2.4; animation: gulls 70s linear -12s infinite; }
+.ripple { fill: none; stroke: #fff; stroke-opacity: .2; stroke-width: 1.5; animation: ripple var(--t) linear var(--d) infinite; }
+.flower { transform: translate(var(--x), var(--y)) scale(var(--s)); }
+.petals { fill: #fff; animation: float 40s ease-in-out var(--d) infinite alternate; }
+.flower__c { fill: var(--g); }
+.coping { fill: color-mix(in srgb, var(--lit) 90%, #fff); }
+.plank { fill: none; stroke: var(--d2); stroke-opacity: .35; stroke-width: 1.5; }
+.lg-sh { fill: var(--d2); opacity: .4; }
+.lg-f { fill: none; stroke: var(--d2); stroke-linecap: round; stroke-width: 6; }
+.lg-mat { fill: color-mix(in srgb, var(--lit) 80%, #fff); }
+.lg-tw { fill: var(--b5); }
+.lg-pl { fill: var(--g); }
+.pa-pole { fill: none; stroke: var(--d2); stroke-linecap: round; stroke-width: 6; }
+.pa-base { fill: var(--d2); }
+.pa-a { fill: var(--b); }
+.pa-b { fill: var(--lit); }
+.pa-top { transform-origin: 0 -250px; animation: tip 7s ease-in-out var(--d) infinite alternate; }
+.glass { fill: rgb(255 255 255 / .28); stroke: #fff; stroke-opacity: .7; stroke-width: 1.5; }
+.drink { fill: var(--g); }
+.lime { fill: color-mix(in srgb, var(--b5) 60%, #fff); stroke: #fff; stroke-width: 1.5; }
+.palm path, .palm__t { fill: var(--sil); }
+.palm2 path, .palm2__t { fill: color-mix(in srgb, var(--b) 50%, var(--d2)); }
+.sway { animation: sway 8s ease-in-out var(--d) infinite alternate; }
+@keyframes breathe { from { opacity: .8; } to { opacity: 1; } }
+@keyframes sunset { from { transform: translateY(-34px); } to { transform: translateY(26px); } }
+@keyframes drift { from { transform: translateX(-60px); } to { transform: translateX(80px); } }
+@keyframes shim { 0%, 100% { opacity: .05; transform: translateX(-4px); } 50% { opacity: .85; transform: translateX(4px); } }
+@keyframes sail { from { transform: translate(-60px, 518px); } to { transform: translate(1660px, 518px); } }
+@keyframes gulls { from { transform: translate(-100px, 200px); } to { transform: translate(1700px, 70px); } }
+@keyframes ripple { from { transform: translateX(0); } to { transform: translateX(-120px); } }
+@keyframes float { from { transform: translate(-40px, -6px) rotate(0); } to { transform: translate(60px, 8px) rotate(120deg); } }
+@keyframes tip { from { transform: rotate(-1.2deg); } to { transform: rotate(1.2deg); } }
+@keyframes sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hsc *, .hsc *::before, .hsc *::after { animation: none !important; }
+}

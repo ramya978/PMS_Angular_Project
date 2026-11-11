@@ -1,0 +1,25 @@
+/* hr-11-employee-self-service.css – styles of HR-11 Employee Self-service (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#punched-in:target) #t-pin,
+body:has(#punched-out:target) #t-pout,
+body:has(#applied:target) #t-app,
+body:has(#requested:target) #t-rq {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.hm-phone > #hm-home:checked ~ .hm-panes > [data-pane=hm-home],
+.hm-phone > #hm-roster:checked ~ .hm-panes > [data-pane=hm-roster],
+.hm-phone > #hm-leave:checked ~ .hm-panes > [data-pane=hm-leave],
+.hm-phone > #hm-pay:checked ~ .hm-panes > [data-pane=hm-pay],
+.hm-phone > #hm-me:checked ~ .hm-panes > [data-pane=hm-me] {
+  display: grid;
+}
+
+.hm-phone > #hm-home:checked ~ .hm-navbar label[for=hm-home],
+.hm-phone > #hm-roster:checked ~ .hm-navbar label[for=hm-roster],
+.hm-phone > #hm-leave:checked ~ .hm-navbar label[for=hm-leave],
+.hm-phone > #hm-pay:checked ~ .hm-navbar label[for=hm-pay],
+.hm-phone > #hm-me:checked ~ .hm-navbar label[for=hm-me] {
+  color: var(--em-800);
+  background: var(--em-50);
+}

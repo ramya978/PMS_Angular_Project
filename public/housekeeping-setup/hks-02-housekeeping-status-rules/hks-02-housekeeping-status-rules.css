@@ -1,0 +1,178 @@
+/* hks-02-housekeeping-status-rules.css: Housekeeping Status Rules – approval tags, conditional fields, the status list and the pending banner. */
+
+.hks-appr {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px var(--gold-light, #e6cf9c);
+  color: #6e4a0e;
+  font-size: 10.5px;
+  font-weight: 650;
+  vertical-align: 1px;
+}
+
+/* status codes: one slim legend panel in three groups (Vacant · Occupied · Other); each status is a
+   compact row with a solid colour swatch holding its icon, the code and the name */
+.hks-codes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 4px;
+  overflow: hidden;
+  border-radius: 14px;
+  background:
+    radial-gradient(80% 120% at 0% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.08), transparent 60%),
+    var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 10px 24px -22px rgb(16 24 40 / 0.4);
+}
+
+.hks-codes__grp {
+  padding: 12px 16px 14px;
+}
+
+.hks-codes__grp + .hks-codes__grp {
+  box-shadow: inset 1px 0 0 var(--line);
+}
+
+.hks-codes__cap {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hks-codes ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hks-code {
+  --c: var(--ink-3);
+  display: grid;
+  grid-template-columns: 24px 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  transition: background var(--t-fast);
+}
+
+.hks-code:hover {
+  background: color-mix(in srgb, var(--c) 7%, var(--surface));
+}
+
+.hks-code__sw {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--c) 82%, #fff), var(--c));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--c);
+  color: #fff;
+}
+
+.hks-code__sw .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.hks-code strong {
+  color: var(--c);
+  font-size: 12.5px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* one colour per status, so no two statuses look alike */
+.hks-code--vc {
+  --c: var(--hk-vc); /* Vacant Clean – green */
+}
+
+.hks-code--vi {
+  --c: var(--hk-vi); /* Vacant Inspected – teal */
+}
+
+.hks-code--vd {
+  --c: var(--hk-vd); /* Vacant Dirty – orange */
+}
+
+.hks-code--oc {
+  --c: var(--hk-oc); /* Occupied Clean – blue */
+}
+
+.hks-code--od {
+  --c: var(--hk-od); /* Occupied Dirty – magenta */
+}
+
+.hks-code--oi {
+  --c: var(--hk-oi); /* Occupied Inspected – indigo */
+}
+
+.hks-code--pu {
+  --c: var(--hk-pu); /* Pickup – gold */
+}
+
+.hks-code--ooo {
+  --c: var(--hk-ooo); /* Out of Order – red */
+}
+
+.hks-code--oos {
+  --c: var(--hk-oos); /* Out of Service – grey */
+}
+
+@media (max-width: 900px) {
+  .hks-codes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hks-codes__grp + .hks-codes__grp {
+    box-shadow: inset 0 1px 0 var(--line);
+  }
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.hks-inline {
+  display: grid;
+  grid-template-columns: 90px auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.hks-inline__t {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* the banner and the saved toast only appear after Save */
+.hks-pending {
+  display: none;
+}
+
+body:has(#pending:target) .hks-pending {
+  display: flex;
+}
+
+/* conditional fields: greyed out when the setting that controls them is off */
+.hks-form:has(input[name="use_inspected"]:not(:checked)) .hks-dep-insp,
+.hks-form:has(input[name="use_inspected"]:not(:checked)) .hks-dep-spot {
+  opacity: 0.5;
+}
+
+.hks-form:has(input[name="use_inspected"]:not(:checked)) .hks-dep-insp,
+.hks-form:has(input[name="use_inspected"]:not(:checked)) .hks-dep-spot {
+  pointer-events: none;
+}

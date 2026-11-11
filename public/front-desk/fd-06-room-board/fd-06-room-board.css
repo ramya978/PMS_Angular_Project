@@ -1,0 +1,243 @@
+/* fd-06-room-board.css – styles of FD-06 Room Board (laptop rules; phone rules sit in max-width media queries). */
+
+.rb:has(#f-ready:target) .rb-r:not(.g-ready) {
+  display: none;
+}
+
+.rb:has(#f-ready:target) .rb-chip--f-ready {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-dirty:target) .rb-r:not(.g-dirty) {
+  display: none;
+}
+
+.rb:has(#f-dirty:target) .rb-chip--f-dirty {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-occupied:target) .rb-r:not(.g-occupied) {
+  display: none;
+}
+
+.rb:has(#f-occupied:target) .rb-chip--f-occupied {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-dot:target) .rb-r:not(.g-dot) {
+  display: none;
+}
+
+.rb:has(#f-dot:target) .rb-chip--f-dot {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-arr:target) .rb-r:not(.g-arr) {
+  display: none;
+}
+
+.rb:has(#f-arr:target) .rb-chip--f-arr {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-ooo:target) .rb-r:not(.g-ooo) {
+  display: none;
+}
+
+.rb:has(#f-ooo:target) .rb-chip--f-ooo {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-floor-1:target) .rb-r:not(.f-1) {
+  display: none;
+}
+
+.rb:has(#f-floor-1:target) .rb-chip--f1 {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-floor-2:target) .rb-r:not(.f-2) {
+  display: none;
+}
+
+.rb:has(#f-floor-2:target) .rb-chip--f2 {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-floor-3:target) .rb-r:not(.f-3) {
+  display: none;
+}
+
+.rb:has(#f-floor-3:target) .rb-chip--f3 {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-floor-4:target) .rb-r:not(.f-4) {
+  display: none;
+}
+
+.rb:has(#f-floor-4:target) .rb-chip--f4 {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-floor-5:target) .rb-r:not(.f-5) {
+  display: none;
+}
+
+.rb:has(#f-floor-5:target) .rb-chip--f5 {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-type-GDLX:target) .rb-r:not(.t-GDLX) {
+  display: none;
+}
+
+.rb:has(#f-type-GDLX:target) .rb-chip--tGDR {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-type-PDLX:target) .rb-r:not(.t-PDLX) {
+  display: none;
+}
+
+.rb:has(#f-type-PDLX:target) .rb-chip--tPDR {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-r:not(.t-DLXS) {
+  display: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-chip--tDLS {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-r:not(.t-PRMS) {
+  display: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-chip--tPRS {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.rb:has(#f-ready:target) .rb-floor[data-floor="5"] {
+  display: none;
+}
+
+.rb:has(#f-ooo:target) .rb-floor[data-floor="1"] {
+  display: none;
+}
+
+.rb:has(#f-ooo:target) .rb-floor[data-floor="3"] {
+  display: none;
+}
+
+.rb:has(#f-ooo:target) .rb-floor[data-floor="4"] {
+  display: none;
+}
+
+.rb:has(#f-dot:target) .rb-floor[data-floor="1"] {
+  display: none;
+}
+
+.rb:has(#f-arr:target) .rb-floor[data-floor="4"] {
+  display: none;
+}
+
+.rb:has(#f-floor-1:target) .rb-floor:not([data-floor="1"]) {
+  display: none;
+}
+
+.rb:has(#f-floor-2:target) .rb-floor:not([data-floor="2"]) {
+  display: none;
+}
+
+.rb:has(#f-floor-3:target) .rb-floor:not([data-floor="3"]) {
+  display: none;
+}
+
+.rb:has(#f-floor-4:target) .rb-floor:not([data-floor="4"]) {
+  display: none;
+}
+
+.rb:has(#f-floor-5:target) .rb-floor:not([data-floor="5"]) {
+  display: none;
+}
+
+.rb:has(#f-type-GDLX:target) .rb-floor[data-floor="4"] {
+  display: none;
+}
+
+.rb:has(#f-type-GDLX:target) .rb-floor[data-floor="5"] {
+  display: none;
+}
+
+.rb:has(#f-type-PDLX:target) .rb-floor[data-floor="1"] {
+  display: none;
+}
+
+.rb:has(#f-type-PDLX:target) .rb-floor[data-floor="2"] {
+  display: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-floor[data-floor="1"] {
+  display: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-floor[data-floor="2"] {
+  display: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-floor[data-floor="3"] {
+  display: none;
+}
+
+.rb:has(#f-type-DLXS:target) .rb-floor[data-floor="4"] {
+  display: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-floor[data-floor="1"] {
+  display: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-floor[data-floor="2"] {
+  display: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-floor[data-floor="3"] {
+  display: none;
+}
+
+.rb:has(#f-type-PRMS:target) .rb-floor[data-floor="4"] {
+  display: none;
+}

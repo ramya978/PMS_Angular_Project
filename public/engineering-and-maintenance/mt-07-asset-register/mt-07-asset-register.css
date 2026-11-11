@@ -1,0 +1,17 @@
+/* mt-07-asset-register.css: assets with location, make, install / warranty / AMC (expiring flagged), condition and cost / book value. */
+.mt-warn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: #fdf3dc;
+  color: #946200;
+  font-size: 11.5px;
+  font-weight: 650;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}

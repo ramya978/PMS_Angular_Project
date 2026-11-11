@@ -1,0 +1,8 @@
+/* an-10-ad-hoc-analysis.css – styles of AN-10 Ad-hoc Analysis (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#ran:target) #t-ran,
+body:has(#saved:target) #t-saved,
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

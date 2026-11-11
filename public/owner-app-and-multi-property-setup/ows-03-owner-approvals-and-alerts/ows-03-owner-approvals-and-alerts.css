@@ -1,0 +1,29 @@
+/* ows-03-owner-approvals-and-alerts.css: after-states (new rows, status changes) and toasts. */
+table.dt__table tr.hr-new,
+.ow-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new--added {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+body:has(#added2:target) tr.hr-new--added2 {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+[data-code='OWS-03-approvals'] td:nth-child(4) select { min-width: 170px; }
+[data-code='OWS-03-alerts'] td:nth-child(3) select { min-width: 210px; }
+[data-code='OWS-03-alerts'] td:nth-child(4) select { min-width: 230px; }
+.ow-amt { display: inline-flex; align-items: center; gap: 6px; }
+.ow-amt small { min-width: 38px; text-align: right; }
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled,
+body:has(#added:target) #t-added,
+body:has(#added2:target) #t-added2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

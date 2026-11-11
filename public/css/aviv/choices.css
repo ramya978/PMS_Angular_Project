@@ -1,0 +1,81 @@
+/* choices.css: checkbox and radio option groups (.fd-fieldset > .fd-multi) as an even grid of option tiles.
+   Rules start with #main so they win over the older group styles in the module stylesheets. */
+#main .fd-fieldset > .fd-multi {
+  counter-reset: fd-on fd-all;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
+  align-items: stretch;
+  gap: 8px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+#main .fd-fieldset > .fd-multi > .check {
+  counter-increment: fd-all;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong), 0 1px 2px rgb(16 24 40 / 0.04);
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.3;
+  transition: background var(--t-fast), box-shadow var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+
+#main .fd-fieldset > .fd-multi > .check:hover {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--em-600) 45%, var(--line-strong)), 0 6px 14px -10px rgb(var(--em-800-rgb, 16 58 47) / 0.45);
+  color: var(--ink);
+}
+
+#main .fd-fieldset > .fd-multi > .check:has(.check__input:checked) {
+  counter-increment: fd-all fd-on;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--em-600) 9%, var(--surface)), color-mix(in srgb, var(--em-600) 3%, var(--surface)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--em-600) 55%, var(--line-strong)), 0 6px 14px -12px rgb(var(--em-800-rgb, 16 58 47) / 0.5);
+  color: var(--em-900, var(--ink));
+  font-weight: 600;
+}
+
+#main .fd-fieldset > .fd-multi > .check:has(.check__input:focus-visible) {
+  outline: 2px solid var(--br-400);
+  outline-offset: 2px;
+}
+
+#main .fd-fieldset > .fd-multi > .check:has(.check__input:disabled) {
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-4);
+  cursor: not-allowed;
+}
+
+#main .fd-fieldset > .fd-multi > .check .check__box {
+  flex: none;
+}
+
+/* "n of m selected" under a checkbox group */
+#main .fd-fieldset > .fd-multi:has(> .check > .check__input[type="checkbox"])::after {
+  content: counter(fd-on) " of " counter(fd-all) " selected";
+  grid-column: 1 / -1;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* a two- or three-option radio group (Yes / No, Allow / Warn / Block) reads as a segmented control */
+#main .fd-fieldset > .fd-multi:has(> .check--radio):not(:has(> .check:nth-child(5))) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
+
+/* laptop: up to eight options stay on one line while each chip keeps at least 112px (wraps only when the box is narrower) */
+@media (min-width: 1025px) {
+  #main .fd-fieldset > .fd-multi:has(> .check:nth-child(2)):not(:has(> .check:nth-child(9))) {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 112px), 1fr));
+  }
+}

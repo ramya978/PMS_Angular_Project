@@ -1,0 +1,46 @@
+/* mss-01-statement-lines-and-mapping.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-summary:target) .hv__v[data-v="v-summary"],
+#main:has(#v-schedules:target) .hv__v[data-v="v-schedules"],
+#main:has(#v-bs:target) .hv__v[data-v="v-bs"],
+#main:has(#v-cf:target) .hv__v[data-v="v-cf"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-summary:target) .gl-row:not(.rg-summary),
+#main:has(#v-schedules:target) .gl-row:not(.rg-schedules),
+#main:has(#v-bs:target) .gl-row:not(.rg-bs),
+#main:has(#v-cf:target) .gl-row:not(.rg-cf) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+.mss-w { min-width: 230px; }
+.mss-w2 { min-width: 330px; }
+.mss-n { min-width: 72px; max-width: 90px; }
+.gl-row td:first-child select { min-width: 280px; }
+.mss-ok { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: var(--ok-bg); color: var(--ok-fg, #226b46); }
+.mss-ok > div { display: grid; gap: 2px; }
+.mss-ok span { color: var(--ink-2); font-size: 13px; }
+.mss-cov > summary { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 12px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); cursor: pointer; font-weight: 600; }
+.mss-cov[open] > summary { margin-bottom: 12px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

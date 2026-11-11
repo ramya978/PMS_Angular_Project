@@ -1,0 +1,12 @@
+/* ms-05-financial-statements.css – styles of MS-05 Financial Statements (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#ex5:target) #t-ex5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.c-fy,
+.c-pr { display: none; }
+.ms-view:has(#c-fy:checked) .c-fy,
+.ms-view:has(#c-pr:checked) .c-pr { display: table-cell; }
+.ms-view:has(#c-fy:checked) tr.ms-h .c-fy,
+.ms-view:has(#c-pr:checked) tr.ms-h .c-pr { display: table-cell; }

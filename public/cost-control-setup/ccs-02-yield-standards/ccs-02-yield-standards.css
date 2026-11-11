@@ -1,0 +1,27 @@
+/* ccs-02-yield-standards.css: yield standards of raw items. */
+.cc-banner {
+  margin: 0;
+}
+
+.yd-basis {
+  white-space: normal;
+}
+
+[data-code="CCS-02-list"] td:first-child {
+  min-width: 200px;
+}
+
+[data-code="CCS-02-list"] td:nth-child(4) {
+  min-width: 220px;
+}
+
+body:has(#added:target) .yd-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

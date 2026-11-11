@@ -1,0 +1,24 @@
+/* pr-04-my-approvals.css: approval cards (phone first), per-approver views and per-document after-states (approve, change, send back, reject). */
+.pq-cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: start; }
+.pq-ap__after { display: none; margin: 0; padding: 8px 12px; height: auto; white-space: normal; }
+.pq-ap:has(.pm:target) .pq-ap__now { display: none; }
+.pq-ap:has(.pm:target) > details:not(.pq-ap__d) { display: none; }
+.pq-ap:has(.pm[id^=ok-]:target) .pq-ap__after--ok { display: flex; }
+.pq-ap:has(.pm[id^=chg-]:target) .pq-ap__after--chg,
+.pq-ap:has(.pm[id^=sb-]:target) .pq-ap__after--sb,
+.pq-ap:has(.pm[id^=rjd-]:target) .pq-ap__after--rj { display: flex; }
+.pq-ap:has(.pm:target) { box-shadow: 0 0 0 2px #9ad1b3; }
+.pq-card--gm { display: none; }
+#main:has(#v-gm:target) .pq-card--fi { display: none; }
+#main:has(#v-gm:target) .pq-card--gm { display: grid; }
+#main:not(:has(#v-gm:target)) .hv__v[data-v="v-fc"], #main:has(#v-fc:target) .hv__v[data-v="v-fc"], #main:has(#v-gm:target) .hv__v[data-v="v-gm"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+body:has(.pm[id^=ok-]:target) #t-ok {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

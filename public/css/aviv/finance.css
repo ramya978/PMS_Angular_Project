@@ -1,0 +1,23 @@
+/* finance.css: shared styles of the Finance Setup (FNS) and Receivables, Payables & Banking (FN) pages.
+   Linked after costcontrol.css (status chips, figure tiles, info lines, section strip), before the screen stylesheet.
+   Everything for phones sits inside the max-width queries. */
+
+/* a masked account number: the last four digits only */
+.fn-mask {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* the textareas of message templates */
+.fn-tpl {
+  min-height: 120px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* a result chip row inside a table cell */
+.fn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+}

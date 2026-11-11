@@ -1,0 +1,8 @@
+/* mt-10-contractors-and-amc.css: AMC visits due / done with Record visit (MT-P07), contractor jobs with status and cost. */
+.cvw:has(#visit-amc-2026-01:target) #t-visit-amc-2026-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2026-02:target) #t-visit-amc-2026-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2025-07:target) #t-visit-amc-2025-07 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2026-03:target) #t-visit-amc-2026-03 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2026-04:target) #t-visit-amc-2026-04 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2026-05:target) #t-visit-amc-2026-05 { display: flex; animation: av-rise 320ms var(--ease); }
+.cvw:has(#visit-amc-2026-06:target) #t-visit-amc-2026-06 { display: flex; animation: av-rise 320ms var(--ease); }

@@ -1,0 +1,42 @@
+/* lns-02-linen-items.css: setup list grouped by category, item form LNS-P01 (one sheet per item), add after-state. */
+.ln-k {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ln-k .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pl-grp th {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.la-new {
+  display: none;
+}
+
+body:has(#added:target) .la-new {
+  display: table-row;
+}
+
+body:has(#added:target) .la-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved-item:target) #t-item { display: flex; animation: av-rise 320ms var(--ease); }

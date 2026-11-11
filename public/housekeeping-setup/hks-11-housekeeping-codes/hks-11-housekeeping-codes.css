@@ -1,0 +1,527 @@
+/* hks-11-housekeeping-codes.css: six code lists switched with #list-… links, code form and deactivate confirmation. */
+
+/* list switch: first list by default, the chosen list (or the one holding the saved row) otherwise */
+.hks-views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 12px;
+}
+
+.hks-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hks-view:hover {
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--br-300);
+}
+
+.hks-view__n {
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--sunken);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.hks-views__sum {
+  margin-left: auto;
+  font-size: 12.5px;
+}
+
+.hks-list {
+  display: none;
+}
+
+.hks-list:target,
+.hks-list:has(:target),
+body:not(:has(.hks-list:target)):not(:has(.hks-list :target)) #list-status {
+  display: block;
+}
+
+.hks-view:is(:hover) .hks-view__n {
+  background: var(--sunken);
+}
+
+.fd-tabbar {
+  margin-bottom: 12px;
+}
+
+.hks-anchor {
+  position: absolute;
+}
+
+.dt__table tbody tr:has(.hks-anchor:target) td {
+  background: var(--ok-bg);
+}
+
+.hks-view--status {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+.hks-view--status .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(.hks-list:target) .hks-view--status .hks-view__n,
+body:has(.hks-list :target) .hks-view--status .hks-view__n {
+  background: var(--sunken);
+  color: inherit;
+}
+
+body:has(.hks-list:target) .hks-view--status,
+body:has(.hks-list :target) .hks-view--status {
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+body:has(#list-status:target) .hks-view--status,
+body:has(#list-status :target) .hks-view--status {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-status:target) .hks-view--status .hks-view__n,
+body:has(#list-status :target) .hks-view--status .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-ooo:target) .hks-view--ooo,
+body:has(#list-ooo :target) .hks-view--ooo {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-ooo:target) .hks-view--ooo .hks-view__n,
+body:has(#list-ooo :target) .hks-view--ooo .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-cond:target) .hks-view--cond,
+body:has(#list-cond :target) .hks-view--cond {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-cond:target) .hks-view--cond .hks-view__n,
+body:has(#list-cond :target) .hks-view--cond .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-refused:target) .hks-view--refused,
+body:has(#list-refused :target) .hks-view--refused {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-refused:target) .hks-view--refused .hks-view__n,
+body:has(#list-refused :target) .hks-view--refused .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-log:target) .hks-view--log,
+body:has(#list-log :target) .hks-view--log {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-log:target) .hks-view--log .hks-view__n,
+body:has(#list-log :target) .hks-view--log .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-disc:target) .hks-view--disc,
+body:has(#list-disc :target) .hks-view--disc {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-disc:target) .hks-view--disc .hks-view__n,
+body:has(#list-disc :target) .hks-view--disc .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+/* saved / deactivated toasts: shown with the row that changed */
+body:has(#saved-status1:target) #t-status1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-status1:target) #t-deact-status1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-status2:target) #t-status2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-status2:target) #t-deact-status2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-status3:target) #t-status3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-status3:target) #t-deact-status3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-status4:target) #t-status4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-status5:target) #t-status5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-status5:target) #t-deact-status5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo1:target) #t-ooo1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo1:target) #t-deact-ooo1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo2:target) #t-ooo2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo2:target) #t-deact-ooo2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo3:target) #t-ooo3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo3:target) #t-deact-ooo3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo4:target) #t-ooo4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo4:target) #t-deact-ooo4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo5:target) #t-ooo5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo5:target) #t-deact-ooo5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo6:target) #t-ooo6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo6:target) #t-deact-ooo6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo7:target) #t-ooo7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo7:target) #t-deact-ooo7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo8:target) #t-ooo8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo8:target) #t-deact-ooo8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-ooo9:target) #t-ooo9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-ooo9:target) #t-deact-ooo9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond1:target) #t-cond1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond1:target) #t-deact-cond1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond2:target) #t-cond2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond2:target) #t-deact-cond2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond3:target) #t-cond3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond3:target) #t-deact-cond3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond4:target) #t-cond4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond4:target) #t-deact-cond4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond5:target) #t-cond5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond5:target) #t-deact-cond5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-cond6:target) #t-cond6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-cond6:target) #t-deact-cond6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-refused1:target) #t-refused1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-refused1:target) #t-deact-refused1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-refused2:target) #t-refused2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-refused2:target) #t-deact-refused2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-refused3:target) #t-refused3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-refused3:target) #t-deact-refused3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-refused4:target) #t-refused4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-refused4:target) #t-deact-refused4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-refused5:target) #t-refused5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-refused5:target) #t-deact-refused5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log1:target) #t-log1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log1:target) #t-deact-log1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log2:target) #t-log2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log2:target) #t-deact-log2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log3:target) #t-log3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log3:target) #t-deact-log3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log4:target) #t-log4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log4:target) #t-deact-log4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log5:target) #t-log5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log5:target) #t-deact-log5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-log6:target) #t-log6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-log6:target) #t-deact-log6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-disc1:target) #t-disc1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-disc1:target) #t-deact-disc1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-disc2:target) #t-disc2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-disc2:target) #t-deact-disc2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-disc3:target) #t-disc3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-disc3:target) #t-deact-disc3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-disc4:target) #t-disc4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-disc4:target) #t-deact-disc4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-disc5:target) #t-disc5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#deact-disc5:target) #t-deact-disc5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+

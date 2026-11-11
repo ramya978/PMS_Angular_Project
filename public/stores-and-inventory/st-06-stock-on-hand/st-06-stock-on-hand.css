@@ -1,0 +1,93 @@
+/* st-06-stock-on-hand.css: stock list with views, create-PR after-states and the item ledger pop-up (ST-P02). */
+[data-code="ST-06-list"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="ST-06-list"] td:first-child {
+  min-width: 210px;
+}
+
+[data-code="ST-06-list"] td:nth-child(3) {
+  min-width: 150px;
+}
+
+[data-code="ST-06-list"] td:nth-child(4) {
+  min-width: 140px;
+}
+
+.sk-acts {
+  display: grid;
+  gap: 4px;
+}
+
+.sk-acts > .btn {
+  justify-content: center;
+}
+
+.sk-pr {
+  display: none;
+  color: var(--em-700, #2f855a);
+}
+
+.sk-pr .icon {
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.sk-row:has(.pm--pr:target) .sk-pr {
+  display: block;
+}
+
+.sk-row:has(.pm--pr:target) > td {
+  background: var(--ok-bg);
+}
+
+.sk-row:has(.pm--pr:target) .sk-acts > .btn:nth-child(2) {
+  display: none;
+}
+
+.lg-filter {
+  margin-bottom: 8px;
+}
+
+.lg-close td {
+  background: var(--surface-2);
+}
+
+[data-code="ST-P02-moves"] :is(th, td) {
+  padding-inline: 10px;
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-low:target) .hv__v[data-v="v-low"],
+#main:has(#v-expiring:target) .hv__v[data-v="v-expiring"],
+#main:has(#v-slow:target) .hv__v[data-v="v-slow"],
+#main:has(#v-stmain:target) .hv__v[data-v="v-stmain"],
+#main:has(#v-stbar:target) .hv__v[data-v="v-stbar"],
+#main:has(#v-stmbr:target) .hv__v[data-v="v-stmbr"],
+#main:has(#v-steng:target) .hv__v[data-v="v-steng"],
+#main:has(#v-sthkl:target) .hv__v[data-v="v-sthkl"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-low:target) .sk-row:not(.sk-row--low),
+#main:has(#v-expiring:target) .sk-row:not(.sk-row--expiring),
+#main:has(#v-slow:target) .sk-row:not(.sk-row--slow),
+#main:has(#v-stmain:target) .sk-row:not(.sk-row--stmain),
+#main:has(#v-stbar:target) .sk-row:not(.sk-row--stbar),
+#main:has(#v-stmbr:target) .sk-row:not(.sk-row--stmbr),
+#main:has(#v-steng:target) .sk-row:not(.sk-row--steng),
+#main:has(#v-sthkl:target) .sk-row:not(.sk-row--sthkl) {
+  display: none;
+}
+
+body:has(.pm--pr:target) #t-pr,
+body:has(#prall:target) #t-prall {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

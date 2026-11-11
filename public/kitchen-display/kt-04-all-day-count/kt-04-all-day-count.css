@@ -1,0 +1,43 @@
+/* kt-04-all-day-count.css: item totals waiting / cooking across open tickets, filter by station (views). */
+.adw:not(:has(:is(#v-all, #v-hot-kitchen, #v-beverage-counter, #v-cold-kitchen---pastry):target)) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.adw:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.adw:has(#v-hot-kitchen:target) .hv__v[data-v="v-hot-kitchen"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.adw:has(#v-hot-kitchen:target) tr.ad:not(.ad--hot-kitchen) { display: none; }
+.adw:has(#v-beverage-counter:target) .hv__v[data-v="v-beverage-counter"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.adw:has(#v-beverage-counter:target) tr.ad:not(.ad--beverage-counter) { display: none; }
+.adw:has(#v-cold-kitchen---pastry:target) .hv__v[data-v="v-cold-kitchen---pastry"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.adw:has(#v-cold-kitchen---pastry:target) tr.ad:not(.ad--cold-kitchen---pastry) { display: none; }
+.ad-n {
+  font-size: 18px;
+  font-weight: 700;
+}

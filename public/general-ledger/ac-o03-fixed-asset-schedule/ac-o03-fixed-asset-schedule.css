@@ -1,0 +1,22 @@
+/* ac-o03-fixed-asset-schedule.css: printable fixed asset schedule. */
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+.sg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.sg span {
+  padding-top: 4px;
+  border-top: 1px solid currentcolor;
+  font-size: 12px;
+}
+
+.pq-r {
+  text-align: right;
+}

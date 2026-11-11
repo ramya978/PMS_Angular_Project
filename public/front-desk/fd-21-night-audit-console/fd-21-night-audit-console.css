@@ -1,0 +1,89 @@
+/* fd-21-night-audit-console.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* history: download the night audit reports for any range of business dates (user 2026-10-31) */
+.na-dl {
+  margin-bottom: 16px;
+}
+
+.na-dl__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.na-dl__ic {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-200);
+  color: var(--em-700);
+}
+
+.na-dl__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.na-dl__reps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.na-dl__reps > legend {
+  margin-bottom: 6px;
+}
+
+.na-dl__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.na-dl__t:has(input:checked) {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-200);
+  color: var(--em-800);
+}
+
+.na-dl__t input {
+  margin: 0;
+  accent-color: var(--em-700);
+}
+
+.na-dl__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.na-dl__foot .field__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.na-dl__btns {
+  display: flex;
+  gap: 8px;
+}

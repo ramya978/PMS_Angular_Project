@@ -1,0 +1,12 @@
+/* kt-08-kitchen-performance.css: filters, figures, ticket times by station (average, 90th percentile, target, late, re-fires, cancels), report links, export. */
+
+.kp-r {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kpw:has(#exported:target) #t-exported { display: flex; animation: av-rise 320ms var(--ease); }

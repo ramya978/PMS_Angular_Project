@@ -1,0 +1,155 @@
+/* ad-07-template-library.css: type views, editor and preview pop-ups. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-pdf:target) .hv__v[data-v="v-pdf"],
+#main:has(#v-email:target) .hv__v[data-v="v-email"],
+#main:has(#v-whatsapp:target) .hv__v[data-v="v-whatsapp"],
+#main:has(#v-sms:target) .hv__v[data-v="v-sms"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-pdf:target) .lg-r:not(.rg-pdf),
+#main:has(#v-email:target) .lg-r:not(.rg-email),
+#main:has(#v-whatsapp:target) .lg-r:not(.rg-whatsapp),
+#main:has(#v-sms:target) .lg-r:not(.rg-sms) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.ad-tf {
+  display: none;
+  gap: 12px;
+}
+
+#ad-p01:has(#e-rs-confirm-email:target) .ad-tf[data-t="rs-confirm-email"],
+#ad-pv:has(#pv-rs-confirm-email:target) .ad-tf[data-t="rs-confirm-email"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-rs-confirm-wa:target) .ad-tf[data-t="rs-confirm-wa"],
+#ad-pv:has(#pv-rs-confirm-wa:target) .ad-tf[data-t="rs-confirm-wa"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-rs-confirm-ml:target) .ad-tf[data-t="rs-confirm-ml"],
+#ad-pv:has(#pv-rs-confirm-ml:target) .ad-tf[data-t="rs-confirm-ml"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-rs-prearrival-wa:target) .ad-tf[data-t="rs-prearrival-wa"],
+#ad-pv:has(#pv-rs-prearrival-wa:target) .ad-tf[data-t="rs-prearrival-wa"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-fd-regcard-pdf:target) .ad-tf[data-t="fd-regcard-pdf"],
+#ad-pv:has(#pv-fd-regcard-pdf:target) .ad-tf[data-t="fd-regcard-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-fd-invoice-pdf:target) .ad-tf[data-t="fd-invoice-pdf"],
+#ad-pv:has(#pv-fd-invoice-pdf:target) .ad-tf[data-t="fd-invoice-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-fd-receipt-pdf:target) .ad-tf[data-t="fd-receipt-pdf"],
+#ad-pv:has(#pv-fd-receipt-pdf:target) .ad-tf[data-t="fd-receipt-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-fd-cn-pdf:target) .ad-tf[data-t="fd-cn-pdf"],
+#ad-pv:has(#pv-fd-cn-pdf:target) .ad-tf[data-t="fd-cn-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-fd-feedback-email:target) .ad-tf[data-t="fd-feedback-email"],
+#ad-pv:has(#pv-fd-feedback-email:target) .ad-tf[data-t="fd-feedback-email"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-bq-proposal-pdf:target) .ad-tf[data-t="bq-proposal-pdf"],
+#ad-pv:has(#pv-bq-proposal-pdf:target) .ad-tf[data-t="bq-proposal-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-bq-beo-pdf:target) .ad-tf[data-t="bq-beo-pdf"],
+#ad-pv:has(#pv-bq-beo-pdf:target) .ad-tf[data-t="bq-beo-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-rt-bill-pdf:target) .ad-tf[data-t="rt-bill-pdf"],
+#ad-pv:has(#pv-rt-bill-pdf:target) .ad-tf[data-t="rt-bill-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-pr-po-pdf:target) .ad-tf[data-t="pr-po-pdf"],
+#ad-pv:has(#pv-pr-po-pdf:target) .ad-tf[data-t="pr-po-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-hr-payslip-pdf:target) .ad-tf[data-t="hr-payslip-pdf"],
+#ad-pv:has(#pv-hr-payslip-pdf:target) .ad-tf[data-t="hr-payslip-pdf"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-lg-reset-sms:target) .ad-tf[data-t="lg-reset-sms"],
+#ad-pv:has(#pv-lg-reset-sms:target) .ad-tf[data-t="lg-reset-sms"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-lg-activate-email:target) .ad-tf[data-t="lg-activate-email"],
+#ad-pv:has(#pv-lg-activate-email:target) .ad-tf[data-t="lg-activate-email"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-lf-found-email:target) .ad-tf[data-t="lf-found-email"],
+#ad-pv:has(#pv-lf-found-email:target) .ad-tf[data-t="lf-found-email"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-ms-pack-cover:target) .ad-tf[data-t="ms-pack-cover"],
+#ad-pv:has(#pv-ms-pack-cover:target) .ad-tf[data-t="ms-pack-cover"] {
+  display: grid;
+}
+
+#ad-p01:has(#e-rs-confirm-email-v3:target) .ad-tf[data-t="rs-confirm-email-v3"],
+#ad-pv:has(#pv-rs-confirm-email-v3:target) .ad-tf[data-t="rs-confirm-email-v3"] {
+  display: grid;
+}
+
+.ad-phs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ad-ph {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-size: 12px;
+}
+
+.ad-prev pre,
+.ad-pre {
+  margin: 6px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-2, var(--surface));
+  font-family: var(--font-ui);
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+body:has(#draft:target) #t-draft,
+body:has(#activated:target) #t-activated,
+body:has(#test-sent:target) #t-test-sent {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

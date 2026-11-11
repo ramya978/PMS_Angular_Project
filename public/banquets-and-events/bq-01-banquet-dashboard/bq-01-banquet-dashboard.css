@@ -1,0 +1,93 @@
+/* bq-01-banquet-dashboard.css: greeting, figures, today / this week with BEO acknowledgements, pipeline by month, options expiring, payments due, guarantees due, venue occupancy. */
+.bq-l {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bq-ev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.bq-ev:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.bq-ev__t {
+  min-width: 96px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.bq-ev__m {
+  display: grid;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.bq-ev__m small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.bq-ev__s {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.bq-hi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.bq-oc {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) minmax(0, 1fr) 90px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+.bq-oc b {
+  text-align: right;
+}
+
+.bq-bar {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+
+.bq-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--em-600, #2f855a);
+}
+
+@media (max-width: 760px) {
+  .bq-oc {
+    grid-template-columns: minmax(0, 1fr) 80px;
+  }
+
+  .bq-oc .bq-bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

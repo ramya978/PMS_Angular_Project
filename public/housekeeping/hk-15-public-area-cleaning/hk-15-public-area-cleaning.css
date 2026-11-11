@@ -1,0 +1,465 @@
+/* hk-15-public-area-cleaning.css: Public Area Cleaning – hero, area-group views + status legend, timeline board
+   (areas as rows, 07:00–24:00 in half-hour columns, task blocks coloured by status, "now" line at 09:42),
+   PA attendant side list, task action pop-up (one modal, a marker per task) and HK-P13. Shared: housekeeping.css. */
+.hk7-week {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.paw {
+  display: grid;
+  gap: 16px;
+}
+
+.pt-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+}
+
+.pt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.pt-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pt-lg i {
+  width: 14px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--c);
+}
+
+.pt-lg b {
+  color: var(--ink);
+}
+
+.pt-lg--due, .pb2--due { --c: #2b6cb0; }
+.pt-lg--done, .pb2--done { --c: #2f855a; }
+.pt-lg--late, .pb2--late { --c: #c05621; }
+.pt-lg--missed, .pb2--missed { --c: #c53030; }
+.pt-lg--skip, .pb2--skip { --c: #718096; }
+
+.pt-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: start;
+  gap: 16px;
+}
+
+.pt {
+  overflow-x: auto;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.pt-head,
+.pt-row {
+  display: grid;
+  grid-template-columns: 180px minmax(1870px, 1fr);
+}
+
+.pt-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--surface-2);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.pt-hours {
+  display: grid;
+  grid-template-columns: repeat(34, minmax(0, 1fr));
+  align-items: center;
+  height: 38px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.pt-hours span {
+  padding-left: 4px;
+  border-left: 1px solid var(--line);
+}
+
+.pt-area {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  align-content: center;
+  padding: 6px 12px;
+  background: var(--surface);
+  box-shadow: 1px 0 0 var(--line);
+}
+
+.pt-area--h {
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pt-area b {
+  font-size: 13px;
+}
+
+.pt-area small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.pt-body {
+  position: relative;
+}
+
+.pt-body::after {
+  content: "09:42";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(180px + (100% - 180px) * var(--now) / 100);
+  width: 2px;
+  padding-top: 2px;
+  background: var(--br-500);
+  color: var(--br-700);
+  font-size: 10px;
+  font-weight: 700;
+  text-indent: 4px;
+  pointer-events: none;
+}
+
+.pt-grp {
+  padding: 6px 12px;
+  background: var(--surface-2);
+  box-shadow: 0 1px 0 var(--line), 0 -1px 0 var(--line);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pt-row {
+  border-bottom: 1px solid var(--line-2);
+}
+
+.pt-lane {
+  display: grid;
+  grid-template-columns: repeat(34, minmax(0, 1fr));
+  grid-auto-rows: 26px;
+  grid-auto-flow: row dense;
+  gap: 3px 2px;
+  padding: 5px 0;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 17 - 1px), var(--line-2) calc(100% / 17 - 1px) calc(100% / 17));
+}
+
+.pb2 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 0 6px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 14%, var(--surface));
+
+  color: color-mix(in srgb, var(--c) 85%, #000);
+  font-size: 11px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pb2 span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pb2:hover {
+  background: color-mix(in srgb, var(--c) 26%, var(--surface));
+}
+
+.pb2--missed,
+.pb2--late {
+  font-weight: 650;
+}
+
+.pb2--new {
+  display: none;
+  background: #fff1e6;
+  box-shadow: 0 0 0 2px #c05621;
+}
+
+.pt-side {
+  position: sticky;
+  top: 76px;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.pt-side__t {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.pa-att {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pa-att li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.pa-att li > span:last-child {
+  display: grid;
+}
+
+.pa-att small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.pa-av {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--em-500), var(--em-800));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pa-ck {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.pa-ck .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+
+.pa-st {
+  width: 56px;
+  font-size: 13px;
+  --hk: var(--c);
+}
+
+.pa-st--due { --c: #2b6cb0; }
+.pa-st--done { --c: #2f855a; }
+.pa-st--late { --c: #c05621; }
+.pa-st--missed { --c: #c53030; }
+.pa-st--skip { --c: #718096; }
+
+@media (max-width: 1280px) {
+  .pt-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .pt-side {
+    position: static;
+  }
+}
+
+.pt-head,
+.pt-body {
+  min-width: 2050px;
+}
+.paw:has(#pg-1:checked) :is(.pt-row, .pt-grp):not([data-grp="Front of house"]) { display: none; }
+.paw:has(#pg-2:checked) :is(.pt-row, .pt-grp):not([data-grp="F&B"]) { display: none; }
+.paw:has(#pg-3:checked) :is(.pt-row, .pt-grp):not([data-grp="Washrooms"]) { display: none; }
+.paw:has(#pg-4:checked) :is(.pt-row, .pt-grp):not([data-grp="Outdoor"]) { display: none; }
+.paw:has(#pg-5:checked) :is(.pt-row, .pt-grp):not([data-grp="Back of house"]) { display: none; }
+.paw:has(#pg-0:checked) .hv__v[for="pg-0"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.paw:has(#pg-1:checked) .hv__v[for="pg-1"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.paw:has(#pg-2:checked) .hv__v[for="pg-2"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.paw:has(#pg-3:checked) .hv__v[for="pg-3"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.paw:has(#pg-4:checked) .hv__v[for="pg-4"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.paw:has(#pg-5:checked) .hv__v[for="pg-5"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+#pa-act:has(#pa-PA-001:target) :is(.pr--PA-001, .pb--PA-001) { display: flex; }
+#pa-act:has(#pa-PA-002:target) :is(.pr--PA-002, .pb--PA-002) { display: flex; }
+#pa-act:has(#pa-PA-003:target) :is(.pr--PA-003, .pb--PA-003) { display: flex; }
+body:has(#padone-PA-003:target) a[href="#pa-PA-003"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-004:target) :is(.pr--PA-004, .pb--PA-004) { display: flex; }
+body:has(#padone-PA-004:target) a[href="#pa-PA-004"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-005:target) :is(.pr--PA-005, .pb--PA-005) { display: flex; }
+body:has(#padone-PA-005:target) a[href="#pa-PA-005"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-006:target) :is(.pr--PA-006, .pb--PA-006) { display: flex; }
+body:has(#padone-PA-006:target) a[href="#pa-PA-006"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-007:target) :is(.pr--PA-007, .pb--PA-007) { display: flex; }
+body:has(#padone-PA-007:target) a[href="#pa-PA-007"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-008:target) :is(.pr--PA-008, .pb--PA-008) { display: flex; }
+body:has(#padone-PA-008:target) a[href="#pa-PA-008"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-009:target) :is(.pr--PA-009, .pb--PA-009) { display: flex; }
+body:has(#padone-PA-009:target) a[href="#pa-PA-009"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-010:target) :is(.pr--PA-010, .pb--PA-010) { display: flex; }
+body:has(#padone-PA-010:target) a[href="#pa-PA-010"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-011:target) :is(.pr--PA-011, .pb--PA-011) { display: flex; }
+body:has(#padone-PA-011:target) a[href="#pa-PA-011"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-012:target) :is(.pr--PA-012, .pb--PA-012) { display: flex; }
+#pa-act:has(#pa-PA-013:target) :is(.pr--PA-013, .pb--PA-013) { display: flex; }
+body:has(#padone-PA-013:target) a[href="#pa-PA-013"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-014:target) :is(.pr--PA-014, .pb--PA-014) { display: flex; }
+body:has(#padone-PA-014:target) a[href="#pa-PA-014"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-015:target) :is(.pr--PA-015, .pb--PA-015) { display: flex; }
+#pa-act:has(#pa-PA-016:target) :is(.pr--PA-016, .pb--PA-016) { display: flex; }
+body:has(#padone-PA-016:target) a[href="#pa-PA-016"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-017:target) :is(.pr--PA-017, .pb--PA-017) { display: flex; }
+body:has(#padone-PA-017:target) a[href="#pa-PA-017"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-018:target) :is(.pr--PA-018, .pb--PA-018) { display: flex; }
+body:has(#padone-PA-018:target) a[href="#pa-PA-018"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-019:target) :is(.pr--PA-019, .pb--PA-019) { display: flex; }
+body:has(#padone-PA-019:target) a[href="#pa-PA-019"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-020:target) :is(.pr--PA-020, .pb--PA-020) { display: flex; }
+#pa-act:has(#pa-PA-021:target) :is(.pr--PA-021, .pb--PA-021) { display: flex; }
+body:has(#padone-PA-021:target) a[href="#pa-PA-021"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-022:target) :is(.pr--PA-022, .pb--PA-022) { display: flex; }
+body:has(#padone-PA-022:target) a[href="#pa-PA-022"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-023:target) :is(.pr--PA-023, .pb--PA-023) { display: flex; }
+#pa-act:has(#pa-PA-024:target) :is(.pr--PA-024, .pb--PA-024) { display: flex; }
+#pa-act:has(#pa-PA-025:target) :is(.pr--PA-025, .pb--PA-025) { display: flex; }
+#pa-act:has(#pa-PA-026:target) :is(.pr--PA-026, .pb--PA-026) { display: flex; }
+body:has(#padone-PA-026:target) a[href="#pa-PA-026"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-027:target) :is(.pr--PA-027, .pb--PA-027) { display: flex; }
+body:has(#padone-PA-027:target) a[href="#pa-PA-027"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-028:target) :is(.pr--PA-028, .pb--PA-028) { display: flex; }
+body:has(#padone-PA-028:target) a[href="#pa-PA-028"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-029:target) :is(.pr--PA-029, .pb--PA-029) { display: flex; }
+body:has(#padone-PA-029:target) a[href="#pa-PA-029"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-030:target) :is(.pr--PA-030, .pb--PA-030) { display: flex; }
+body:has(#padone-PA-030:target) a[href="#pa-PA-030"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-031:target) :is(.pr--PA-031, .pb--PA-031) { display: flex; }
+body:has(#padone-PA-031:target) a[href="#pa-PA-031"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-032:target) :is(.pr--PA-032, .pb--PA-032) { display: flex; }
+body:has(#padone-PA-032:target) a[href="#pa-PA-032"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-033:target) :is(.pr--PA-033, .pb--PA-033) { display: flex; }
+body:has(#padone-PA-033:target) a[href="#pa-PA-033"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-034:target) :is(.pr--PA-034, .pb--PA-034) { display: flex; }
+body:has(#padone-PA-034:target) a[href="#pa-PA-034"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-035:target) :is(.pr--PA-035, .pb--PA-035) { display: flex; }
+body:has(#padone-PA-035:target) a[href="#pa-PA-035"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-036:target) :is(.pr--PA-036, .pb--PA-036) { display: flex; }
+body:has(#padone-PA-036:target) a[href="#pa-PA-036"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-037:target) :is(.pr--PA-037, .pb--PA-037) { display: flex; }
+body:has(#padone-PA-037:target) a[href="#pa-PA-037"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-038:target) :is(.pr--PA-038, .pb--PA-038) { display: flex; }
+body:has(#padone-PA-038:target) a[href="#pa-PA-038"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-039:target) :is(.pr--PA-039, .pb--PA-039) { display: flex; }
+body:has(#padone-PA-039:target) a[href="#pa-PA-039"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-040:target) :is(.pr--PA-040, .pb--PA-040) { display: flex; }
+body:has(#padone-PA-040:target) a[href="#pa-PA-040"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-041:target) :is(.pr--PA-041, .pb--PA-041) { display: flex; }
+body:has(#padone-PA-041:target) a[href="#pa-PA-041"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-042:target) :is(.pr--PA-042, .pb--PA-042) { display: flex; }
+body:has(#padone-PA-042:target) a[href="#pa-PA-042"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-043:target) :is(.pr--PA-043, .pb--PA-043) { display: flex; }
+body:has(#padone-PA-043:target) a[href="#pa-PA-043"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-044:target) :is(.pr--PA-044, .pb--PA-044) { display: flex; }
+body:has(#padone-PA-044:target) a[href="#pa-PA-044"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-045:target) :is(.pr--PA-045, .pb--PA-045) { display: flex; }
+body:has(#padone-PA-045:target) a[href="#pa-PA-045"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-046:target) :is(.pr--PA-046, .pb--PA-046) { display: flex; }
+#pa-act:has(#pa-PA-047:target) :is(.pr--PA-047, .pb--PA-047) { display: flex; }
+body:has(#padone-PA-047:target) a[href="#pa-PA-047"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-048:target) :is(.pr--PA-048, .pb--PA-048) { display: flex; }
+body:has(#padone-PA-048:target) a[href="#pa-PA-048"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-049:target) :is(.pr--PA-049, .pb--PA-049) { display: flex; }
+body:has(#padone-PA-049:target) a[href="#pa-PA-049"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-050:target) :is(.pr--PA-050, .pb--PA-050) { display: flex; }
+body:has(#padone-PA-050:target) a[href="#pa-PA-050"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-051:target) :is(.pr--PA-051, .pb--PA-051) { display: flex; }
+body:has(#padone-PA-051:target) a[href="#pa-PA-051"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-052:target) :is(.pr--PA-052, .pb--PA-052) { display: flex; }
+body:has(#padone-PA-052:target) a[href="#pa-PA-052"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-053:target) :is(.pr--PA-053, .pb--PA-053) { display: flex; }
+#pa-act:has(#pa-PA-054:target) :is(.pr--PA-054, .pb--PA-054) { display: flex; }
+body:has(#padone-PA-054:target) a[href="#pa-PA-054"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-055:target) :is(.pr--PA-055, .pb--PA-055) { display: flex; }
+body:has(#padone-PA-055:target) a[href="#pa-PA-055"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-056:target) :is(.pr--PA-056, .pb--PA-056) { display: flex; }
+body:has(#padone-PA-056:target) a[href="#pa-PA-056"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-057:target) :is(.pr--PA-057, .pb--PA-057) { display: flex; }
+body:has(#padone-PA-057:target) a[href="#pa-PA-057"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-058:target) :is(.pr--PA-058, .pb--PA-058) { display: flex; }
+body:has(#padone-PA-058:target) a[href="#pa-PA-058"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-059:target) :is(.pr--PA-059, .pb--PA-059) { display: flex; }
+body:has(#padone-PA-059:target) a[href="#pa-PA-059"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-060:target) :is(.pr--PA-060, .pb--PA-060) { display: flex; }
+body:has(#padone-PA-060:target) a[href="#pa-PA-060"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+#pa-act:has(#pa-PA-061:target) :is(.pr--PA-061, .pb--PA-061) { display: flex; }
+body:has(#padone-PA-061:target) a[href="#pa-PA-061"] { background: #2f855a; color: #fff; box-shadow: 0 0 0 2px var(--em-800); }
+body:has(#pa-added:target) .pb2--new { display: flex; }
+body:has(#pa-added:target) #t-added, body:has(.pm[id^="padone-"]:target) #t-done, body:has(.pm[id^="pare-"]:target) #t-re { display: flex; animation: av-rise 320ms var(--ease); }

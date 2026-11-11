@@ -1,0 +1,1102 @@
+/* refresh.css: look-and-feel round of 2026-11-03, linked on every page just before responsive.css.
+   1  form fields flow by their content (no fixed number per row)
+   2  tab strips and quick-view rails run the full width
+   3  totals band under document lines
+   4  inputs inside tables
+   5  "add" panels that open from a button in the page header
+   Setup screens keep their own settings layout (fds.css); modals keep theirs. */
+
+/* ───────── 1. Form fields flow by content ─────────
+   A field gets the width its input needs: dates and numbers are narrow, selects medium, text wider, text areas and
+   long groups take the whole row. The fields of a row share what is left, so no row ends half empty. */
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 14px 18px;
+}
+
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > * {
+  flex: 1 1 260px;
+  min-width: min(100%, 220px);
+}
+
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field:has(.field__input--select, select) {
+  flex-basis: 250px;
+}
+
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field:has(input[type="date"], input[type="time"], input[type="month"], input[type="datetime-local"]) {
+  flex-basis: 200px;
+  min-width: min(100%, 180px);
+}
+
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field:has(input[type="number"], input[type="tel"]) {
+  flex-basis: 180px;
+  min-width: min(100%, 150px);
+}
+
+:is(.s-grid2,
+  .s-grid3,
+  .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field:has(input[readonly],
+  input[disabled],
+  input[maxlength="8"],
+  input[maxlength="10"],
+  input[maxlength="12"],
+  input[maxlength="15"],
+  input[maxlength="16"],
+  input[maxlength="20"],
+  input[maxlength="24"],
+  input[maxlength="25"]) {
+  flex-basis: 190px;
+  min-width: min(100%, 170px);
+}
+
+/* "wide" text fields only ask for a roomier box; text areas, tables, file pickers and option groups take the whole row */
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field--wide {
+  flex-basis: 380px;
+}
+
+:is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > :is(.field:has(textarea, table, .fd-multi), :not(.field), [style*="grid-column: 1 / -1"]) {
+  flex-basis: 100%;
+}
+
+/* ───────── 2. Tab strips and quick-view rails ─────────
+   One soft track across the whole width; every tab shares the space, so two tabs or six look equally finished.
+   The picked tab is filled in Forest Green with a brass count. */
+.hv,
+.pq-tabs {
+  --hv-on-bg: linear-gradient(180deg, var(--em-600), var(--em-800));
+  --hv-on-ink: #fff;
+  --hv-on-sh: 0 10px 18px -12px var(--em-800), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  --hv-on-b-bg: var(--br-300);
+  --hv-on-b-ink: var(--em-950);
+  display: flex;
+  width: 100%;
+  justify-self: stretch;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 18px;
+}
+
+.hv__v,
+.pq-tabs__t {
+  flex: 1 1 auto;
+  height: 42px;
+  padding: 0 12px 0 16px;
+  border-radius: 13px;
+}
+
+.hv__v:hover,
+.pq-tabs__t:hover {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.stabs__list {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 18px;
+}
+
+.stabs__list label {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 13px;
+  font-size: 13px;
+}
+
+.stabs__list label:hover {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+:is(
+.stabs > input:nth-of-type(1):checked ~ .stabs__list label:nth-child(1),
+.stabs > input:nth-of-type(2):checked ~ .stabs__list label:nth-child(2),
+.stabs > input:nth-of-type(3):checked ~ .stabs__list label:nth-child(3),
+.stabs > input:nth-of-type(4):checked ~ .stabs__list label:nth-child(4),
+.stabs > input:nth-of-type(5):checked ~ .stabs__list label:nth-child(5),
+.stabs > input:nth-of-type(6):checked ~ .stabs__list label:nth-child(6),
+.stabs > input:nth-of-type(7):checked ~ .stabs__list label:nth-child(7),
+.stabs > input:nth-of-type(8):checked ~ .stabs__list label:nth-child(8),
+.stabs > input:nth-of-type(9):checked ~ .stabs__list label:nth-child(9),
+.stabs > input:nth-of-type(10):checked ~ .stabs__list label:nth-child(10),
+.stabs > input:nth-of-type(11):checked ~ .stabs__list label:nth-child(11),
+.stabs > input:nth-of-type(12):checked ~ .stabs__list label:nth-child(12)
+) {
+  background: linear-gradient(180deg, var(--em-600), var(--em-800));
+  box-shadow: 0 10px 18px -12px var(--em-800), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  color: #fff;
+}
+
+:is(
+.stabs > input:nth-of-type(1):checked ~ .stabs__list label:nth-child(1) .stabs__n,
+.stabs > input:nth-of-type(2):checked ~ .stabs__list label:nth-child(2) .stabs__n,
+.stabs > input:nth-of-type(3):checked ~ .stabs__list label:nth-child(3) .stabs__n,
+.stabs > input:nth-of-type(4):checked ~ .stabs__list label:nth-child(4) .stabs__n,
+.stabs > input:nth-of-type(5):checked ~ .stabs__list label:nth-child(5) .stabs__n,
+.stabs > input:nth-of-type(6):checked ~ .stabs__list label:nth-child(6) .stabs__n,
+.stabs > input:nth-of-type(7):checked ~ .stabs__list label:nth-child(7) .stabs__n,
+.stabs > input:nth-of-type(8):checked ~ .stabs__list label:nth-child(8) .stabs__n,
+.stabs > input:nth-of-type(9):checked ~ .stabs__list label:nth-child(9) .stabs__n,
+.stabs > input:nth-of-type(10):checked ~ .stabs__list label:nth-child(10) .stabs__n,
+.stabs > input:nth-of-type(11):checked ~ .stabs__list label:nth-child(11) .stabs__n,
+.stabs > input:nth-of-type(12):checked ~ .stabs__list label:nth-child(12) .stabs__n
+) {
+  background: var(--br-300);
+  color: var(--em-950);
+}
+
+.stabs:has(> .stabs__extra--end) > .stabs__list {
+  flex: 1 1 520px;
+  width: auto;
+}
+
+/* ───────── 3. Totals band ─────────
+   The totals of a document run across the card as one band of cells, the grand total picked out in green. */
+.pq-tot {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-left: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.pq-tot > div {
+  display: grid;
+  align-content: space-between;
+  gap: 6px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.pq-tot > div > b {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.pq-tot > .pq-tot__g {
+  padding-top: 12px;
+  border-top: 0;
+  background: linear-gradient(135deg, var(--em-800), var(--em-600));
+  box-shadow: var(--sh-2);
+  color: var(--br-200);
+  font-weight: 650;
+}
+
+.pq-tot > .pq-tot__g > b {
+  color: #fff;
+  font-size: 20px;
+}
+
+/* ───────── 4. Inputs inside tables ─────────
+   Rows that hold inputs get room above and below, and the table box keeps a margin under its last row. */
+.dt__table .dt__td:has(> .field__input, > .field__wrap, > input) {
+  padding-block: 12px;
+}
+
+.dt__table .field__input.pq-in,
+.dt__table .field__input.pq-in--n {
+  height: 40px;
+}
+
+.pgw:has(.dt__td .field__input) > .s-scroll,
+.pgw:has(.dt__td .field__input) {
+  padding-bottom: 8px;
+}
+
+/* ───────── 5. "Add" panels opened from the page header ─────────
+   The button lives in the header actions; the form card sits right after a hidden switch and shows while it is on. */
+.add-sw {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.add-panel {
+  display: none;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-2);
+}
+
+.add-sw:checked + .add-panel {
+  display: block;
+  animation: av-rise 240ms var(--ease);
+}
+
+#main:has(.add-sw:focus-visible) .add-btn {
+  outline: 2px solid var(--br-500);
+  outline-offset: 2px;
+}
+
+.add-btn {
+  background: var(--sunken);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.add-btn {
+  cursor: pointer;
+}
+
+/* a one-line note under the fields of a filter panel */
+.hf-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* a toolbar that holds only one button sits at the end of its row instead of leaving the row half empty */
+.s-toolbar:has(> .btn:only-child) {
+  justify-content: flex-end;
+}
+
+/* ───────── Tabs as separate tiles (design round 2026-11-04) ─────────
+   No grey track: each tab is its own white tile that shares the width, label and count centred.
+   The picked tab is filled in the brand colour with a brass count. Step bars and audit tabs keep their own look. */
+.hv,
+.pq-tabs,
+.stabs:not(.stabs--steps) > .stabs__list,
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list {
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.hv__g {
+  gap: 8px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.hv__v,
+.pq-tabs__t,
+.stabs:not(.stabs--steps) > .stabs__list label,
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > :is(a, span) {
+  flex: 1 1 auto;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 160ms ease-out, box-shadow 160ms ease-out, color 160ms ease-out, transform 160ms ease-out;
+}
+
+.hv__v:hover,
+.pq-tabs__t:hover,
+.stabs:not(.stabs--steps) > .stabs__list label:hover,
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > a:hover {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--em-600) 45%, var(--line)), 0 6px 14px -10px var(--em-800);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > a[aria-current="page"] {
+  background: linear-gradient(180deg, var(--em-600), var(--em-800));
+  box-shadow: 0 10px 18px -12px var(--em-800), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  color: #fff;
+}
+
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > a[aria-current="page"]::after {
+  display: none;
+}
+
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > a[aria-current="page"] .ltabs__n {
+  background: var(--br-300);
+  color: var(--em-950);
+}
+
+.ltabs:not(.ltabs--steps, .ltabs--audit):has(> .ltabs__end) {
+  align-items: center;
+}
+
+.ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__end {
+  padding-bottom: 0;
+}
+
+/* Room still to give: a dashed pill. Given: the room chip with a quiet Change link beside it */
+.arl-assign {
+  gap: 5px;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px dashed color-mix(in srgb, var(--em-600) 45%, var(--line-strong));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--em-50) 60%, transparent);
+  box-shadow: none;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.arl-assign:hover {
+  border-style: solid;
+  background: var(--em-50);
+}
+
+.arl-rms:has(+ .arl-assign) {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.arl-assign.ra-chg {
+  height: 30px;
+  margin-left: 6px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.arl-assign.ra-chg:hover {
+  background: none;
+  color: var(--em-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Room chip in booking lists: status icon + room number, the same height as the Assign pill */
+.arl-rms > .fd-rm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  min-width: 64px;
+  padding: 0 10px 0 5px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.arl-rms > .fd-rm::before {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* ───────── Icon visibility (user 2026-11-04) ─────────
+   `.btn .icon` is green and `.btn--primary .icon` gold. On a dark banner, or on a primary button
+   recoloured white / gold / pale, the icon takes the button's own text colour so it always shows. */
+:is(.rd-hero, .hkh, .cq-hero, .hkx-hero, .hs-hero, .ow-hero, .gc, .ap-set) .btn .icon,
+.btn--primary.add-btn .icon {
+  color: currentColor;
+}
+
+/* links inside a toast message sit on the dark toast */
+.fd-toast .fd-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* gold badges: dark mark, white was too faint on gold */
+.pill--vip .icon,
+span.ci-av__star {
+  color: #3a2a0c;
+}
+
+/* ───────── Space under tabs (user 2026-11-04) ─────────
+   A tab row, or the row above a list, never touches the panel or table below it. */
+:is(.hv, .ltabs, .stabs__list, .stabs) + :is(.pgw, .dt, .arr-bulk, .stabs__panels, .bqs-pane, .card, .s-bulk),
+.stabs__panel > .row + .pgw,
+.fd-sec + .fd-formfoot {
+  margin-top: 12px;
+}
+
+/* ── Rules some pages use without linking their sheet (2026-11-04). Copies at zero specificity (:where), so a screen's own rule always wins and only
+   elements that had no style at all pick these up (e.g. the bars of AN-05 measured 0 px). ── */
+:where(.hr-bar) {
+  display: block;
+  width: 100%;
+  min-width: 70px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+
+:where(.hr-bar > i) {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--em-600);
+}
+
+:where(.hr-h3) {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 18px 0 8px;
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+:where(.hr-h3 small) {
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+:where(.hr-bar-btn) {
+  position: sticky;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+}
+
+:where(.hr-bar-btn > .fd-muted) {
+  margin-right: auto;
+}
+
+:where(.hr-foot) {
+  margin-top: 16px;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+:where(.lfi-sts) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+:where(.vn-danger) {
+  color: var(--bad, #c53030);
+}
+
+:where(.la-note) {
+  max-width: 300px;
+  white-space: normal;
+}
+
+:where(.la-empty) {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 26px;
+  color: var(--ink-3);
+}
+
+:where(.la-empty .icon) {
+  color: var(--st-ready);
+}
+
+:where(.la-empty b) {
+  color: var(--ink);
+}
+
+:where(.la-add__a) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+:where(.ra-rule) {
+  position: relative;
+  margin-top: 6px;
+  padding-left: 22px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+:where(.ra-rule .icon) {
+  position: absolute; left: 0; top: 2px; color: var(--br-600);
+}
+
+:where(.s-actions--start) {
+  justify-content: flex-start;
+}
+
+:where(.s-actions--sticky) {
+  position: sticky;
+  bottom: 0;
+  padding: 10px 16px;
+  border-radius: var(--r-lg);
+  background: rgb(255 254 251 / 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px var(--line), 0 -10px 30px -12px rgb(20 32 27 / 0.2);
+}
+
+:where(.gl-note) {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+:where(.gl-note > .icon) {
+  flex: none;
+  margin-top: 2px;
+  color: var(--em-700);
+}
+
+:where(.lad-more) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  color: var(--em-700);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+:where(.lad-more:hover) {
+  text-decoration: underline;
+}
+
+:where(.mbd-row) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+
+:where(.mbd-row:first-child) {
+  border-top: 0;
+}
+
+:where(.mbd-row.is-done .la-room) {
+  opacity: 0.6;
+}
+
+:where(.rv-opts) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 6px 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+:where(.rv-bul) {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+:where(.st-h) {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+:where(.rb-d) {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+:where(.ls--sub) {
+  --hk: #2b6cb0;
+}
+
+:where(.ls--rej) {
+  --hk: #c53030;
+}
+
+:where(.ls--draft) {
+  --hk: #718096;
+}
+
+:where(.lo--proc) {
+  --hk: #c05621;
+}
+
+:where(.dt__th--center) {
+  text-align: center !important;
+}
+
+/* ───────── 6. Design round 2026-11-05 ─────────
+   Faults found by tools/design-audit.mjs: boxes touching, clipped text, half-empty strips, split fields, cut outlines. */
+
+/* a toolbar with a one-line explanation and a button: both on one row, and a clear gap above the table under it */
+.s-toolbar + :is(.s-scroll, table, .dt, .card, section, form, div) {
+  margin-top: 14px;
+}
+
+@media (min-width: 761px) {
+  .s-toolbar:has(> .field__hint:first-child):has(> .btn:last-child) {
+    flex-wrap: nowrap;
+  }
+
+  .s-toolbar > .field__hint:first-child:has(~ .btn:last-child) {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .s-toolbar > .field__hint:first-child ~ .btn:last-child {
+    flex: none;
+  }
+}
+
+/* the fields of an "Add" panel start a comfortable distance below its top edge */
+.add-panel > form {
+  padding-top: 20px;
+  padding-bottom: 18px;
+}
+
+/* a long value inside a field ends in "…" instead of being cut off mid-letter */
+input.field__input:not(:focus),
+select.field__input {
+  text-overflow: ellipsis;
+}
+
+/* a dropdown inside a table cell is as wide as its chosen value; the table scrolls if the columns need more room */
+td select.field__input {
+  field-sizing: content;
+  min-width: 100%;
+}
+
+/* an option tile with a long unbroken value (e-mail address): roomier tiles, and the text can never leave the tile */
+#main .fd-fieldset > .fd-multi:has(> .check > .check__input[value*="@"]) {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+#main .fd-fieldset > .fd-multi > .check {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* printed documents: a wide table makes the sheet grow, it never runs off the sheet */
+@media screen {
+  article.paper {
+    min-width: min-content;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* step bars run the full width: the connector between two steps takes the free space */
+  .ltabs--steps .ltabs__list {
+    /* room for the halo of the current step, which the scrolling list would otherwise cut */
+    margin: -4px;
+    padding: 4px;
+    width: calc(100% + 8px);
+  }
+
+  .ltabs--steps .ltabs__list > :not(:last-child) {
+    flex: 1 1 auto;
+  }
+
+  .ltabs--steps .ltabs__list > :last-child {
+    flex: 0 0 auto;
+  }
+
+  /* KPI strips share the width evenly */
+  .cr-kpi > li {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* tab and anchor strips share the width evenly */
+  .lf-tabs > a,
+  .fd-anchors > a {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* option strips spread across their box */
+  .ms-opts > * {
+    flex: 1 1 0;
+  }
+}
+
+/* a dashboard list never grows past its card */
+.lf-card.dsh-c5 > :is(ul, ol) {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.lf-card.dsh-c5 > :is(ul, ol) > li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* a long ledger balance with its Dr / Cr stays inside the tile */
+.cc-kpi__v:has(.gl-dr-cr) {
+  font-size: 0.86em;
+}
+
+.hsearch__ic.hkd-static {
+  position: static;
+  width: auto;
+}
+
+/* boxes that sat right against each other */
+:is(.pgw, .row, summary, p, .s-toolbar) + .pgw,
+.pgw + :is(.pgw, p),
+:is(.card, .fd-anchors) + .fd-split,
+.card + .fd-formfoot,
+.field + :is(.s-note, .la-add__a),
+.s-grid2 + .pq-ap__a,
+.rep-filters + .rep-summary,
+.rep-summary + section,
+.md-f + table {
+  margin-top: 14px;
+}
+
+/* an amount or a reference typed inside a table cell gets room for its value */
+td input.prs-n--s {
+  width: 92px;
+}
+
+td > input.field__input[type="text"]:not([class*=" "]) {
+  min-width: 150px;
+}
+
+@media (min-width: 1025px) {
+  /* approval trail, bulk-action bars, inner tab bars and the net-pay band use the whole width of their box */
+  .gl-trail li {
+    grid-template-columns: minmax(150px, 1fr) minmax(170px, 1fr) minmax(0, 2fr);
+  }
+
+  :is(.s-bulk, .pq-bulk) > .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .lo3-tabbar > * {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .hr-net {
+    justify-content: space-between;
+  }
+}
+
+/* boards that scroll sideways keep the 1 px outline of their first and last column */
+.mq-board {
+  padding-inline: 1px;
+}
+
+.ra-t th.c-pref {
+  min-width: 170px;
+}
+
+form.la-card .la-card__t {
+  flex-wrap: wrap;
+}
+
+form.la-card > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ───────── 7. Pop-up forms pack by content too (2026-11-05) ─────────
+   Fields fill the row: a lone field never sits with empty space beside it, and pairs such as Valid from / Valid to stay together. */
+@media (min-width: 1025px) {
+  .modal__body :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):has(> .field),
+  .modal--full .modal__body .s-grid2:has(> .field) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 14px 18px;
+  }
+
+  .modal__body :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):has(> .field) > * {
+    flex: 1 1 200px;
+    min-width: min(100%, 170px);
+  }
+
+  .modal__body :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):has(> .field) > .field:has(input[type="number"], input[type="time"]) {
+    flex-basis: 150px;
+    min-width: min(100%, 130px);
+  }
+
+  .modal__body :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):has(> .field) > :is(.field--wide, .fd-fieldset, .field:has(textarea, table, .fd-multi), :not(.field)),
+  .modal--full .modal__body .s-grid2:has(> .field--toggle)::before {
+    flex-basis: 100%;
+  }
+
+  .modal--full .modal__body .s-grid2 .field__input:is([type="number"], [type="time"], [type="date"]) {
+    max-width: none;
+  }
+}
+
+/* the other report-filter and form-head strips that left a lone field: fields share the row */
+@media (min-width: 1025px) {
+  :is(.in-sel, .lx-head, .lo3-grid, .ow-brand, .rep-filters, .form-section__grid, .tx-file__a):has(> .field) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  :is(.in-sel, .lx-head, .lo3-grid, .ow-brand, .rep-filters, .form-section__grid, .tx-file__a):has(> .field) > .field {
+    flex: 1 1 200px;
+    min-width: min(100%, 170px);
+    max-width: none;
+  }
+
+  :is(.in-sel, .lx-head, .lo3-grid, .ow-brand, .rep-filters, .form-section__grid, .tx-file__a):has(> .field) > .field > :is(.field__input, .field__wrap) {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* "Add" forms on the 60-track grid: fields share the row by content, so a form without a column count is not crushed and a row is never half empty */
+@media (max-width: 1024px) {
+  .la-cols:not([class*="la-cols--"]) > * {
+    grid-column: span 30;
+  }
+}
+
+@media (min-width: 1025px) {
+  .la-cols:has(> .field) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px 0;
+  }
+
+  .la-cols:has(> .field) > * {
+    flex: 1 1 200px;
+    min-width: min(100%, 170px);
+  }
+
+  .la-cols:has(> .field) > :is(.field--wide, .fd-fieldset, .field:has(textarea, table, .fd-multi), p, :not(.field)) {
+    flex-basis: 100%;
+  }
+}
+
+/* the gap between an "Add" row and its list holds inside cards too */
+#main .s-toolbar + :is(.s-scroll, .pgw) {
+  margin-top: 14px;
+}
+
+.md-f + .s-toolbar {
+  margin-top: 12px;
+}
+
+/* min / max of a modifier group stay on one row */
+@media (min-width: 1025px) {
+  .md-f {
+    flex-wrap: nowrap;
+  }
+
+  .md-f input.field__input {
+    width: 58px;
+    min-width: 0;
+    flex: none;
+  }
+}
+
+/* lists, boards and cards on a smaller laptop: content wraps inside its card instead of leaving it */
+:is(.mq-col, .pg, .os-choice, .hr-ch, .pq-l > li, .pq-l__m) {
+  min-width: 0;
+}
+
+:is(.mq-col, .pg) > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pg .btn {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.pg__h div {
+  min-width: 0;
+}
+
+:is(.pg__it, .hr-ch b, .os-day) {
+  overflow-wrap: anywhere;
+}
+
+.pq-l > li > .btn {
+  flex: none;
+}
+
+.pq-l__m {
+  flex: 1 1 200px;
+}
+
+@media (min-width: 1025px) {
+  .form-section__grid:has(> .field) > * {
+    flex: 1 1 200px;
+  }
+}
+
+#main .lf-card.dsh-c5 .pq-l > li {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#main .lf-card.dsh-c5 .pq-l__s {
+  max-width: 100%;
+  margin-left: auto;
+}
+
+.os-day {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.os-shift > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.woc {
+  min-width: 0;
+}
+
+.woc > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.woc__h {
+  flex-wrap: wrap;
+}
+
+.woc__t {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1025px) {
+  .form-section__grid:has(> .field) > * {
+    max-width: none;
+  }
+}
+
+.pq-l {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.woc .sla {
+  max-width: 100%;
+  white-space: normal;
+}
+
+#main .dsh .pq-l {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Extra-wide pop-up for a table that does not fit modal--lg (2026-11-05) */
+.modal--xl .modal__box { width: min(1080px, 100%); }
+/* A full sheet scrolls as one page: no second vertical scrollbar on the table inside it */
+@media (min-width: 761px) {
+  .modal--full .modal__body .s-scroll:not(.s-scroll--tall) { max-height: none; }
+}
+
+/* ───────── One line (user 2026-11-11, laptop only) ─────────
+   A file picker shares the row with its neighbours (Reuse · Source · Photo), a short option group (up to eight chips)
+   stays on one line when its box allows it, and the buttons of a table row sit side by side. */
+@media (min-width: 1025px) {
+  :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):not(.modal__body *):has(> .field) > .field:has(input[type="file"]) {
+    flex-basis: 260px;
+    min-width: min(100%, 220px);
+  }
+
+  .modal__body :is(.s-grid2, .s-grid3, .s-grid4):not(.la-cols):has(> .field) > .field:has(input[type="file"]) {
+    flex-basis: 260px;
+    min-width: min(100%, 220px);
+  }
+
+  .dt__table td > :is(.mr-acts, .vn-acts, .gl-acts, .sk-acts, .bq-acts, .ch-acts, .ms-acts) {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .dt__table td:has(> .btn ~ .btn) {
+    white-space: nowrap;
+  }
+
+  .dt__table td:has(> .btn ~ .btn) > .btn {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+}
+
+/* 2026-11-11 · report period bar (From / To / Download as / Show / Download) on report libraries.
+   Report pages with a paper bar carry the same fields inside form.pq-rep. */
+.rpb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.rpb__t {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 8px;
+  margin-right: 6px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.rpb__h {
+  flex: 1 1 100%;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .rpb { padding: 12px; }
+  .rpb .field { flex: 1 1 calc(50% - 8px); }
+  .rpb .btn { flex: 1 1 calc(50% - 8px); justify-content: center; }
+}

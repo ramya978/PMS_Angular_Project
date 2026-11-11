@@ -1,0 +1,249 @@
+/* hks-03-sections.css: Sections list, "rooms not in a section" view, section form with room picker, saved-row highlight. */
+
+/* views bar: all sections / rooms not in a section (switched with #all / #unassigned) */
+.hks-views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  margin: 4px 0 12px;
+}
+
+.hks-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--surface);
+}
+
+.hks-view:hover {
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--br-300);
+}
+
+.hks-view__n {
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--sunken);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.hks-view__n--warn {
+  background: var(--warn-bg);
+  color: #6e4a0e;
+}
+
+.hks-views__sum {
+  margin-left: auto;
+  font-size: 12.5px;
+}
+
+/* the chosen view is filled and underlined */
+.hks-view--all,
+body:has(#unassigned:target) .hks-view--un {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#unassigned:target) .hks-view--all {
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hks-view--all .hks-view__n,
+body:has(#unassigned:target) .hks-view--un .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#unassigned:target) .hks-view--all .hks-view__n {
+  background: var(--sunken);
+  color: inherit;
+}
+
+.hks-panel--un {
+  display: none;
+}
+
+body:has(#unassigned:target) .hks-panel--un {
+  display: block;
+}
+
+body:has(#unassigned:target) .hks-panel--all {
+  display: none;
+}
+
+.hks-panel > .fd-banner {
+  margin-bottom: 12px;
+}
+
+/* total row */
+.dt__table tfoot th,
+.dt__table tfoot td {
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+/* a saved row is highlighted when the page is opened after Save */
+.dt__table tbody tr:target td {
+  background: var(--ok-bg);
+}
+
+/* saved-section toasts: shown with the row that was saved */
+body:has(#saved-s1:target) #t-s1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s2:target) #t-s2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s3:target) #t-s3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s4:target) #t-s4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s5:target) #t-s5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s6:target) #t-s6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-s7:target) #t-s7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* room picker in the section form */
+.hks-picker {
+  display: grid;
+  gap: 10px;
+}
+
+/* live count of ticked rooms, done with a CSS counter */
+.hks-picker {
+  counter-reset: picked;
+}
+
+.hks-room input:checked:not(:disabled) {
+  counter-increment: picked;
+}
+
+.hks-picker__n {
+  color: var(--em-700);
+  font-size: 12.5px;
+  font-weight: 650;
+}
+
+.hks-picker__n::before {
+  content: counter(picked) " rooms selected";
+}
+
+.hks-floor {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.hks-floor__t {
+  padding-top: 6px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.hks-rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hks-room {
+  position: relative;
+}
+
+.hks-room input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.hks-room span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 48px;
+  justify-content: center;
+  padding: 5px 9px;
+  border-radius: var(--r-sm, 8px);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px #a39b88;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.hks-room small {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.hks-room input:checked + span {
+  background: var(--em-800, #1f3d33);
+  box-shadow: none;
+  color: #fff;
+}
+
+.hks-room input:checked + span small {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.hks-room input:focus-visible + span {
+  outline: 2px solid var(--br-400);
+  outline-offset: 2px;
+}
+
+.hks-room--taken span {
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-4);
+  cursor: not-allowed;
+}
+
+.hks-room--suite input:not(:checked) + span {
+  box-shadow: inset 0 0 0 1px var(--br-400);
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .hks-floor {
+    grid-template-columns: 1fr;
+  }
+}

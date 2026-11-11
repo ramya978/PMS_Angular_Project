@@ -1,0 +1,124 @@
+/* hk-13-turndown-service.css: Turndown Service – hero, tonight / last-night views, turndown table with eligibility,
+   amenity, status and attendant, mark done / refused after-states, selection bar and the turndown assign pop-up (HK-P18). */
+.tdw {
+  display: grid;
+  gap: 16px;
+}
+
+.td-t td {
+  vertical-align: top;
+}
+
+.td-t td:nth-child(4) {
+  min-width: 220px;
+}
+
+.rt__sel {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--em-600);
+}
+
+.gs-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.td-bulk {
+  position: sticky;
+  bottom: 20px;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  justify-self: center;
+  padding: 10px 12px 10px 18px;
+  border-radius: 14px;
+  background: var(--em-900);
+  color: #fff;
+  box-shadow: 0 18px 40px -16px rgb(var(--em-950-rgb, 6 28 22) / 0.7);
+}
+
+.tdw:has(.rt__sel:checked) .td-bulk {
+  display: inline-flex;
+}
+
+.td-sel {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.tdw:has(#td-t:checked) .hv__v[for="td-t"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.tdw:has(#td-y:checked) .hv__v[for="td-y"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.tdw:has(#td-t:checked) .td.is-y, .tdw:has(#td-y:checked) .td.is-t { display: none; }
+body:has(#tdone-111:target) #td-t-111 > td { background: var(--ok-bg); }
+body:has(#tdone-111:target) #td-t-111 .gs-now { display: flex; }
+body:has(#tdone-111:target) #td-t-111 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-111:target) #td-t-111 > td { background: var(--ok-bg); }
+body:has(#tref-111:target) #td-t-111 .gs-now { display: flex; }
+body:has(#tref-111:target) #td-t-111 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-111, #tref-111):target) .tt-room::after { content: "111"; }
+body:has(#tdone-504:target) #td-t-504 > td { background: var(--ok-bg); }
+body:has(#tdone-504:target) #td-t-504 .gs-now { display: flex; }
+body:has(#tdone-504:target) #td-t-504 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-504:target) #td-t-504 > td { background: var(--ok-bg); }
+body:has(#tref-504:target) #td-t-504 .gs-now { display: flex; }
+body:has(#tref-504:target) #td-t-504 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-504, #tref-504):target) .tt-room::after { content: "504"; }
+body:has(#tdone-512:target) #td-t-512 > td { background: var(--ok-bg); }
+body:has(#tdone-512:target) #td-t-512 .gs-now { display: flex; }
+body:has(#tdone-512:target) #td-t-512 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-512:target) #td-t-512 > td { background: var(--ok-bg); }
+body:has(#tref-512:target) #td-t-512 .gs-now { display: flex; }
+body:has(#tref-512:target) #td-t-512 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-512, #tref-512):target) .tt-room::after { content: "512"; }
+body:has(#tdone-514:target) #td-t-514 > td { background: var(--ok-bg); }
+body:has(#tdone-514:target) #td-t-514 .gs-now { display: flex; }
+body:has(#tdone-514:target) #td-t-514 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-514:target) #td-t-514 > td { background: var(--ok-bg); }
+body:has(#tref-514:target) #td-t-514 .gs-now { display: flex; }
+body:has(#tref-514:target) #td-t-514 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-514, #tref-514):target) .tt-room::after { content: "514"; }
+body:has(#tdone-515:target) #td-t-515 > td { background: var(--ok-bg); }
+body:has(#tdone-515:target) #td-t-515 .gs-now { display: flex; }
+body:has(#tdone-515:target) #td-t-515 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-515:target) #td-t-515 > td { background: var(--ok-bg); }
+body:has(#tref-515:target) #td-t-515 .gs-now { display: flex; }
+body:has(#tref-515:target) #td-t-515 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-515, #tref-515):target) .tt-room::after { content: "515"; }
+body:has(#tdone-516:target) #td-t-516 > td { background: var(--ok-bg); }
+body:has(#tdone-516:target) #td-t-516 .gs-now { display: flex; }
+body:has(#tdone-516:target) #td-t-516 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-516:target) #td-t-516 > td { background: var(--ok-bg); }
+body:has(#tref-516:target) #td-t-516 .gs-now { display: flex; }
+body:has(#tref-516:target) #td-t-516 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-516, #tref-516):target) .tt-room::after { content: "516"; }
+body:has(#tdone-303:target) #td-t-303 > td { background: var(--ok-bg); }
+body:has(#tdone-303:target) #td-t-303 .gs-now { display: flex; }
+body:has(#tdone-303:target) #td-t-303 .gs-now__t::after { content: "Done now"; }
+body:has(#tref-303:target) #td-t-303 > td { background: var(--ok-bg); }
+body:has(#tref-303:target) #td-t-303 .gs-now { display: flex; }
+body:has(#tref-303:target) #td-t-303 .gs-now__t::after { content: "Refused now"; }
+body:has(:is(#tdone-303, #tref-303):target) .tt-room::after { content: "303"; }
+body:has(.pm[id^="generated"]:target) #t-generated { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="tdone"]:target) #t-tdone { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="tref"]:target) #t-tref { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="tassigned"]:target) #t-tassigned { display: flex; animation: av-rise 320ms var(--ease); }

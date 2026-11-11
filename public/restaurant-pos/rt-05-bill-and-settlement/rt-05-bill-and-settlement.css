@@ -1,0 +1,112 @@
+/* rt-05-bill-and-settlement.css: one page per check (index = check 4607): bill lines with GST break-up, B2B GSTIN, settlement lines (split tender),
+   today's bills, re-open RT-P06 and void RT-P07 with after-states. */
+.bs {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 260px;
+  align-items: start;
+  gap: 16px;
+}
+
+.oe-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.oe-m {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.bs-st:not(.bs-st--now),
+.bs-after {
+  display: none;
+}
+
+.bsw:has(:is(#settled, #reopened, #void):target) .bs-st--now {
+  display: none;
+}
+
+.bsw:has(#settled:target) .bs-st--set,
+.bsw:has(#reopened:target) .bs-st--re,
+.bsw:has(#void:target) .bs-st--void {
+  display: inline-flex;
+}
+
+.bsw:has(#settled:target) .bs-after {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+.bsw:has(#settled:target) .bs-f {
+  display: none;
+}
+
+.bs-done,
+.bs-l {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.bs-l li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.bs-void {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1300px) {
+  .bs {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+.bsw:has(#settled:target) #t-settled { display: flex; animation: av-rise 320ms var(--ease); }
+.bsw:has(#ebill:target) #t-ebill { display: flex; animation: av-rise 320ms var(--ease); }
+.bsw:has(#reopened:target) #t-reopened { display: flex; animation: av-rise 320ms var(--ease); }
+.bsw:has(#void:target) #t-void { display: flex; animation: av-rise 320ms var(--ease); }
+.bsw:has(#printed:target) #t-printed { display: flex; animation: av-rise 320ms var(--ease); }
+
+/* the bill lines need the room: settlement narrower; the cards never grow past their column */
+@media (min-width: 1025px) {
+  .bs {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr) 240px;
+  }
+}
+
+.bs > .lf-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* on a smaller laptop today's bills move under the bill, so its lines keep their room */
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .bs {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+
+  .bs > aside {
+    grid-column: 1 / -1;
+  }
+}

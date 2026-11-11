@@ -1,0 +1,6 @@
+/* rt-09-open-checks.css: open checks and unsettled bills with Open and Settle. */
+.mr-acts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}

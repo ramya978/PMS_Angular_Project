@@ -1,0 +1,1344 @@
+/* FD-02 Arrivals: the list itself uses the shared compact-list styles (.arl in css/aviv/aviv.css). */
+
+/* ── generated filter rules: each filter hides the rows that do not match (no script) ── */
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="23"]:checked) .arl-t > tbody > :is(tr.ad-1022) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="24"]:checked) .arl-t > tbody > :is(tr.ad-1022) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="25"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="26"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="27"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="28"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="29"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="30"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="10"]:checked):has(input[name="af"][value="31"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029, tr.ad-1030) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="01"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029, tr.ad-1030, tr.ad-1031) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="02"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029, tr.ad-1030, tr.ad-1031) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="03"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029, tr.ad-1030, tr.ad-1031) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="04"]:checked) .arl-t > tbody > :is(tr.ad-1022, tr.ad-1024, tr.ad-1028, tr.ad-1029, tr.ad-1030, tr.ad-1031, tr.ad-1103) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="05"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="06"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="07"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="08"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="09"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="10"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="11"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="12"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="13"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="14"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="15"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="16"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="17"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="18"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="19"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="20"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119) {
+  display: none;
+}
+
+main:has(select[name="af-month"] option[value="11"]:checked):has(input[name="af"][value="21"]:checked) .arl-t > tbody > :is(tr.ad-1022,
+  tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="22"]:checked) .arl-t > tbody > :is(tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="23"]:checked) .arl-t > tbody > :is(tr.ad-1024,
+  tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="24"]:checked) .arl-t > tbody > :is(tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="25"]:checked) .arl-t > tbody > :is(tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="26"]:checked) .arl-t > tbody > :is(tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="27"]:checked) .arl-t > tbody > :is(tr.ad-1028,
+  tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="28"]:checked) .arl-t > tbody > :is(tr.ad-1029,
+  tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="29"]:checked) .arl-t > tbody > :is(tr.ad-1030,
+  tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="30"]:checked) .arl-t > tbody > :is(tr.ad-1031,
+  tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="10"]:checked):has(input[name="at"][value="31"]:checked) .arl-t > tbody > :is(tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="01"]:checked) .arl-t > tbody > :is(tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="02"]:checked) .arl-t > tbody > :is(tr.ad-1103,
+  tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="03"]:checked) .arl-t > tbody > :is(tr.ad-1104,
+  tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="04"]:checked) .arl-t > tbody > :is(tr.ad-1105,
+  tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="05"]:checked) .arl-t > tbody > :is(tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="06"]:checked) .arl-t > tbody > :is(tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="07"]:checked) .arl-t > tbody > :is(tr.ad-1108,
+  tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="08"]:checked) .arl-t > tbody > :is(tr.ad-1109,
+  tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="09"]:checked) .arl-t > tbody > :is(tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="10"]:checked) .arl-t > tbody > :is(tr.ad-1111,
+  tr.ad-1114,
+  tr.ad-1115,
+  tr.ad-1116,
+  tr.ad-1117,
+  tr.ad-1118,
+  tr.ad-1119,
+  tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="11"]:checked) .arl-t > tbody > :is(tr.ad-1114, tr.ad-1115, tr.ad-1116, tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="12"]:checked) .arl-t > tbody > :is(tr.ad-1114, tr.ad-1115, tr.ad-1116, tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="13"]:checked) .arl-t > tbody > :is(tr.ad-1114, tr.ad-1115, tr.ad-1116, tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="14"]:checked) .arl-t > tbody > :is(tr.ad-1115, tr.ad-1116, tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="15"]:checked) .arl-t > tbody > :is(tr.ad-1116, tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="16"]:checked) .arl-t > tbody > :is(tr.ad-1117, tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="17"]:checked) .arl-t > tbody > :is(tr.ad-1118, tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="18"]:checked) .arl-t > tbody > :is(tr.ad-1119, tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="at-month"] option[value="11"]:checked):has(input[name="at"][value="19"]:checked) .arl-t > tbody > :is(tr.ad-1120) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="01"]:checked) .arl-t > tbody > :is(tr.eh-00) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="02"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="03"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="04"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="05"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="06"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="07"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="08"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="09"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="10"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08, tr.eh-09) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="11"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08, tr.eh-09, tr.eh-10) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="12"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08, tr.eh-09, tr.eh-10, tr.eh-11) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="13"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08, tr.eh-09, tr.eh-10, tr.eh-11, tr.eh-12) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="14"]:checked) .arl-t > tbody > :is(tr.eh-00, tr.eh-01, tr.eh-02, tr.eh-03, tr.eh-04, tr.eh-05, tr.eh-06, tr.eh-07, tr.eh-08, tr.eh-09, tr.eh-10, tr.eh-11, tr.eh-12, tr.eh-13) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="15"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="16"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="17"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="18"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="19"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="20"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="21"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="22"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21) {
+  display: none;
+}
+
+main:has(select[name="etaf"] option[value="23"]:checked) .arl-t > tbody > :is(tr.eh-00,
+  tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="00"]:checked) .arl-t > tbody > :is(tr.eh-01,
+  tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="01"]:checked) .arl-t > tbody > :is(tr.eh-02,
+  tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="02"]:checked) .arl-t > tbody > :is(tr.eh-03,
+  tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="03"]:checked) .arl-t > tbody > :is(tr.eh-04,
+  tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="04"]:checked) .arl-t > tbody > :is(tr.eh-05,
+  tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="05"]:checked) .arl-t > tbody > :is(tr.eh-06,
+  tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="06"]:checked) .arl-t > tbody > :is(tr.eh-07,
+  tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="07"]:checked) .arl-t > tbody > :is(tr.eh-08,
+  tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="08"]:checked) .arl-t > tbody > :is(tr.eh-09,
+  tr.eh-10,
+  tr.eh-11,
+  tr.eh-12,
+  tr.eh-13,
+  tr.eh-14,
+  tr.eh-15,
+  tr.eh-16,
+  tr.eh-17,
+  tr.eh-18,
+  tr.eh-19,
+  tr.eh-20,
+  tr.eh-21,
+  tr.eh-22,
+  tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="09"]:checked) .arl-t > tbody > :is(tr.eh-10, tr.eh-11, tr.eh-12, tr.eh-13, tr.eh-14, tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="10"]:checked) .arl-t > tbody > :is(tr.eh-11, tr.eh-12, tr.eh-13, tr.eh-14, tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="11"]:checked) .arl-t > tbody > :is(tr.eh-12, tr.eh-13, tr.eh-14, tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="12"]:checked) .arl-t > tbody > :is(tr.eh-13, tr.eh-14, tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="13"]:checked) .arl-t > tbody > :is(tr.eh-14, tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="14"]:checked) .arl-t > tbody > :is(tr.eh-15, tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="15"]:checked) .arl-t > tbody > :is(tr.eh-16, tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="16"]:checked) .arl-t > tbody > :is(tr.eh-17, tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="17"]:checked) .arl-t > tbody > :is(tr.eh-18, tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="18"]:checked) .arl-t > tbody > :is(tr.eh-19, tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="19"]:checked) .arl-t > tbody > :is(tr.eh-20, tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="20"]:checked) .arl-t > tbody > :is(tr.eh-21, tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="21"]:checked) .arl-t > tbody > :is(tr.eh-22, tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="etat"] option[value="22"]:checked) .arl-t > tbody > :is(tr.eh-23) {
+  display: none;
+}
+
+main:has(select[name="alloc"] option[value="yes"]:checked) .arl-t > tbody > tr:not(.al-yes),
+main:has(select[name="alloc"] option[value="no"]:checked) .arl-t > tbody > tr:not(.al-no) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="agoda"]:checked) .arl-t > tbody > tr:not(.ag-agoda) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="booking-com"]:checked) .arl-t > tbody > tr:not(.ag-booking-com) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="expedia"]:checked) .arl-t > tbody > tr:not(.ag-expedia) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="kerala-trails-travel-co"]:checked) .arl-t > tbody > tr:not(.ag-kerala-trails-travel-co) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="makemytrip-goibibo"]:checked) .arl-t > tbody > tr:not(.ag-makemytrip-goibibo) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="periyar-infotech-solutio"]:checked) .arl-t > tbody > tr:not(.ag-periyar-infotech-solutio) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="self-booking"]:checked) .arl-t > tbody > tr:not(.ag-self-booking) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="southern-skies-travel"]:checked) .arl-t > tbody > tr:not(.ag-southern-skies-travel) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="spice-coast-journeys"]:checked) .arl-t > tbody > tr:not(.ag-spice-coast-journeys) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="sunrise-tours-india"]:checked) .arl-t > tbody > tr:not(.ag-sunrise-tours-india) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="aviv-club-gold"]:checked) .arl-t > tbody > tr:not(.gc-aviv-club-gold) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="aviv-club-member"]:checked) .arl-t > tbody > tr:not(.gc-aviv-club-member) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="aviv-club-silver"]:checked) .arl-t > tbody > tr:not(.gc-aviv-club-silver) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="cip"]:checked) .arl-t > tbody > tr:not(.gc-cip) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="first-timer"]:checked) .arl-t > tbody > tr:not(.gc-first-timer) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="repeat-guest"]:checked) .arl-t > tbody > tr:not(.gc-repeat-guest) {
+  display: none;
+}
+
+main:has(select[name="gclass"] option[value="vip-b"]:checked) .arl-t > tbody > tr:not(.gc-vip-b) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="GDLX"]:checked) .arl-t > tbody > tr:not(.rt-GDLX) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="PDLX"]:checked) .arl-t > tbody > tr:not(.rt-PDLX) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="DLXS"]:checked) .arl-t > tbody > tr:not(.rt-DLXS) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="PRMS"]:checked) .arl-t > tbody > tr:not(.rt-PRMS) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="any"]:checked) .arl-t > tbody > tr:not(.si-any) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="front-office"]:checked) .arl-t > tbody > tr:not(.si-front-office) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="housekeeping"]:checked) .arl-t > tbody > tr:not(.si-housekeeping) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="f-b"]:checked) .arl-t > tbody > tr:not(.si-f-b) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="transport"]:checked) .arl-t > tbody > tr:not(.si-transport) {
+  display: none;
+}
+
+main:has(select[name="instr"] option[value="spa"]:checked) .arl-t > tbody > tr:not(.si-spa) {
+  display: none;
+}
+
+main:has(input[name="deposit"]:checked) .arl-t > tbody > tr:not(.dd),
+main:has(input[name="foreign"]:checked) .arl-t > tbody > tr:not(.fx) {
+  display: none;
+}
+
+main:has(#arlc-tar:checked) .arl-t .c-tar {
+  display: block;
+}
+
+main:has(#arlc-adv:checked) .arl-t .c-adv {
+  display: block;
+}
+
+main:has(#arlc-pm:checked) .arl-t .c-pm {
+  display: block;
+}
+
+main:has(#arlc-mob:checked) .arl-t .c-mob {
+  display: block;
+}
+
+main:has(#arlc-trv:checked) .arl-t .c-trv {
+  display: block;
+}
+
+main:has(#arlc-cp:checked) .arl-t .c-cp {
+  display: block;
+}
+
+main:has(#arlc-cal:checked) .arl-t .c-cal {
+  display: block;
+}
+
+main:has(#arlc-pref:checked) .arl-t .c-pref {
+  display: block;
+}
+
+main:has(#arlc-si:checked) .arl-t .c-si {
+  display: block;
+}

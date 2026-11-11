@@ -1,0 +1,468 @@
+/* hk-11-out-of-order-out-of-service.css: Out of Order / Out of Service – KPI cards (OOO now, OOS now, scheduled,
+   lost room-nights), state views, record table with work-order links and after-state, HK-P10 entry (room picker,
+   per-room reservation check, availability, approval note), HK-P11 return, cancel confirmation. */
+.ow {
+  display: grid;
+  gap: 16px;
+}
+
+.pm,
+.hv__r {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.modal:has(.pm:target) {
+  display: grid;
+}
+
+.ow-kpi {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.2), transparent 60%),
+    radial-gradient(50% 120% at 0% 100%, rgb(197 48 48 / 0.35), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 22px 44px -32px rgb(var(--deep-rgb, 14 26 43) / 0.75);
+  color: #fff;
+}
+
+.ow-kpi__c {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 18px 20px;
+}
+
+.ow-kpi__c + .ow-kpi__c {
+  box-shadow: -1px 0 0 rgb(255 255 255 / 0.1);
+}
+
+.ow-kpi__c span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ow-kpi__c--ooo span .icon {
+  padding: 3px;
+  border-radius: 6px;
+  background: var(--hk-ooo);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+}
+
+.ow-kpi__c--oos span .icon {
+  padding: 3px;
+  border-radius: 6px;
+  background: var(--hk-oos);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+}
+
+.ow-kpi__c b {
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.ow-kpi__c small {
+  color: rgb(255 255 255 / 0.68);
+  font-size: 12px;
+}
+
+.hv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-self: start;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hv__v {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 9px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hv__v b {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--line-2);
+  color: var(--ink);
+  font-size: 12px;
+  text-align: center;
+}
+
+.ow:has(.hv__r:focus-visible) .hv {
+  box-shadow: inset 0 0 0 2px var(--br-400);
+}
+
+.ow-t td {
+  vertical-align: top;
+}
+
+.ow-t td:nth-child(3) {
+  min-width: 210px;
+}
+
+.ow-t td:nth-child(5) {
+  min-width: 170px;
+  font-size: 12.5px;
+}
+
+.ow-t td:first-child .fd-sub {
+  white-space: nowrap;
+}
+
+.oo-tp {
+  display: block;
+  margin-top: 6px;
+}
+
+.oo-tp .pill {
+  font-size: 11.5px;
+}
+
+.oo.is-active > td {
+  background: #fffaf2;
+}
+
+.oo.is-cancelled > td,
+.oo.is-returned > td {
+  color: var(--ink-2);
+}
+
+.oo-wo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  color: var(--em-700);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.oo-done {
+  max-width: 220px;
+  white-space: normal;
+}
+
+.oo-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* pop-ups */
+.p10-rooms {
+  height: auto;
+  min-height: 150px;
+  padding: 6px;
+}
+
+.p10-type .check small,
+.fd-multi .check small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 400;
+}
+
+.aff {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.aff .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.aff--hint {
+  display: flex;
+  background: var(--surface-2);
+  color: var(--ink-3);
+}
+
+.aff--ok {
+  background: var(--ok-bg);
+  color: var(--em-800);
+}
+
+.aff--warn {
+  background: #fff7e6;
+  color: #6e4a0e;
+}
+
+.aff-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.avl {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.avl .icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--em-600);
+}
+
+.p10-appr {
+  display: none;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #eef0fb;
+  color: #3c3f86;
+}
+
+.p11-now {
+  margin: 0;
+  padding: 9px 0;
+  font-weight: 600;
+}
+
+.pr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pr__no {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  color: #fff;
+  font-weight: 700;
+}
+
+.pr__t {
+  display: grid;
+}
+
+.pr__t small {
+  color: var(--ink-3);
+}
+
+@media (max-width: 1100px) {
+  .ow-kpi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.ow:has(#ov-open:checked) .oo:is(.is-returned, .is-cancelled), .ow:has(#ov-returned:checked) .oo:not(.is-returned), .ow:has(#ov-cancelled:checked) .oo:not(.is-cancelled) { display: none; }
+.ow:has(#ov-open:checked) .hv__v[for="ov-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.ow:has(#ov-returned:checked) .hv__v[for="ov-returned"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.ow:has(#ov-cancelled:checked) .hv__v[for="ov-cancelled"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.ow:has(#ov-all:checked) .hv__v[for="ov-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+body:has(#saved-214:target) #OOO-2026-031 > td { background: var(--ok-bg); }
+body:has(#saved-214:target) #OOO-2026-031 .oo-now { display: flex; }
+body:has(#saved-214:target) #OOO-2026-031 .oo-now__t::after { content: "Saved now"; }
+body:has(#returned-214:target) #OOO-2026-031 > td { background: var(--ok-bg); }
+body:has(#returned-214:target) #OOO-2026-031 .oo-now { display: flex; }
+body:has(#returned-214:target) #OOO-2026-031 .oo-now__t::after { content: "Returned now"; }
+body:has(#cancelled-214:target) #OOO-2026-031 > td { background: var(--ok-bg); }
+body:has(#cancelled-214:target) #OOO-2026-031 .oo-now { display: flex; }
+body:has(#cancelled-214:target) #OOO-2026-031 .oo-now__t::after { content: "Cancelled now"; }
+body:has(:is(#returned-214, #cancelled-214):target) .tt-room::after { content: "214"; }
+body:has(#saved-513:target) #OOS-2026-058 > td { background: var(--ok-bg); }
+body:has(#saved-513:target) #OOS-2026-058 .oo-now { display: flex; }
+body:has(#saved-513:target) #OOS-2026-058 .oo-now__t::after { content: "Saved now"; }
+body:has(#returned-513:target) #OOS-2026-058 > td { background: var(--ok-bg); }
+body:has(#returned-513:target) #OOS-2026-058 .oo-now { display: flex; }
+body:has(#returned-513:target) #OOS-2026-058 .oo-now__t::after { content: "Returned now"; }
+body:has(#cancelled-513:target) #OOS-2026-058 > td { background: var(--ok-bg); }
+body:has(#cancelled-513:target) #OOS-2026-058 .oo-now { display: flex; }
+body:has(#cancelled-513:target) #OOS-2026-058 .oo-now__t::after { content: "Cancelled now"; }
+body:has(:is(#returned-513, #cancelled-513):target) .tt-room::after { content: "513"; }
+body:has(#saved-309:target) #OOS-2026-059 > td { background: var(--ok-bg); }
+body:has(#saved-309:target) #OOS-2026-059 .oo-now { display: flex; }
+body:has(#saved-309:target) #OOS-2026-059 .oo-now__t::after { content: "Saved now"; }
+body:has(#returned-309:target) #OOS-2026-059 > td { background: var(--ok-bg); }
+body:has(#returned-309:target) #OOS-2026-059 .oo-now { display: flex; }
+body:has(#returned-309:target) #OOS-2026-059 .oo-now__t::after { content: "Returned now"; }
+body:has(#cancelled-309:target) #OOS-2026-059 > td { background: var(--ok-bg); }
+body:has(#cancelled-309:target) #OOS-2026-059 .oo-now { display: flex; }
+body:has(#cancelled-309:target) #OOS-2026-059 .oo-now__t::after { content: "Cancelled now"; }
+body:has(:is(#returned-309, #cancelled-309):target) .tt-room::after { content: "309"; }
+body:has(#saved-411:target) #OOO-2026-032 > td { background: var(--ok-bg); }
+body:has(#saved-411:target) #OOO-2026-032 .oo-now { display: flex; }
+body:has(#saved-411:target) #OOO-2026-032 .oo-now__t::after { content: "Saved now"; }
+body:has(#returned-411:target) #OOO-2026-032 > td { background: var(--ok-bg); }
+body:has(#returned-411:target) #OOO-2026-032 .oo-now { display: flex; }
+body:has(#returned-411:target) #OOO-2026-032 .oo-now__t::after { content: "Returned now"; }
+body:has(#cancelled-411:target) #OOO-2026-032 > td { background: var(--ok-bg); }
+body:has(#cancelled-411:target) #OOO-2026-032 .oo-now { display: flex; }
+body:has(#cancelled-411:target) #OOO-2026-032 .oo-now__t::after { content: "Cancelled now"; }
+body:has(:is(#returned-411, #cancelled-411):target) .tt-room::after { content: "411"; }
+body:has(.pm[id^="saved-"]:target) #t-saved { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="returned-"]:target) #t-returned { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="cancelled-"]:target) #t-cancelled { display: flex; animation: av-rise 320ms var(--ease); }
+#hk-p10:has(#p10-room option[value="101"]:checked) .aff-101 { display: flex; }
+#hk-p10:has(#p10-room option[value="102"]:checked) .aff-102 { display: flex; }
+#hk-p10:has(#p10-room option[value="103"]:checked) .aff-103 { display: flex; }
+#hk-p10:has(#p10-room option[value="104"]:checked) .aff-104 { display: flex; }
+#hk-p10:has(#p10-room option[value="105"]:checked) .aff-105 { display: flex; }
+#hk-p10:has(#p10-room option[value="106"]:checked) .aff-106 { display: flex; }
+#hk-p10:has(#p10-room option[value="107"]:checked) .aff-107 { display: flex; }
+#hk-p10:has(#p10-room option[value="108"]:checked) .aff-108 { display: flex; }
+#hk-p10:has(#p10-room option[value="109"]:checked) .aff-109 { display: flex; }
+#hk-p10:has(#p10-room option[value="110"]:checked) .aff-110 { display: flex; }
+#hk-p10:has(#p10-room option[value="111"]:checked) .aff-111 { display: flex; }
+#hk-p10:has(#p10-room option[value="112"]:checked) .aff-112 { display: flex; }
+#hk-p10:has(#p10-room option[value="113"]:checked) .aff-113 { display: flex; }
+#hk-p10:has(#p10-room option[value="114"]:checked) .aff-114 { display: flex; }
+#hk-p10:has(#p10-room option[value="115"]:checked) .aff-115 { display: flex; }
+#hk-p10:has(#p10-room option[value="116"]:checked) .aff-116 { display: flex; }
+#hk-p10:has(#p10-room option[value="117"]:checked) .aff-117 { display: flex; }
+#hk-p10:has(#p10-room option[value="118"]:checked) .aff-118 { display: flex; }
+#hk-p10:has(#p10-room option[value="119"]:checked) .aff-119 { display: flex; }
+#hk-p10:has(#p10-room option[value="201"]:checked) .aff-201 { display: flex; }
+#hk-p10:has(#p10-room option[value="202"]:checked) .aff-202 { display: flex; }
+#hk-p10:has(#p10-room option[value="203"]:checked) .aff-203 { display: flex; }
+#hk-p10:has(#p10-room option[value="204"]:checked) .aff-204 { display: flex; }
+#hk-p10:has(#p10-room option[value="205"]:checked) .aff-205 { display: flex; }
+#hk-p10:has(#p10-room option[value="206"]:checked) .aff-206 { display: flex; }
+#hk-p10:has(#p10-room option[value="207"]:checked) .aff-207 { display: flex; }
+#hk-p10:has(#p10-room option[value="208"]:checked) .aff-208 { display: flex; }
+#hk-p10:has(#p10-room option[value="209"]:checked) .aff-209 { display: flex; }
+#hk-p10:has(#p10-room option[value="210"]:checked) .aff-210 { display: flex; }
+#hk-p10:has(#p10-room option[value="211"]:checked) .aff-211 { display: flex; }
+#hk-p10:has(#p10-room option[value="212"]:checked) .aff-212 { display: flex; }
+#hk-p10:has(#p10-room option[value="213"]:checked) .aff-213 { display: flex; }
+#hk-p10:has(#p10-room option[value="214"]:checked) .aff-214 { display: flex; }
+#hk-p10:has(#p10-room option[value="215"]:checked) .aff-215 { display: flex; }
+#hk-p10:has(#p10-room option[value="216"]:checked) .aff-216 { display: flex; }
+#hk-p10:has(#p10-room option[value="217"]:checked) .aff-217 { display: flex; }
+#hk-p10:has(#p10-room option[value="218"]:checked) .aff-218 { display: flex; }
+#hk-p10:has(#p10-room option[value="219"]:checked) .aff-219 { display: flex; }
+#hk-p10:has(#p10-room option[value="301"]:checked) .aff-301 { display: flex; }
+#hk-p10:has(#p10-room option[value="302"]:checked) .aff-302 { display: flex; }
+#hk-p10:has(#p10-room option[value="303"]:checked) .aff-303 { display: flex; }
+#hk-p10:has(#p10-room option[value="304"]:checked) .aff-304 { display: flex; }
+#hk-p10:has(#p10-room option[value="305"]:checked) .aff-305 { display: flex; }
+#hk-p10:has(#p10-room option[value="306"]:checked) .aff-306 { display: flex; }
+#hk-p10:has(#p10-room option[value="307"]:checked) .aff-307 { display: flex; }
+#hk-p10:has(#p10-room option[value="308"]:checked) .aff-308 { display: flex; }
+#hk-p10:has(#p10-room option[value="309"]:checked) .aff-309 { display: flex; }
+#hk-p10:has(#p10-room option[value="310"]:checked) .aff-310 { display: flex; }
+#hk-p10:has(#p10-room option[value="311"]:checked) .aff-311 { display: flex; }
+#hk-p10:has(#p10-room option[value="312"]:checked) .aff-312 { display: flex; }
+#hk-p10:has(#p10-room option[value="313"]:checked) .aff-313 { display: flex; }
+#hk-p10:has(#p10-room option[value="314"]:checked) .aff-314 { display: flex; }
+#hk-p10:has(#p10-room option[value="315"]:checked) .aff-315 { display: flex; }
+#hk-p10:has(#p10-room option[value="316"]:checked) .aff-316 { display: flex; }
+#hk-p10:has(#p10-room option[value="317"]:checked) .aff-317 { display: flex; }
+#hk-p10:has(#p10-room option[value="318"]:checked) .aff-318 { display: flex; }
+#hk-p10:has(#p10-room option[value="319"]:checked) .aff-319 { display: flex; }
+#hk-p10:has(#p10-room option[value="401"]:checked) .aff-401 { display: flex; }
+#hk-p10:has(#p10-room option[value="402"]:checked) .aff-402 { display: flex; }
+#hk-p10:has(#p10-room option[value="403"]:checked) .aff-403 { display: flex; }
+#hk-p10:has(#p10-room option[value="404"]:checked) .aff-404 { display: flex; }
+#hk-p10:has(#p10-room option[value="405"]:checked) .aff-405 { display: flex; }
+#hk-p10:has(#p10-room option[value="406"]:checked) .aff-406 { display: flex; }
+#hk-p10:has(#p10-room option[value="407"]:checked) .aff-407 { display: flex; }
+#hk-p10:has(#p10-room option[value="408"]:checked) .aff-408 { display: flex; }
+#hk-p10:has(#p10-room option[value="409"]:checked) .aff-409 { display: flex; }
+#hk-p10:has(#p10-room option[value="410"]:checked) .aff-410 { display: flex; }
+#hk-p10:has(#p10-room option[value="411"]:checked) .aff-411 { display: flex; }
+#hk-p10:has(#p10-room option[value="412"]:checked) .aff-412 { display: flex; }
+#hk-p10:has(#p10-room option[value="413"]:checked) .aff-413 { display: flex; }
+#hk-p10:has(#p10-room option[value="414"]:checked) .aff-414 { display: flex; }
+#hk-p10:has(#p10-room option[value="415"]:checked) .aff-415 { display: flex; }
+#hk-p10:has(#p10-room option[value="416"]:checked) .aff-416 { display: flex; }
+#hk-p10:has(#p10-room option[value="417"]:checked) .aff-417 { display: flex; }
+#hk-p10:has(#p10-room option[value="418"]:checked) .aff-418 { display: flex; }
+#hk-p10:has(#p10-room option[value="501"]:checked) .aff-501 { display: flex; }
+#hk-p10:has(#p10-room option[value="502"]:checked) .aff-502 { display: flex; }
+#hk-p10:has(#p10-room option[value="503"]:checked) .aff-503 { display: flex; }
+#hk-p10:has(#p10-room option[value="504"]:checked) .aff-504 { display: flex; }
+#hk-p10:has(#p10-room option[value="505"]:checked) .aff-505 { display: flex; }
+#hk-p10:has(#p10-room option[value="506"]:checked) .aff-506 { display: flex; }
+#hk-p10:has(#p10-room option[value="507"]:checked) .aff-507 { display: flex; }
+#hk-p10:has(#p10-room option[value="508"]:checked) .aff-508 { display: flex; }
+#hk-p10:has(#p10-room option[value="509"]:checked) .aff-509 { display: flex; }
+#hk-p10:has(#p10-room option[value="510"]:checked) .aff-510 { display: flex; }
+#hk-p10:has(#p10-room option[value="511"]:checked) .aff-511 { display: flex; }
+#hk-p10:has(#p10-room option[value="512"]:checked) .aff-512 { display: flex; }
+#hk-p10:has(#p10-room option[value="513"]:checked) .aff-513 { display: flex; }
+#hk-p10:has(#p10-room option[value="514"]:checked) .aff-514 { display: flex; }
+#hk-p10:has(#p10-room option[value="515"]:checked) .aff-515 { display: flex; }
+#hk-p10:has(#p10-room option[value="516"]:checked) .aff-516 { display: flex; }
+#hk-p10:has(#p10-room option[value="517"]:checked) .aff-517 { display: flex; }
+#hk-p10:has(#p10-room option:checked) .aff--hint { display: none; }
+body:has(#approval:target) #t-approval { display: flex; animation: av-rise 320ms var(--ease); }
+#hk-p10:has(input[value="OOO"]:checked) .p10-appr, .modal:has(input[value="OOO"]:checked) .p10-appr { display: flex; }

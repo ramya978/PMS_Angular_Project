@@ -1,0 +1,34 @@
+/* rt-o04-room-service-tray-slip.css: tray slips – one chosen by #sNNNN, all without one. */
+.kg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.kot {
+  display: grid;
+  gap: 3px;
+  width: 280px;
+  padding: 14px;
+  border: 1px dashed #999;
+  background: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.kot hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px dashed #999;
+}
+
+.tsw:has(.pm:target) .ts {
+  display: none;
+}
+.tsw:has(#s4614:target) .ts--4614 { display: grid; }
+.tsw:has(#s4613:target) .ts--4613 { display: grid; }
+.tsw:has(#s4612:target) .ts--4612 { display: grid; }
+.tsw:has(#s4606:target) .ts--4606 { display: grid; }
+.tsw:has(#s4602:target) .ts--4602 { display: grid; }
+.tsw:has(#s4598:target) .ts--4598 { display: grid; }
+.tsw:has(#s4595:target) .ts--4595 { display: grid; }

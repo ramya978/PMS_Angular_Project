@@ -1,0 +1,1608 @@
+/* RS-24 Service View (new screen 2026-10-31): covers booked with the room per service and day.
+   Every number in the grid is a label for a hidden radio – the radio picks the bookings list below
+   and the totals card on the right (no script). */
+.svw {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.sv-in {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* navy hero: today's three services */
+.sv-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 28px;
+  padding: 18px 24px;
+  border-radius: 18px;
+  background:
+    radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.2), transparent 60%),
+    radial-gradient(50% 120% at 0% 100%, rgb(var(--forest-rgb, 31 61 51) / 0.9), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 22px 44px -32px rgb(var(--deep-rgb, 14 26 43) / 0.75);
+  color: #fff;
+}
+
+.sv-hero__k {
+  margin: 0;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sv-hero h2 {
+  margin: 4px 0 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sv-hero__s {
+  max-width: 560px;
+  margin: 6px 0 0;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 13px;
+}
+
+.sv-hero__n {
+  display: flex;
+}
+
+.sv-hero__n > div {
+  display: grid;
+  gap: 2px;
+  min-width: 110px;
+  padding: 0 20px;
+}
+
+.sv-hero__n > div + div {
+  box-shadow: -1px 0 0 rgb(255 255 255 / 0.14);
+}
+
+.sv-hero__n span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 12px;
+}
+
+.sv-hero__n .icon {
+  color: var(--gold-light, #e6d3a8);
+}
+
+.sv-hero__n b {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.sv-filters .hf-f {
+  min-width: 0;
+}
+
+.sv-filters .hf-f__c {
+  white-space: nowrap;
+}
+
+.sv-grid-card {
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  overflow: hidden;
+}
+
+.sv-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.sv-t {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-t :is(th, td) {
+  height: 34px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+.sv-t thead th {
+  height: auto;
+  padding: 7px 4px 6px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.sv-t thead th > :is(span, b) {
+  display: block;
+}
+
+.sv-t thead th > b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.sv-t thead th.is-we {
+  background: color-mix(in srgb, var(--br-100) 55%, var(--surface-2));
+}
+
+.sv-t thead th.is-today {
+  background: var(--em-800);
+  color: var(--br-300);
+}
+
+.sv-t thead th.is-today > b {
+  color: #fff;
+}
+
+.sv-t tbody th,
+.sv-corner {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 170px;
+  padding: 0 14px !important;
+  background: var(--surface);
+  box-shadow: inset -1px 0 0 var(--line);
+  text-align: left !important;
+}
+
+.sv-t thead .sv-corner {
+  z-index: 2;
+  background: var(--surface-2);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sv-t tbody th {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sv-t tbody th .icon {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--em-600);
+  vertical-align: -2px;
+}
+
+.sv-t tr.sv-g > th {
+  position: static;
+  height: 28px;
+  background: var(--sunken);
+  box-shadow: none;
+  color: var(--em-700);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sv-t tr.sv-g > th > span {
+  position: sticky;
+  left: 14px;
+}
+
+.sv-t tr.sv-g b {
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.sv-t td {
+  text-align: center;
+}
+
+.sv-t td.is-we {
+  background: color-mix(in srgb, var(--br-50) 70%, transparent);
+}
+
+.sv-t td > label {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 26px;
+  margin: 0 auto;
+  border-radius: 7px;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sv-t td > label:hover {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-200);
+}
+
+.sv-t td.is-zero > label {
+  color: var(--ink-4);
+  font-weight: 400;
+}
+
+.sv-t td.sv-now > label {
+  box-shadow: inset 0 0 0 1px var(--em-200);
+}
+
+.sv-t--rep td {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sv-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 9px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.sv-hint .icon {
+  color: var(--em-600);
+}
+
+.sv-low {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: start;
+  gap: 12px;
+}
+
+.sv-list .arl-wrap {
+  margin-top: 0;
+}
+
+.sv-x .xd {
+  font-weight: 700;
+}
+
+/* totals for the chosen number */
+.sv-sum {
+  position: sticky;
+  top: calc(var(--topbar-h) + 12px);
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+}
+
+.sv-sum__b {
+  display: none;
+  gap: 4px;
+}
+
+.sv-sum__k {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--em-700);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sv-sum__d {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sv-sum__w {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.sv-sum__n {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 10px 0 0;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sv-sum__n > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+}
+
+.sv-sum__n > div + div {
+  box-shadow: -1px 0 0 var(--line);
+}
+
+.sv-sum__n dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.sv-sum__n dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-sum__n .is-tot dd {
+  color: var(--em-700);
+}
+
+.sv-sum__s {
+  margin: 6px 0 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.sv-acts {
+  display: grid;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.sv-acts .btn {
+  justify-content: flex-start;
+}
+
+@media (max-width: 1180px) {
+  .sv-low {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sv-sum {
+    position: static;
+  }
+}
+
+
+.svw:has(#svr-ab0:checked) label[for="svr-ab0"],
+.svw:has(#svr-ab1:checked) label[for="svr-ab1"],
+.svw:has(#svr-ab2:checked) label[for="svr-ab2"],
+.svw:has(#svr-ab3:checked) label[for="svr-ab3"],
+.svw:has(#svr-ab4:checked) label[for="svr-ab4"],
+.svw:has(#svr-ab5:checked) label[for="svr-ab5"],
+.svw:has(#svr-ab6:checked) label[for="svr-ab6"],
+.svw:has(#svr-ab7:checked) label[for="svr-ab7"],
+.svw:has(#svr-ab8:checked) label[for="svr-ab8"],
+.svw:has(#svr-ab9:checked) label[for="svr-ab9"],
+.svw:has(#svr-ab10:checked) label[for="svr-ab10"],
+.svw:has(#svr-ab11:checked) label[for="svr-ab11"],
+.svw:has(#svr-ab12:checked) label[for="svr-ab12"],
+.svw:has(#svr-ab13:checked) label[for="svr-ab13"],
+.svw:has(#svr-al0:checked) label[for="svr-al0"],
+.svw:has(#svr-al1:checked) label[for="svr-al1"],
+.svw:has(#svr-al2:checked) label[for="svr-al2"],
+.svw:has(#svr-al3:checked) label[for="svr-al3"],
+.svw:has(#svr-al4:checked) label[for="svr-al4"],
+.svw:has(#svr-al5:checked) label[for="svr-al5"],
+.svw:has(#svr-al6:checked) label[for="svr-al6"],
+.svw:has(#svr-al7:checked) label[for="svr-al7"],
+.svw:has(#svr-al8:checked) label[for="svr-al8"],
+.svw:has(#svr-al9:checked) label[for="svr-al9"],
+.svw:has(#svr-al10:checked) label[for="svr-al10"],
+.svw:has(#svr-al11:checked) label[for="svr-al11"],
+.svw:has(#svr-al12:checked) label[for="svr-al12"],
+.svw:has(#svr-al13:checked) label[for="svr-al13"],
+.svw:has(#svr-ad0:checked) label[for="svr-ad0"],
+.svw:has(#svr-ad1:checked) label[for="svr-ad1"],
+.svw:has(#svr-ad2:checked) label[for="svr-ad2"],
+.svw:has(#svr-ad3:checked) label[for="svr-ad3"],
+.svw:has(#svr-ad4:checked) label[for="svr-ad4"],
+.svw:has(#svr-ad5:checked) label[for="svr-ad5"],
+.svw:has(#svr-ad6:checked) label[for="svr-ad6"],
+.svw:has(#svr-ad7:checked) label[for="svr-ad7"],
+.svw:has(#svr-ad8:checked) label[for="svr-ad8"],
+.svw:has(#svr-ad9:checked) label[for="svr-ad9"],
+.svw:has(#svr-ad10:checked) label[for="svr-ad10"],
+.svw:has(#svr-ad11:checked) label[for="svr-ad11"],
+.svw:has(#svr-ad12:checked) label[for="svr-ad12"],
+.svw:has(#svr-ad13:checked) label[for="svr-ad13"],
+.svw:has(#svr-ib0:checked) label[for="svr-ib0"],
+.svw:has(#svr-ib1:checked) label[for="svr-ib1"],
+.svw:has(#svr-ib2:checked) label[for="svr-ib2"],
+.svw:has(#svr-ib3:checked) label[for="svr-ib3"],
+.svw:has(#svr-ib4:checked) label[for="svr-ib4"],
+.svw:has(#svr-ib5:checked) label[for="svr-ib5"],
+.svw:has(#svr-ib6:checked) label[for="svr-ib6"],
+.svw:has(#svr-ib7:checked) label[for="svr-ib7"],
+.svw:has(#svr-ib8:checked) label[for="svr-ib8"],
+.svw:has(#svr-ib9:checked) label[for="svr-ib9"],
+.svw:has(#svr-ib10:checked) label[for="svr-ib10"],
+.svw:has(#svr-ib11:checked) label[for="svr-ib11"],
+.svw:has(#svr-ib12:checked) label[for="svr-ib12"],
+.svw:has(#svr-ib13:checked) label[for="svr-ib13"],
+.svw:has(#svr-il0:checked) label[for="svr-il0"],
+.svw:has(#svr-il1:checked) label[for="svr-il1"],
+.svw:has(#svr-il2:checked) label[for="svr-il2"],
+.svw:has(#svr-il3:checked) label[for="svr-il3"],
+.svw:has(#svr-il4:checked) label[for="svr-il4"],
+.svw:has(#svr-il5:checked) label[for="svr-il5"],
+.svw:has(#svr-il6:checked) label[for="svr-il6"],
+.svw:has(#svr-il7:checked) label[for="svr-il7"],
+.svw:has(#svr-il8:checked) label[for="svr-il8"],
+.svw:has(#svr-il9:checked) label[for="svr-il9"],
+.svw:has(#svr-il10:checked) label[for="svr-il10"],
+.svw:has(#svr-il11:checked) label[for="svr-il11"],
+.svw:has(#svr-il12:checked) label[for="svr-il12"],
+.svw:has(#svr-il13:checked) label[for="svr-il13"],
+.svw:has(#svr-id0:checked) label[for="svr-id0"],
+.svw:has(#svr-id1:checked) label[for="svr-id1"],
+.svw:has(#svr-id2:checked) label[for="svr-id2"],
+.svw:has(#svr-id3:checked) label[for="svr-id3"],
+.svw:has(#svr-id4:checked) label[for="svr-id4"],
+.svw:has(#svr-id5:checked) label[for="svr-id5"],
+.svw:has(#svr-id6:checked) label[for="svr-id6"],
+.svw:has(#svr-id7:checked) label[for="svr-id7"],
+.svw:has(#svr-id8:checked) label[for="svr-id8"],
+.svw:has(#svr-id9:checked) label[for="svr-id9"],
+.svw:has(#svr-id10:checked) label[for="svr-id10"],
+.svw:has(#svr-id11:checked) label[for="svr-id11"],
+.svw:has(#svr-id12:checked) label[for="svr-id12"],
+.svw:has(#svr-id13:checked) label[for="svr-id13"],
+.svw:has(#svr-cb0:checked) label[for="svr-cb0"],
+.svw:has(#svr-cb1:checked) label[for="svr-cb1"],
+.svw:has(#svr-cb2:checked) label[for="svr-cb2"],
+.svw:has(#svr-cb3:checked) label[for="svr-cb3"],
+.svw:has(#svr-cb4:checked) label[for="svr-cb4"],
+.svw:has(#svr-cb5:checked) label[for="svr-cb5"],
+.svw:has(#svr-cb6:checked) label[for="svr-cb6"],
+.svw:has(#svr-cb7:checked) label[for="svr-cb7"],
+.svw:has(#svr-cb8:checked) label[for="svr-cb8"],
+.svw:has(#svr-cb9:checked) label[for="svr-cb9"],
+.svw:has(#svr-cb10:checked) label[for="svr-cb10"],
+.svw:has(#svr-cb11:checked) label[for="svr-cb11"],
+.svw:has(#svr-cb12:checked) label[for="svr-cb12"],
+.svw:has(#svr-cb13:checked) label[for="svr-cb13"],
+.svw:has(#svr-cl0:checked) label[for="svr-cl0"],
+.svw:has(#svr-cl1:checked) label[for="svr-cl1"],
+.svw:has(#svr-cl2:checked) label[for="svr-cl2"],
+.svw:has(#svr-cl3:checked) label[for="svr-cl3"],
+.svw:has(#svr-cl4:checked) label[for="svr-cl4"],
+.svw:has(#svr-cl5:checked) label[for="svr-cl5"],
+.svw:has(#svr-cl6:checked) label[for="svr-cl6"],
+.svw:has(#svr-cl7:checked) label[for="svr-cl7"],
+.svw:has(#svr-cl8:checked) label[for="svr-cl8"],
+.svw:has(#svr-cl9:checked) label[for="svr-cl9"],
+.svw:has(#svr-cl10:checked) label[for="svr-cl10"],
+.svw:has(#svr-cl11:checked) label[for="svr-cl11"],
+.svw:has(#svr-cl12:checked) label[for="svr-cl12"],
+.svw:has(#svr-cl13:checked) label[for="svr-cl13"],
+.svw:has(#svr-cd0:checked) label[for="svr-cd0"],
+.svw:has(#svr-cd1:checked) label[for="svr-cd1"],
+.svw:has(#svr-cd2:checked) label[for="svr-cd2"],
+.svw:has(#svr-cd3:checked) label[for="svr-cd3"],
+.svw:has(#svr-cd4:checked) label[for="svr-cd4"],
+.svw:has(#svr-cd5:checked) label[for="svr-cd5"],
+.svw:has(#svr-cd6:checked) label[for="svr-cd6"],
+.svw:has(#svr-cd7:checked) label[for="svr-cd7"],
+.svw:has(#svr-cd8:checked) label[for="svr-cd8"],
+.svw:has(#svr-cd9:checked) label[for="svr-cd9"],
+.svw:has(#svr-cd10:checked) label[for="svr-cd10"],
+.svw:has(#svr-cd11:checked) label[for="svr-cd11"],
+.svw:has(#svr-cd12:checked) label[for="svr-cd12"],
+.svw:has(#svr-cd13:checked) label[for="svr-cd13"],
+.svw:has(#svr-tb0:checked) label[for="svr-tb0"],
+.svw:has(#svr-tb1:checked) label[for="svr-tb1"],
+.svw:has(#svr-tb2:checked) label[for="svr-tb2"],
+.svw:has(#svr-tb3:checked) label[for="svr-tb3"],
+.svw:has(#svr-tb4:checked) label[for="svr-tb4"],
+.svw:has(#svr-tb5:checked) label[for="svr-tb5"],
+.svw:has(#svr-tb6:checked) label[for="svr-tb6"],
+.svw:has(#svr-tb7:checked) label[for="svr-tb7"],
+.svw:has(#svr-tb8:checked) label[for="svr-tb8"],
+.svw:has(#svr-tb9:checked) label[for="svr-tb9"],
+.svw:has(#svr-tb10:checked) label[for="svr-tb10"],
+.svw:has(#svr-tb11:checked) label[for="svr-tb11"],
+.svw:has(#svr-tb12:checked) label[for="svr-tb12"],
+.svw:has(#svr-tb13:checked) label[for="svr-tb13"],
+.svw:has(#svr-tl0:checked) label[for="svr-tl0"],
+.svw:has(#svr-tl1:checked) label[for="svr-tl1"],
+.svw:has(#svr-tl2:checked) label[for="svr-tl2"],
+.svw:has(#svr-tl3:checked) label[for="svr-tl3"],
+.svw:has(#svr-tl4:checked) label[for="svr-tl4"],
+.svw:has(#svr-tl5:checked) label[for="svr-tl5"],
+.svw:has(#svr-tl6:checked) label[for="svr-tl6"],
+.svw:has(#svr-tl7:checked) label[for="svr-tl7"],
+.svw:has(#svr-tl8:checked) label[for="svr-tl8"],
+.svw:has(#svr-tl9:checked) label[for="svr-tl9"],
+.svw:has(#svr-tl10:checked) label[for="svr-tl10"],
+.svw:has(#svr-tl11:checked) label[for="svr-tl11"],
+.svw:has(#svr-tl12:checked) label[for="svr-tl12"],
+.svw:has(#svr-tl13:checked) label[for="svr-tl13"],
+.svw:has(#svr-td0:checked) label[for="svr-td0"],
+.svw:has(#svr-td1:checked) label[for="svr-td1"],
+.svw:has(#svr-td2:checked) label[for="svr-td2"],
+.svw:has(#svr-td3:checked) label[for="svr-td3"],
+.svw:has(#svr-td4:checked) label[for="svr-td4"],
+.svw:has(#svr-td5:checked) label[for="svr-td5"],
+.svw:has(#svr-td6:checked) label[for="svr-td6"],
+.svw:has(#svr-td7:checked) label[for="svr-td7"],
+.svw:has(#svr-td8:checked) label[for="svr-td8"],
+.svw:has(#svr-td9:checked) label[for="svr-td9"],
+.svw:has(#svr-td10:checked) label[for="svr-td10"],
+.svw:has(#svr-td11:checked) label[for="svr-td11"],
+.svw:has(#svr-td12:checked) label[for="svr-td12"],
+.svw:has(#svr-td13:checked) label[for="svr-td13"] {
+  background: var(--em-800);
+  color: #fff;
+  box-shadow: 0 6px 14px -6px rgb(var(--em-950-rgb, 6 28 22) / 0.5);
+}
+
+.svw:has(#svr-ab0:checked) .sv-sum--ab0,
+.svw:has(#svr-ab1:checked) .sv-sum--ab1,
+.svw:has(#svr-ab2:checked) .sv-sum--ab2,
+.svw:has(#svr-ab3:checked) .sv-sum--ab3,
+.svw:has(#svr-ab4:checked) .sv-sum--ab4,
+.svw:has(#svr-ab5:checked) .sv-sum--ab5,
+.svw:has(#svr-ab6:checked) .sv-sum--ab6,
+.svw:has(#svr-ab7:checked) .sv-sum--ab7,
+.svw:has(#svr-ab8:checked) .sv-sum--ab8,
+.svw:has(#svr-ab9:checked) .sv-sum--ab9,
+.svw:has(#svr-ab10:checked) .sv-sum--ab10,
+.svw:has(#svr-ab11:checked) .sv-sum--ab11,
+.svw:has(#svr-ab12:checked) .sv-sum--ab12,
+.svw:has(#svr-ab13:checked) .sv-sum--ab13,
+.svw:has(#svr-al0:checked) .sv-sum--al0,
+.svw:has(#svr-al1:checked) .sv-sum--al1,
+.svw:has(#svr-al2:checked) .sv-sum--al2,
+.svw:has(#svr-al3:checked) .sv-sum--al3,
+.svw:has(#svr-al4:checked) .sv-sum--al4,
+.svw:has(#svr-al5:checked) .sv-sum--al5,
+.svw:has(#svr-al6:checked) .sv-sum--al6,
+.svw:has(#svr-al7:checked) .sv-sum--al7,
+.svw:has(#svr-al8:checked) .sv-sum--al8,
+.svw:has(#svr-al9:checked) .sv-sum--al9,
+.svw:has(#svr-al10:checked) .sv-sum--al10,
+.svw:has(#svr-al11:checked) .sv-sum--al11,
+.svw:has(#svr-al12:checked) .sv-sum--al12,
+.svw:has(#svr-al13:checked) .sv-sum--al13,
+.svw:has(#svr-ad0:checked) .sv-sum--ad0,
+.svw:has(#svr-ad1:checked) .sv-sum--ad1,
+.svw:has(#svr-ad2:checked) .sv-sum--ad2,
+.svw:has(#svr-ad3:checked) .sv-sum--ad3,
+.svw:has(#svr-ad4:checked) .sv-sum--ad4,
+.svw:has(#svr-ad5:checked) .sv-sum--ad5,
+.svw:has(#svr-ad6:checked) .sv-sum--ad6,
+.svw:has(#svr-ad7:checked) .sv-sum--ad7,
+.svw:has(#svr-ad8:checked) .sv-sum--ad8,
+.svw:has(#svr-ad9:checked) .sv-sum--ad9,
+.svw:has(#svr-ad10:checked) .sv-sum--ad10,
+.svw:has(#svr-ad11:checked) .sv-sum--ad11,
+.svw:has(#svr-ad12:checked) .sv-sum--ad12,
+.svw:has(#svr-ad13:checked) .sv-sum--ad13,
+.svw:has(#svr-ib0:checked) .sv-sum--ib0,
+.svw:has(#svr-ib1:checked) .sv-sum--ib1,
+.svw:has(#svr-ib2:checked) .sv-sum--ib2,
+.svw:has(#svr-ib3:checked) .sv-sum--ib3,
+.svw:has(#svr-ib4:checked) .sv-sum--ib4,
+.svw:has(#svr-ib5:checked) .sv-sum--ib5,
+.svw:has(#svr-ib6:checked) .sv-sum--ib6,
+.svw:has(#svr-ib7:checked) .sv-sum--ib7,
+.svw:has(#svr-ib8:checked) .sv-sum--ib8,
+.svw:has(#svr-ib9:checked) .sv-sum--ib9,
+.svw:has(#svr-ib10:checked) .sv-sum--ib10,
+.svw:has(#svr-ib11:checked) .sv-sum--ib11,
+.svw:has(#svr-ib12:checked) .sv-sum--ib12,
+.svw:has(#svr-ib13:checked) .sv-sum--ib13,
+.svw:has(#svr-il0:checked) .sv-sum--il0,
+.svw:has(#svr-il1:checked) .sv-sum--il1,
+.svw:has(#svr-il2:checked) .sv-sum--il2,
+.svw:has(#svr-il3:checked) .sv-sum--il3,
+.svw:has(#svr-il4:checked) .sv-sum--il4,
+.svw:has(#svr-il5:checked) .sv-sum--il5,
+.svw:has(#svr-il6:checked) .sv-sum--il6,
+.svw:has(#svr-il7:checked) .sv-sum--il7,
+.svw:has(#svr-il8:checked) .sv-sum--il8,
+.svw:has(#svr-il9:checked) .sv-sum--il9,
+.svw:has(#svr-il10:checked) .sv-sum--il10,
+.svw:has(#svr-il11:checked) .sv-sum--il11,
+.svw:has(#svr-il12:checked) .sv-sum--il12,
+.svw:has(#svr-il13:checked) .sv-sum--il13,
+.svw:has(#svr-id0:checked) .sv-sum--id0,
+.svw:has(#svr-id1:checked) .sv-sum--id1,
+.svw:has(#svr-id2:checked) .sv-sum--id2,
+.svw:has(#svr-id3:checked) .sv-sum--id3,
+.svw:has(#svr-id4:checked) .sv-sum--id4,
+.svw:has(#svr-id5:checked) .sv-sum--id5,
+.svw:has(#svr-id6:checked) .sv-sum--id6,
+.svw:has(#svr-id7:checked) .sv-sum--id7,
+.svw:has(#svr-id8:checked) .sv-sum--id8,
+.svw:has(#svr-id9:checked) .sv-sum--id9,
+.svw:has(#svr-id10:checked) .sv-sum--id10,
+.svw:has(#svr-id11:checked) .sv-sum--id11,
+.svw:has(#svr-id12:checked) .sv-sum--id12,
+.svw:has(#svr-id13:checked) .sv-sum--id13,
+.svw:has(#svr-cb0:checked) .sv-sum--cb0,
+.svw:has(#svr-cb1:checked) .sv-sum--cb1,
+.svw:has(#svr-cb2:checked) .sv-sum--cb2,
+.svw:has(#svr-cb3:checked) .sv-sum--cb3,
+.svw:has(#svr-cb4:checked) .sv-sum--cb4,
+.svw:has(#svr-cb5:checked) .sv-sum--cb5,
+.svw:has(#svr-cb6:checked) .sv-sum--cb6,
+.svw:has(#svr-cb7:checked) .sv-sum--cb7,
+.svw:has(#svr-cb8:checked) .sv-sum--cb8,
+.svw:has(#svr-cb9:checked) .sv-sum--cb9,
+.svw:has(#svr-cb10:checked) .sv-sum--cb10,
+.svw:has(#svr-cb11:checked) .sv-sum--cb11,
+.svw:has(#svr-cb12:checked) .sv-sum--cb12,
+.svw:has(#svr-cb13:checked) .sv-sum--cb13,
+.svw:has(#svr-cl0:checked) .sv-sum--cl0,
+.svw:has(#svr-cl1:checked) .sv-sum--cl1,
+.svw:has(#svr-cl2:checked) .sv-sum--cl2,
+.svw:has(#svr-cl3:checked) .sv-sum--cl3,
+.svw:has(#svr-cl4:checked) .sv-sum--cl4,
+.svw:has(#svr-cl5:checked) .sv-sum--cl5,
+.svw:has(#svr-cl6:checked) .sv-sum--cl6,
+.svw:has(#svr-cl7:checked) .sv-sum--cl7,
+.svw:has(#svr-cl8:checked) .sv-sum--cl8,
+.svw:has(#svr-cl9:checked) .sv-sum--cl9,
+.svw:has(#svr-cl10:checked) .sv-sum--cl10,
+.svw:has(#svr-cl11:checked) .sv-sum--cl11,
+.svw:has(#svr-cl12:checked) .sv-sum--cl12,
+.svw:has(#svr-cl13:checked) .sv-sum--cl13,
+.svw:has(#svr-cd0:checked) .sv-sum--cd0,
+.svw:has(#svr-cd1:checked) .sv-sum--cd1,
+.svw:has(#svr-cd2:checked) .sv-sum--cd2,
+.svw:has(#svr-cd3:checked) .sv-sum--cd3,
+.svw:has(#svr-cd4:checked) .sv-sum--cd4,
+.svw:has(#svr-cd5:checked) .sv-sum--cd5,
+.svw:has(#svr-cd6:checked) .sv-sum--cd6,
+.svw:has(#svr-cd7:checked) .sv-sum--cd7,
+.svw:has(#svr-cd8:checked) .sv-sum--cd8,
+.svw:has(#svr-cd9:checked) .sv-sum--cd9,
+.svw:has(#svr-cd10:checked) .sv-sum--cd10,
+.svw:has(#svr-cd11:checked) .sv-sum--cd11,
+.svw:has(#svr-cd12:checked) .sv-sum--cd12,
+.svw:has(#svr-cd13:checked) .sv-sum--cd13,
+.svw:has(#svr-tb0:checked) .sv-sum--tb0,
+.svw:has(#svr-tb1:checked) .sv-sum--tb1,
+.svw:has(#svr-tb2:checked) .sv-sum--tb2,
+.svw:has(#svr-tb3:checked) .sv-sum--tb3,
+.svw:has(#svr-tb4:checked) .sv-sum--tb4,
+.svw:has(#svr-tb5:checked) .sv-sum--tb5,
+.svw:has(#svr-tb6:checked) .sv-sum--tb6,
+.svw:has(#svr-tb7:checked) .sv-sum--tb7,
+.svw:has(#svr-tb8:checked) .sv-sum--tb8,
+.svw:has(#svr-tb9:checked) .sv-sum--tb9,
+.svw:has(#svr-tb10:checked) .sv-sum--tb10,
+.svw:has(#svr-tb11:checked) .sv-sum--tb11,
+.svw:has(#svr-tb12:checked) .sv-sum--tb12,
+.svw:has(#svr-tb13:checked) .sv-sum--tb13,
+.svw:has(#svr-tl0:checked) .sv-sum--tl0,
+.svw:has(#svr-tl1:checked) .sv-sum--tl1,
+.svw:has(#svr-tl2:checked) .sv-sum--tl2,
+.svw:has(#svr-tl3:checked) .sv-sum--tl3,
+.svw:has(#svr-tl4:checked) .sv-sum--tl4,
+.svw:has(#svr-tl5:checked) .sv-sum--tl5,
+.svw:has(#svr-tl6:checked) .sv-sum--tl6,
+.svw:has(#svr-tl7:checked) .sv-sum--tl7,
+.svw:has(#svr-tl8:checked) .sv-sum--tl8,
+.svw:has(#svr-tl9:checked) .sv-sum--tl9,
+.svw:has(#svr-tl10:checked) .sv-sum--tl10,
+.svw:has(#svr-tl11:checked) .sv-sum--tl11,
+.svw:has(#svr-tl12:checked) .sv-sum--tl12,
+.svw:has(#svr-tl13:checked) .sv-sum--tl13,
+.svw:has(#svr-td0:checked) .sv-sum--td0,
+.svw:has(#svr-td1:checked) .sv-sum--td1,
+.svw:has(#svr-td2:checked) .sv-sum--td2,
+.svw:has(#svr-td3:checked) .sv-sum--td3,
+.svw:has(#svr-td4:checked) .sv-sum--td4,
+.svw:has(#svr-td5:checked) .sv-sum--td5,
+.svw:has(#svr-td6:checked) .sv-sum--td6,
+.svw:has(#svr-td7:checked) .sv-sum--td7,
+.svw:has(#svr-td8:checked) .sv-sum--td8,
+.svw:has(#svr-td9:checked) .sv-sum--td9,
+.svw:has(#svr-td10:checked) .sv-sum--td10,
+.svw:has(#svr-td11:checked) .sv-sum--td11,
+.svw:has(#svr-td12:checked) .sv-sum--td12,
+.svw:has(#svr-td13:checked) .sv-sum--td13 {
+  display: grid;
+}
+
+.svw:has(#svr-ab0:checked) .sv-lt > tbody > tr:not(.s-ab0) {
+  display: none;
+}
+
+.svw:has(#svr-ab1:checked) .sv-lt > tbody > tr:not(.s-ab1) {
+  display: none;
+}
+
+.svw:has(#svr-ab2:checked) .sv-lt > tbody > tr:not(.s-ab2) {
+  display: none;
+}
+
+.svw:has(#svr-ab3:checked) .sv-lt > tbody > tr:not(.s-ab3) {
+  display: none;
+}
+
+.svw:has(#svr-ab4:checked) .sv-lt > tbody > tr:not(.s-ab4) {
+  display: none;
+}
+
+.svw:has(#svr-ab5:checked) .sv-lt > tbody > tr:not(.s-ab5) {
+  display: none;
+}
+
+.svw:has(#svr-ab6:checked) .sv-lt > tbody > tr:not(.s-ab6) {
+  display: none;
+}
+
+.svw:has(#svr-ab7:checked) .sv-lt > tbody > tr:not(.s-ab7) {
+  display: none;
+}
+
+.svw:has(#svr-ab8:checked) .sv-lt > tbody > tr:not(.s-ab8) {
+  display: none;
+}
+
+.svw:has(#svr-ab9:checked) .sv-lt > tbody > tr:not(.s-ab9) {
+  display: none;
+}
+
+.svw:has(#svr-ab10:checked) .sv-lt > tbody > tr:not(.s-ab10) {
+  display: none;
+}
+
+.svw:has(#svr-ab11:checked) .sv-lt > tbody > tr:not(.s-ab11) {
+  display: none;
+}
+
+.svw:has(#svr-ab12:checked) .sv-lt > tbody > tr:not(.s-ab12) {
+  display: none;
+}
+
+.svw:has(#svr-ab13:checked) .sv-lt > tbody > tr:not(.s-ab13) {
+  display: none;
+}
+
+.svw:has(#svr-al0:checked) .sv-lt > tbody > tr:not(.s-al0) {
+  display: none;
+}
+
+.svw:has(#svr-al1:checked) .sv-lt > tbody > tr:not(.s-al1) {
+  display: none;
+}
+
+.svw:has(#svr-al2:checked) .sv-lt > tbody > tr:not(.s-al2) {
+  display: none;
+}
+
+.svw:has(#svr-al3:checked) .sv-lt > tbody > tr:not(.s-al3) {
+  display: none;
+}
+
+.svw:has(#svr-al4:checked) .sv-lt > tbody > tr:not(.s-al4) {
+  display: none;
+}
+
+.svw:has(#svr-al5:checked) .sv-lt > tbody > tr:not(.s-al5) {
+  display: none;
+}
+
+.svw:has(#svr-al6:checked) .sv-lt > tbody > tr:not(.s-al6) {
+  display: none;
+}
+
+.svw:has(#svr-al7:checked) .sv-lt > tbody > tr:not(.s-al7) {
+  display: none;
+}
+
+.svw:has(#svr-al8:checked) .sv-lt > tbody > tr:not(.s-al8) {
+  display: none;
+}
+
+.svw:has(#svr-al9:checked) .sv-lt > tbody > tr:not(.s-al9) {
+  display: none;
+}
+
+.svw:has(#svr-al10:checked) .sv-lt > tbody > tr:not(.s-al10) {
+  display: none;
+}
+
+.svw:has(#svr-al11:checked) .sv-lt > tbody > tr:not(.s-al11) {
+  display: none;
+}
+
+.svw:has(#svr-al12:checked) .sv-lt > tbody > tr:not(.s-al12) {
+  display: none;
+}
+
+.svw:has(#svr-al13:checked) .sv-lt > tbody > tr:not(.s-al13) {
+  display: none;
+}
+
+.svw:has(#svr-ad0:checked) .sv-lt > tbody > tr:not(.s-ad0) {
+  display: none;
+}
+
+.svw:has(#svr-ad1:checked) .sv-lt > tbody > tr:not(.s-ad1) {
+  display: none;
+}
+
+.svw:has(#svr-ad2:checked) .sv-lt > tbody > tr:not(.s-ad2) {
+  display: none;
+}
+
+.svw:has(#svr-ad3:checked) .sv-lt > tbody > tr:not(.s-ad3) {
+  display: none;
+}
+
+.svw:has(#svr-ad4:checked) .sv-lt > tbody > tr:not(.s-ad4) {
+  display: none;
+}
+
+.svw:has(#svr-ad5:checked) .sv-lt > tbody > tr:not(.s-ad5) {
+  display: none;
+}
+
+.svw:has(#svr-ad6:checked) .sv-lt > tbody > tr:not(.s-ad6) {
+  display: none;
+}
+
+.svw:has(#svr-ad7:checked) .sv-lt > tbody > tr:not(.s-ad7) {
+  display: none;
+}
+
+.svw:has(#svr-ad8:checked) .sv-lt > tbody > tr:not(.s-ad8) {
+  display: none;
+}
+
+.svw:has(#svr-ad9:checked) .sv-lt > tbody > tr:not(.s-ad9) {
+  display: none;
+}
+
+.svw:has(#svr-ad10:checked) .sv-lt > tbody > tr:not(.s-ad10) {
+  display: none;
+}
+
+.svw:has(#svr-ad11:checked) .sv-lt > tbody > tr:not(.s-ad11) {
+  display: none;
+}
+
+.svw:has(#svr-ad12:checked) .sv-lt > tbody > tr:not(.s-ad12) {
+  display: none;
+}
+
+.svw:has(#svr-ad13:checked) .sv-lt > tbody > tr:not(.s-ad13) {
+  display: none;
+}
+
+.svw:has(#svr-ib0:checked) .sv-lt > tbody > tr:not(.s-ib0) {
+  display: none;
+}
+
+.svw:has(#svr-ib1:checked) .sv-lt > tbody > tr:not(.s-ib1) {
+  display: none;
+}
+
+.svw:has(#svr-ib2:checked) .sv-lt > tbody > tr:not(.s-ib2) {
+  display: none;
+}
+
+.svw:has(#svr-ib3:checked) .sv-lt > tbody > tr:not(.s-ib3) {
+  display: none;
+}
+
+.svw:has(#svr-ib4:checked) .sv-lt > tbody > tr:not(.s-ib4) {
+  display: none;
+}
+
+.svw:has(#svr-ib5:checked) .sv-lt > tbody > tr:not(.s-ib5) {
+  display: none;
+}
+
+.svw:has(#svr-ib6:checked) .sv-lt > tbody > tr:not(.s-ib6) {
+  display: none;
+}
+
+.svw:has(#svr-ib7:checked) .sv-lt > tbody > tr:not(.s-ib7) {
+  display: none;
+}
+
+.svw:has(#svr-ib8:checked) .sv-lt > tbody > tr:not(.s-ib8) {
+  display: none;
+}
+
+.svw:has(#svr-ib9:checked) .sv-lt > tbody > tr:not(.s-ib9) {
+  display: none;
+}
+
+.svw:has(#svr-ib10:checked) .sv-lt > tbody > tr:not(.s-ib10) {
+  display: none;
+}
+
+.svw:has(#svr-ib11:checked) .sv-lt > tbody > tr:not(.s-ib11) {
+  display: none;
+}
+
+.svw:has(#svr-ib12:checked) .sv-lt > tbody > tr:not(.s-ib12) {
+  display: none;
+}
+
+.svw:has(#svr-ib13:checked) .sv-lt > tbody > tr:not(.s-ib13) {
+  display: none;
+}
+
+.svw:has(#svr-il0:checked) .sv-lt > tbody > tr:not(.s-il0) {
+  display: none;
+}
+
+.svw:has(#svr-il1:checked) .sv-lt > tbody > tr:not(.s-il1) {
+  display: none;
+}
+
+.svw:has(#svr-il2:checked) .sv-lt > tbody > tr:not(.s-il2) {
+  display: none;
+}
+
+.svw:has(#svr-il3:checked) .sv-lt > tbody > tr:not(.s-il3) {
+  display: none;
+}
+
+.svw:has(#svr-il4:checked) .sv-lt > tbody > tr:not(.s-il4) {
+  display: none;
+}
+
+.svw:has(#svr-il5:checked) .sv-lt > tbody > tr:not(.s-il5) {
+  display: none;
+}
+
+.svw:has(#svr-il6:checked) .sv-lt > tbody > tr:not(.s-il6) {
+  display: none;
+}
+
+.svw:has(#svr-il7:checked) .sv-lt > tbody > tr:not(.s-il7) {
+  display: none;
+}
+
+.svw:has(#svr-il8:checked) .sv-lt > tbody > tr:not(.s-il8) {
+  display: none;
+}
+
+.svw:has(#svr-il9:checked) .sv-lt > tbody > tr:not(.s-il9) {
+  display: none;
+}
+
+.svw:has(#svr-il10:checked) .sv-lt > tbody > tr:not(.s-il10) {
+  display: none;
+}
+
+.svw:has(#svr-il11:checked) .sv-lt > tbody > tr:not(.s-il11) {
+  display: none;
+}
+
+.svw:has(#svr-il12:checked) .sv-lt > tbody > tr:not(.s-il12) {
+  display: none;
+}
+
+.svw:has(#svr-il13:checked) .sv-lt > tbody > tr:not(.s-il13) {
+  display: none;
+}
+
+.svw:has(#svr-id0:checked) .sv-lt > tbody > tr:not(.s-id0) {
+  display: none;
+}
+
+.svw:has(#svr-id1:checked) .sv-lt > tbody > tr:not(.s-id1) {
+  display: none;
+}
+
+.svw:has(#svr-id2:checked) .sv-lt > tbody > tr:not(.s-id2) {
+  display: none;
+}
+
+.svw:has(#svr-id3:checked) .sv-lt > tbody > tr:not(.s-id3) {
+  display: none;
+}
+
+.svw:has(#svr-id4:checked) .sv-lt > tbody > tr:not(.s-id4) {
+  display: none;
+}
+
+.svw:has(#svr-id5:checked) .sv-lt > tbody > tr:not(.s-id5) {
+  display: none;
+}
+
+.svw:has(#svr-id6:checked) .sv-lt > tbody > tr:not(.s-id6) {
+  display: none;
+}
+
+.svw:has(#svr-id7:checked) .sv-lt > tbody > tr:not(.s-id7) {
+  display: none;
+}
+
+.svw:has(#svr-id8:checked) .sv-lt > tbody > tr:not(.s-id8) {
+  display: none;
+}
+
+.svw:has(#svr-id9:checked) .sv-lt > tbody > tr:not(.s-id9) {
+  display: none;
+}
+
+.svw:has(#svr-id10:checked) .sv-lt > tbody > tr:not(.s-id10) {
+  display: none;
+}
+
+.svw:has(#svr-id11:checked) .sv-lt > tbody > tr:not(.s-id11) {
+  display: none;
+}
+
+.svw:has(#svr-id12:checked) .sv-lt > tbody > tr:not(.s-id12) {
+  display: none;
+}
+
+.svw:has(#svr-id13:checked) .sv-lt > tbody > tr:not(.s-id13) {
+  display: none;
+}
+
+.svw:has(#svr-cb0:checked) .sv-lt > tbody > tr:not(.s-cb0) {
+  display: none;
+}
+
+.svw:has(#svr-cb1:checked) .sv-lt > tbody > tr:not(.s-cb1) {
+  display: none;
+}
+
+.svw:has(#svr-cb2:checked) .sv-lt > tbody > tr:not(.s-cb2) {
+  display: none;
+}
+
+.svw:has(#svr-cb3:checked) .sv-lt > tbody > tr:not(.s-cb3) {
+  display: none;
+}
+
+.svw:has(#svr-cb4:checked) .sv-lt > tbody > tr:not(.s-cb4) {
+  display: none;
+}
+
+.svw:has(#svr-cb5:checked) .sv-lt > tbody > tr:not(.s-cb5) {
+  display: none;
+}
+
+.svw:has(#svr-cb6:checked) .sv-lt > tbody > tr:not(.s-cb6) {
+  display: none;
+}
+
+.svw:has(#svr-cb7:checked) .sv-lt > tbody > tr:not(.s-cb7) {
+  display: none;
+}
+
+.svw:has(#svr-cb8:checked) .sv-lt > tbody > tr:not(.s-cb8) {
+  display: none;
+}
+
+.svw:has(#svr-cb9:checked) .sv-lt > tbody > tr:not(.s-cb9) {
+  display: none;
+}
+
+.svw:has(#svr-cb10:checked) .sv-lt > tbody > tr:not(.s-cb10) {
+  display: none;
+}
+
+.svw:has(#svr-cb11:checked) .sv-lt > tbody > tr:not(.s-cb11) {
+  display: none;
+}
+
+.svw:has(#svr-cb12:checked) .sv-lt > tbody > tr:not(.s-cb12) {
+  display: none;
+}
+
+.svw:has(#svr-cb13:checked) .sv-lt > tbody > tr:not(.s-cb13) {
+  display: none;
+}
+
+.svw:has(#svr-cl0:checked) .sv-lt > tbody > tr:not(.s-cl0) {
+  display: none;
+}
+
+.svw:has(#svr-cl1:checked) .sv-lt > tbody > tr:not(.s-cl1) {
+  display: none;
+}
+
+.svw:has(#svr-cl2:checked) .sv-lt > tbody > tr:not(.s-cl2) {
+  display: none;
+}
+
+.svw:has(#svr-cl3:checked) .sv-lt > tbody > tr:not(.s-cl3) {
+  display: none;
+}
+
+.svw:has(#svr-cl4:checked) .sv-lt > tbody > tr:not(.s-cl4) {
+  display: none;
+}
+
+.svw:has(#svr-cl5:checked) .sv-lt > tbody > tr:not(.s-cl5) {
+  display: none;
+}
+
+.svw:has(#svr-cl6:checked) .sv-lt > tbody > tr:not(.s-cl6) {
+  display: none;
+}
+
+.svw:has(#svr-cl7:checked) .sv-lt > tbody > tr:not(.s-cl7) {
+  display: none;
+}
+
+.svw:has(#svr-cl8:checked) .sv-lt > tbody > tr:not(.s-cl8) {
+  display: none;
+}
+
+.svw:has(#svr-cl9:checked) .sv-lt > tbody > tr:not(.s-cl9) {
+  display: none;
+}
+
+.svw:has(#svr-cl10:checked) .sv-lt > tbody > tr:not(.s-cl10) {
+  display: none;
+}
+
+.svw:has(#svr-cl11:checked) .sv-lt > tbody > tr:not(.s-cl11) {
+  display: none;
+}
+
+.svw:has(#svr-cl12:checked) .sv-lt > tbody > tr:not(.s-cl12) {
+  display: none;
+}
+
+.svw:has(#svr-cl13:checked) .sv-lt > tbody > tr:not(.s-cl13) {
+  display: none;
+}
+
+.svw:has(#svr-cd0:checked) .sv-lt > tbody > tr:not(.s-cd0) {
+  display: none;
+}
+
+.svw:has(#svr-cd1:checked) .sv-lt > tbody > tr:not(.s-cd1) {
+  display: none;
+}
+
+.svw:has(#svr-cd2:checked) .sv-lt > tbody > tr:not(.s-cd2) {
+  display: none;
+}
+
+.svw:has(#svr-cd3:checked) .sv-lt > tbody > tr:not(.s-cd3) {
+  display: none;
+}
+
+.svw:has(#svr-cd4:checked) .sv-lt > tbody > tr:not(.s-cd4) {
+  display: none;
+}
+
+.svw:has(#svr-cd5:checked) .sv-lt > tbody > tr:not(.s-cd5) {
+  display: none;
+}
+
+.svw:has(#svr-cd6:checked) .sv-lt > tbody > tr:not(.s-cd6) {
+  display: none;
+}
+
+.svw:has(#svr-cd7:checked) .sv-lt > tbody > tr:not(.s-cd7) {
+  display: none;
+}
+
+.svw:has(#svr-cd8:checked) .sv-lt > tbody > tr:not(.s-cd8) {
+  display: none;
+}
+
+.svw:has(#svr-cd9:checked) .sv-lt > tbody > tr:not(.s-cd9) {
+  display: none;
+}
+
+.svw:has(#svr-cd10:checked) .sv-lt > tbody > tr:not(.s-cd10) {
+  display: none;
+}
+
+.svw:has(#svr-cd11:checked) .sv-lt > tbody > tr:not(.s-cd11) {
+  display: none;
+}
+
+.svw:has(#svr-cd12:checked) .sv-lt > tbody > tr:not(.s-cd12) {
+  display: none;
+}
+
+.svw:has(#svr-cd13:checked) .sv-lt > tbody > tr:not(.s-cd13) {
+  display: none;
+}
+
+.svw:has(#svr-tb0:checked) .sv-lt > tbody > tr:not(.s-tb0) {
+  display: none;
+}
+
+.svw:has(#svr-tb1:checked) .sv-lt > tbody > tr:not(.s-tb1) {
+  display: none;
+}
+
+.svw:has(#svr-tb2:checked) .sv-lt > tbody > tr:not(.s-tb2) {
+  display: none;
+}
+
+.svw:has(#svr-tb3:checked) .sv-lt > tbody > tr:not(.s-tb3) {
+  display: none;
+}
+
+.svw:has(#svr-tb4:checked) .sv-lt > tbody > tr:not(.s-tb4) {
+  display: none;
+}
+
+.svw:has(#svr-tb5:checked) .sv-lt > tbody > tr:not(.s-tb5) {
+  display: none;
+}
+
+.svw:has(#svr-tb6:checked) .sv-lt > tbody > tr:not(.s-tb6) {
+  display: none;
+}
+
+.svw:has(#svr-tb7:checked) .sv-lt > tbody > tr:not(.s-tb7) {
+  display: none;
+}
+
+.svw:has(#svr-tb8:checked) .sv-lt > tbody > tr:not(.s-tb8) {
+  display: none;
+}
+
+.svw:has(#svr-tb9:checked) .sv-lt > tbody > tr:not(.s-tb9) {
+  display: none;
+}
+
+.svw:has(#svr-tb10:checked) .sv-lt > tbody > tr:not(.s-tb10) {
+  display: none;
+}
+
+.svw:has(#svr-tb11:checked) .sv-lt > tbody > tr:not(.s-tb11) {
+  display: none;
+}
+
+.svw:has(#svr-tb12:checked) .sv-lt > tbody > tr:not(.s-tb12) {
+  display: none;
+}
+
+.svw:has(#svr-tb13:checked) .sv-lt > tbody > tr:not(.s-tb13) {
+  display: none;
+}
+
+.svw:has(#svr-tl0:checked) .sv-lt > tbody > tr:not(.s-tl0) {
+  display: none;
+}
+
+.svw:has(#svr-tl1:checked) .sv-lt > tbody > tr:not(.s-tl1) {
+  display: none;
+}
+
+.svw:has(#svr-tl2:checked) .sv-lt > tbody > tr:not(.s-tl2) {
+  display: none;
+}
+
+.svw:has(#svr-tl3:checked) .sv-lt > tbody > tr:not(.s-tl3) {
+  display: none;
+}
+
+.svw:has(#svr-tl4:checked) .sv-lt > tbody > tr:not(.s-tl4) {
+  display: none;
+}
+
+.svw:has(#svr-tl5:checked) .sv-lt > tbody > tr:not(.s-tl5) {
+  display: none;
+}
+
+.svw:has(#svr-tl6:checked) .sv-lt > tbody > tr:not(.s-tl6) {
+  display: none;
+}
+
+.svw:has(#svr-tl7:checked) .sv-lt > tbody > tr:not(.s-tl7) {
+  display: none;
+}
+
+.svw:has(#svr-tl8:checked) .sv-lt > tbody > tr:not(.s-tl8) {
+  display: none;
+}
+
+.svw:has(#svr-tl9:checked) .sv-lt > tbody > tr:not(.s-tl9) {
+  display: none;
+}
+
+.svw:has(#svr-tl10:checked) .sv-lt > tbody > tr:not(.s-tl10) {
+  display: none;
+}
+
+.svw:has(#svr-tl11:checked) .sv-lt > tbody > tr:not(.s-tl11) {
+  display: none;
+}
+
+.svw:has(#svr-tl12:checked) .sv-lt > tbody > tr:not(.s-tl12) {
+  display: none;
+}
+
+.svw:has(#svr-tl13:checked) .sv-lt > tbody > tr:not(.s-tl13) {
+  display: none;
+}
+
+.svw:has(#svr-td0:checked) .sv-lt > tbody > tr:not(.s-td0) {
+  display: none;
+}
+
+.svw:has(#svr-td1:checked) .sv-lt > tbody > tr:not(.s-td1) {
+  display: none;
+}
+
+.svw:has(#svr-td2:checked) .sv-lt > tbody > tr:not(.s-td2) {
+  display: none;
+}
+
+.svw:has(#svr-td3:checked) .sv-lt > tbody > tr:not(.s-td3) {
+  display: none;
+}
+
+.svw:has(#svr-td4:checked) .sv-lt > tbody > tr:not(.s-td4) {
+  display: none;
+}
+
+.svw:has(#svr-td5:checked) .sv-lt > tbody > tr:not(.s-td5) {
+  display: none;
+}
+
+.svw:has(#svr-td6:checked) .sv-lt > tbody > tr:not(.s-td6) {
+  display: none;
+}
+
+.svw:has(#svr-td7:checked) .sv-lt > tbody > tr:not(.s-td7) {
+  display: none;
+}
+
+.svw:has(#svr-td8:checked) .sv-lt > tbody > tr:not(.s-td8) {
+  display: none;
+}
+
+.svw:has(#svr-td9:checked) .sv-lt > tbody > tr:not(.s-td9) {
+  display: none;
+}
+
+.svw:has(#svr-td10:checked) .sv-lt > tbody > tr:not(.s-td10) {
+  display: none;
+}
+
+.svw:has(#svr-td11:checked) .sv-lt > tbody > tr:not(.s-td11) {
+  display: none;
+}
+
+.svw:has(#svr-td12:checked) .sv-lt > tbody > tr:not(.s-td12) {
+  display: none;
+}
+
+.svw:has(#svr-td13:checked) .sv-lt > tbody > tr:not(.s-td13) {
+  display: none;
+}
+
+.svw:has(#svr-ab0:checked) .xd:not(.xd-b0),
+.svw:has(#svr-ab1:checked) .xd:not(.xd-b1),
+.svw:has(#svr-ab2:checked) .xd:not(.xd-b2),
+.svw:has(#svr-ab3:checked) .xd:not(.xd-b3),
+.svw:has(#svr-ab4:checked) .xd:not(.xd-b4),
+.svw:has(#svr-ab5:checked) .xd:not(.xd-b5),
+.svw:has(#svr-ab6:checked) .xd:not(.xd-b6),
+.svw:has(#svr-ab7:checked) .xd:not(.xd-b7),
+.svw:has(#svr-ab8:checked) .xd:not(.xd-b8),
+.svw:has(#svr-ab9:checked) .xd:not(.xd-b9),
+.svw:has(#svr-ab10:checked) .xd:not(.xd-b10),
+.svw:has(#svr-ab11:checked) .xd:not(.xd-b11),
+.svw:has(#svr-ab12:checked) .xd:not(.xd-b12),
+.svw:has(#svr-ab13:checked) .xd:not(.xd-b13),
+.svw:has(#svr-al0:checked) .xd:not(.xd-l0),
+.svw:has(#svr-al1:checked) .xd:not(.xd-l1),
+.svw:has(#svr-al2:checked) .xd:not(.xd-l2),
+.svw:has(#svr-al3:checked) .xd:not(.xd-l3),
+.svw:has(#svr-al4:checked) .xd:not(.xd-l4),
+.svw:has(#svr-al5:checked) .xd:not(.xd-l5),
+.svw:has(#svr-al6:checked) .xd:not(.xd-l6),
+.svw:has(#svr-al7:checked) .xd:not(.xd-l7),
+.svw:has(#svr-al8:checked) .xd:not(.xd-l8),
+.svw:has(#svr-al9:checked) .xd:not(.xd-l9),
+.svw:has(#svr-al10:checked) .xd:not(.xd-l10),
+.svw:has(#svr-al11:checked) .xd:not(.xd-l11),
+.svw:has(#svr-al12:checked) .xd:not(.xd-l12),
+.svw:has(#svr-al13:checked) .xd:not(.xd-l13),
+.svw:has(#svr-ad0:checked) .xd:not(.xd-d0),
+.svw:has(#svr-ad1:checked) .xd:not(.xd-d1),
+.svw:has(#svr-ad2:checked) .xd:not(.xd-d2),
+.svw:has(#svr-ad3:checked) .xd:not(.xd-d3),
+.svw:has(#svr-ad4:checked) .xd:not(.xd-d4),
+.svw:has(#svr-ad5:checked) .xd:not(.xd-d5),
+.svw:has(#svr-ad6:checked) .xd:not(.xd-d6),
+.svw:has(#svr-ad7:checked) .xd:not(.xd-d7),
+.svw:has(#svr-ad8:checked) .xd:not(.xd-d8),
+.svw:has(#svr-ad9:checked) .xd:not(.xd-d9),
+.svw:has(#svr-ad10:checked) .xd:not(.xd-d10),
+.svw:has(#svr-ad11:checked) .xd:not(.xd-d11),
+.svw:has(#svr-ad12:checked) .xd:not(.xd-d12),
+.svw:has(#svr-ad13:checked) .xd:not(.xd-d13),
+.svw:has(#svr-ib0:checked) .xd:not(.xd-b0),
+.svw:has(#svr-ib1:checked) .xd:not(.xd-b1),
+.svw:has(#svr-ib2:checked) .xd:not(.xd-b2),
+.svw:has(#svr-ib3:checked) .xd:not(.xd-b3),
+.svw:has(#svr-ib4:checked) .xd:not(.xd-b4),
+.svw:has(#svr-ib5:checked) .xd:not(.xd-b5),
+.svw:has(#svr-ib6:checked) .xd:not(.xd-b6),
+.svw:has(#svr-ib7:checked) .xd:not(.xd-b7),
+.svw:has(#svr-ib8:checked) .xd:not(.xd-b8),
+.svw:has(#svr-ib9:checked) .xd:not(.xd-b9),
+.svw:has(#svr-ib10:checked) .xd:not(.xd-b10),
+.svw:has(#svr-ib11:checked) .xd:not(.xd-b11),
+.svw:has(#svr-ib12:checked) .xd:not(.xd-b12),
+.svw:has(#svr-ib13:checked) .xd:not(.xd-b13),
+.svw:has(#svr-il0:checked) .xd:not(.xd-l0),
+.svw:has(#svr-il1:checked) .xd:not(.xd-l1),
+.svw:has(#svr-il2:checked) .xd:not(.xd-l2),
+.svw:has(#svr-il3:checked) .xd:not(.xd-l3),
+.svw:has(#svr-il4:checked) .xd:not(.xd-l4),
+.svw:has(#svr-il5:checked) .xd:not(.xd-l5),
+.svw:has(#svr-il6:checked) .xd:not(.xd-l6),
+.svw:has(#svr-il7:checked) .xd:not(.xd-l7),
+.svw:has(#svr-il8:checked) .xd:not(.xd-l8),
+.svw:has(#svr-il9:checked) .xd:not(.xd-l9),
+.svw:has(#svr-il10:checked) .xd:not(.xd-l10),
+.svw:has(#svr-il11:checked) .xd:not(.xd-l11),
+.svw:has(#svr-il12:checked) .xd:not(.xd-l12),
+.svw:has(#svr-il13:checked) .xd:not(.xd-l13),
+.svw:has(#svr-id0:checked) .xd:not(.xd-d0),
+.svw:has(#svr-id1:checked) .xd:not(.xd-d1),
+.svw:has(#svr-id2:checked) .xd:not(.xd-d2),
+.svw:has(#svr-id3:checked) .xd:not(.xd-d3),
+.svw:has(#svr-id4:checked) .xd:not(.xd-d4),
+.svw:has(#svr-id5:checked) .xd:not(.xd-d5),
+.svw:has(#svr-id6:checked) .xd:not(.xd-d6),
+.svw:has(#svr-id7:checked) .xd:not(.xd-d7),
+.svw:has(#svr-id8:checked) .xd:not(.xd-d8),
+.svw:has(#svr-id9:checked) .xd:not(.xd-d9),
+.svw:has(#svr-id10:checked) .xd:not(.xd-d10),
+.svw:has(#svr-id11:checked) .xd:not(.xd-d11),
+.svw:has(#svr-id12:checked) .xd:not(.xd-d12),
+.svw:has(#svr-id13:checked) .xd:not(.xd-d13),
+.svw:has(#svr-cb0:checked) .xd:not(.xd-b0),
+.svw:has(#svr-cb1:checked) .xd:not(.xd-b1),
+.svw:has(#svr-cb2:checked) .xd:not(.xd-b2),
+.svw:has(#svr-cb3:checked) .xd:not(.xd-b3),
+.svw:has(#svr-cb4:checked) .xd:not(.xd-b4),
+.svw:has(#svr-cb5:checked) .xd:not(.xd-b5),
+.svw:has(#svr-cb6:checked) .xd:not(.xd-b6),
+.svw:has(#svr-cb7:checked) .xd:not(.xd-b7),
+.svw:has(#svr-cb8:checked) .xd:not(.xd-b8),
+.svw:has(#svr-cb9:checked) .xd:not(.xd-b9),
+.svw:has(#svr-cb10:checked) .xd:not(.xd-b10),
+.svw:has(#svr-cb11:checked) .xd:not(.xd-b11),
+.svw:has(#svr-cb12:checked) .xd:not(.xd-b12),
+.svw:has(#svr-cb13:checked) .xd:not(.xd-b13),
+.svw:has(#svr-cl0:checked) .xd:not(.xd-l0),
+.svw:has(#svr-cl1:checked) .xd:not(.xd-l1),
+.svw:has(#svr-cl2:checked) .xd:not(.xd-l2),
+.svw:has(#svr-cl3:checked) .xd:not(.xd-l3),
+.svw:has(#svr-cl4:checked) .xd:not(.xd-l4),
+.svw:has(#svr-cl5:checked) .xd:not(.xd-l5),
+.svw:has(#svr-cl6:checked) .xd:not(.xd-l6),
+.svw:has(#svr-cl7:checked) .xd:not(.xd-l7),
+.svw:has(#svr-cl8:checked) .xd:not(.xd-l8),
+.svw:has(#svr-cl9:checked) .xd:not(.xd-l9),
+.svw:has(#svr-cl10:checked) .xd:not(.xd-l10),
+.svw:has(#svr-cl11:checked) .xd:not(.xd-l11),
+.svw:has(#svr-cl12:checked) .xd:not(.xd-l12),
+.svw:has(#svr-cl13:checked) .xd:not(.xd-l13),
+.svw:has(#svr-cd0:checked) .xd:not(.xd-d0),
+.svw:has(#svr-cd1:checked) .xd:not(.xd-d1),
+.svw:has(#svr-cd2:checked) .xd:not(.xd-d2),
+.svw:has(#svr-cd3:checked) .xd:not(.xd-d3),
+.svw:has(#svr-cd4:checked) .xd:not(.xd-d4),
+.svw:has(#svr-cd5:checked) .xd:not(.xd-d5),
+.svw:has(#svr-cd6:checked) .xd:not(.xd-d6),
+.svw:has(#svr-cd7:checked) .xd:not(.xd-d7),
+.svw:has(#svr-cd8:checked) .xd:not(.xd-d8),
+.svw:has(#svr-cd9:checked) .xd:not(.xd-d9),
+.svw:has(#svr-cd10:checked) .xd:not(.xd-d10),
+.svw:has(#svr-cd11:checked) .xd:not(.xd-d11),
+.svw:has(#svr-cd12:checked) .xd:not(.xd-d12),
+.svw:has(#svr-cd13:checked) .xd:not(.xd-d13),
+.svw:has(#svr-tb0:checked) .xd:not(.xd-b0),
+.svw:has(#svr-tb1:checked) .xd:not(.xd-b1),
+.svw:has(#svr-tb2:checked) .xd:not(.xd-b2),
+.svw:has(#svr-tb3:checked) .xd:not(.xd-b3),
+.svw:has(#svr-tb4:checked) .xd:not(.xd-b4),
+.svw:has(#svr-tb5:checked) .xd:not(.xd-b5),
+.svw:has(#svr-tb6:checked) .xd:not(.xd-b6),
+.svw:has(#svr-tb7:checked) .xd:not(.xd-b7),
+.svw:has(#svr-tb8:checked) .xd:not(.xd-b8),
+.svw:has(#svr-tb9:checked) .xd:not(.xd-b9),
+.svw:has(#svr-tb10:checked) .xd:not(.xd-b10),
+.svw:has(#svr-tb11:checked) .xd:not(.xd-b11),
+.svw:has(#svr-tb12:checked) .xd:not(.xd-b12),
+.svw:has(#svr-tb13:checked) .xd:not(.xd-b13),
+.svw:has(#svr-tl0:checked) .xd:not(.xd-l0),
+.svw:has(#svr-tl1:checked) .xd:not(.xd-l1),
+.svw:has(#svr-tl2:checked) .xd:not(.xd-l2),
+.svw:has(#svr-tl3:checked) .xd:not(.xd-l3),
+.svw:has(#svr-tl4:checked) .xd:not(.xd-l4),
+.svw:has(#svr-tl5:checked) .xd:not(.xd-l5),
+.svw:has(#svr-tl6:checked) .xd:not(.xd-l6),
+.svw:has(#svr-tl7:checked) .xd:not(.xd-l7),
+.svw:has(#svr-tl8:checked) .xd:not(.xd-l8),
+.svw:has(#svr-tl9:checked) .xd:not(.xd-l9),
+.svw:has(#svr-tl10:checked) .xd:not(.xd-l10),
+.svw:has(#svr-tl11:checked) .xd:not(.xd-l11),
+.svw:has(#svr-tl12:checked) .xd:not(.xd-l12),
+.svw:has(#svr-tl13:checked) .xd:not(.xd-l13),
+.svw:has(#svr-td0:checked) .xd:not(.xd-d0),
+.svw:has(#svr-td1:checked) .xd:not(.xd-d1),
+.svw:has(#svr-td2:checked) .xd:not(.xd-d2),
+.svw:has(#svr-td3:checked) .xd:not(.xd-d3),
+.svw:has(#svr-td4:checked) .xd:not(.xd-d4),
+.svw:has(#svr-td5:checked) .xd:not(.xd-d5),
+.svw:has(#svr-td6:checked) .xd:not(.xd-d6),
+.svw:has(#svr-td7:checked) .xd:not(.xd-d7),
+.svw:has(#svr-td8:checked) .xd:not(.xd-d8),
+.svw:has(#svr-td9:checked) .xd:not(.xd-d9),
+.svw:has(#svr-td10:checked) .xd:not(.xd-d10),
+.svw:has(#svr-td11:checked) .xd:not(.xd-d11),
+.svw:has(#svr-td12:checked) .xd:not(.xd-d12),
+.svw:has(#svr-td13:checked) .xd:not(.xd-d13) {
+  display: none;
+}
+
+.svw:has(select[name="sv-s"] option[value="b"]:checked) .sv-r:not(.sv-r--b) {
+  display: none;
+}
+
+.svw:has(select[name="sv-s"] option[value="l"]:checked) .sv-r:not(.sv-r--l) {
+  display: none;
+}
+
+.svw:has(select[name="sv-s"] option[value="d"]:checked) .sv-r:not(.sv-r--d) {
+  display: none;
+}
+
+.svw:has(select[name="sv-g"] option[value="i"]:checked) :is(.sv-g, .sv-r):not(.sv-g--i, .sv-in-i) {
+  display: none;
+}
+
+.svw:has(select[name="sv-g"] option[value="c"]:checked) :is(.sv-g, .sv-r):not(.sv-g--c, .sv-in-c) {
+  display: none;
+}
+
+.svw:has(select[name="sv-g"] option[value="t"]:checked) :is(.sv-g, .sv-r):not(.sv-g--t, .sv-in-t) {
+  display: none;
+}

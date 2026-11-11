@@ -1,0 +1,126 @@
+/* ad-06-number-series-registry.css */
+.ad-ed {
+  display: none;
+  gap: 12px;
+}
+
+#ad-ed:has(#e-s01:target) .ad-ed[data-s="s01"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s02:target) .ad-ed[data-s="s02"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s03:target) .ad-ed[data-s="s03"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s04:target) .ad-ed[data-s="s04"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s05:target) .ad-ed[data-s="s05"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s06:target) .ad-ed[data-s="s06"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s07:target) .ad-ed[data-s="s07"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s08:target) .ad-ed[data-s="s08"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s09:target) .ad-ed[data-s="s09"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s10:target) .ad-ed[data-s="s10"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s11:target) .ad-ed[data-s="s11"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s12:target) .ad-ed[data-s="s12"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s13:target) .ad-ed[data-s="s13"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s14:target) .ad-ed[data-s="s14"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s15:target) .ad-ed[data-s="s15"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s16:target) .ad-ed[data-s="s16"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s17:target) .ad-ed[data-s="s17"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s18:target) .ad-ed[data-s="s18"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s19:target) .ad-ed[data-s="s19"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s20:target) .ad-ed[data-s="s20"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s21:target) .ad-ed[data-s="s21"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s22:target) .ad-ed[data-s="s22"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s23:target) .ad-ed[data-s="s23"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s24:target) .ad-ed[data-s="s24"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s25:target) .ad-ed[data-s="s25"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s26:target) .ad-ed[data-s="s26"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s27:target) .ad-ed[data-s="s27"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s28:target) .ad-ed[data-s="s28"] {
+  display: grid;
+}
+
+#ad-ed:has(#e-s29:target) .ad-ed[data-s="s29"] {
+  display: grid;
+}
+
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

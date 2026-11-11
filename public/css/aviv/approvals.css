@@ -1,0 +1,316 @@
+/* approvals.css: shared parts of the Dashboards & Approvals (DA) screens – request cards of the inbox, approval detail,
+   history timeline, briefing sections. Brand colours only through the theme variables (docs/THEME.md); status colours literal.
+   Uses ed-* / hr-* parts of hr.css and the occupancy colours of revenue.css. Phone / tablet rules inside max-width queries. */
+
+.da-cards {
+  display: grid;
+  gap: 12px;
+}
+
+.da-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.da-card--late {
+  box-shadow: inset 0 0 0 1px #e5a3a3, var(--sh-1);
+  background: linear-gradient(90deg, #fdf3f3, var(--surface) 40%);
+}
+
+.da-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.da-mod {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.da-card__t {
+  font-size: 15px;
+}
+
+.da-card__w {
+  margin: 6px 0 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.da-card__m {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 8px 0 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.da-card__m > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.da-card__a {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.da-card__b {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.da-sel {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+}
+
+.da-where {
+  font-weight: 600;
+}
+
+.da-big {
+  margin: 4px 0;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.da-pers {
+  margin-top: 16px;
+}
+
+.da-pers > form {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.da-pers__a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.da-chain {
+  display: block;
+}
+
+.rv-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 6px 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+/* ───── approval detail ───── */
+.da-detail .ed-hero {
+  margin-bottom: 16px;
+}
+
+.da-form {
+  display: block;
+}
+
+.da-dec {
+  display: grid;
+  gap: 8px;
+}
+
+.da-att {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.da-att > li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.da-tl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.da-tl > li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 0 0 16px 22px;
+  border-left: 2px solid var(--line);
+  margin-left: 6px;
+  font-size: 13px;
+}
+
+.da-tl > li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--em-600);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.da-tl > li:last-child {
+  padding-bottom: 0;
+}
+
+.da-tl small {
+  color: var(--ink-3);
+}
+
+/* ───── briefing ───── */
+.da-brief {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.da-bs {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.da-bs p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.da-asg > form {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.rv-bul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+@media (max-width: 1024px) {
+  .da-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .da-card__a {
+    grid-column: 1 / -1;
+    justify-items: start;
+  }
+
+  .da-card__b {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .da-card {
+    padding: 14px;
+  }
+}
+
+/* ───── report library cards (AN-01) ───── */
+.an-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.an-card {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.an-card__h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.an-card__t {
+  font-size: 14.5px;
+  line-height: 1.3;
+}
+
+.an-card__d,
+.an-card__m {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.an-card__a {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.an-star {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.an-star:has(input:checked) {
+  color: #c88a16;
+}
+
+.an-star:has(input:checked) .icon {
+  fill: currentcolor;
+}
+
+.an-view:has(#c-av:not(:checked)) .c-av {
+  display: none;
+}

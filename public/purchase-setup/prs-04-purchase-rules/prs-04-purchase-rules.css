@@ -1,0 +1,66 @@
+/* prs-04-purchase-rules.css: quotations by value, price and GRN tolerance, budget mode, direct PO roles, MSME rule, worked example. */
+.pr-msme {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #e8f0fb;
+  color: #1d3f6e;
+  font-size: 13px;
+}
+
+.pr-ex {
+  display: grid;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: linear-gradient(115deg, var(--em-50, #eef5f1) 0%, #f7f8f1 55%, #fbf6e8 100%);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.pr-ex__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-weight: 650;
+}
+
+.pr-ex__l {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.pr-ex__l > div {
+  display: grid;
+  grid-template-columns: 70px 100px minmax(0, 1fr);
+  gap: 12px;
+  font-size: 13px;
+}
+
+.pr-ex__l dt {
+  color: var(--ink-3);
+}
+
+.pr-ex__l dd {
+  margin: 0;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 760px) {
+  .pr-ex__l > div {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .pr-ex__l dd:last-child {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,56 @@
+/* acs-01-chart-of-accounts.css: chart of accounts with group views and edit pop-ups. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-assets:target) .hv__v[data-v="v-assets"],
+#main:has(#v-liabilities:target) .hv__v[data-v="v-liabilities"],
+#main:has(#v-equity:target) .hv__v[data-v="v-equity"],
+#main:has(#v-income:target) .hv__v[data-v="v-income"],
+#main:has(#v-expenses:target) .hv__v[data-v="v-expenses"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-assets:target) .ch-row:not(.ch-g-assets),
+#main:has(#v-liabilities:target) .ch-row:not(.ch-g-liabilities),
+#main:has(#v-equity:target) .ch-row:not(.ch-g-equity),
+#main:has(#v-income:target) .ch-row:not(.ch-g-income),
+#main:has(#v-expenses:target) .ch-row:not(.ch-g-expenses) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.cc-banner {
+  margin: 0;
+}
+
+.bp-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ch-usali {
+  white-space: normal;
+}
+
+[data-code="ACS-01-accounts"] td:nth-child(2) {
+  min-width: 250px;
+}
+
+[data-code="ACS-01-accounts"] td:nth-child(4) {
+  min-width: 230px;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#imported:target) #t-imported,
+body:has(#loaded:target) #t-loaded {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

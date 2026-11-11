@@ -1,0 +1,39 @@
+/* rt-06-room-service-orders.css: figures, orders with tracking status (Ordered … Tray cleared), Assign delivery / Delivered / Tray cleared after-states, new order form. */
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.ird-new {
+  display: none;
+}
+
+.irw:has(#ordered:target) .lf-new {
+  display: table-row;
+}
+
+.irw:has(#ordered:target) #t-ordered { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4614, #dlv-4614, #tray-4614):target) #ird-4614 .ird-now { display: none; }
+.irw:has(:is(#asg-4614, #dlv-4614, #tray-4614):target) #ird-4614 .ird-new { display: inline-flex; }
+.irw:has(#asg-4614:target) #t-asg-4614, .irw:has(#dlv-4614:target) #t-dlv-4614, .irw:has(#tray-4614:target) #t-tray-4614 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4613, #dlv-4613, #tray-4613):target) #ird-4613 .ird-now { display: none; }
+.irw:has(:is(#asg-4613, #dlv-4613, #tray-4613):target) #ird-4613 .ird-new { display: inline-flex; }
+.irw:has(#asg-4613:target) #t-asg-4613, .irw:has(#dlv-4613:target) #t-dlv-4613, .irw:has(#tray-4613:target) #t-tray-4613 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4612, #dlv-4612, #tray-4612):target) #ird-4612 .ird-now { display: none; }
+.irw:has(:is(#asg-4612, #dlv-4612, #tray-4612):target) #ird-4612 .ird-new { display: inline-flex; }
+.irw:has(#asg-4612:target) #t-asg-4612, .irw:has(#dlv-4612:target) #t-dlv-4612, .irw:has(#tray-4612:target) #t-tray-4612 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4606, #dlv-4606, #tray-4606):target) #ird-4606 .ird-now { display: none; }
+.irw:has(:is(#asg-4606, #dlv-4606, #tray-4606):target) #ird-4606 .ird-new { display: inline-flex; }
+.irw:has(#asg-4606:target) #t-asg-4606, .irw:has(#dlv-4606:target) #t-dlv-4606, .irw:has(#tray-4606:target) #t-tray-4606 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4602, #dlv-4602, #tray-4602):target) #ird-4602 .ird-now { display: none; }
+.irw:has(:is(#asg-4602, #dlv-4602, #tray-4602):target) #ird-4602 .ird-new { display: inline-flex; }
+.irw:has(#asg-4602:target) #t-asg-4602, .irw:has(#dlv-4602:target) #t-dlv-4602, .irw:has(#tray-4602:target) #t-tray-4602 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4598, #dlv-4598, #tray-4598):target) #ird-4598 .ird-now { display: none; }
+.irw:has(:is(#asg-4598, #dlv-4598, #tray-4598):target) #ird-4598 .ird-new { display: inline-flex; }
+.irw:has(#asg-4598:target) #t-asg-4598, .irw:has(#dlv-4598:target) #t-dlv-4598, .irw:has(#tray-4598:target) #t-tray-4598 { display: flex; animation: av-rise 320ms var(--ease); }
+.irw:has(:is(#asg-4595, #dlv-4595, #tray-4595):target) #ird-4595 .ird-now { display: none; }
+.irw:has(:is(#asg-4595, #dlv-4595, #tray-4595):target) #ird-4595 .ird-new { display: inline-flex; }
+.irw:has(#asg-4595:target) #t-asg-4595, .irw:has(#dlv-4595:target) #t-dlv-4595, .irw:has(#tray-4595:target) #t-tray-4595 { display: flex; animation: av-rise 320ms var(--ease); }

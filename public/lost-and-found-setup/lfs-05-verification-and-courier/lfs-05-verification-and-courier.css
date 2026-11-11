@@ -1,0 +1,30 @@
+/* lfs-05-verification-and-courier.css: verification and courier settings in the title-rail layout of fds.css; courier partner list. */
+
+.fd-sec--wide .pgw,
+.fd-sec--wide .lf-cgrid,
+.fd-sec--wide .lf-conf {
+  grid-column: 2;
+  margin: 0 28px 16px;
+}
+
+.lf-url {
+  min-width: 320px;
+}
+
+.lf-fee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 180px;
+}
+
+.lf-conf {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fdf3dc;
+  color: #7a5200;
+  font-size: 13px;
+}

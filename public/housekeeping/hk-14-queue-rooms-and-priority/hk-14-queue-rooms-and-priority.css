@@ -1,0 +1,224 @@
+/* hk-14-queue-rooms-and-priority.css: Queue Rooms & Priority – hero, queue cards with a waiting meter (green, amber at
+   15 min, red at 30), room / attendant / expected ready, rush / suggest / notify actions with after-states, priority rooms. */
+.qw {
+  display: grid;
+  gap: 16px;
+}
+
+.qw-h {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.qc-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qc {
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  grid-template-areas: "w g r a" "w sug sug sug";
+  align-items: center;
+  gap: 10px 20px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+  scroll-margin-top: 120px;
+  --tone: #2f855a;
+}
+
+.qc--amber {
+  --tone: #b7791f;
+  box-shadow: 0 0 0 1px #f1dfb5;
+}
+
+.qc--red {
+  --tone: #c53030;
+  box-shadow: 0 0 0 1px #f3c4c4;
+}
+
+.qc:target {
+  box-shadow: 0 0 0 2px var(--em-500);
+}
+
+.qc__wait {
+  grid-area: w;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--tone) 10%, var(--surface));
+  color: var(--tone);
+}
+
+.qc__wait b {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.qc__wait small {
+  font-size: 11px;
+}
+
+.qc__bar {
+  width: 70px;
+  height: 5px;
+  margin-top: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.08);
+}
+
+.qc__bar i {
+  display: block;
+  height: 100%;
+  background: var(--tone);
+}
+
+.qc__g {
+  grid-area: g;
+  display: grid;
+  gap: 2px;
+}
+
+.qc__k {
+  color: var(--br-700);
+}
+
+.qc__g b {
+  font-size: 16px;
+}
+
+.qc__g small,
+.qc__r small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.qc__r {
+  grid-area: r;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qc__r div {
+  display: grid;
+}
+
+.qc__no {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.qc__a {
+  grid-area: a;
+  display: grid;
+  gap: 6px;
+}
+
+.qc__sug {
+  grid-area: sug;
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--br-50);
+  box-shadow: inset 0 0 0 1px var(--br-200);
+  font-size: 13px;
+}
+
+.qc__sug:target {
+  display: flex;
+}
+
+.qc__sug span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--br-700);
+  font-weight: 650;
+}
+
+.qc__sug ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qc__done {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: none;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #2f855a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.qw-later {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.qw-later .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+@media (max-width: 1100px) {
+  .qc {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas: "w g" "w r" "a a" "sug sug";
+  }
+
+  .qc__a {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+body:has(:is(#rush-505, #nfd-505):target) .tt-room::after { content: "505"; }
+body:has(#rush-505:target) #room-505 .qc__done { display: inline-flex; }
+body:has(#rush-505:target) #room-505 .qc__done-t::after { content: "Rush set now"; }
+body:has(#nfd-505:target) #room-505 .qc__done { display: inline-flex; }
+body:has(#nfd-505:target) #room-505 .qc__done-t::after { content: "Front desk notified"; }
+body:has(:is(#rush-305, #nfd-305):target) .tt-room::after { content: "305"; }
+body:has(#rush-305:target) #room-305 .qc__done { display: inline-flex; }
+body:has(#rush-305:target) #room-305 .qc__done-t::after { content: "Rush set now"; }
+body:has(#nfd-305:target) #room-305 .qc__done { display: inline-flex; }
+body:has(#nfd-305:target) #room-305 .qc__done-t::after { content: "Front desk notified"; }
+body:has(#rush-512:target) .tt-room::after { content: "512"; }
+body:has(#rush-205:target) .tt-room::after { content: "205"; }
+body:has(.pm[id^="rush-"]:target) #t-rush { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="nfd-"]:target) #t-nfd { display: flex; animation: av-rise 320ms var(--ease); }

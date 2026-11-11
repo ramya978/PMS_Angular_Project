@@ -1,0 +1,675 @@
+/* lg-08-devices.css: status views, approve / block after-states. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-active:target) .hv__v[data-v="v-active"],
+#main:has(#v-pending:target) .hv__v[data-v="v-pending"],
+#main:has(#v-offline:target) .hv__v[data-v="v-offline"],
+#main:has(#v-blocked:target) .hv__v[data-v="v-blocked"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-active:target) .lg-r:not(.rg-active),
+#main:has(#v-pending:target) .lg-r:not(.rg-pending),
+#main:has(#v-offline:target) .lg-r:not(.rg-offline),
+#main:has(#v-blocked:target) .lg-r:not(.rg-blocked) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.lg-who,
+.lg-go,
+.lg-st2 {
+  display: none;
+}
+
+body:has(#bk-dv-0101:target) #d-dv-0101 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0101:target) #d-dv-0101 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0101:target) #d-dv-0101 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0101:target) .lg-who[data-u="dv-0101"],
+#lg-cf8:has(#cf-dv-0101:target) .lg-go[data-u="dv-0101"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0102:target) #d-dv-0102 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0102:target) #d-dv-0102 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0102:target) #d-dv-0102 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0102:target) .lg-who[data-u="dv-0102"],
+#lg-cf8:has(#cf-dv-0102:target) .lg-go[data-u="dv-0102"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0103:target) #d-dv-0103 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0103:target) #d-dv-0103 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0103:target) #d-dv-0103 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0103:target) .lg-who[data-u="dv-0103"],
+#lg-cf8:has(#cf-dv-0103:target) .lg-go[data-u="dv-0103"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0104:target) #d-dv-0104 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0104:target) #d-dv-0104 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0104:target) #d-dv-0104 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0104:target) .lg-who[data-u="dv-0104"],
+#lg-cf8:has(#cf-dv-0104:target) .lg-go[data-u="dv-0104"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0105:target) #d-dv-0105 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0105:target) #d-dv-0105 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0105:target) #d-dv-0105 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0105:target) .lg-who[data-u="dv-0105"],
+#lg-cf8:has(#cf-dv-0105:target) .lg-go[data-u="dv-0105"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0106:target) #d-dv-0106 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0106:target) #d-dv-0106 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0106:target) #d-dv-0106 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0106:target) .lg-who[data-u="dv-0106"],
+#lg-cf8:has(#cf-dv-0106:target) .lg-go[data-u="dv-0106"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0107:target) #d-dv-0107 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0107:target) #d-dv-0107 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0107:target) #d-dv-0107 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0107:target) .lg-who[data-u="dv-0107"],
+#lg-cf8:has(#cf-dv-0107:target) .lg-go[data-u="dv-0107"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0108:target) #d-dv-0108 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0108:target) #d-dv-0108 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0108:target) #d-dv-0108 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0108:target) .lg-who[data-u="dv-0108"],
+#lg-cf8:has(#cf-dv-0108:target) .lg-go[data-u="dv-0108"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0109:target) #d-dv-0109 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0109:target) #d-dv-0109 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0109:target) #d-dv-0109 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0109:target) .lg-who[data-u="dv-0109"],
+#lg-cf8:has(#cf-dv-0109:target) .lg-go[data-u="dv-0109"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0201:target) #d-dv-0201 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0201:target) #d-dv-0201 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0201:target) #d-dv-0201 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0201:target) .lg-who[data-u="dv-0201"],
+#lg-cf8:has(#cf-dv-0201:target) .lg-go[data-u="dv-0201"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0202:target) #d-dv-0202 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0202:target) #d-dv-0202 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0202:target) #d-dv-0202 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0202:target) .lg-who[data-u="dv-0202"],
+#lg-cf8:has(#cf-dv-0202:target) .lg-go[data-u="dv-0202"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0203:target) #d-dv-0203 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0203:target) #d-dv-0203 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0203:target) #d-dv-0203 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0203:target) .lg-who[data-u="dv-0203"],
+#lg-cf8:has(#cf-dv-0203:target) .lg-go[data-u="dv-0203"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0204:target) #d-dv-0204 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0204:target) #d-dv-0204 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0204:target) #d-dv-0204 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0204:target) .lg-who[data-u="dv-0204"],
+#lg-cf8:has(#cf-dv-0204:target) .lg-go[data-u="dv-0204"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0301:target) #d-dv-0301 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0301:target) #d-dv-0301 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0301:target) #d-dv-0301 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0301:target) .lg-who[data-u="dv-0301"],
+#lg-cf8:has(#cf-dv-0301:target) .lg-go[data-u="dv-0301"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0302:target) #d-dv-0302 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0302:target) #d-dv-0302 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0302:target) #d-dv-0302 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0302:target) .lg-who[data-u="dv-0302"],
+#lg-cf8:has(#cf-dv-0302:target) .lg-go[data-u="dv-0302"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0303:target) #d-dv-0303 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0303:target) #d-dv-0303 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0303:target) #d-dv-0303 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0303:target) .lg-who[data-u="dv-0303"],
+#lg-cf8:has(#cf-dv-0303:target) .lg-go[data-u="dv-0303"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0304:target) #d-dv-0304 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0304:target) #d-dv-0304 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0304:target) #d-dv-0304 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0304:target) .lg-who[data-u="dv-0304"],
+#lg-cf8:has(#cf-dv-0304:target) .lg-go[data-u="dv-0304"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0305:target) #d-dv-0305 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0305:target) #d-dv-0305 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0305:target) #d-dv-0305 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0305:target) .lg-who[data-u="dv-0305"],
+#lg-cf8:has(#cf-dv-0305:target) .lg-go[data-u="dv-0305"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0306:target) #d-dv-0306 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0306:target) #d-dv-0306 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0306:target) #d-dv-0306 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0306:target) .lg-who[data-u="dv-0306"],
+#lg-cf8:has(#cf-dv-0306:target) .lg-go[data-u="dv-0306"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0307:target) #d-dv-0307 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0307:target) #d-dv-0307 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0307:target) #d-dv-0307 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0307:target) .lg-who[data-u="dv-0307"],
+#lg-cf8:has(#cf-dv-0307:target) .lg-go[data-u="dv-0307"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0401:target) #d-dv-0401 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0401:target) #d-dv-0401 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0401:target) #d-dv-0401 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0401:target) .lg-who[data-u="dv-0401"],
+#lg-cf8:has(#cf-dv-0401:target) .lg-go[data-u="dv-0401"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0402:target) #d-dv-0402 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0402:target) #d-dv-0402 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0402:target) #d-dv-0402 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0402:target) .lg-who[data-u="dv-0402"],
+#lg-cf8:has(#cf-dv-0402:target) .lg-go[data-u="dv-0402"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0403:target) #d-dv-0403 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0403:target) #d-dv-0403 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0403:target) #d-dv-0403 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0403:target) .lg-who[data-u="dv-0403"],
+#lg-cf8:has(#cf-dv-0403:target) .lg-go[data-u="dv-0403"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0404:target) #d-dv-0404 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0404:target) #d-dv-0404 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0404:target) #d-dv-0404 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0404:target) .lg-who[data-u="dv-0404"],
+#lg-cf8:has(#cf-dv-0404:target) .lg-go[data-u="dv-0404"] {
+  display: inline;
+}
+
+body:has(#ap-dv-0405:target) #d-dv-0405 .lg-st {
+  display: none;
+}
+
+body:has(#ap-dv-0405:target) #d-dv-0405 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#ap-dv-0405:target) #d-dv-0405 {
+  background: var(--ok-bg);
+}
+
+body:has(#bk-dv-0406:target) #d-dv-0406 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0406:target) #d-dv-0406 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0406:target) #d-dv-0406 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0406:target) .lg-who[data-u="dv-0406"],
+#lg-cf8:has(#cf-dv-0406:target) .lg-go[data-u="dv-0406"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0501:target) #d-dv-0501 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0501:target) #d-dv-0501 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0501:target) #d-dv-0501 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0501:target) .lg-who[data-u="dv-0501"],
+#lg-cf8:has(#cf-dv-0501:target) .lg-go[data-u="dv-0501"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0502:target) #d-dv-0502 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0502:target) #d-dv-0502 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0502:target) #d-dv-0502 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0502:target) .lg-who[data-u="dv-0502"],
+#lg-cf8:has(#cf-dv-0502:target) .lg-go[data-u="dv-0502"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0503:target) #d-dv-0503 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0503:target) #d-dv-0503 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0503:target) #d-dv-0503 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0503:target) .lg-who[data-u="dv-0503"],
+#lg-cf8:has(#cf-dv-0503:target) .lg-go[data-u="dv-0503"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0601:target) #d-dv-0601 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0601:target) #d-dv-0601 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0601:target) #d-dv-0601 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0601:target) .lg-who[data-u="dv-0601"],
+#lg-cf8:has(#cf-dv-0601:target) .lg-go[data-u="dv-0601"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0602:target) #d-dv-0602 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0602:target) #d-dv-0602 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0602:target) #d-dv-0602 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0602:target) .lg-who[data-u="dv-0602"],
+#lg-cf8:has(#cf-dv-0602:target) .lg-go[data-u="dv-0602"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0603:target) #d-dv-0603 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0603:target) #d-dv-0603 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0603:target) #d-dv-0603 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0603:target) .lg-who[data-u="dv-0603"],
+#lg-cf8:has(#cf-dv-0603:target) .lg-go[data-u="dv-0603"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0604:target) #d-dv-0604 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0604:target) #d-dv-0604 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0604:target) #d-dv-0604 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0604:target) .lg-who[data-u="dv-0604"],
+#lg-cf8:has(#cf-dv-0604:target) .lg-go[data-u="dv-0604"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0605:target) #d-dv-0605 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0605:target) #d-dv-0605 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0605:target) #d-dv-0605 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0605:target) .lg-who[data-u="dv-0605"],
+#lg-cf8:has(#cf-dv-0605:target) .lg-go[data-u="dv-0605"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0606:target) #d-dv-0606 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0606:target) #d-dv-0606 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0606:target) #d-dv-0606 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0606:target) .lg-who[data-u="dv-0606"],
+#lg-cf8:has(#cf-dv-0606:target) .lg-go[data-u="dv-0606"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0607:target) #d-dv-0607 .lg-st {
+  display: none;
+}
+
+body:has(#bk-dv-0607:target) #d-dv-0607 .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#bk-dv-0607:target) #d-dv-0607 {
+  background: var(--bad-bg);
+}
+
+#lg-cf8:has(#cf-dv-0607:target) .lg-who[data-u="dv-0607"],
+#lg-cf8:has(#cf-dv-0607:target) .lg-go[data-u="dv-0607"] {
+  display: inline;
+}
+
+body:has(#bk-dv-0101:target) #t-bk-dv-0101,
+body:has(#bk-dv-0102:target) #t-bk-dv-0102,
+body:has(#bk-dv-0103:target) #t-bk-dv-0103,
+body:has(#bk-dv-0104:target) #t-bk-dv-0104,
+body:has(#bk-dv-0105:target) #t-bk-dv-0105,
+body:has(#bk-dv-0106:target) #t-bk-dv-0106,
+body:has(#bk-dv-0107:target) #t-bk-dv-0107,
+body:has(#bk-dv-0108:target) #t-bk-dv-0108,
+body:has(#bk-dv-0109:target) #t-bk-dv-0109,
+body:has(#bk-dv-0201:target) #t-bk-dv-0201,
+body:has(#bk-dv-0202:target) #t-bk-dv-0202,
+body:has(#bk-dv-0203:target) #t-bk-dv-0203,
+body:has(#bk-dv-0204:target) #t-bk-dv-0204,
+body:has(#bk-dv-0301:target) #t-bk-dv-0301,
+body:has(#bk-dv-0302:target) #t-bk-dv-0302,
+body:has(#bk-dv-0303:target) #t-bk-dv-0303,
+body:has(#bk-dv-0304:target) #t-bk-dv-0304,
+body:has(#bk-dv-0305:target) #t-bk-dv-0305,
+body:has(#bk-dv-0306:target) #t-bk-dv-0306,
+body:has(#bk-dv-0307:target) #t-bk-dv-0307,
+body:has(#bk-dv-0401:target) #t-bk-dv-0401,
+body:has(#bk-dv-0402:target) #t-bk-dv-0402,
+body:has(#bk-dv-0403:target) #t-bk-dv-0403,
+body:has(#bk-dv-0404:target) #t-bk-dv-0404,
+body:has(#ap-dv-0405:target) #t-ap-dv-0405,
+body:has(#bk-dv-0406:target) #t-bk-dv-0406,
+body:has(#bk-dv-0501:target) #t-bk-dv-0501,
+body:has(#bk-dv-0502:target) #t-bk-dv-0502,
+body:has(#bk-dv-0503:target) #t-bk-dv-0503,
+body:has(#bk-dv-0601:target) #t-bk-dv-0601,
+body:has(#bk-dv-0602:target) #t-bk-dv-0602,
+body:has(#bk-dv-0603:target) #t-bk-dv-0603,
+body:has(#bk-dv-0604:target) #t-bk-dv-0604,
+body:has(#bk-dv-0605:target) #t-bk-dv-0605,
+body:has(#bk-dv-0606:target) #t-bk-dv-0606,
+body:has(#bk-dv-0607:target) #t-bk-dv-0607 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

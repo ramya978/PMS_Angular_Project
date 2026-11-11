@@ -1,0 +1,5 @@
+/* ac-06-account-ledger-summary.css: export toast; the tree styles are in ledger.css. */
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

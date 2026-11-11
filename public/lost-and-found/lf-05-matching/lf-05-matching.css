@@ -1,0 +1,272 @@
+/* lf-05-matching.css: one card per open lost report with its suggested found items, score ring, reasons, Confirm match / Not a match after-states. */
+.mtw {
+  gap: 14px;
+}
+
+/* a match board: the lost report on the left (tinted pane), what the engine found for it on the right */
+.mt {
+  --mt-l: 330px;
+  display: grid;
+  grid-template-columns: var(--mt-l) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "h list" "r list";
+  align-items: start;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--em-50) var(--mt-l), var(--line) var(--mt-l) calc(var(--mt-l) + 1px), var(--surface) calc(var(--mt-l) + 1px));
+}
+
+.mt-h {
+  grid-area: h;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 18px 20px 0;
+}
+
+.mt-h::before {
+  content: "Lost report";
+  flex-basis: 100%;
+  color: var(--br-700);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.mt-h .lf-no {
+  font-size: 15px;
+}
+
+.mt-h .fd-muted {
+  flex-basis: 100%;
+  font-size: 12px;
+}
+
+.mt-r {
+  grid-area: r;
+  margin: 0;
+  padding: 10px 20px 20px;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.mt-r b:first-child {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mt-list {
+  grid-area: list;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 18px 20px 20px;
+  list-style: none;
+}
+
+.mt-list::before {
+  content: "Suggested found items";
+  color: var(--br-700);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.mt-s {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "item score" "why why" "acts acts";
+  align-items: center;
+  gap: 10px 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), 0 10px 20px -18px rgb(var(--deep-rgb, 14 26 43) / 0.45);
+}
+
+.mt-s > .lf-it {
+  grid-area: item;
+}
+
+.mt-s > .mt-score {
+  grid-area: score;
+}
+
+.mt-s > .mt-why {
+  grid-area: why;
+}
+
+.mt-s > .mt-a {
+  grid-area: acts;
+}
+
+.mt-s > .mt-hidden {
+  grid-area: why;
+}
+
+.mt-s--weak {
+  --ring: #b7791f;
+  background: var(--surface-2);
+}
+
+/* score ring: the share is drawn as a circle, the figure sits inside */
+.mt-score {
+  --ring: var(--em-600);
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: conic-gradient(var(--ring) calc(var(--p) * 1%), var(--line) 0);
+  line-height: 1.1;
+}
+
+.mt-score::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.mt-s--weak .mt-score::before {
+  background: var(--surface-2);
+}
+
+.mt-score > * {
+  position: relative;
+}
+
+.mt-score b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.mt-score small {
+  color: var(--ink-3);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* why it scored: a chip per signal, green when it agrees, grey when it does not */
+.mt-why {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mt-why li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px 3px 8px;
+  border-radius: 999px;
+  background: var(--ok-bg);
+  color: #226b46;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mt-why li:has(use[href$="#x"]) {
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+}
+
+.mt-a {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.mt-a form {
+  margin: 0;
+}
+
+.mt-hidden {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mt-none {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.mt-none > .icon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+}
+
+@media (max-width: 900px) {
+  .mt {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "h" "r" "list";
+    background: var(--surface);
+  }
+
+  .mt-h,
+  .mt-r {
+    background: var(--em-50);
+  }
+
+  .mt-r {
+    padding-bottom: 16px;
+  }
+}
+
+.mt--new {
+  display: none;
+}
+
+.mtw:has(#r-0030:target) .mt--new {
+  display: grid;
+  box-shadow: 0 0 0 2px var(--em-600);
+}
+.mtw:has(#nm-0028-0107:target) #s-0028-0107 { opacity: 0.55; }
+.mtw:has(#nm-0028-0107:target) #s-0028-0107 > :is(.mt-a, .mt-why) { display: none; }
+.mtw:has(#nm-0028-0107:target) #s-0028-0107 > .mt-hidden { display: inline-flex; }
+.mtw:has(#nm-0028-0107:target) #t-nm-0028-0107 { display: flex; animation: av-rise 320ms var(--ease); }
+.mtw:has(#nm-0028-0108:target) #s-0028-0108 { opacity: 0.55; }
+.mtw:has(#nm-0028-0108:target) #s-0028-0108 > :is(.mt-a, .mt-why) { display: none; }
+.mtw:has(#nm-0028-0108:target) #s-0028-0108 > .mt-hidden { display: inline-flex; }
+.mtw:has(#nm-0028-0108:target) #t-nm-0028-0108 { display: flex; animation: av-rise 320ms var(--ease); }
+.mtw:has(#nm-0026-0110:target) #s-0026-0110 { opacity: 0.55; }
+.mtw:has(#nm-0026-0110:target) #s-0026-0110 > :is(.mt-a, .mt-why) { display: none; }
+.mtw:has(#nm-0026-0110:target) #s-0026-0110 > .mt-hidden { display: inline-flex; }
+.mtw:has(#nm-0026-0110:target) #t-nm-0026-0110 { display: flex; animation: av-rise 320ms var(--ease); }
+.mtw:has(#nm-0030-0105:target) #s-0030-0105 { opacity: 0.55; }
+.mtw:has(#nm-0030-0105:target) #s-0030-0105 > :is(.mt-a, .mt-why) { display: none; }
+.mtw:has(#nm-0030-0105:target) #s-0030-0105 > .mt-hidden { display: inline-flex; }
+.mtw:has(#nm-0030-0105:target) #t-nm-0030-0105 { display: flex; animation: av-rise 320ms var(--ease); }

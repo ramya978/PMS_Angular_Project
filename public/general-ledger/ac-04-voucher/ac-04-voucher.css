@@ -1,0 +1,19 @@
+/* ac-04-voucher.css: voucher type tiles, conditional party / bank fields and the line grid. */
+.gl-vform:has(input[value="Journal"]:checked) .gl-only-pr,
+.gl-vform:has(input[value="Journal"]:checked) .gl-only-bank,
+.gl-vform:has(input[value="Contra"]:checked) .gl-only-pr {
+  display: none;
+}
+
+.gl-vform:has(input[value="Payment"]:checked) #v-party,
+.gl-vform:has(input[value="Receipt"]:checked) #v-party {
+  border-color: var(--em-600);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#submitted:target) #t-submitted,
+body:has(#posted:target) #t-posted,
+body:has(#add-line:target) #t-add-line {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

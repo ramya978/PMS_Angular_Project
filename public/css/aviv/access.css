@@ -1,0 +1,310 @@
+/* access.css – User & Access Management (LG). Uses the Aviv tokens and owner.css components (ow-hero, ow-k, ow-card, ow-list).
+   Brand colours only through var(--em-* | --br-* | --gold | --deep); status colours literal. */
+
+/* hub cards of LG-01 */
+.lg-hubs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 14px;
+}
+
+.lg-hub {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow var(--t-fast, 150ms) var(--ease), transform var(--t-fast, 150ms) var(--ease);
+}
+
+.lg-hub:hover {
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-2);
+  transform: translateY(-2px);
+}
+
+.lg-hub__t {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 17px;
+}
+
+.lg-hub__t b {
+  flex: 1;
+  font-weight: 500;
+}
+
+.lg-hub__ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.lg-hub__s {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+/* role chips */
+.lg-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 1px 4px 1px 0;
+  padding: 1px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.lg-role--hr {
+  border-color: rgb(197 48 48 / .35);
+  background: rgb(197 48 48 / .06);
+  color: #9B2C2C;
+}
+
+.lg-sub {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lg-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lg-target {
+  display: none;
+}
+
+.lg-users td {
+  vertical-align: top;
+}
+
+/* permission matrix */
+.lg-mx {
+  display: grid;
+  gap: 10px;
+}
+
+.lg-mod {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.lg-mod > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lg-mod > summary .lg-mod__n {
+  flex: 1;
+  min-width: 180px;
+}
+
+.lg-mod > summary small {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.lg-mod[open] > summary {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2, var(--surface));
+}
+
+.lg-mod--none > summary {
+  color: var(--ink-3);
+}
+
+.lg-grid td.lg-c,
+.lg-grid th.lg-c {
+  width: 64px;
+  text-align: center;
+}
+
+.lg-grid td.lg-c .check {
+  justify-content: center;
+  min-height: 0;
+}
+
+/* a cell changed since the last save: the box is not in its saved (default) state */
+.lg-grid td.lg-c:has(.check__input:checked:not(:default)),
+.lg-grid td.lg-c:has(.check__input:default:not(:checked)) {
+  background: rgb(var(--gold-rgb, 200 169 106) / .28);
+  box-shadow: inset 0 0 0 2px rgb(var(--gold-rgb, 200 169 106) / .8);
+}
+
+.lg-grid td.lg-c--hr .check__box {
+  outline: 2px solid rgb(197 48 48 / .45);
+  outline-offset: 1px;
+}
+
+.lg-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.lg-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lg-legend i {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.lg-legend .lg-k1 {
+  background: rgb(var(--gold-rgb, 200 169 106) / .5);
+}
+
+.lg-legend .lg-k2 {
+  outline: 2px solid rgb(197 48 48 / .5);
+}
+
+.lg-grid select {
+  min-width: 150px;
+}
+
+/* limits grid */
+.lg-lim input {
+  min-width: 150px;
+}
+
+/* access review decisions */
+.lg-dec {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.lg-dec label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lg-dec input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lg-dec label:has(input:checked) {
+  border-color: var(--em-600);
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.lg-dec label.lg-dec--rm:has(input:checked) {
+  border-color: #C53030;
+  background: rgb(197 48 48 / .08);
+  color: #9B2C2C;
+}
+
+.lg-dec label:has(input:focus-visible) {
+  box-shadow: var(--ring);
+}
+
+@media (max-width: 760px) {
+  .lg-mod > summary {
+    padding: 10px 12px;
+  }
+}
+
+/* setup status tiles of LG-01 */
+.lg-setup {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 10px;
+}
+
+.lg-setup__t {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lg-setup__t:hover {
+  border-color: var(--em-600);
+}
+
+.lg-setup__t b {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.lg-setup__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lg-acts {
+  flex-wrap: nowrap;
+}
+
+.lg-ib {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+  justify-content: center;
+}
+
+.lg-users td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.lg-rolenav .hv__v[aria-current="page"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+.lg-rolenav {
+  flex-wrap: wrap;
+}
+
+.lg-lim__n {
+  min-width: 190px;
+}

@@ -1,0 +1,165 @@
+/* st-10-inventory-month-close.css: months, three-step wizard (radio steps), journal and the post / lock after-states. */
+.st-h {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.vn-wait {
+  margin: 0;
+}
+
+[data-code="ST-10-history"] :is(th, td),
+[data-code="ST-10-checks"] :is(th, td),
+[data-code="ST-10-journal"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+.lg-close td {
+  background: var(--surface-2);
+}
+
+/* steps */
+.cl-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cl-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cl-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.cl-step b {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.cl-step small {
+  font-size: 12px;
+}
+
+.cl-wiz:has(#cl-s1:checked) .cl-step--1,
+.cl-wiz:has(#cl-s2:checked) .cl-step--2,
+.cl-wiz:has(#cl-s3:checked) .cl-step--3 {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 0 0 1.5px var(--em-600);
+  font-weight: 650;
+}
+
+.cl-wiz:has(#cl-s1:checked) .cl-step--1 b,
+.cl-wiz:has(#cl-s2:checked) .cl-step--2 b,
+.cl-wiz:has(#cl-s3:checked) .cl-step--3 b {
+  background: var(--em-600);
+  color: #fff;
+}
+
+.cl-s {
+  display: none;
+}
+
+.cl-wiz:has(#cl-s1:checked) .cl-s1,
+.cl-wiz:has(#cl-s2:checked) .cl-s2,
+.cl-wiz:has(#cl-s3:checked) .cl-s3 {
+  display: grid;
+}
+
+.cl-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cl-nav .btn {
+  cursor: pointer;
+}
+
+/* the lock button appears after posting */
+.cl-lock {
+  display: none;
+}
+
+.cl-lock-off {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+body:has(#posted:target) .cl-lock,
+body:has(#locked:target) .cl-lock {
+  display: inline-flex;
+}
+
+body:has(#posted:target) .cl-lock-off,
+body:has(#locked:target) .cl-lock-off,
+body:has(#locked:target) .cl-post {
+  display: none;
+}
+
+/* after a post or lock the wizard opens on step 3 */
+body:has(#posted:target) .cl-wiz .cl-s:not(.cl-s3),
+body:has(#locked:target) .cl-wiz .cl-s:not(.cl-s3),
+body:has(#lock:target) .cl-wiz .cl-s:not(.cl-s3) {
+  display: none;
+}
+
+body:has(#posted:target) .cl-wiz .cl-s3,
+body:has(#locked:target) .cl-wiz .cl-s3,
+body:has(#lock:target) .cl-wiz .cl-s3 {
+  display: grid;
+}
+
+.cl-after {
+  display: none;
+}
+
+body:has(#posted:target) .cl-after--posted,
+body:has(#locked:target) .cl-after--locked {
+  display: flex;
+}
+
+body:has(:is(#posted, #locked):target) .cl-demo {
+  display: none;
+}
+
+[data-code="ST-10-closing"] :is(th, td) {
+  padding-inline: 10px;
+}
+
+@media (max-width: 760px) {
+  .cl-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body:has(#posted:target) #t-posted,
+body:has(#locked:target) #t-locked {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

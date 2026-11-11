@@ -1,0 +1,17 @@
+@if (shown()) {
+<div class="pl-loading-screen" role="status" aria-live="polite" [style.--loader-art]="'url(/assets/loader/hotel-night.jpg)'">
+  <div class="pl-loading-art" aria-hidden="true"></div>
+  <div class="pl-loading-card">
+    <div class="pl-loading-mark" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" focusable="false"><use href="/assets/icons/sprite.svg#leaf"></use></svg>
+    </div>
+    <div class="pl-loading-brand">Aviv PMS</div>
+    <div class="pl-loading-title">{{ title() }}</div>
+    <div class="pl-loading-bar" aria-hidden="true"><span></span></div>
+    <div class="pl-loading-text">Opening…</div>
+    @if (slow()) {
+    <p class="pl-loading-hint">This screen is large, so the first open can take a little while. If nothing appears after about 30 seconds, reload the page.</p>
+    }
+  </div>
+</div>
+}

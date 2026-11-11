@@ -1,0 +1,14 @@
+/* kt-01-kds-sign-in-and-station.css: choose the station of this screen (large touch targets). */
+.kt-sign {
+  max-width: 520px;
+}
+
+.kt-a {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.kt-a .btn {
+  min-height: 48px;
+}

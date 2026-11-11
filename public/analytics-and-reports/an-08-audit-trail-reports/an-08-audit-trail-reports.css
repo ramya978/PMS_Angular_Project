@@ -1,0 +1,18 @@
+/* an-08-audit-trail-reports.css – styles of AN-08 Audit Trail Reports (laptop rules; phone rules sit in max-width media queries). */
+
+.ac-tabs > input:nth-of-type(1):checked ~ .stabs__panels > .stabs__panel:nth-child(1),
+.ac-tabs > input:nth-of-type(2):checked ~ .stabs__panels > .stabs__panel:nth-child(2),
+.ac-tabs > input:nth-of-type(3):checked ~ .stabs__panels > .stabs__panel:nth-child(3),
+.ac-tabs > input:nth-of-type(4):checked ~ .stabs__panels > .stabs__panel:nth-child(4),
+.ac-tabs > input:nth-of-type(5):checked ~ .stabs__panels > .stabs__panel:nth-child(5),
+.ac-tabs > input:nth-of-type(6):checked ~ .stabs__panels > .stabs__panel:nth-child(6),
+.ac-tabs > input:nth-of-type(7):checked ~ .stabs__panels > .stabs__panel:nth-child(7),
+.ac-tabs > input:nth-of-type(8):checked ~ .stabs__panels > .stabs__panel:nth-child(8),
+.ac-tabs > input:nth-of-type(9):checked ~ .stabs__panels > .stabs__panel:nth-child(9) {
+  display: block;
+}
+
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

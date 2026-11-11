@@ -1,0 +1,159 @@
+/* restaurant.css: rules shared by the Restaurant POS (RT) screens, linked after engineering.css –
+   table tiles coloured by status, check lines, item buttons, veg / non-veg mark. Built only from the Aviv tokens. */
+
+/* table status: colour + icon + label */
+.tst--free { --hk: #2f855a; }
+.tst--seated { --hk: #2b6cb0; }
+.tst--ordered { --hk: #5b4bc4; }
+.tst--served { --hk: #0f766e; }
+.tst--billed { --hk: #b7791f; }
+.tst--paid { --hk: #c05621; }
+.tst--reserved { --hk: var(--br-600, #94722a); }
+.tst--blocked { --hk: #718096; }
+
+.ttile {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  min-height: 92px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--hk) 9%, var(--surface));
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--hk) 55%, var(--line));
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.ttile b {
+  font-size: 16px;
+}
+
+.ttile small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.ttile__s {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--hk);
+  font-weight: 650;
+}
+
+.ttile__s .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.ttile--round {
+  border-radius: 46px;
+  text-align: center;
+  justify-items: center;
+}
+
+/* veg / non-veg / egg mark */
+.rd {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rd i {
+  display: inline-grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+}
+
+.rd i::after {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.rd--veg { color: #2f855a; }
+.rd--nonveg { color: #9b2c2c; }
+.rd--egg { color: #b7791f; }
+
+/* item buttons of the order screen */
+.ibtn {
+  display: grid;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: inherit;
+  font-size: 12.5px;
+  text-decoration: none;
+  min-height: 64px;
+}
+
+.ibtn:hover {
+  box-shadow: 0 0 0 1.5px var(--em-600);
+}
+
+.ibtn--off {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ibtn b {
+  font-size: 13px;
+}
+
+/* check (order) lines */
+.chk-l {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 2px 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 13px;
+}
+
+.chk-l small {
+  grid-column: 2;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.chk-l--sent b::after {
+  margin-left: 6px;
+  color: var(--st-ready);
+  font-size: 11px;
+  content: "KOT sent";
+}
+
+.chk-tot {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.chk-tot dt {
+  color: var(--ink-3);
+}
+
+.chk-tot dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.chk-tot .chk-total {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+}

@@ -1,0 +1,20 @@
+/* rv-07-restrictions-and-overbooking.css – styles of RV-07 Restrictions & Overbooking (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#published:target) #t-pub,
+body:has(#pattern:target) #t-pat,
+body:has(#gm:target) #t-gm {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.rv-pat {
+  display: grid;
+  grid-template-columns: minmax(240px, 2fr) repeat(2, minmax(150px, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .rv-pat {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

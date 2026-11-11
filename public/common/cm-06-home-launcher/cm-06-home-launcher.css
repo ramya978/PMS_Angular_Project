@@ -1,0 +1,255 @@
+/* CM-06 Home launcher – the page every user lands on after sign-in.
+   No content at all (user 2026-11-04): one full-page scene of the hotel at blue hour on the
+   Kochi backwaters. Windows light up floor by floor, the Chinese fishing nets dip, a houseboat
+   drifts past, palms sway. The menu and top bar stay; every module opens from the menu.
+   HTML + CSS only. Colours come from the theme variables (docs/THEME.md), never literals. */
+
+main#main {
+  position: relative;
+  max-width: none;
+  padding: 0;
+  min-height: 0;
+}
+
+/* The help box stays in the page for the screen code; it would be content on the scene. */
+main#main > .helpbox {
+  display: none;
+}
+
+.zsc {
+  --zsc-gold: var(--gold, #c8a96a);
+  --zsc-deep: var(--deep, #0e1a2b);
+  --zsc-deep2: var(--deep-2, var(--deep, #0e1a2b));
+  --zsc-brand: var(--em-700, #174a3c);
+  --zsc-lit: color-mix(in srgb, var(--zsc-gold) 68%, #fff);
+  --zsc-sil: color-mix(in srgb, var(--zsc-deep2) 82%, #000);
+  --zsc-wood: color-mix(in srgb, var(--zsc-gold) 66%, var(--zsc-deep));
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--zsc-deep2);
+}
+
+/* Home Launcher Setup (CM-07) chose another design or a wallpaper: js puts it in .zhl */
+html[data-home] .zsc { display: none; }
+main#main > .zhl { margin: 0; }
+
+/* the shared rule that spaces page blocks must not push the scene down */
+main#main > .zsc {
+  margin: 0;
+}
+
+.zsc-l {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Sky ── */
+.zsc-s1 { stop-color: var(--zsc-deep2); }
+.zsc-s2 { stop-color: var(--zsc-deep); }
+.zsc-s3 { stop-color: color-mix(in srgb, var(--zsc-brand) 62%, var(--zsc-deep)); }
+.zsc-s4 { stop-color: color-mix(in srgb, var(--zsc-gold) 58%, var(--zsc-brand)); }
+.zsc-g1 { stop-color: var(--zsc-gold); stop-opacity: 0.55; }
+.zsc-g2 { stop-color: var(--zsc-gold); stop-opacity: 0.16; }
+.zsc-g3 { stop-color: var(--zsc-gold); stop-opacity: 0; }
+.zsc-d1 { stop-color: var(--zsc-lit); stop-opacity: 0.62; }
+.zsc-d2 { stop-color: var(--zsc-gold); stop-opacity: 0.08; }
+
+.zsc-rays line {
+  stroke: var(--zsc-gold);
+  stroke-opacity: 0.09;
+  stroke-width: 1;
+}
+
+.zsc-rings circle {
+  fill: none;
+  stroke: var(--zsc-gold);
+  stroke-opacity: 0.2;
+  stroke-width: 1;
+}
+
+.zsc-stars circle {
+  fill: var(--zsc-lit);
+  opacity: 0.75;
+}
+
+.zsc-stars .zsc-tw {
+  animation: zsc-twinkle var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+.zsc-cloud {
+  fill: var(--zsc-lit);
+  opacity: 0.07;
+  animation: zsc-cloud var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+.zsc-birds {
+  fill: none;
+  stroke: var(--zsc-sil);
+  stroke-linecap: round;
+  stroke-width: 2;
+  animation: zsc-birds 85s linear -22s infinite;
+}
+
+/* ── Hotel ── */
+.zsc-trees { fill: color-mix(in srgb, var(--zsc-brand) 42%, var(--zsc-deep2)); }
+.zsc-t1 { stop-color: var(--zsc-deep2); }
+.zsc-t2 { stop-color: color-mix(in srgb, var(--zsc-brand) 32%, var(--zsc-deep)); }
+.zsc-b2 { fill: color-mix(in srgb, var(--zsc-brand) 16%, var(--zsc-deep2)); }
+.zsc-roof { fill: color-mix(in srgb, var(--zsc-gold) 22%, var(--zsc-deep2)); }
+.zsc-podium { fill: var(--zsc-sil); }
+.zsc-bank { fill: var(--zsc-sil); }
+
+.zsc-cap {
+  fill: none;
+  stroke: var(--zsc-gold);
+  stroke-opacity: 0.75;
+  stroke-width: 1.5;
+}
+
+.zsc-spire {
+  fill: none;
+  stroke: var(--zsc-gold);
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+.zsc-spine { fill: var(--zsc-lit); opacity: 0.8; }
+.zsc-win-dim rect { fill: var(--zsc-gold); opacity: 0.1; }
+.zsc-win-refl rect { fill: var(--zsc-lit); opacity: 0.8; }
+.zsc-arch { fill: var(--zsc-lit); opacity: 0.92; }
+
+/* ── Water ── */
+.zsc-w1 { stop-color: color-mix(in srgb, var(--zsc-gold) 44%, var(--zsc-brand)); }
+.zsc-w2 { stop-color: color-mix(in srgb, var(--zsc-brand) 58%, var(--zsc-deep)); }
+.zsc-w3 { stop-color: var(--zsc-deep2); }
+.zsc-f1 { stop-color: var(--zsc-deep2); stop-opacity: 0; }
+.zsc-f2 { stop-color: var(--zsc-deep2); stop-opacity: 0.88; }
+
+.zsc-dash {
+  fill: var(--zsc-lit);
+  animation: zsc-shimmer var(--t) ease-in-out var(--d) infinite;
+}
+
+/* ── Windows light up floor by floor, a few then change through the day ── */
+.zsc-on {
+  fill: var(--zsc-lit);
+  animation: zsc-light 900ms ease-out var(--d) both;
+}
+
+.zsc-on--tw {
+  animation:
+    zsc-light 900ms ease-out var(--d) both,
+    zsc-room var(--t) ease-in-out var(--e) infinite;
+}
+
+/* ── Chinese fishing nets ── */
+.zsc-wood {
+  fill: none;
+  stroke: var(--zsc-wood);
+  stroke-linecap: round;
+  stroke-width: 2.4;
+}
+
+.zsc-wood--b { stroke-width: 4; }
+.zsc-stone { fill: var(--zsc-wood); }
+.zsc-netfill { fill: var(--zsc-gold); opacity: 0.16; }
+
+.zsc-mesh {
+  fill: none;
+  stroke: var(--zsc-lit);
+  stroke-opacity: 0.7;
+  stroke-width: 0.9;
+}
+
+.zsc-arm {
+  transform-origin: 0 0;
+  animation: zsc-dip 18s ease-in-out var(--d) infinite;
+}
+
+.zsc-hang {
+  transform-origin: -190px -130px;
+  animation: zsc-undip 18s ease-in-out var(--d) infinite;
+}
+
+/* ── Houseboat ── */
+.zsc-boat { animation: zsc-sail 130s linear -38s infinite; }
+.zsc-boat__hull { fill: var(--zsc-sil); }
+.zsc-boat__roof { fill: color-mix(in srgb, var(--zsc-gold) 30%, var(--zsc-deep)); }
+.zsc-boat__win { fill: var(--zsc-lit); }
+.zsc-boat__glow { fill: none; stroke: var(--zsc-lit); stroke-opacity: 0.4; stroke-width: 1.4; }
+
+.zsc-boat__lines {
+  fill: none;
+  stroke: var(--zsc-sil);
+  stroke-width: 1.2;
+}
+
+/* ── Foreground ── */
+.zsc-near,
+.zsc-palm path { fill: var(--zsc-sil); }
+.zsc-palm--far path { fill: color-mix(in srgb, var(--zsc-brand) 24%, var(--zsc-deep2)); }
+
+.zsc-crown {
+  transform-origin: var(--o);
+  animation: zsc-sway 11s ease-in-out var(--d) infinite alternate;
+}
+
+.zsc-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgb(var(--deep-rgb, 14 26 43) / 0.5) 100%);
+}
+
+@keyframes zsc-twinkle { from { opacity: 0.2; } to { opacity: 1; } }
+@keyframes zsc-cloud { from { transform: translateX(-70px); } to { transform: translateX(70px); } }
+@keyframes zsc-birds { from { transform: translate(-120px, 300px); } to { transform: translate(1720px, 150px); } }
+@keyframes zsc-light { from { opacity: 0; } to { opacity: 0.94; } }
+@keyframes zsc-room { 0%, 42%, 100% { opacity: 0.94; } 50%, 86% { opacity: 0.08; } }
+@keyframes zsc-shimmer {
+  0%, 100% { opacity: 0.08; transform: translateX(-7px); }
+  50% { opacity: 0.5; transform: translateX(7px); }
+}
+@keyframes zsc-dip { 0%, 22%, 100% { transform: rotate(0deg); } 50%, 72% { transform: rotate(-32deg); } }
+@keyframes zsc-undip { 0%, 22%, 100% { transform: rotate(0deg); } 50%, 72% { transform: rotate(32deg); } }
+@keyframes zsc-sail { from { transform: translate(-240px, 742px); } to { transform: translate(1800px, 742px); } }
+@keyframes zsc-sway { from { transform: rotate(-1.5deg); } to { transform: rotate(1.5deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .zsc *,
+  .zsc-on,
+  .zsc-on--tw { animation: none; }
+  .zsc-boat { transform: translate(1040px, 742px); }
+  .zsc-birds { transform: translate(380px, 190px); }
+  .zsc-on { opacity: 0.94; }
+  .zsc-dash { opacity: 0.35; }
+}
+
+/* Phone: keep the whole hotel in frame; the sky above continues in the scene background. */
+@media (max-width: 760px) {
+  .zsc {
+    background:
+      radial-gradient(1.2px 1.2px at 12% 8%, var(--zsc-lit), transparent),
+      radial-gradient(1px 1px at 30% 18%, var(--zsc-lit), transparent),
+      radial-gradient(1.4px 1.4px at 48% 6%, var(--zsc-lit), transparent),
+      radial-gradient(1px 1px at 66% 14%, var(--zsc-lit), transparent),
+      radial-gradient(1.2px 1.2px at 84% 7%, var(--zsc-lit), transparent),
+      radial-gradient(1px 1px at 92% 20%, var(--zsc-lit), transparent),
+      radial-gradient(1px 1px at 6% 22%, var(--zsc-lit), transparent),
+      var(--zsc-deep2);
+  }
+
+  .zsc-l {
+    top: auto;
+    bottom: 0;
+    height: min(100%, 160vw);
+  }
+}
+
+@media print {
+  .zsc { display: none; }
+}

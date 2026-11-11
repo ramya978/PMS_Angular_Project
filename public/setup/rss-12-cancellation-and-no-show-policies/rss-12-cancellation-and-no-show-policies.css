@@ -1,0 +1,261 @@
+/* rss-12-cancellation-and-no-show-policies.css
+   Summary strip on top, then one full-width lane per policy: name and use on the left, the charge
+   timeline across the middle (booking → arrival → no-show, coloured by how much is charged) and the
+   guest text on the right. */
+
+/* ───────── summary strip ───────── */
+.cx-sum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background:
+    radial-gradient(60% 140% at 0% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.12), transparent 60%),
+    var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.cx-sum__fig {
+  flex: 1 1 0;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 14px 24px;
+}
+
+.cx-sum__fig + .cx-sum__fig {
+  box-shadow: inset 1px 0 0 var(--line);
+}
+
+.cx-sum__fig strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.cx-sum__fig span {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.cx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 10px 24px;
+  list-style: none;
+  border-radius: 0 0 16px 16px;
+  background: var(--surface-2);
+  box-shadow: inset 0 1px 0 var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cx-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cx-legend li::before {
+  content: "";
+  width: 22px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--c);
+}
+
+.cx-legend li.cx-step--ns::before {
+  background: repeating-linear-gradient(90deg, var(--c) 0 5px, transparent 5px 8px);
+}
+
+/* ───────── one lane per policy ───────── */
+.cx-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.cx-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 270px) minmax(0, 1fr) minmax(240px, 310px);
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "head steps quote"
+    "foot steps quote";
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: box-shadow var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+
+.cx-card:hover {
+  box-shadow: 0 0 0 1px var(--line-strong), var(--sh-2);
+  transform: translateY(-2px);
+}
+
+.cx-head {
+  grid-area: head;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 22px 0;
+}
+
+.cx-head .s-card-title {
+  font-size: 17px;
+}
+
+.cx-foot {
+  grid-area: foot;
+  padding: 14px 22px 20px;
+  border-top: 0;
+}
+
+/* the timeline: steps side by side, each a coloured segment of the bar */
+.cx-steps {
+  grid-area: steps;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  align-content: center;
+  gap: 0;
+  padding: 44px 28px 26px;
+  background: var(--surface-2);
+  box-shadow: inset 1px 0 0 var(--line), inset -1px 0 0 var(--line);
+}
+
+/* axis caption above the bar */
+.cx-steps::before {
+  content: "Charge if the guest cancels";
+  top: 16px;
+  left: 28px;
+  bottom: auto;
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 1;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cx-step {
+  flex-direction: column;
+  padding: 22px 14px 0 0;
+}
+
+.cx-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 3px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--c);
+  opacity: 0.85;
+}
+
+.cx-dot {
+  left: -1px;
+  top: -3px;
+  z-index: 1;
+}
+
+.cx-step strong {
+  font-size: 14px;
+}
+
+/* no-show sits after the arrival line, drawn dashed */
+.cx-step--ns {
+  margin-left: 18px;
+}
+
+.cx-step--ns::before {
+  background: repeating-linear-gradient(90deg, var(--c) 0 7px, transparent 7px 11px);
+}
+
+/* arrival marker in the gap before the no-show segment */
+.cx-step--ns::after {
+  content: "Arrival";
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  padding-bottom: 14px;
+  background: linear-gradient(var(--ink-3), var(--ink-3)) 50% 100% / 2px 12px no-repeat;
+  line-height: 16px;
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+/* guest text */
+.cx-quote {
+  grid-area: quote;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 0;
+  background:
+    radial-gradient(90% 90% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.12), transparent 70%),
+    var(--surface);
+  box-shadow: none;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.cx-quote::before {
+  content: "Guest text";
+  color: var(--br-700);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1240px) {
+  .cx-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "head foot"
+      "steps steps"
+      "quote quote";
+  }
+
+  .cx-foot {
+    align-self: start;
+    padding: 20px 22px 0;
+  }
+
+  .cx-head {
+    padding-bottom: 18px;
+  }
+
+  .cx-steps {
+    box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-card,
+  .cx-card:hover {
+    transition: none;
+    transform: none;
+  }
+}

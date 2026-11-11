@@ -1,0 +1,17 @@
+/* fd-11-requests-complaints.css – styles of FD-11 Requests & Complaints (laptop rules; phone rules sit in max-width media queries). */
+
+.rq:has(#f-req:target) .rq-r:not(.k-req) {
+  display: none;
+}
+
+.rq:has(#f-cmp:target) .rq-r:not(.k-cmp) {
+  display: none;
+}
+
+.rq:has(#f-open:target) .rq-r:not(.is-open) {
+  display: none;
+}
+
+.rq:has(#f-over:target) .rq-r:not(.is-over) {
+  display: none;
+}

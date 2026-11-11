@@ -1,0 +1,33 @@
+/* fd-o10-guest-messages.css – styles of FD-O10 Welcome / thank-you / feedback messages (laptop rules; phone rules sit in max-width media queries). */
+
+.bubble {
+  max-width: 440px;
+  padding: 10px 14px;
+  border-radius: 14px 14px 14px 4px;
+  background: color-mix(in srgb, var(--st-ready) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--st-ready) 30%, transparent);
+}
+
+.bubble p {
+  margin: 0 0 6px;
+}
+
+.bubble__t {
+  font-size: 11px;
+  color: var(--text-2);
+  text-align: right;
+  margin: 0 !important;
+}
+
+/* record variants */
+#welcome:target ~ .v-welcome {
+  display: block;
+}
+
+#thanks:target ~ .v-thanks {
+  display: block;
+}
+
+#feedback:target ~ .v-feedback {
+  display: block;
+}

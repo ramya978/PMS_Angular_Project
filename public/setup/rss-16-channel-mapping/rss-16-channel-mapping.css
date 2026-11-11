@@ -1,0 +1,58 @@
+/* rss-16-channel-mapping.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* ── channel manager rate and OTA rates (2026-10-31) ── */
+.chr-card {
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.chr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+
+.chr-head .field__hint {
+  max-width: 720px;
+  margin: 2px 0 0;
+}
+
+.chr-acts {
+  display: flex;
+  gap: 8px;
+}
+
+.chr-sw {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.chr-scroll {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.chr-t .dt__td {
+  white-space: nowrap;
+}
+
+.chr-t tr.chr-master > td {
+  background: var(--em-50);
+}
+
+.chr-prev {
+  margin: 16px 0 8px;
+}
+
+.chr-t.chr-t.chr-t th {
+  white-space: nowrap;
+}

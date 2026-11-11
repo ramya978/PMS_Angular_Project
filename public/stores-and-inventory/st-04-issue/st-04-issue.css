@@ -1,0 +1,32 @@
+/* st-04-issue.css: requisitions waiting for issue, issue register and the issue forms (one per approved requisition). */
+.st-h {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.gr-no {
+  font-weight: 650;
+}
+
+
+[data-code="ST-04-list"] :is(th, td),
+[data-code="ST-04-wait"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="ST-04-list"] td:nth-child(3) {
+  min-width: 220px;
+  max-width: 300px;
+}
+
+.gr-acts {
+  display: flex;
+  gap: 6px;
+}
+
+.gr-off {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}

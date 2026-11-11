@@ -1,0 +1,22 @@
+/* kt-07-recall.css: recently bumped tickets with Recall after-state. */
+.rc-done {
+  display: none;
+}
+.rcw:has(#rec-0:target) #rc-0 .btn { display: none; }
+.rcw:has(#rec-0:target) #rc-0 .rc-done { display: inline; }
+.rcw:has(#rec-0:target) #t-rec-0 { display: flex; animation: av-rise 320ms var(--ease); }
+.rcw:has(#rec-1:target) #rc-1 .btn { display: none; }
+.rcw:has(#rec-1:target) #rc-1 .rc-done { display: inline; }
+.rcw:has(#rec-1:target) #t-rec-1 { display: flex; animation: av-rise 320ms var(--ease); }
+.rcw:has(#rec-2:target) #rc-2 .btn { display: none; }
+.rcw:has(#rec-2:target) #rc-2 .rc-done { display: inline; }
+.rcw:has(#rec-2:target) #t-rec-2 { display: flex; animation: av-rise 320ms var(--ease); }
+.rcw:has(#rec-3:target) #rc-3 .btn { display: none; }
+.rcw:has(#rec-3:target) #rc-3 .rc-done { display: inline; }
+.rcw:has(#rec-3:target) #t-rec-3 { display: flex; animation: av-rise 320ms var(--ease); }
+.rcw:has(#rec-4:target) #rc-4 .btn { display: none; }
+.rcw:has(#rec-4:target) #rc-4 .rc-done { display: inline; }
+.rcw:has(#rec-4:target) #t-rec-4 { display: flex; animation: av-rise 320ms var(--ease); }
+.rcw:has(#rec-5:target) #rc-5 .btn { display: none; }
+.rcw:has(#rec-5:target) #rc-5 .rc-done { display: inline; }
+.rcw:has(#rec-5:target) #t-rec-5 { display: flex; animation: av-rise 320ms var(--ease); }

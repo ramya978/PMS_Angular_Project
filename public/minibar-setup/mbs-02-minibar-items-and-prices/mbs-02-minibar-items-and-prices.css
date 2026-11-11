@@ -1,0 +1,256 @@
+/* mbs-02-minibar-items-and-prices.css: price-version timeline (Draft → Superseded), item list with views (CSS :has),
+   items without a price flagged, item form MBS-P01 (alcohol note shown when the Alcohol switch is on), after-states. */
+.pl-ver {
+  display: grid;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+.pl-ver__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+}
+
+.pv-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pvr {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+}
+
+.pvr--active {
+  background: var(--ok-bg);
+  box-shadow: inset 0 0 0 1px #c3e2d0;
+}
+
+.pvr small {
+  color: var(--ink-3);
+}
+
+.pvr__id {
+  font-weight: 700;
+}
+
+.pl-pend {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #eef0fb;
+  color: #3c3f86;
+  font-size: 13px;
+}
+
+body:has(#pending:target) .pl-pend {
+  display: flex;
+}
+
+.mi-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+
+.mi-views .hv__v {
+  cursor: pointer;
+}
+
+.mi-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.mi-cell > span:last-child {
+  display: grid;
+}
+
+.mi-t .dt__td,
+.mi-t .fd-sub {
+  white-space: nowrap;
+}
+
+.mi-pic {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.mi-pic--bev {
+  background: #e8f2fb;
+  color: #2b6cb0;
+}
+
+.mi-pic--snk {
+  background: #fdf3dc;
+  color: #946200;
+}
+
+.mi-pic--liq {
+  background: #f6e9f3;
+  color: #8a3b78;
+}
+
+.mi-t tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.mi-t tr.is-missing > td {
+  background: #fffaf2;
+}
+
+.mi-miss,
+.mi-pend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mi-miss {
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: #fdf3dc;
+  color: #946200;
+  font-size: 11.5px;
+  font-weight: 650;
+}
+
+.mi-pend {
+  color: #946200;
+}
+
+.mi-new,
+.mi-empty {
+  display: none;
+}
+
+body:has(#added:target) .mi-new {
+  display: table-row;
+}
+
+body:has(#added:target) .mi-new > td {
+  background: var(--ok-bg);
+}
+
+.mi-empty {
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.app:has(#mv-bev:checked) .mi-r:not(.k-bev),
+.app:has(#mv-snk:checked) .mi-r:not(.k-snk),
+.app:has(#mv-liq:checked) .mi-r:not(.k-liq),
+.app:has(#mv-miss:checked) .mi-r:not(.is-missing),
+.app:has(#mv-off:checked) .mi-r:not(.is-off) {
+  display: none;
+}
+
+.app:has(#mv-all:checked) .hv__v[for="mv-all"],
+.app:has(#mv-bev:checked) .hv__v[for="mv-bev"],
+.app:has(#mv-snk:checked) .hv__v[for="mv-snk"],
+.app:has(#mv-liq:checked) .hv__v[for="mv-liq"],
+.app:has(#mv-miss:checked) .hv__v[for="mv-miss"],
+.app:has(#mv-off:checked) .hv__v[for="mv-off"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+.mi-alc {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f6e9f3;
+  color: #6d2f5f;
+  font-size: 12.5px;
+}
+
+.modal:has(input[name="alcohol"]:checked) .mi-alc {
+  display: flex;
+}
+
+body:has(#saved-item:target) #t-item,
+body:has(#added:target) #t-added,
+body:has(#pending:target) #t-pend { display: flex; animation: av-rise 320ms var(--ease); }
+
+@media (max-width: 1100px) {
+  .pv-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Unit field of the item form: quantity + measuring unit side by side. */
+.mi-size__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.mi-size__row > input {
+  flex: 0 1 130px;
+  min-width: 90px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.mi-size__row > input::-webkit-outer-spin-button,
+.mi-size__row > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mi-size__row > .field__wrap {
+  flex: 1 1 120px;
+  min-width: 0;
+}
+
+/* Category and store-item columns share the width: long store-item names are cut with an ellipsis. */
+.mi-t td:nth-child(3) .fd-sub {
+  display: block;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mi-t td:nth-child(2) .fd-sub {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mi-t :is(th, td) {
+  padding-inline: 9px;
+}

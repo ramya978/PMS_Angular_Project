@@ -1,0 +1,226 @@
+/* report-viewer.css – styles of FD-22-1 Front Desk Reports – the “report viewer” tab / step (laptop rules; phone rules sit in max-width media queries). */
+
+.variants > .variant:has(#FD-R01-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R02-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R03-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R04-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R05-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R06-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R07-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R08-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R09-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R10-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R11-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R12-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R13-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R14-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R15-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R16-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R17-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R18-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R19-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R20-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R21-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R22-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R23-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R24-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R25-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R26-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R27-exported:target) {
+  display: block;
+}
+
+.variants > .variant:has(#FD-R28-exported:target) {
+  display: block;
+}
+
+/* record variants */
+#FD-R01:target ~ .v-FD-R01 {
+  display: block;
+}
+
+#FD-R02:target ~ .v-FD-R02 {
+  display: block;
+}
+
+#FD-R03:target ~ .v-FD-R03 {
+  display: block;
+}
+
+#FD-R04:target ~ .v-FD-R04 {
+  display: block;
+}
+
+#FD-R05:target ~ .v-FD-R05 {
+  display: block;
+}
+
+#FD-R06:target ~ .v-FD-R06 {
+  display: block;
+}
+
+#FD-R07:target ~ .v-FD-R07 {
+  display: block;
+}
+
+#FD-R08:target ~ .v-FD-R08 {
+  display: block;
+}
+
+#FD-R09:target ~ .v-FD-R09 {
+  display: block;
+}
+
+#FD-R10:target ~ .v-FD-R10 {
+  display: block;
+}
+
+#FD-R11:target ~ .v-FD-R11 {
+  display: block;
+}
+
+#FD-R12:target ~ .v-FD-R12 {
+  display: block;
+}
+
+#FD-R13:target ~ .v-FD-R13 {
+  display: block;
+}
+
+#FD-R14:target ~ .v-FD-R14 {
+  display: block;
+}
+
+#FD-R15:target ~ .v-FD-R15 {
+  display: block;
+}
+
+#FD-R16:target ~ .v-FD-R16 {
+  display: block;
+}
+
+#FD-R17:target ~ .v-FD-R17 {
+  display: block;
+}
+
+#FD-R18:target ~ .v-FD-R18 {
+  display: block;
+}
+
+#FD-R19:target ~ .v-FD-R19 {
+  display: block;
+}
+
+#FD-R20:target ~ .v-FD-R20 {
+  display: block;
+}
+
+#FD-R21:target ~ .v-FD-R21 {
+  display: block;
+}
+
+#FD-R22:target ~ .v-FD-R22 {
+  display: block;
+}
+
+#FD-R23:target ~ .v-FD-R23 {
+  display: block;
+}
+
+#FD-R24:target ~ .v-FD-R24 {
+  display: block;
+}
+
+#FD-R25:target ~ .v-FD-R25 {
+  display: block;
+}
+
+#FD-R26:target ~ .v-FD-R26 {
+  display: block;
+}
+
+#FD-R27:target ~ .v-FD-R27 {
+  display: block;
+}
+
+#FD-R28:target ~ .v-FD-R28 {
+  display: block;
+}

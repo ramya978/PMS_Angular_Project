@@ -1,0 +1,36 @@
+/* App-level styles. Screen styles are loaded per screen by ScreenStyles. */
+.pl-loading-screen {
+  position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 24px;
+  background: #0d1a22; font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; overflow: hidden;
+}
+.pl-loading-art {
+  position: absolute; inset: 0; background: var(--loader-art) center bottom / cover no-repeat;
+  animation: pl-art-in .6s ease-out both;
+}
+.pl-loading-art::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8, 18, 24, .35) 0%, rgba(8, 18, 24, .55) 70%, rgba(8, 18, 24, .8) 100%);
+}
+@keyframes pl-art-in { from { opacity: 0; transform: scale(1.03); } to { opacity: 1; transform: none; } }
+.pl-loading-card {
+  position: relative; z-index: 1; width: min(360px, 92vw); display: grid; justify-items: center; gap: 8px; padding: 28px 24px;
+  background: color-mix(in srgb, var(--surface, #ffffff) 88%, transparent); color: var(--ink, #1d2433);
+  border: 1px solid var(--line, #e3e6eb); border-radius: 14px; box-shadow: 0 16px 40px rgba(0, 0, 0, .35); text-align: center;
+  backdrop-filter: blur(6px);
+}
+.pl-loading-mark {
+  width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 2px;
+  border-radius: 12px; background: var(--forest, var(--em-800, #1f5a46)); color: var(--gold, #d8b878);
+}
+.pl-loading-mark svg { stroke: var(--gold, #d8b878); fill: none; color: var(--gold, #d8b878); }
+.pl-loading-brand { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold, #b8924a); }
+.pl-loading-title { font-size: 16px; font-weight: 600; color: var(--ink, #1d2433); }
+.pl-loading-bar { position: relative; width: 100%; height: 4px; margin: 10px 0 2px; overflow: hidden; border-radius: 4px; background: var(--line-strong, #e5e7eb); }
+.pl-loading-bar span {
+  position: absolute; top: 0; left: -40%; width: 40%; height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, var(--forest, #1f5a46), var(--gold, #d8b878)); animation: pl-slide 1.4s ease-in-out infinite;
+}
+@keyframes pl-slide { 0% { left: -40%; } 100% { left: 100%; } }
+.pl-loading-text { font-size: 13px; color: var(--ink-3, #6b7280); }
+.pl-loading-hint { margin: 6px 0 0; font-size: 12px; line-height: 1.5; color: var(--ink-4, #9ca3af); }
+@media (prefers-reduced-motion: reduce) { .pl-loading-bar span { animation: none; left: 30%; } .pl-loading-art { animation: none; } }

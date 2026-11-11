@@ -1,0 +1,1236 @@
+/* RS-23 Channel booking queue — one tile per booking source */
+.rs23-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.rs23-ch {
+  display: grid;
+  gap: 4px;
+  padding: 12px 16px;
+}
+
+.rs23-ch strong {
+  font-size: 13.5px;
+}
+
+/* RS-23 Channel Booking Queue – redesign 2026-10-28.
+   KPI ribbon on top, work queue (tabs) beside a sticky channel-health rail, the three queue rules as a band underneath.
+   Hand-made layout: the generator (docs/tools/generators/g5.py) only writes the markup, never this file. */
+.cq {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* ───────── KPI ribbon ───────── */
+.cq-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cq-kpi {
+  --c: var(--em-600);
+  --c-bg: var(--em-50);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px 18px 16px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+}
+
+.cq-kpi--bad {
+  --c: var(--st-cancelled);
+  --c-bg: var(--bad-bg);
+}
+
+.cq-kpi--info {
+  --c: var(--st-occupied);
+  --c-bg: var(--info-bg);
+}
+
+.cq-kpi--ok {
+  --c: var(--st-ready);
+  --c-bg: var(--ok-bg);
+}
+
+.cq-kpi--brass {
+  --c: var(--br-500);
+  --c-bg: var(--br-50);
+}
+
+.cq-kpi__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--c-bg);
+  color: var(--c);
+}
+
+.cq-kpi__b {
+  min-width: 0;
+}
+
+.cq-kpi p {
+  margin: 0;
+}
+
+.cq-kpi__k {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cq-kpi__v {
+  margin-top: 2px !important;
+  color: var(--ink);
+  font: 600 30px/1.1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.cq-kpi__v small {
+  color: var(--ink-3);
+  font: 500 14px var(--font-ui);
+}
+
+.cq-kpi__s {
+  margin-top: 3px !important;
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* ───────── workspace: queue + channel rail ───────── */
+.cq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+.cq-work {
+  min-width: 0;
+}
+
+.cq-side {
+  position: sticky;
+  top: calc(var(--topbar-h) + 16px);
+  display: grid;
+  gap: 16px;
+}
+
+/* shared card shell (channel health, queue rules) */
+.cq-card {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+}
+
+.cq-card__h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.cq-card__ic {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+  box-shadow: inset 0 0 0 1px var(--em-100);
+}
+
+.cq-card__t {
+  margin: 0;
+  font: 600 15px/1.25 var(--font-display);
+  color: var(--ink);
+}
+
+.cq-card__s {
+  margin: 2px 0 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.cq-card__f {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line-2);
+  background: var(--surface-2);
+}
+
+.cq-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.cq-more:hover {
+  color: var(--em-900);
+  text-decoration: underline;
+}
+
+.cq-more .icon {
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.cq-more:hover .icon {
+  transform: translateX(3px);
+}
+
+/* ───────── channel monogram ───────── */
+.cq-mono {
+  --h: 150;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: hsl(var(--h) 42% 94%);
+  color: hsl(var(--h) 48% 26%);
+  box-shadow: inset 0 0 0 1px hsl(var(--h) 34% 84%);
+  font: 700 12px/1 var(--font-ui);
+  letter-spacing: 0.02em;
+}
+
+.cq-mono--lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  font-size: 15px;
+}
+
+/* ───────── channel health rail ───────── */
+.cq-chs {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+}
+
+.cq-ch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: 10px;
+}
+
+.cq-ch--bad {
+  background: var(--bad-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--st-cancelled) 18%, transparent);
+}
+
+.cq-ch__t {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.cq-ch__t strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.cq-ch__t small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+/* ───────── work queue (needs attention) ───────── */
+.cq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.cq-item {
+  --c: var(--st-cancelled);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  padding: 18px 20px 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+  transition: box-shadow var(--t-base) var(--ease), transform var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+}
+
+.cq-item--wait {
+  --c: var(--st-tentative);
+}
+
+.cq-item:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--sh-2);
+  transform: translateY(-1px);
+}
+
+.cq-item__main {
+  min-width: 0;
+}
+
+.cq-item__main p {
+  margin: 0;
+}
+
+.cq-item__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.cq-item__ref {
+  font-size: 15.5px;
+  letter-spacing: 0.01em;
+}
+
+.cq-item__ch {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.cq-item__who {
+  margin-top: 6px !important;
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+
+.cq-item__who b {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.cq-item__why {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px !important;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bad-bg);
+  color: #86221d;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.cq-item--wait .cq-item__why {
+  background: var(--warn-bg);
+  color: #6f4d0a;
+}
+
+.cq-item__why .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.cq-item__fix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 10px !important;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.cq-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border: 1px solid var(--em-100);
+  border-radius: 999px;
+  background: var(--em-50);
+  color: var(--em-700);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.cq-item__side {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  align-content: space-between;
+  align-self: stretch;
+}
+
+.cq-item__st {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.cq-item__time {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-3);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ───────── small building blocks used in tables and drawers ───────── */
+.cq-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--info-bg);
+  color: #1f4b82;
+  font-size: 11.5px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.cq-type--cancellation {
+  background: var(--bad-bg);
+  color: #86221d;
+}
+
+.cq-type--modification {
+  background: var(--warn-bg);
+  color: #6f4d0a;
+}
+
+.cq-id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cq-id > span {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.cq-id small,
+.cq-two small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.cq-two {
+  display: grid;
+  gap: 1px;
+}
+
+.cq-muted {
+  color: var(--ink-3);
+}
+
+.cq-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 650;
+}
+
+.cq-kind .icon {
+  color: var(--em-600);
+}
+
+.cq-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--em-100);
+  border-radius: 12px;
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.cq-strip p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cq-strip .icon {
+  flex: none;
+}
+
+.cq-strip--bad {
+  border-color: color-mix(in srgb, var(--st-tentative) 30%, #fff);
+  background: var(--warn-bg);
+  color: #6f4d0a;
+}
+
+/* ───────── "how the queue works" band ───────── */
+.cq-rules .cq-card__h {
+  border-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.cq-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 12px 18px 18px;
+  list-style: none;
+}
+
+.cq-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+
+.cq-steps__n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--br-100);
+  color: var(--br-700);
+  font: 700 12.5px var(--font-ui);
+}
+
+.cq-steps p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cq-steps strong {
+  display: block;
+  color: var(--ink);
+}
+
+/* ───────── detail drawer ───────── */
+.cq-dh {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.cq-dh > :last-child {
+  margin-left: auto;
+}
+
+.cq-dh__ref {
+  font: 600 18px/1.2 var(--font-display);
+}
+
+.cq-dh p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.cq-why {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--st-cancelled) 22%, #fff);
+  border-radius: 12px;
+  background: var(--bad-bg);
+  color: #7d231e;
+}
+
+.cq-why .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.cq-why strong {
+  display: block;
+  font-size: 13px;
+}
+
+.cq-why p {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.cq-why--wait {
+  border-color: color-mix(in srgb, var(--st-tentative) 28%, #fff);
+  background: var(--warn-bg);
+  color: #6f4d0a;
+}
+
+.cq-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.cq-facts > div {
+  padding: 12px 14px;
+  background: var(--surface);
+}
+
+.cq-facts dt {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cq-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cq-facts code {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--sunken);
+  font: 600 12.5px ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+.cq-map {
+  margin-top: 16px;
+}
+
+.cq-map__k {
+  margin: 0 0 8px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cq-map__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.cq-map__row > .icon {
+  color: var(--br-600);
+}
+
+.cq-map__row > div {
+  display: grid;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.cq-map__row .cq-map__to {
+  border-color: var(--em-200);
+  background: var(--em-50);
+}
+
+.cq-map__row small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.cq-map__row strong {
+  font-size: 14px;
+}
+
+.cq-map__row span {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.cq-guar {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cq-guar li {
+  display: flex;
+  gap: 10px;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.cq-guar .icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--st-ready);
+}
+
+/* ───────── narrower screens ───────── */
+@media (max-width: 1240px) {
+  .cq-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cq-side {
+    position: static;
+  }
+}
+
+@media (max-width: 860px) {
+  .cq-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cq-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .cq-item__side {
+    grid-column: 1 / -1;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cq-item,
+  .cq-more .icon {
+    transition: none;
+  }
+}
+
+/* ───────── Sync-hub hero: what needs you, the channel constellation, the acknowledgement gauge ───────── */
+.cq-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) 280px minmax(220px, 0.7fr);
+  align-items: center;
+  gap: 24px 32px;
+  padding: 26px 30px;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    radial-gradient(55% 120% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.22), transparent 60%),
+    radial-gradient(45% 110% at 0% 100%, rgb(var(--forest-rgb, 31 61 51) / 0.95), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 24px 48px -30px rgb(var(--deep-rgb, 14 26 43) / 0.7);
+  color: #fff;
+}
+
+.cq-hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cq-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4cc38a;
+  animation: cq-pulse 2.4s ease-out infinite;
+}
+
+@keyframes cq-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(76 195 138 / 0.45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 9px rgb(76 195 138 / 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(76 195 138 / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cq-live {
+    animation: none;
+  }
+}
+
+.cq-hero__title {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.cq-hero__title b {
+  color: #f0c987;
+  font-weight: 600;
+}
+
+.cq-hero__sub {
+  max-width: 520px;
+  margin-top: 6px;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.cq-hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.cq-hero__facts > div {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2px;
+  min-width: 140px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.cq-hero__facts dt {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cq-hero__facts dd {
+  margin: 0;
+}
+
+.cq-hero__facts dd.num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.cq-hero__facts dd.cq-bad {
+  color: #f19a92;
+}
+
+.cq-hero__facts dd.cq-warn {
+  color: #ecc06b;
+}
+
+.cq-hero__d {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 11.5px;
+}
+
+.cq-hero__acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cq-hero .cq-hero__go {
+  border: 0;
+  background: linear-gradient(180deg, var(--gold-light, #e2c584), var(--gold, #c8a96a));
+  box-shadow: 0 8px 18px -10px rgb(var(--gold-rgb, 200 169 106) / 0.9), inset 0 1px 0 rgb(255 255 255 / 0.45);
+  color: #1b1405;
+  font-weight: 650;
+}
+
+.cq-hero .cq-hero__go:hover {
+  color: #1b1405;
+  filter: brightness(1.05);
+}
+
+.cq-hero .cq-hero__ghost {
+  border: 0;
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+.cq-hero .cq-hero__ghost:hover {
+  background: rgb(255 255 255 / 0.14);
+  color: #fff;
+}
+
+/* constellation: 8 channels on a ring around the Aviv hub */
+.cq-orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  justify-self: center;
+}
+
+.cq-orbit__ring {
+  position: absolute;
+  inset: 22px;
+  border: 1px dashed rgb(230 211 168 / 0.3);
+  border-radius: 50%;
+}
+
+.cq-orbit__ring--in {
+  inset: 72px;
+  border-style: solid;
+  border-color: rgb(255 255 255 / 0.08);
+  background: radial-gradient(circle, rgb(var(--gold-rgb, 200 169 106) / 0.16), transparent 70%);
+}
+
+.cq-orbit__nodes {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cq-node {
+  --a: calc(var(--i) * 45deg - 90deg);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* spoke from the hub to the node */
+.cq-node::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -0.5px;
+  width: 108px;
+  height: 1px;
+  transform: rotate(var(--a));
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, rgb(76 195 138 / 0.05), rgb(76 195 138 / 0.55));
+}
+
+.cq-node--bad::before {
+  background: repeating-linear-gradient(90deg, rgb(241 154 146 / 0.75) 0 4px, transparent 4px 8px);
+}
+
+.cq-node__m {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  transform: rotate(var(--a)) translate(108px) rotate(calc(var(--a) * -1));
+  border-radius: 50%;
+  background: hsl(var(--h) 45% 96%);
+  box-shadow: 0 0 0 3px var(--deep, #0e1a2b), 0 0 0 5px #4cc38a, 0 6px 14px -6px rgb(0 0 0 / 0.6);
+  color: hsl(var(--h) 45% 30%);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cq-node--bad .cq-node__m {
+  box-shadow: 0 0 0 3px var(--deep, #0e1a2b), 0 0 0 5px #e5625a, 0 6px 14px -6px rgb(0 0 0 / 0.6);
+}
+
+.cq-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #2b6a55, #12352b 70%);
+  box-shadow: 0 0 0 1px rgb(230 211 168 / 0.5), 0 0 0 8px rgb(var(--gold-rgb, 200 169 106) / 0.08), 0 12px 30px -10px rgb(0 0 0 / 0.7);
+  line-height: 1.05;
+}
+
+.cq-hub b {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cq-hub small {
+  color: var(--gold-light, #e6d3a8);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* acknowledgement gauge */
+.cq-hero__gauge {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.cq-gauge {
+  --pct: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold, #c8a96a) calc(var(--pct) * 1%), rgb(255 255 255 / 0.12) 0);
+}
+
+.cq-gauge::after {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: #12223a;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+
+.cq-gauge > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cq-gauge__n {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.cq-gauge__n small {
+  color: rgb(255 255 255 / 0.55);
+  font-size: 14px;
+}
+
+.cq-gauge__s {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cq-hero__legend {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 12px;
+  list-style: none;
+}
+
+.cq-hero__legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cq-hero__legend b {
+  color: #fff;
+}
+
+.cq-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.4);
+}
+
+.cq-dot--ok {
+  background: #4cc38a;
+}
+
+.cq-dot--bad {
+  background: #e5625a;
+}
+
+/* ───────── Queue tickets ───────── */
+.cq-item {
+  gap: 18px;
+  padding: 18px 20px 18px 22px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04), 0 14px 30px -24px rgb(16 24 40 / 0.4);
+}
+
+.cq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--br-300), 0 18px 36px -24px rgb(16 24 40 / 0.5);
+}
+
+.cq-item__ref {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.01em;
+}
+
+.cq-item__why {
+  border-radius: 12px;
+}
+
+/* mapping bridge: channel code → hotel room type and rate plan */
+.cq-item__fix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgb(var(--forest-rgb, 31 61 51) / 0.05), rgb(var(--gold-rgb, 200 169 106) / 0.1)), var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.cq-item__fix > span:first-child {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cq-item__fix .cq-chip {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong), 0 1px 2px rgb(16 24 40 / 0.05);
+  font-weight: 650;
+}
+
+.cq-item__fix > .icon {
+  color: #a8884a;
+}
+
+/* side cards */
+.cq-card {
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px var(--line), 0 14px 30px -26px rgb(16 24 40 / 0.4);
+}
+
+.cq-ch {
+  border-radius: 12px;
+}
+
+@media (max-width: 1280px) {
+  .cq-hero {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+
+  .cq-hero__gauge {
+    grid-column: 1 / -1;
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    align-items: center;
+  }
+}
+
+/* ── channel manager rate and OTA rates (2026-10-31) ── */
+.chr-card {
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.chr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+
+.chr-head .field__hint {
+  max-width: 720px;
+  margin: 2px 0 0;
+}
+
+.chr-acts {
+  display: flex;
+  gap: 8px;
+}
+
+.chr-sw {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.chr-scroll {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.chr-t .dt__td {
+  white-space: nowrap;
+}
+
+.chr-t tr.chr-master > td {
+  background: var(--em-50);
+}
+
+.chr-prev {
+  margin: 16px 0 8px;
+}
+
+.chr-t.chr-t.chr-t th {
+  white-space: nowrap;
+}

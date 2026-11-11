@@ -1,0 +1,4 @@
+/* tx-01-tax-dashboard.css: same board as the GL dashboard (ledger.css / dashboard.css). */
+.gl-dash .dsh-c12 > :is(.lf-card__t, .pq-muted) {
+  flex: 0 0 auto;
+}

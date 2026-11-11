@@ -1,0 +1,79 @@
+/* ccs-01-targets-and-tolerances.css: target grid, tolerance exceptions, versions and approval. */
+.cc-banner {
+  margin: 0;
+}
+
+[data-code="CCS-01-grid"] .tg-cell {
+  min-width: 110px;
+}
+
+.tg-std td {
+  background: var(--sunken);
+}
+
+.tg-std__v {
+  font-weight: 650;
+}
+
+.tv-who {
+  display: block;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+[data-code="CCS-01-versions"] td:last-child {
+  min-width: 220px;
+}
+
+/* approve / send buttons sit on one line, the approver below */
+[data-code="CCS-01-versions"] td:last-child .btn {
+  margin: 0 4px 4px 0;
+}
+
+/* after "Approve and activate" the draft is Active and the old version is Superseded */
+.ver-after {
+  display: none;
+}
+
+body:has(#activated:target) .ver-before {
+  display: none;
+}
+
+body:has(#activated:target) .ver-after {
+  display: inline-flex;
+}
+
+body:has(#activated:target) #tv-2026-02 > td {
+  background: var(--ok-bg);
+}
+
+/* rows added with "Add" appear with their marker */
+.tg-newx {
+  display: none;
+}
+
+body:has(#xadded:target) tr.tg-newx {
+  display: table-row;
+}
+
+body:has(#xadded:target) tr.tg-newx > td {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) .tg-new > td {
+  background: var(--ok-bg);
+}
+
+.prs-add + .prs-form {
+  margin-top: 0;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#sent:target) #t-sent,
+body:has(#activated:target) #t-activated,
+body:has(#added:target) #t-added,
+body:has(#xadded:target) #t-xadded,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

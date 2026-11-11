@@ -1,0 +1,48 @@
+/* ows-05-sharing-and-consolidation.css: after-states (new rows, status changes) and toasts. */
+table.dt__table tr.hr-new,
+.ow-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new--added {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.ow-ro {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  font-weight: 600;
+}
+
+.ow-privacy {
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ow-privacy-off {
+  margin-top: 12px;
+}
+
+.ow-lock {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.prs-form:has(#sh-profiles:checked):not(:has(#sh-consent:checked)) .ow-lock {
+  display: inline-flex;
+}
+
+.prs-form:has(#sh-profiles:checked):not(:has(#sh-consent:checked)) .fd-formfoot .btn--primary {
+  opacity: .5;
+  pointer-events: none;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled,
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

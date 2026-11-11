@@ -1,0 +1,4109 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Aviv PMS – phone and tablet layer (2026-11-02)
+   Linked last (after the screen stylesheet) on every page by tools/add-responsive.py.
+   Every layout rule sits inside a max-width media query, so the laptop view
+   (1025px and wider) is exactly as before. Breakpoints:
+     ≤ 1024px  tablet – the sidebar becomes a slide-in menu
+     ≤ 760px   phone  – one column, compact top bar, wide pop-ups
+     ≤ 420px   small phone
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* The menu switch and its buttons only exist on tablet and phone */
+.navtoggle,
+.nav-scrim,
+.topbar__menu,
+.sidebar__close {
+  display: none;
+}
+
+/* ───────── Tablet and phone: slide-in menu ───────── */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-w: 0px;
+  }
+
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* safety net: nothing may push the page sideways (clip keeps the sticky top bar working) */
+  .app__body {
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  /* the switch stays focusable for keyboard users, but is not seen */
+  .navtoggle {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(300px, 86vw);
+    height: 100vh;
+    height: 100dvh;
+    z-index: 70;
+    transform: translateX(-102%);
+    visibility: hidden;
+    transition: transform 220ms var(--ease, ease-out), visibility 0s linear 220ms;
+  }
+
+  .navtoggle:checked ~ .sidebar,
+  body[data-sidebar="expanded"] .sidebar {
+    transform: none;
+    visibility: visible;
+    box-shadow: 0 24px 60px rgb(var(--deep-rgb, 14 26 43) / 0.35);
+    transition: transform 220ms var(--ease, ease-out);
+  }
+
+  .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 65;
+    background: rgb(var(--deep-rgb, 14 26 43) / 0.42);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease-out;
+  }
+
+  .navtoggle:checked ~ .nav-scrim,
+  body[data-sidebar="expanded"] .nav-scrim {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  html:has(.navtoggle:checked) {
+    overflow: hidden;
+  }
+
+  /* inside the menu: full labels again (the 1100px icon rail is undone) */
+  .sidebar__brand {
+    justify-content: space-between;
+    padding: 0 10px 0 20px;
+  }
+
+  .sidebar__name,
+  .nav__label,
+  .nav__chev {
+    display: inline;
+  }
+
+  .nav__group {
+    font-size: 10.5px;
+    min-height: 36px;
+    padding: 6px 12px;
+    margin: 10px 0 0;
+    box-shadow: none;
+  }
+
+  .nav__item {
+    justify-content: flex-start;
+    min-height: 40px;
+    padding: 6px 11px;
+    font-size: 14px;
+  }
+
+  .nav__item.is-active::before {
+    left: -12px;
+  }
+
+  .sidebar__close {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: rgb(255 255 255 / 0.72);
+    cursor: pointer;
+  }
+
+  .sidebar__close:hover {
+    background: rgb(255 255 255 / 0.08);
+    color: #fff;
+  }
+
+  /* the JavaScript shell keeps its own collapse button – the close button does that job here */
+  .sidebar__collapse {
+    display: none;
+  }
+
+  .topbar__menu {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    margin-left: -6px;
+    border-radius: 10px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .topbar__menu:hover {
+    background: var(--surface-2, rgb(0 0 0 / 0.04));
+  }
+
+  .navtoggle:focus-visible ~ .app__body .topbar__menu {
+    outline: 2px solid var(--br-500, #c8a96a);
+    outline-offset: 2px;
+  }
+
+  .pv--prop[popover] {
+    left: var(--gutter);
+  }
+}
+
+/* ───────── Phone: compact top bar, pop-ups across the screen ───────── */
+@media (max-width: 760px) {
+  :root {
+    --gutter: 14px;
+    --topbar-h: 56px;
+  }
+
+  .topbar {
+    gap: 6px;
+  }
+
+  .topbar__prop,
+  .topbar__shift,
+  .topbar__clock,
+  .topbar > a.icon-link[href*="help"] {
+    display: none;
+  }
+
+  .topbar__date {
+    padding: 0 10px;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+
+  .topbar__new {
+    flex: none;
+  }
+
+  .topbar__user {
+    padding-right: 0;
+  }
+
+  .pv[popover],
+  .pv--prop[popover],
+  .pv--new[popover],
+  .pv--notif[popover],
+  .pv--user[popover] {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-height: calc(100dvh - var(--topbar-h) - 20px);
+  }
+
+  .app__content {
+    padding: 14px var(--gutter) 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar__date .icon {
+    display: none;
+  }
+
+  .topbar__date {
+    padding: 0 8px;
+  }
+}
+
+/* ───────── Phone: shared content patterns ───────── */
+@media (max-width: 760px) {
+  /* stat tiles: two per row, the seven-figure ribbon too */
+  .st-tiles,
+  .st-tiles[data-n],
+  .st-tiles[data-n="7"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .st-tiles > .st-tile,
+  .st-tiles > .st-tile:nth-child(-n + 2) {
+    grid-column: auto;
+  }
+
+  .st-tiles[data-n="7"] > .st-tile::before,
+  .st-tiles[data-n="7"] > .st-tile + .st-tile::before {
+    display: none;
+  }
+
+  .st-tiles[data-n="7"] > .st-tile:nth-child(odd):not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    right: 0;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .fd-kpis {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* report summary strips (.o3-sum): two figures per row */
+  .o3-sum {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .o3-sum li + li {
+    border-left: 0;
+  }
+
+  .o3-sum li:nth-child(even) {
+    border-left: 1px solid var(--line);
+  }
+
+  .o3-sum li:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  /* printable outputs: narrower margins, wide tables scroll inside the paper */
+  .paper,
+  .paper--a5,
+  .paper--card {
+    padding: 26px 16px 22px;
+    overflow-x: auto;
+  }
+
+  .paper__head {
+    flex-wrap: wrap;
+  }
+
+  /* sortable listing tables scroll sideways inside their card */
+  table.srt {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* ───────── Phone: page layouts become one column ─────────
+   Side-by-side page splits, card pairs and form grids stack; the order in the page stays the same. */
+@media (max-width: 760px) {
+  .fd-split,
+  .fd-split--wide,
+  .fds05-wrap .fd-split--wide,
+  .s-split,
+  .hs-grid,
+  .hs-hero,
+  .hs-cols,
+  .gc-split,
+  .att,
+  .fd-grid2,
+  .fd-grid2:has(> [data-code="FD-01-arrivals"]),
+  .inv-cols,
+  .mv-split,
+  .fd-attn--cols,
+  .rs-feed .fd-feed--cols,
+  .hm-cols,
+  .rs01-grid,
+  .rs05,
+  .rs05-send,
+  .rs05-consent__ch,
+  .rs05-sw2,
+  .rs9-layout,
+  .rs9:has(.va:target:not(#all)) .rs9-layout,
+  .rs9:has(.bk:not(.bk--all) .modal:target) .rs9-layout,
+  .cf-grid,
+  .cf-grid--2,
+  .gp-layout,
+  .gpc-cols,
+  .gpc-sw,
+  .rs19-rd,
+  .rs19-dl,
+  .rep-two,
+  .rep-f2,
+  .ap-hero,
+  .cq-grid,
+  .cq-hero,
+  .cq-steps,
+  .sv-low,
+  .sv-filters,
+  main .ral-filters,
+  .hk-next,
+  .hk-next__steps,
+  .hkx-main,
+  .hkx-staff,
+  .ts-body,
+  .ts-jump,
+  .iq-cols,
+  .pt-wrap,
+  .dp-list,
+  .rl-list,
+  .hks-place__grid,
+  .hks-dl > div,
+  .hks-alert__grid,
+  .hks-levels,
+  .hks-levels__grid,
+  .hks-codes,
+  .lo3-cols,
+  .lo3-grid,
+  .lo3-pane,
+  .la5-run__b,
+  .lx-head,
+  .wb-top,
+  .wb-grids,
+  .ux-grid,
+  .ux-head,
+  .lad-grid,
+  .lad-att,
+  .lad-side,
+  .mc-grid,
+  .pg-list,
+  .vd-list,
+  .la-help__b,
+  .ur-top,
+  .mbd-grid,
+  .rp-grid,
+  .ly__body,
+  .lfd-g,
+  .loc-g,
+  .mt-g,
+  .mt-sg,
+  .rth-g,
+  .oe,
+  .bs,
+  .bqs-2,
+  .cx-card,
+  .meal-row,
+  .form-section__grid,
+  .fd-rolecards,
+  .na-dl__reps,
+  .rd-p,
+  .sh__layout > aside,
+  .sh__hero-main,
+  .fds-top,
+  .rd-hero,
+  .ts-hero,
+  .iq-hero,
+  .dw-hero,
+  .cq-item,
+  .grid--2,
+  [data-screen^="FD-18"] .os,
+  [data-screen^="FD-18"] .os-choices--2,
+  [data-screen^="FD-18"] .os-choices--3,
+  [data-screen^="HK-04"] .ap,
+  [data-screen^="LA-O06"] .lo6--count-o20261022-003,
+  [data-screen^="LA-O06"] .lo6--ready-o20261022-007,
+  [data-screen^="LA-O06"] .lo6--delay-o20261022-011 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* sticky side panels sit in the flow once the page is one column */
+  .mt-tl,
+  .fd-stack--sticky {
+    position: static;
+  }
+
+  /* setup home hero: ring and text stack, the three counts stay in one row */
+  .sh__hero-main {
+    justify-items: start;
+    gap: 16px;
+    padding: 20px 18px;
+  }
+
+  .sh__stats {
+    grid-column: auto;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sh__stat {
+    padding: 10px;
+  }
+}
+
+/* ───────── Phone: figure strips and tiles, two per row ───────── */
+@media (max-width: 760px) {
+  .o3-sum,
+  .o3-sum.rp-sum,
+  .o1-sum,
+  .o2-sum,
+  .o4-sum,
+  .o6-sum,
+  .rs10-tiles,
+  .rs10-tiles--3,
+  .ap-strip,
+  .ap-meta,
+  .rep-glance,
+  .rep-summary,
+  .rep-summary--5,
+  .rs-facts,
+  .lfd-tiles,
+  .lnd-tiles,
+  .mbd-tiles,
+  .hkx-tiles,
+  .mr-hg,
+  .s-grid2.mr-hg,
+  .ap__key,
+  .svc-sum,
+  .kpi4,
+  .fd-kpis--4,
+  .fd-tiles,
+  .na-dl__grid,
+  .p6-sum,
+  .ow-kpi,
+  .kc-mv,
+  .ts-kpi,
+  .hk7-sum,
+  .hks-kpis,
+  .hks-cover,
+  .hks-sum,
+  .hks-label-grid,
+  .pv-list,
+  .ur-stock,
+  .rs19-dgrid,
+  .stat3,
+  .hero2 .stat3,
+  .cq-kpis,
+  .cq-facts,
+  .kps,
+  .rs01-kpis,
+  .p14-dates,
+  .rp-x__g,
+  .lad-flow,
+  .la-doc__meta,
+  .lo6-meta .la-doc__meta,
+  .tg-grid--bag,
+  .pl-prices,
+  .rss05-svc__m,
+  .lo3-acts,
+  .pc-pay,
+  .pc-settle,
+  [data-screen^="MT-O02"] .qg,
+  [data-screen^="MTS-O01"] .qg {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-code="FD-01"] .fd-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tg-grid--item {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* step tracks and jump grids: fewer, wider steps per row */
+  .na-track,
+  .na-stepper .na-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lk-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .rd-jump__g {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lf-tl > li {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+}
+
+/* ───────── Phone: inline-styled strips and tables inside cards ───────── */
+@media (max-width: 760px) {
+  /* report summary strips carry their column count inline */
+  .o3-sum[style*="repeat(4"],
+  .o3-sum[style*="repeat(5"],
+  .o3-sum[style*="repeat(6"],
+  .o3-sum[style*="repeat(7"],
+  .o3-sum[style*="repeat(8"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .o3-sum[style*="repeat(3"] li:nth-child(n) {
+    border-left: 0;
+    border-top: 0;
+  }
+
+  .o3-sum[style*="repeat(3"] li + li {
+    border-left: 1px solid var(--line);
+  }
+
+  .o3-sum[style*="repeat(1"] li {
+    border-left: 0;
+  }
+
+  /* a table that sits straight in a card scrolls sideways in its own box instead of widening the page */
+  :is(.card, .lf-card, .la-card, .la-doc, .ly__body, .field, .s-card, .fd-card, .hk-card, .panel) > table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* ───────── Tablet and phone: keep hidden inputs inside their scroll box ─────────
+   Visually hidden checkboxes and sort radios are absolutely positioned; without a positioned ancestor they
+   escape a sideways-scrolling table and widen the whole page. */
+@media (max-width: 1024px) {
+  .s-scroll,
+  .app__content table,
+  .app__content [class*="scroll"] {
+    position: relative;
+  }
+}
+
+/* ───────── Phone: card grids that fill by width never ask for more than the screen ───────── */
+@media (max-width: 760px) {
+  .fds-cards,
+  .hks-cards,
+  .p01-opts,
+  .rs23-grid,
+  .rgrid--sug,
+  .fd-rep-grid,
+  .kt-g,
+  .sh__grid,
+  .sh__layout .fds-cards,
+  .ap-grid,
+  .gm-g,
+  .md-g,
+  .cx-grid,
+  .bq-g,
+  .tbs-g,
+  .ap-list,
+  .lb-alert__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:is([data-code^="FDS-"],
+    [data-code^="HKS-"],
+    [data-code^="LAS-"],
+    [data-code^="MBS-"],
+    [data-code^="LNS-"],
+    [data-code^="LFS-"],
+    [data-code^="MTS-"],
+    [data-code^="RTS-"],
+    [data-code^="KTS-"],
+    [data-code^="BQS-"],
+    [data-code^="PRS-"]) .fd-sec:not(.modal .fd-sec) .s-grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fl__grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
+  }
+
+  /* single-column page wrappers: their children may shrink to the screen */
+  .law,
+  .gsw,
+  .dw,
+  .rqw,
+  .sfw,
+  .svw,
+  .mtw,
+  .locw,
+  .mt-form,
+  .pmcs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :is(.law, .gsw, .dw, .rqw, .sfw, .svw, .mtw, .locw, .mt-form, .pmcs) > * {
+    min-width: 0;
+  }
+
+  /* module heroes (housekeeping, laundry, service view): figures go under the greeting */
+  .hkh,
+  .lad-hero,
+  .sv-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hkh__k,
+  .sv-hero__n {
+    flex-wrap: wrap;
+  }
+
+  .sv-hero__n > div {
+    min-width: 0;
+  }
+
+  .hkx-legend {
+    min-width: 0;
+  }
+
+  .loc-h,
+  .avc-win__top {
+    flex-wrap: wrap;
+  }
+
+  /* PM schedule rows: number and name on top, the rest underneath */
+  .pmc > summary {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+
+  .pmc > summary > :nth-child(n + 3) {
+    grid-column: 2;
+  }
+}
+
+/* ───────── Phone: rows that hold several facts side by side ───────── */
+@media (max-width: 760px) {
+  .fl__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dc-fc {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .sf-bars {
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+  }
+
+  /* lost report matches and storage rows: the item on top, its facts and buttons underneath */
+  .mt-s,
+  .loc-i {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .mt-s > :first-child,
+  .loc-i > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .loc-h {
+    gap: 8px 12px;
+  }
+
+  .loc-h > span:nth-child(2) {
+    flex-basis: calc(100% - 52px);
+  }
+
+  /* filter fields: two per row, a search or date field across the row */
+  .hfilter__grid > .hf-f,
+  main .ral-filters > .hf-f,
+  .hf-f {
+    min-width: 0;
+    flex-basis: calc(50% - 3px);
+  }
+
+  .hfilter__grid > .hf-f:has(input[type="date"], input[type="search"], input[type="text"]),
+  .hf-f:has(input[type="date"], input[type="search"], input[type="text"]) {
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  main .ral-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main .ral-filters > .ral-q {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ───────── Phone: the sticky save bar stays small ───────── */
+@media (max-width: 760px) {
+  .fd-formfoot {
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .fd-formfoot .fd-spacer {
+    flex: 1 1 160px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+}
+
+/* ───────── Tablet: wide tables scroll inside their paper or card ───────── */
+@media (max-width: 1024px) {
+  .paper {
+    overflow-x: auto;
+  }
+
+  table.srt {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  :is(.card, .lf-card, .la-card, .la-doc, .ly__body, .field, .s-card, .fd-card, .hk-card, .panel) > table,
+  .paper > table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .mt-s {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .mt-s > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .svw {
+    position: relative;
+  }
+
+  .svw > * {
+    min-width: 0;
+  }
+
+  .sv-hero__n {
+    flex-wrap: wrap;
+  }
+}
+
+/* ───────── Phone: step bars scroll, wide listing tables keep readable columns ───────── */
+@media (max-width: 760px) {
+  .rs05-main .stabs--steps > .stabs__list,
+  .stabs--steps > .stabs__list {
+    overflow-x: auto;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .rs05-main .stabs--steps > .stabs__list label,
+  .stabs--steps > .stabs__list label {
+    flex: 0 0 auto;
+  }
+
+  /* a table of five columns or more in a scrolling box scrolls instead of squeezing every column */
+  :is(.s-scroll, [class*="scroll"]) > table:has(> thead > tr > :nth-child(5)):not(.srt) {
+    min-width: 620px;
+  }
+}
+
+/* ───────── Phone: top bar of the JavaScript pages (CM-02, RSS-01, dev tools) ───────── */
+@media (max-width: 760px) {
+  .topbar > .btn--icon[aria-label="Command palette"],
+  .topbar > .btn--icon[aria-label="Help for this screen"],
+  .topbar > .btn--icon[aria-label="Switch light / dark theme"],
+  .topbar > .btn--icon[aria-label="Switch Comfortable / Compact density"] {
+    display: none;
+  }
+
+  .topbar__new span {
+    display: none;
+  }
+
+  .topbar__new {
+    padding: 0 13px;
+  }
+}
+
+/* ───────── Phone: last single-column sections whose content asked for more width ───────── */
+@media (max-width: 760px) {
+  .fl,
+  .pmc__b {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fl > *,
+  .pmc__b > * {
+    min-width: 0;
+  }
+
+  .pmc__b > table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .rt__h {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .lo3-tabbar {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .lo3-tab {
+    flex: none;
+  }
+}
+
+@media (max-width: 760px) {
+  /* a long value is cut inside its filter pill instead of spilling out of it */
+  .hf-f {
+    overflow: hidden;
+  }
+
+  .hf-f__c {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-overflow: ellipsis;
+  }
+}
+
+/* very small phones (≤ 420 px): short texts inside tiles, sub-lines and rows may break anywhere instead of leaving the screen */
+@media (max-width: 420px) {
+  .st-tile,
+  .st-tile__v,
+  .st-tile__l,
+  .st-tile__u {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  :is(.app__content small, .fd-sub, .fd-muted, .gp-row > span, .btn--xs, .vc-who) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Phone round 2026-11-03 (the user's responsive test sheet)
+   Everything below works only on phones (≤ 760 px), except the first rule,
+   which hides the new "More details" switch on every other screen size.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mc-more {
+  display: none;
+}
+
+/* ───────── Phone: tables become cards ─────────
+   tools/add-mobile-cards.py marks every listing table (data-mc) and its cells:
+   data-label = column name, data-t = card heading, data-s = status, data-a = buttons,
+   data-sel = tick box, data-m = shown after "More details". One row = one card,
+   so no table ever scrolls sideways. :where() keeps the display rules at zero
+   weight: rows hidden by filters, pages or after-states stay hidden. */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc] {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .app__content table[data-mc][data-mc] > thead {
+    display: none;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    margin: 0;
+  }
+
+  .app__content table[data-mc][data-mc] > tfoot {
+    margin-top: 10px;
+  }
+
+  :where(.app__content table[data-mc] > :is(tbody, tfoot) > tr) {
+    display: grid;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr {
+    position: relative;
+    grid-column: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    padding: 14px 14px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    box-shadow: var(--sh-1);
+  }
+
+  .app__content table[data-mc][data-mc] > tfoot > tr {
+    background: var(--sunken);
+    box-shadow: none;
+  }
+
+  :where(.app__content table[data-mc] > :is(tbody, tfoot) > tr > :is(td, th)) {
+    display: block;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > :is(td, th) {
+    position: static;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none;
+    height: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.4;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    /* cells laid out as a row on the laptop put the column name above the value here */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app__content table[data-mc] [data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--ink-3);
+    font-size: 10.5px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  /* heading: the first cell with text, across the card */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-t] {
+    order: -1;
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    padding-right: 34px;
+    font-size: 15px;
+    font-weight: 650;
+  }
+
+  .app__content table[data-mc] [data-t]::before {
+    display: none;
+  }
+
+  /* status: a chip above the heading */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-s] {
+    order: -2;
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .app__content table[data-mc] [data-s]::before {
+    display: none;
+  }
+
+  /* the tick box sits in the top corner of the card */
+  .app__content table[data-mc][data-mc] > tbody > tr > [data-sel] {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* buttons: the card's footer */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] {
+    order: 10;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-column: 1 / -1;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .app__content table[data-mc] [data-a] :is(.btn, button) {
+    flex: 1 1 auto;
+    justify-content: center;
+    min-height: 36px;
+  }
+
+  .app__content table[data-mc] [data-a] > :is(.lg-acts, .row, .stack, .fd-row-acts, .row-acts) {
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* empty cells are left out; a row whose only value is its heading is a group heading */
+  :where(.app__content table[data-mc] > :is(tbody, tfoot) > tr > [data-e]) {
+    display: none;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:not(:has(> :not([data-t], [data-e]))) {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 6px 2px 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:not(:has(> :not([data-t], [data-e]))) > [data-t] {
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* a row with one wide cell (group heading, empty state) is a heading, not a card */
+  .app__content table[data-mc][data-mc] > tbody > tr:has(> [colspan]:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 6px 2px 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr > [colspan]:only-child {
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* chips, room lists and other rows inside a value wrap within the card */
+  .app__content table[data-mc] :is(td, th) * {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  /* inputs inside cards use the whole width */
+  .app__content table[data-mc] :is(td, th) :is(.field__input, input:not([type="checkbox"], [type="radio"]), select, textarea) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* matrices of many short columns (day grids, permission grids): four values per row */
+  .app__content table[data-mc="grid"][data-mc="grid"] > :is(tbody, tfoot) > tr {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 10px;
+  }
+
+  /* fewer fields at first, the rest behind "More details" */
+  :where(.app__content table[data-mc] > :is(tbody, tfoot) > tr > [data-m]) {
+    display: none;
+  }
+
+  :where(.app__content table[data-mc] > :is(tbody, tfoot) > tr:has(.mc-more:checked) > [data-m]) {
+    display: block;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more) {
+    padding-bottom: 52px;
+  }
+
+  .app__content table[data-mc] .mc-more {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--em-700);
+    font: 600 12px/1 var(--font-ui);
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .app__content table[data-mc] .mc-more::after {
+    content: "More details  \25BE";
+  }
+
+  .app__content table[data-mc] .mc-more:checked {
+    border-color: var(--em-600);
+    background: var(--em-50);
+  }
+
+  .app__content table[data-mc] .mc-more:checked::after {
+    content: "Fewer details  \25B4";
+  }
+
+  .app__content table[data-mc] .mc-more:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+  }
+
+  /* boxes around card lists stop scrolling and lose their frame */
+  .app__content :is(.s-scroll, .pgw, [class*="scroll"]):has(> table[data-mc]) {
+    max-height: none;
+    overflow: visible;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  /* pager: only the page buttons (no "Showing 1–10 of 92", no rows-per-page) */
+  .pg {
+    justify-content: center;
+  }
+
+  .pg-info,
+  .pg-rpp {
+    display: none;
+  }
+}
+
+/* ───────── Phone: page header (top section of every screen) ─────────
+   A grid with named places, so every screen gets the same tidy top whatever its laptop rules:
+     line 1  title …………………… screen code
+     line 2  [search] [Filter]   (only on screens that have them)
+     line 3  the page buttons, sharing the width evenly (two or three per row)
+     line 4  the filter panel when it is opened
+   Rows without content take no space (the spacing sits on the items, not between rows). */
+@media (max-width: 760px) {
+  .page-header .page-header__row {
+    display: grid;
+    grid-template-columns: 38px auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title title title code"
+      "srch  filt  extra extra"
+      "acts  acts  acts  acts"
+      "panel panel panel panel";
+    align-items: center;
+    justify-content: stretch;
+    gap: 0 8px;
+  }
+
+  .page-header__row::after {
+    content: none;
+  }
+
+  .page-header__row > .page-header__text {
+    grid-area: title;
+    min-width: 0;
+  }
+
+  .page-header__title {
+    font-size: 25px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .page-header__row > .code-chip {
+    grid-area: code;
+    align-self: start;
+    margin: 6px 0 0;
+  }
+
+  .page-header__row .hsearch {
+    grid-area: srch;
+    width: 38px;
+    height: 38px;
+    margin-top: 12px;
+  }
+
+  .page-header__row .hsearch__ic {
+    width: 38px;
+    height: 38px;
+  }
+
+  .page-header__row .hfilter__btn {
+    grid-area: filt;
+    height: 38px;
+    margin: 12px 0 0;
+  }
+
+  .page-header__row .hfilter__tg {
+    position: absolute;
+  }
+
+  .page-header__row .hfilter {
+    grid-area: panel;
+    margin-top: 10px;
+  }
+
+  /* anything else a screen keeps beside the filters (views, selects) fills the rest of line 2 */
+  .page-header__filters > :not(.hctl),
+  .page-header__filters .hctl__extra {
+    grid-area: extra;
+    margin-top: 12px;
+    min-width: 0;
+  }
+
+  /* an open search takes the whole of line 2 */
+  .page-header__row:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown)) .hsearch {
+    grid-column: 1 / -1;
+    width: auto;
+  }
+
+  .page-header__row:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown)) .hfilter__btn {
+    display: none;
+  }
+
+  .page-header__row > .page-header__actions {
+    display: flex;
+    grid-area: acts;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+    margin: 12px 0 0;
+  }
+
+  .page-header__actions > :is(.btn, a, button, label, details, .menu) {
+    flex: 1 0 auto;
+    justify-content: center;
+    min-height: 38px;
+    white-space: nowrap;
+  }
+
+  /* hints about column titles and sorting do not apply to the card view */
+  .arl-hint,
+  .arl-foot:not(:has(.arl-count:not(:empty))) {
+    display: none;
+  }
+}
+
+/* ───────── Phone: tabs and views become an even grid of tiles ─────────
+   Linked tabs (.ltabs), radio tabs (.stabs, not step bars) and quick views (.hv)
+   no longer wrap raggedly: every tab is a tile of equal width, two or three per row. */
+@media (max-width: 760px) {
+  .ltabs:not(.ltabs--steps),
+  .ltabs:not(.ltabs--steps):has(> .ltabs__end) {
+    display: grid;
+    gap: 8px;
+  }
+
+  .ltabs:not(.ltabs--steps) > .ltabs__list,
+  .stabs:not(.stabs--steps) > .stabs__list,
+  .hv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+    gap: 6px;
+    width: 100%;
+    padding: 4px;
+    border-radius: var(--r-md);
+    background: var(--sunken);
+    box-shadow: inset 0 0 0 1px var(--line);
+    overflow: visible;
+  }
+
+  /* four tabs: two rows of two rather than three and one */
+  .ltabs:not(.ltabs--steps) > .ltabs__list:has(> :nth-child(4):last-child),
+  .stabs:not(.stabs--steps) > .stabs__list:has(> label:nth-child(4):last-child),
+  .hv:has(> a:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ltabs:not(.ltabs--steps) > .ltabs__list > :is(a, span),
+  .stabs:not(.stabs--steps) > .stabs__list label,
+  .hv > a {
+    justify-content: center;
+    min-width: 0;
+    min-height: 40px;
+    padding: 6px 8px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
+    border-radius: 9px;
+    padding-inline: 10px;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  /* tab icons make way for the words on a phone */
+  :is(.ltabs:not(.ltabs--steps) > .ltabs__list > :is(a, span), .stabs:not(.stabs--steps) > .stabs__list label, .hv > a) > .icon {
+    display: none;
+  }
+
+  .ltabs:not(.ltabs--steps) > .ltabs__list > a[aria-current="page"] {
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgb(20 32 27 / 0.12), 0 0 0 1px var(--line-strong);
+  }
+
+  .ltabs:not(.ltabs--steps) > .ltabs__list > a[aria-current="page"]::after {
+    display: none;
+  }
+
+  .ltabs__end {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .ltabs__end > * {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* "with the ticked rows" action bars: the buttons two per row */
+  .arr-bulk {
+    gap: 10px;
+  }
+
+  .arr-bulk__btns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .arr-bulk__btns > .arr-act {
+    justify-content: center;
+    min-width: 0;
+    min-height: 40px;
+    padding: 6px 10px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .arr-bulk__btns > .arr-act:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ───────── Phone: greeting card of the dashboards (RS-01, FD-01 …) ─────────
+   The icon sits beside "Good morning, Anita" instead of on a line of its own;
+   the buttons share the width two per row. */
+@media (max-width: 760px) {
+  .fd-hello2 {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 10px 12px;
+    padding: 14px;
+  }
+
+  .fd-hello2__ic {
+    width: 38px;
+    height: 38px;
+  }
+
+  .fd-hello2__t {
+    display: contents;
+  }
+
+  .fd-hello2__t h1 {
+    grid-column: 2;
+    font-size: 19px;
+  }
+
+  .fd-hello2__t > :not(h1) {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .fd-hello2 > .code-chip {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .fd-hello2__acts {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+  }
+
+  .fd-hello2__acts > * {
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .fd-hello2__acts > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* two tiles per row whatever the laptop spans were; an odd last tile takes the whole row */
+  .st-tiles[data-n] > .st-tile:nth-child(n) {
+    grid-column: auto;
+  }
+
+  .st-tiles > .st-tile:last-child:nth-child(odd),
+  .st-tiles[data-n] > .st-tile:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* long explanatory notes at the foot of a list are left to the laptop and the help panel */
+  .app__content > .s-note,
+  .app__content .arl-wrap ~ .s-note {
+    display: none;
+  }
+}
+
+/* RS-01 occupancy bars: figures small enough for 14 bars side by side */
+@media (max-width: 760px) {
+  .rs01-bar__v,
+  .rs01-bar__d {
+    font-size: 9.5px;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ───────── Phone: step bars (check-in, wizards) ─────────
+   One row of numbered dots; only the current step shows its name, in a wider pill.
+   Nothing scrolls sideways and no label is squeezed. */
+@media (max-width: 760px) {
+  .ltabs--steps > .ltabs__list,
+  .rs05-main .stabs--steps > .stabs__list,
+  .stabs--steps > .stabs__list {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    padding: 6px;
+    overflow: visible;
+    border-radius: 999px;
+    background: var(--sunken);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+
+  .ltabs--steps > .ltabs__list > :is(a, span),
+  .rs05-main .stabs--steps > .stabs__list label,
+  .stabs--steps > .stabs__list label {
+    justify-content: center;
+    min-width: 0;
+    padding: 0;
+    overflow: visible;
+    font-size: 0;
+    white-space: nowrap;
+  }
+
+  .ltabs--steps > .ltabs__list > :is(a, span)::after {
+    display: none;
+  }
+
+  .ltabs--steps .ltabs__n,
+  .stabs--steps .stabs__n {
+    flex: none;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 11.5px;
+  }
+
+  /* the current step: a pill with its name */
+  .ltabs--steps > .ltabs__list > [aria-current="page"],
+  .stabs--steps > input:nth-of-type(1):checked ~ .stabs__list label:nth-child(1),
+  .stabs--steps > input:nth-of-type(2):checked ~ .stabs__list label:nth-child(2),
+  .stabs--steps > input:nth-of-type(3):checked ~ .stabs__list label:nth-child(3),
+  .stabs--steps > input:nth-of-type(4):checked ~ .stabs__list label:nth-child(4),
+  .stabs--steps > input:nth-of-type(5):checked ~ .stabs__list label:nth-child(5),
+  .stabs--steps > input:nth-of-type(6):checked ~ .stabs__list label:nth-child(6),
+  .stabs--steps > input:nth-of-type(7):checked ~ .stabs__list label:nth-child(7),
+  .stabs--steps > input:nth-of-type(8):checked ~ .stabs__list label:nth-child(8),
+  .stabs--steps > input:nth-of-type(9):checked ~ .stabs__list label:nth-child(9),
+  .stabs--steps > input:nth-of-type(10):checked ~ .stabs__list label:nth-child(10),
+  .stabs--steps > input:nth-of-type(11):checked ~ .stabs__list label:nth-child(11),
+  .stabs--steps > input:nth-of-type(12):checked ~ .stabs__list label:nth-child(12) {
+    grid-column: span 4;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 3px 10px 3px 3px;
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgb(20 32 27 / 0.12), 0 0 0 1px var(--line-strong);
+    color: var(--em-800);
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ───────── Phone: section strips, boards and tab bars that used to scroll sideways ───────── */
+@media (max-width: 760px) {
+  /* setup section strips (Cost Control, Banquets, Purchase, Stores … setups): an even grid */
+  :is(.ccs-nav, .bqs-nav, .prs-nav, .sts-nav) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 4px;
+    width: 100%;
+    overflow: visible;
+  }
+
+  :is(.ccs-nav, .bqs-nav, .prs-nav, .sts-nav) > a {
+    justify-content: center;
+    min-width: 0;
+    min-height: 38px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  /* kanban boards (MT-02 work queue, HK-04 allocation, LA-04 production): columns stacked */
+  .mq-board,
+  .ap-cols,
+  .pb {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-columns: auto;
+    overflow: visible;
+  }
+
+  /* tab bars of single screens (LA-03, RS-04): tabs share the width and wrap */
+  .lo3-tabbar,
+  .avc-tabs {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .lo3-tabbar > *,
+  .avc-tabs > * {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ───────── Phone: filter chips of the room board (FD-06), in-house (FD-07) and requests ─────────
+   Status chips two per row, floor and type as compact segmented rows, so the many choices
+   take a few tidy lines instead of a long ragged list. */
+@media (max-width: 760px) {
+  .rb-filters {
+    gap: 10px;
+  }
+
+  .rb-row {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .rb-row--status,
+  .ih-chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  :is(.rb-row--status, .ih-chips) > .rb-chip {
+    justify-content: space-between;
+    min-width: 0;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  :is(.rb-row--status, .ih-chips) > .rb-chip:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  :is(.rb-row--status, .ih-chips) .rb-chip__l {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rb-row--more {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rb-row__k + .rb-seg {
+    margin-right: 0;
+  }
+
+  .rb-row--more > .rb-seg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(46px, 1fr));
+    border-radius: 12px;
+  }
+
+  .rb-row--more .rb-seg .rb-chip {
+    justify-content: center;
+    height: auto;
+    min-height: 30px;
+    padding: 4px;
+    border-radius: 9px;
+    font-size: 11px;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .rb-row--more > :is(.rb-row__sp, .rb-legend, details, .btn) {
+    grid-column: 1 / -1;
+  }
+
+  .rb-counts {
+    padding-bottom: 0;
+    font-size: 11.5px;
+  }
+}
+
+/* ───────── Phone: report viewer head and filters (FD-22-1 and the reports that share it) ─────────
+   The report icon is small and sits beside the title; the facts form a three-part strip;
+   filters are an even two-column grid with "Filters" as its heading and Run across the foot. */
+@media (max-width: 760px) {
+  .rv-top {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .rv-ic {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .rv-t {
+    flex: none;
+  }
+
+  .rv-h {
+    font-size: 18px;
+  }
+
+  .rv-meta,
+  .rv-acts {
+    grid-column: 1 / -1;
+  }
+
+  .rv-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rv-meta > div {
+    min-width: 0;
+    padding: 8px 10px;
+  }
+
+  .rv-meta dd {
+    white-space: normal;
+  }
+
+  .rv-acts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rv-acts > .btn {
+    justify-content: center;
+  }
+
+  .rv-f {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .rv-f__k {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+
+  .rv-f > .field {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .rv-f > .field:has(input[type="date"], .dpk, input[type="search"], input[type="text"]) {
+    grid-column: 1 / -1;
+  }
+
+  .rv-f > .btn,
+  .rv-f > button {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+/* ───────── Phone: guest list of RS-18 (a grid of links, not a table) ─────────
+   Each guest is a card: avatar and name on top, the club badge beside them,
+   mobile and email underneath, stays · nights · last stay as three small figures. */
+@media (max-width: 760px) {
+  .gp-list {
+    gap: 10px;
+    background: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .gp-row--head {
+    display: none;
+  }
+
+  .gp-row,
+  a.gp-row {
+    grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    box-shadow: var(--sh-1);
+  }
+
+  .gp-row > :nth-child(n) {
+    display: block;
+    min-width: 0;
+  }
+
+  .gp-row > .gp-av {
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .gp-row > .gp-row__name {
+    display: flex;
+    grid-row: 1;
+    grid-column: 2 / -1;
+    font-size: 14.5px;
+  }
+
+  .gp-row > .gp-row__tags {
+    display: flex;
+    grid-column: 1 / -1;
+  }
+
+  .gp-row > :nth-child(4) {
+    grid-column: 1 / 3;
+  }
+
+  .gp-row > :nth-child(5) {
+    grid-column: 3 / -1;
+  }
+
+  .gp-row > :nth-child(6),
+  .gp-row > :nth-child(7),
+  .gp-row > :nth-child(8) {
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .gp-row > :nth-child(6) {
+    grid-column: 1 / 3;
+  }
+
+  .gp-row > :is(:nth-child(4), :nth-child(5), :nth-child(6), :nth-child(7), :nth-child(8))::before {
+    display: block;
+    color: var(--ink-3);
+    font-size: 10.5px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gp-row > :nth-child(4)::before { content: "Mobile"; }
+  .gp-row > :nth-child(5)::before { content: "Email"; }
+  .gp-row > :nth-child(6)::before { content: "Stays"; }
+  .gp-row > :nth-child(7)::before { content: "Nights"; }
+  .gp-row > :nth-child(8)::before { content: "Last stay"; }
+
+  .gp-row > .gp-row__go {
+    display: none;
+  }
+
+  .gp-row__tags:empty {
+    display: none;
+  }
+}
+
+/* ───────── Phone: safe deposit lockers (FD-25) ─────────
+   The summary stacks (big figure, bar, then the four counts two per row) and the
+   locker map shows three lockers per row so codes like L-01 stay on one line. */
+@media (max-width: 760px) {
+  .lk-sum__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .lk-sum__big {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    padding-right: 0;
+    box-shadow: none;
+  }
+
+  .lk-key {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+  }
+
+  .lk-key__i {
+    min-width: 0;
+  }
+
+  .lk-key__i > :is(span, small) {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+  }
+
+  .lk-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lk__top strong {
+    white-space: nowrap;
+  }
+
+  .lk__s {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* the Filter button starts the toolbar line instead of floating to the right */
+  .page-header__row .hfilter__btn {
+    margin-left: 0;
+  }
+}
+
+/* ───────── Phone: printable documents and reports on screen ─────────
+   The hotel block and the document title stack, both left-aligned with a rule
+   between them; the "Print with Ctrl+P" hint is left out (a phone has no Ctrl+P). */
+@media (max-width: 760px) {
+  .paper__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .paper__meta {
+    padding-top: 10px;
+    border-top: 1px dashed #d9d4c6;
+    text-align: left;
+  }
+
+  .paper__brand {
+    font-size: 20px;
+  }
+
+  .paper-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .paper-bar > .fd-muted {
+    display: none;
+  }
+
+  .paper-bar > :is(.btn, form) {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .doc__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .doc__head > * {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+/* ───────── Phone: room status card of FD-01 (donut and legend) ─────────
+   The donut sits on top, the four statuses below it as full-width rows, and the
+   facts strip shows its three figures side by side. */
+@media (max-width: 760px) {
+  .rs-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .rs-legend {
+    width: 100%;
+  }
+
+  .rs-leg__t {
+    min-width: 0;
+  }
+
+  .rs-leg__t :is(b, small) {
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+
+  .rs-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rs-facts > span {
+    min-width: 0;
+  }
+}
+
+/* ───────── Phone: figure strips of the dark heroes (HK, LA, MB, LN …) ─────────
+   An even grid: two figures per row, every figure left-aligned with its label under it,
+   an odd last figure across the row – instead of figures wrapping raggedly. */
+@media (max-width: 760px) {
+  .hkh__k,
+  ul.hkh__k.loc-k {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 0;
+    width: 100%;
+  }
+
+  .hkh__k li,
+  ul.hkh__k.loc-k li {
+    align-content: start;
+    min-width: 0;
+    padding: 0 12px;
+  }
+
+  .hkh__k li:nth-child(odd),
+  ul.hkh__k.loc-k li:nth-child(odd) {
+    box-shadow: none;
+  }
+
+  .hkh__k li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .hkh__k b {
+    font-size: 21px;
+    white-space: nowrap;
+  }
+}
+
+/* ───────── Phone: header toolbar starts at the left; filter fields as small labelled boxes ───────── */
+@media (max-width: 760px) {
+  .page-header__row > :not(.code-chip),
+  .page-header__filters > .hctl > * {
+    margin-left: 0;
+  }
+
+  /* each filter: its name on a small top line, the choice underneath, two per row */
+  .hfilter .hf-f,
+  main .ral-filters > .hf-f {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1px;
+    height: auto;
+    min-height: 50px;
+    padding: 6px 28px 6px 11px;
+  }
+
+  .hfilter .hf-f__l,
+  main .ral-filters > .hf-f .hf-f__l {
+    font-size: 10.5px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hfilter .hf-f__l > .icon,
+  main .ral-filters > .hf-f .hf-f__l > .icon {
+    display: none;
+  }
+
+  .hfilter .hf-f__c,
+  main .ral-filters > .hf-f .hf-f__c {
+    width: 100%;
+    height: 22px;
+    padding: 0;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .hfilter__acts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hfilter__acts > * {
+    justify-content: center;
+    min-height: 38px;
+  }
+
+  /* large amounts in stat tiles stay on one line */
+  .st-tile__n {
+    font-size: 19px;
+    white-space: nowrap;
+  }
+
+  /* tile: icon beside the label, the figure across the whole tile underneath */
+  .st-tile {
+    grid-template-columns: 28px minmax(0, 1fr);
+    column-gap: 8px;
+  }
+
+  .st-tile__ic {
+    grid-row: 1;
+    width: 28px;
+    height: 28px;
+  }
+
+  .st-tile__v {
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+  }
+}
+
+/* ───────── Phone: "← Back" of full-screen pop-ups is a proper touch-size button ───────── */
+@media (max-width: 760px) {
+  .modal__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px var(--line-strong);
+    color: var(--em-800);
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+/* ───────── Phone: guest profile (RS-18 GP-xxxx) ─────────
+   The four figures as a 2 × 2 block, the data-request buttons one under the other,
+   header buttons keep their full words (they wrap to a new line instead of being cut). */
+@media (max-width: 760px) {
+  .gp-hero > div:not(.gp-kpis) {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .gp-kpis {
+    display: grid;
+    flex: 1 1 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .gp-kpis > div {
+    min-width: 0;
+    padding: 8px 12px;
+  }
+
+  .gp-kpis > div:nth-child(odd) {
+    box-shadow: none;
+  }
+
+  .gp-kpis > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .gpc-foot .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .gpc-foot .row > .btn {
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .page-header__actions > :is(.btn, a, button, label, details, .menu) {
+    flex: 1 0 auto;
+  }
+}
+
+@media (max-width: 760px) {
+  /* buttons wrapped in a per-record group (e.g. RS-18 one group per guest) share the line the same way */
+  .page-header__actions > span {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .page-header__actions .btn {
+    flex: 1 0 auto;
+    justify-content: center;
+    max-width: none;
+    min-height: 38px;
+    text-overflow: clip;
+  }
+}
+
+/* ───────── Phone: label / value tables (no header row: "Counter | FD 1 | Shift | Morning") ─────────
+   Each label sits above its value, two pairs per row, so the table never runs past the screen. */
+@media (max-width: 760px) {
+  .app__content table:not([data-mc]):not(:has(> thead)) {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody {
+    display: block;
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 2px 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > :is(th, td) {
+    display: block;
+    width: auto !important;
+    padding: 0;
+    border: 0;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* a label above its value: label in column n, value right under it */
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > th {
+    color: var(--ink-3);
+    font-size: 10.5px;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > th:nth-child(1),
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > td:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > th:nth-child(3),
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td) > td:nth-child(4) {
+    grid-column: 2;
+  }
+
+  .app__content table:not([data-mc]):not(:has(> thead)) > tbody > tr:has(> th + td):not(:has(> :nth-child(3))) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ───────── Phone: figure lists (.cc-kpis – setups, finance, GL, HR, MIS …) two per row ───────── */
+@media (max-width: 760px) {
+  .app__content .cc-kpis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .app__content .cc-kpis > .cc-kpi {
+    min-width: 0;
+  }
+
+  .app__content .cc-kpis > .cc-kpi:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .cc-kpi__v {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ───────── Phone: setup-home progress hero (every setup module) ─────────
+   The ring (or the big percentage) on top, the headline and text under it, then the counters. */
+@media (max-width: 760px) {
+  .sh__hero .sh__hero-main,
+  .sh__hero[data-code$="-01-progress"] .sh__hero-main {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 12px 14px;
+    padding: 16px;
+  }
+
+  .sh__hero .sh__ring {
+    justify-self: start;
+    width: 64px;
+    height: 64px;
+  }
+
+  .sh__hero .sh__ring-num {
+    font-size: 15px;
+  }
+
+  .sh__hero .sh__ring-sub {
+    font-size: 9.5px;
+  }
+
+  .sh__hero .sh__hero-text {
+    min-width: 0;
+  }
+
+  .sh__hero .sh__hero-text h2 {
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .sh__hero .sh__stats {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  /* card tables never scroll; inputs inside them may shrink to the card */
+  .app__content table[data-mc][data-mc] {
+    overflow: visible;
+  }
+
+  .app__content table[data-mc] :is(input, select, textarea, .field__input) {
+    min-width: 0 !important;
+  }
+
+  /* code or JSON previews inside printed documents wrap instead of running off the paper */
+  .paper :is(pre, code) {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Phone round 2026-11-04 (header, icon-only buttons, tidy forms inside cards)
+   Phones only (≤ 760 px) – the laptop view is not touched.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ───────── Phone: a compact page header ─────────
+   Breadcrumb = one "‹ Parent" link, a smaller title, Filter as an icon, secondary
+   buttons with a self-explaining icon (download, print, upload, refresh, edit,
+   view, history) as icon-only squares; the main button keeps its words. */
+@media (max-width: 760px) {
+  .page-header__top {
+    margin-bottom: 2px;
+  }
+
+  .breadcrumb ol {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .breadcrumb li {
+    display: none;
+  }
+
+  .breadcrumb li:nth-last-child(2) {
+    display: inline-flex;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .breadcrumb li:nth-last-child(2) > .icon {
+    order: -1;
+    width: 14px;
+    height: 14px;
+    transform: rotate(180deg);
+  }
+
+  .breadcrumb li:nth-last-child(2):first-child::before {
+    content: "\2039";
+    margin-right: 2px;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .breadcrumb li:nth-last-child(2) > a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70vw;
+  }
+
+  .page-header__top:has(.breadcrumb li:only-child) {
+    display: none;
+  }
+
+  .page-header__title {
+    font-size: 22px;
+    line-height: 1.18;
+  }
+
+  .page-header__row > .code-chip {
+    margin-top: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+
+  /* Filter: the funnel only; the dot still shows when a filter is set */
+  .page-header__row .hfilter__btn {
+    width: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .page-header__row .hfilter__btn > span:not(.hfilter__dot),
+  .page-header__row .hfilter__btn > .icon:last-child:not(:first-of-type) {
+    display: none;
+  }
+
+  .page-header__row .hfilter__btn > .hfilter__dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+
+  /* secondary buttons whose icon says it all (marked ph-ic by tools/add-header-icons.py) */
+  .page-header__actions > .ph-ic {
+    flex: 0 0 42px;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  /* a header whose buttons are all icon buttons: they share the line of the search / filter icons */
+  .page-header .page-header__row {
+    grid-template-areas:
+      "title title title code"
+      "srch  filt  end   end"
+      "extra extra extra extra"
+      "acts  acts  acts  acts"
+      "panel panel panel panel";
+  }
+
+  .page-header__actions.ph-icons {
+    grid-area: end;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+
+  .page-header__row:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown)) .page-header__actions.ph-icons {
+    grid-area: acts;
+  }
+
+  .page-header__actions > :is(.btn, a, button):not(.btn--primary) > .icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ───────── Phone: matrices that also hold names, lists and numbers ─────────
+   A four-per-row card grid is only for ticks and short figures; cells that hold a text field,
+   a list or a number take two places (names the whole row) so no word is stacked letter by letter. */
+@media (max-width: 760px) {
+  .app__content table[data-mc="grid"][data-mc="grid"] > :is(tbody, tfoot) > tr > td:has(select, input:not([type="checkbox"], [type="radio"], [type="hidden"]), textarea) {
+    grid-column: span 2;
+  }
+
+  .app__content table[data-mc="grid"][data-mc="grid"] > :is(tbody, tfoot) > tr > td:has(textarea, input:is([type="text"], [type="search"], [type="email"], [type="url"], [type="tel"], :not([type]))) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ───────── Phone: header variants ───────── */
+@media (max-width: 760px) {
+  /* a few screens put the search / filter box straight under the header row */
+  .page-header__row > .hctl {
+    display: contents;
+  }
+
+  /* a Filter button without a search icon takes the first place (no blank gap above it) */
+  .page-header__row:not(:has(.hsearch)) .hfilter__btn {
+    grid-area: srch;
+  }
+
+  /* the Theme tab: just the small orb, tucked against the edge, so it covers nothing */
+  html .zt-handle {
+    bottom: 84px;
+    width: 30px;
+    padding: 7px 0;
+    gap: 0;
+    opacity: 0.9;
+    transform: translate(11px, 0);
+  }
+
+  html .zt-handle .zt-handle__t {
+    display: none;
+  }
+}
+
+/* ───────── Phone: extras beside the filter, section links, figure tiles, long values ───────── */
+@media (max-width: 760px) {
+  /* buttons / selects a screen keeps beside the filter (Reassign selected …) get a line of their own */
+  .page-header .page-header__row {
+    grid-template-areas:
+      "title title title code"
+      "srch  filt  end   end"
+      "extra extra extra extra"
+      "acts  acts  acts  acts"
+      "panel panel panel panel";
+  }
+
+  .page-header__filters .hctl__extra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .page-header__filters .hctl__extra > * {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  /* section links of the setup screens ("A · Method and limits …"): even tiles, not a floating bar */
+  .fd-anchors {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 6px;
+    padding: 6px;
+    border-radius: var(--r-md);
+    background: var(--sunken);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+
+  .fd-anchors a {
+    min-width: 0;
+    padding: 9px 10px;
+    border-radius: 9px;
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px var(--line);
+    font-size: 12.5px;
+    line-height: 1.25;
+  }
+
+  /* tiles with an icon beside the text (Lost & Found, Linen, Minibar, Engineering dashboards): icon on top */
+  a:is(.lfd-t, .lnd-t, .mbd-t) {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    align-items: start;
+    justify-items: start;
+    gap: 3px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  a > :is(.lfd-t__i, .lnd-t__i, .mbd-t__i) {
+    grid-row: auto;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    border-radius: 10px;
+  }
+
+  a:is(.lfd-t, .lnd-t, .mbd-t) b {
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  :is(.lfd-t, .lnd-t, .mbd-t) :is(small, .lfd-t__k, .lnd-t__k, .mbd-t__k) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* figure tiles of the setups and finance screens: the whole value and note are shown */
+  .app__content .cc-kpi__v {
+    overflow: visible;
+    font-size: 21px;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .app__content .cc-kpi__s {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
+  /* a calculation line with text and bold figures runs as a sentence, not as boxes in a row */
+  .mt-calc {
+    display: block;
+  }
+
+  .mt-calc > .icon {
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: -2px;
+  }
+
+  /* long values in a card (e-mail addresses, long names) take the whole card width */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-w] {
+    grid-column: 1 / -1;
+  }
+
+  /* guest list rows with nothing to show in the tags place */
+  .gp-row__tags:has(> .gp-none:only-child) {
+    display: none;
+  }
+
+  /* laundry documents: hotel block and title one under the other, both on the left */
+  .la-doc__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .la-doc__head > * {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+/* ───────── Phone: report list rows (RS-21 …): icon + name on top, the two buttons across the foot ───────── */
+@media (max-width: 760px) {
+  .rep-row.rep-row {
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    gap: 8px 12px;
+    padding: 12px;
+  }
+
+  .rep-row__act {
+    grid-column: 1 / -1;
+  }
+
+  .rep-row__act .btn {
+    flex: 1 1 0;
+    justify-content: center;
+    height: 36px;
+  }
+}
+
+/* ───────── Phone: matrix cards – a longer column name or value takes two places ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc="grid"][data-mc="grid"] > :is(tbody, tfoot) > tr > [data-w2] {
+    grid-column: span 2;
+  }
+
+  .app__content table[data-mc="grid"][data-mc="grid"] > :is(tbody, tfoot) > tr > [data-w] {
+    grid-column: 1 / -1;
+  }
+
+  /* the sticky save bar: buttons only, sharing the width (the "last saved" note is on the laptop) */
+  .fd-formfoot {
+    flex-wrap: wrap;
+  }
+
+  .fd-formfoot .fd-spacer {
+    display: none;
+  }
+
+  .fd-formfoot > :is(.btn, button, a) {
+    flex: 1 1 auto;
+    justify-content: center;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  /* a button inside a card never runs past the card */
+  .app__content table[data-mc] td .btn,
+  .app__content table[data-mc] td button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ───────── Phone: big figures of the dashboard tiles fit their tile ───────── */
+@media (max-width: 760px) {
+  .dsh .st-tile .st-tile__n {
+    font-size: 24px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ───────── Phone: lists, signature lines, room chips, device frame, system dashboard ───────── */
+@media (max-width: 760px) {
+  /* lists on the dashboards that open into columns on the laptop: one column */
+  .dsh > .lf-card .pq-l,
+  .dsh > div > .lf-card .pq-l,
+  .gl-dash.dsh > div > .lf-card .pq-l {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .pq-l > li {
+    min-width: 0;
+  }
+
+  .pq-l__s {
+    max-width: 100%;
+  }
+
+  /* budget bars: name and value on one line, the bar under them */
+  .pq-bud {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 10px;
+  }
+
+  .pq-bud > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  /* signature lines at the foot of printed documents: one under the other */
+  .sg {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin-top: 32px;
+  }
+
+  /* several room chips of one booking wrap instead of running into the next value */
+  .fd-rms {
+    flex-wrap: wrap;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* the technician's phone screen (MT-14) is already on a phone: no device frame */
+  .phone {
+    width: auto;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .phone__scr {
+    min-height: 0;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  /* system dashboard (SY-01): services above storage, not side by side */
+  .sy-dash {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* the preview banner of announcements (SY-08) needs its dark ground */
+  .sy-banner {
+    background: rgb(var(--deep-rgb, 14 26 43));
+  }
+}
+
+/* ───────── Phone: pop-up header with a "← Back" button ─────────
+   Back sits on the first line with the close cross; the title and its text use the full width below. */
+@media (max-width: 760px) {
+  .modal__head:has(> .modal__back) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "back close"
+      "text text";
+    align-items: center;
+    gap: 8px 10px;
+  }
+
+  .modal__head > .modal__back {
+    grid-area: back;
+    justify-self: start;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .modal__head:has(> .modal__back) > :not(.modal__back, .modal__close) {
+    grid-area: text;
+    min-width: 0;
+  }
+
+  .modal__head:has(> .modal__back) > .modal__close {
+    grid-area: close;
+  }
+}
+
+/* ───────── Phone: long titles – the short name big, the detail small underneath ───────── */
+@media (max-width: 760px) {
+  .page-header__title .pt-more {
+    display: block;
+    margin-top: 3px;
+    color: var(--ink-3);
+    font-family: var(--font-ui);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .page-header__title .pt-sep {
+    display: none;
+  }
+}
+
+/* ───────── Phone: report cards, QR labels, minibar layout chart, long step bars ───────── */
+@media (max-width: 760px) {
+  /* banquet report cards (BQ-09): one card per line, icon · name · Run */
+  .rp-g > .rp {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  /* area / room QR labels (HKS-O03): one label per line (the QR on the left, the words beside it) */
+  .hks-label-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* minibar layout chart (MBS-O02): fridge picture above the shelf list */
+  .o2-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* step bars with seven or more steps: the current step needs a little more room for its name */
+  .ltabs--steps > .ltabs__list:has(> :nth-child(7)) > [aria-current="page"] {
+    grid-column: span 6;
+  }
+}
+
+/* ───────── Phone: inline filter rows of reports, groups of buttons ───────── */
+@media (max-width: 760px) {
+  :is(.rl-f, .hk7-week, .hks-filterrow, .sk-loc) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  :is(.rl-f, .hk7-week, .hks-filterrow, .sk-loc) > .hf-f {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  :is(.rl-f, .hk7-week, .hks-filterrow, .sk-loc) .hf-f__c {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+  }
+
+  :is(.rl-f, .hk7-week, .hks-filterrow, .sk-loc) > :is(.btn, button) {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  /* two or more buttons side by side wrap onto the next line instead of running off the screen */
+  .app__content :is(div, p, span, td):has(> .btn ~ .btn) {
+    flex-wrap: wrap;
+  }
+}
+
+/* ───────── Phone: a short pager – first, last, the current page and its neighbours ───────── */
+@media (max-width: 760px) {
+  .pg-set > .pg-n {
+    display: none;
+  }
+
+  .pg-set > .pg-n:first-of-type,
+  .pg-set > .pg-n:last-of-type,
+  .pg-set > .pg-in:checked + .pg-n,
+  .pg-set > .pg-in:checked + .pg-n + .pg-in + .pg-n,
+  .pg-set > .pg-in:has(+ .pg-n + .pg-in:checked) + .pg-n {
+    display: inline-grid;
+  }
+
+  /* a small gap sign where pages are left out */
+  .pg-set > .pg-in:checked + .pg-n + .pg-in + .pg-n + .pg-in + .pg-n:not(:last-of-type) {
+    display: none;
+  }
+
+  .pg {
+    gap: 6px;
+  }
+}
+
+/* ───────── Phone: room board tiles (HK-02) show their whole line of text ───────── */
+@media (max-width: 760px) {
+  .rt > :is(.rt__fo, .rt__last) {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+}
+
+/* ───────── Phone: label / value rows inside pop-ups – the label above the value ───────── */
+@media (max-width: 760px) {
+  .modal dl > div,
+  .p9-card dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+  }
+
+  .modal dl > div > dt {
+    font-size: 11.5px;
+  }
+
+  .p9-card {
+    flex-wrap: wrap;
+  }
+
+  .p9-card > dl {
+    flex: 1 1 100%;
+  }
+
+  /* promised-room cards and other pop-up bodies never run wider than the screen */
+  .modal__body :is(.pk, .pkf, .sug, .rest, .rgrid, .rci, .rc, .rlist, .rrow, .sb, .sb__row, .pk__lead, .pk__tools) {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .modal__body .pkf__r {
+    flex-wrap: wrap;
+  }
+
+  .modal__body .rgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .modal__body :is(.pq-muted, .fd-sub) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ───────── Phone: task sheet (HK-06) – compact header, one task = a tidy card ───────── */
+@media (max-width: 760px) {
+  .ts-hero {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 12px 14px;
+    padding: 16px;
+  }
+
+  .ts-hero__av {
+    width: 52px;
+    height: 52px;
+    font-size: 17px;
+  }
+
+  .ts-hero__t {
+    font-size: 22px;
+  }
+
+  .ts-hero__nums {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 0;
+  }
+
+  .ts-hero__nums > div {
+    padding: 0 12px;
+  }
+
+  .ts-hero__nums > div:nth-child(odd) {
+    padding-left: 0;
+    box-shadow: none;
+  }
+
+  .ts-hero > :last-child:not(.ts-hero__nums) {
+    grid-column: 1 / -1;
+  }
+
+  /* a task line: number · room on the first line, guest and status under them, actions last */
+  .tsl.tsl,
+  .tsl.tsl:not(:has(.tsl__ord)) {
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "n room st"
+      "g g   g"
+      "sup sup sup"
+      "a a a";
+    gap: 6px 10px;
+    align-items: start;
+  }
+
+  .tsl > .tsl__n {
+    grid-area: n;
+  }
+
+  .tsl > .tsl__room {
+    grid-area: room;
+  }
+
+  .tsl > .tsl__st {
+    grid-area: st;
+    justify-items: end;
+    text-align: right;
+  }
+
+  .tsl > .tsl__g {
+    grid-area: g;
+  }
+
+  .tsl > .tsl__sup {
+    display: grid;
+    grid-area: sup;
+  }
+
+  .tsl > .tsl__ord {
+    display: none;
+  }
+
+  .tsl > .tsl__a {
+    grid-area: a;
+    flex-wrap: wrap;
+  }
+
+  .tsl > .tsl__a:empty,
+  .tsl > .tsl__sup:has(> small:only-child:empty),
+  .tsl > .tsl__g:empty {
+    display: none;
+  }
+}
+
+/* ───────── Phone: a unit written after a field (%, ml, kg) stays on the field's line ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc] td:has(> :is(input, .field__wrap) + .fd-muted) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+  }
+
+  .app__content table[data-mc] td:has(> :is(input, .field__wrap) + .fd-muted) > :is(input, .field__wrap) {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+  }
+
+  .app__content table[data-mc] td:has(> :is(input, .field__wrap) + .fd-muted) > .fd-muted {
+    flex: none;
+  }
+
+  .app__content table[data-mc] td:has(> :is(input, .field__wrap) + .fd-muted)::before {
+    flex: 0 0 100%;
+  }
+}
+
+/* ───────── Phone: card cells always wrap their words; a field with a unit is a row ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc][data-mc][data-mc] > :is(tbody, tfoot) > tr > :is(td, th) {
+    white-space: normal !important;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr > td:has(> :is(input, .field__wrap) + .fd-muted) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* ───────── Phone: text fields in cards take the whole card width (names, descriptions, codes) ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td:has(> :is(textarea, input:is([type="text"], [type="search"], [type="email"], [type="url"], [type="tel"], :not([type])))) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ───────── Phone: a name field in the heading of a card uses the whole width, its hint underneath ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td[data-t]:has(> :is(input:not(.mc-more), .field__wrap, select)) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 4px;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td[data-t]:has(> :is(input:not(.mc-more), .field__wrap, select)) > :is(input:not(.mc-more), .field__wrap, select) {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* the unit rule above is for value cells, not for headings */
+  .app__content table[data-mc][data-mc] > tbody > tr > td[data-t]:has(> :is(input, .field__wrap) + :is(.fd-muted, .fd-sub)) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* ───────── Phone: drop-down panels open inside the page, full width, and never run off the screen ───────── */
+@media (max-width: 760px) {
+  .page-header__actions > details[open],
+  .rbf-view > details[open],
+  .page-header__actions .rd-more[open] {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .page-header__actions .rd-jump__g,
+  .rd-jump__g,
+  .rt__menu,
+  .page-header__actions .rd-more .rt__menu,
+  .rbf-sel__menu,
+  .s-more__panel,
+  .rb-jump {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 6px;
+    box-sizing: border-box;
+  }
+
+  .rt__menu a {
+    white-space: normal;
+  }
+
+  .rd-jump__g {
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  }
+
+  .rb-jump__fl {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+
+/* ───────── Phone: remaining boxes that kept a laptop minimum width (down to 320 px screens) ───────── */
+@media (max-width: 760px) {
+  /* report cards (DA-09, HR-12): one column, no 340 px minimum */
+  .hr-reps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hr-rep--o {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .hr-rep--o > .btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  /* three small figures of a card inside a pop-up: three narrow tiles, no overflow */
+  .modal .stat3,
+  .stat3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .stat3 > div {
+    min-width: 0;
+  }
+
+  /* the room board legend opens inside the page */
+  .rb-legend__panel {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    margin-top: 8px;
+  }
+
+  /* counters of the setup home hero: three equal tiles, text may wrap */
+  .sh__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sh__stat {
+    min-width: 0;
+  }
+
+  .sh__stat-txt {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* a lone figure and its unit stay in a flowing line (challan matching lists …) */
+  li > :is(b.num, span.num) {
+    min-width: 0;
+    white-space: normal;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Phone round 3 2026-11-04 (no blank space: header on fewer lines, fields sized to their
+   content, report bars, short button words, tidy cards)
+   Phones only (≤ 760 px) – the laptop and tablet views are not touched.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ───────── Phone: the header on as few lines as possible ─────────
+   line 1  ‹ Parent ………………………… SCREEN-CODE   (the code moves up beside the breadcrumb)
+   line 2  Title (the whole width)
+   line 3  [search] [Filter] [page buttons …]  – on one line when they fit
+   line 4  more buttons / selects, 5 the opened filter panel */
+@media (max-width: 760px) {
+  .page-header {
+    position: relative;
+  }
+
+  .page-header__top {
+    min-height: 22px;
+    padding-right: 84px;
+  }
+
+  .page-header .page-header__row > .code-chip {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    grid-area: auto;
+    margin: 0;
+  }
+
+  .page-header .page-header__row {
+    grid-template-areas: none;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-rows: none;
+    column-gap: 8px;
+  }
+
+  .page-header .page-header__row > .page-header__text {
+    grid-area: auto;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .page-header .page-header__row .hsearch {
+    grid-area: auto;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .page-header .page-header__row .hfilter__btn {
+    grid-area: auto;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .page-header .page-header__row:not(:has(.hsearch)) .hfilter__btn {
+    grid-column: 1;
+  }
+
+  .page-header .page-header__row > .page-header__actions {
+    grid-area: auto;
+    grid-column: 3 / -1;
+    grid-row: 2;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: start;
+  }
+
+  .page-header .page-header__row:not(:has(.hsearch)) > .page-header__actions {
+    grid-column: 2 / -1;
+  }
+
+  .page-header .page-header__row:not(:has(.hsearch, .hfilter__btn)) > .page-header__actions {
+    grid-column: 1 / -1;
+  }
+
+  .page-header__actions:empty {
+    display: none;
+  }
+
+  .page-header .page-header__row > .page-header__actions > :is(.btn, a, button, label, details, .menu):not(.ph-ic) {
+    flex: 1 1 0;
+    min-width: max-content;
+  }
+
+  .page-header .page-header__filters .hctl__extra,
+  .page-header .page-header__row > .page-header__filters > :not(.hctl) {
+    grid-area: auto;
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .page-header .page-header__row .hfilter {
+    grid-area: auto;
+    grid-column: 1 / -1;
+    grid-row: 5;
+  }
+
+  /* three or more word buttons, or four buttons: they take a line of their own */
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(4)) > .page-header__actions,
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(3):not(.ph-ic)):not(:has(> .page-header__actions > .ph-ic)) > .page-header__actions {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-content: stretch;
+  }
+
+  /* an open search takes line 3 whole, the buttons go to their own line */
+  .page-header .page-header__row:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown)) > .page-header__actions {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .page-header .page-header__row:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown)) .hsearch {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ───────── Phone: report pages – one tidy bar (no back button: the breadcrumb is the way back) ───────── */
+@media (max-width: 760px) {
+  .paper-bar {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .paper-bar > .pb-back {
+    display: none;
+  }
+
+  .paper-bar > form.pq-rep {
+    display: contents;
+  }
+
+  .paper-bar > form.pq-rep > .field {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+
+  .paper-bar > form.pq-rep > .btn,
+  .paper-bar > .btn {
+    flex: 1 1 96px;
+    min-height: 40px;
+    justify-content: center;
+  }
+}
+
+/* ───────── Phone: form fields take the room their content needs ─────────
+   Fields marked data-fw by tools/add-field-pack.py: x = very short (a number, a code, a short
+   choice) three per row, s = short (a date, a choice, a phone no.) two per row; the rest (names,
+   notes, long choices, tick lists) keep the whole width. The row grows to the full width, so
+   nothing is left blank. */
+@media (max-width: 760px) {
+  html body :has(> .field[data-fw]):not(td, th, tr, table, tbody):not(#z) {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 12px 8px;
+  }
+
+  html body :has(> .field[data-fw]):not(td, th, tr, table, tbody):not(#z) > * {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  html body :has(> .field[data-fw]):not(td, th, tr, table, tbody) > .field[data-fw="x"]:not(#z) {
+    flex: 1 1 88px;
+  }
+
+  html body :has(> .field[data-fw]):not(td, th, tr, table, tbody) > .field[data-fw="s"]:not(#z) {
+    flex: 1 1 136px;
+  }
+
+  .field[data-fw] > .field__label {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .field[data-fw] > .field__hint {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 760px) {
+  /* header buttons: a little tighter so a search, a filter and two buttons share one line */
+  .page-header .page-header__row > .page-header__actions > :is(.btn, a, button, label):not(.ph-ic) {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 6px;
+  }
+
+  /* report bars: fields side by side, then Run and Export sharing the next line */
+  html body .paper-bar > form.pq-rep:has(> .field) {
+    display: contents;
+  }
+
+  html body .paper-bar > form.pq-rep > .field.field[data-fw],
+  html body .paper-bar > form.pq-rep > .field.field {
+    flex: 1 1 auto;
+    min-width: 128px;
+  }
+
+  /* Export only: an icon button, right-aligned */
+  .paper-bar > a.btn[href="#exported"]:only-of-type,
+  .paper-bar > a.btn[href="#exported"]:nth-last-child(1):nth-child(2) {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  /* a report whose only bar button is Export: the button is a small icon square; when the header has
+     a Filter button it sits on the Filter's line (right side) instead of a line of its own */
+  .paper-bar:not(:has(> form)):has(> a.btn[href="#exported"]):not(:has(> a.btn:not(.pb-back, [href="#exported"]))) > a.btn[href="#exported"] {
+    flex: 0 0 38px;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0;
+    gap: 0;
+    font-size: 0;
+    justify-content: center;
+  }
+
+  .page-header:has(.hfilter__btn):not(:has(.page-header__actions > *, .hfilter__tg:checked, .hsearch:focus-within)) + .paper-bar:not(:has(> form)):has(> a.btn[href="#exported"]):not(:has(> a.btn:not(.pb-back, [href="#exported"]))) {
+    margin-top: -54px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .page-header:has(.hfilter__btn):not(:has(.page-header__actions > *, .hfilter__tg:checked, .hsearch:focus-within)) + .paper-bar > a.btn {
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  html body .paper-bar > form.pq-rep > .field.field {
+    flex: 1 1 0;
+    min-width: 128px;
+  }
+
+  html body .paper-bar > form.pq-rep:has(> .field ~ .field) > .field.field {
+    flex: 1 1 auto;
+    min-width: 140px;
+  }
+
+  html body .paper-bar > form.pq-rep > .btn,
+  html body .paper-bar > a.btn {
+    flex: 1 1 80px;
+  }
+
+  .paper-bar .field__input,
+  .paper-bar .field__wrap > select {
+    min-height: 40px;
+  }
+
+  .page-header:has(.hfilter__btn) + .paper-bar:not(:has(> form)) {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 760px) {
+  .field[data-fw] > :is(.field__input, .field__wrap, input, select) {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+/* ───────── Phone: card footers – small buttons, "More details" on the same line ───────── */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] .btn:not(.btn--primary),
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] button:not(.btn--primary) {
+    min-height: 34px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] :is(.btn, button) {
+    flex: 0 1 auto;
+    min-width: 76px;
+    min-height: 34px;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a]:has(> .btn ~ .btn, > :is(.row, .stack, .lg-acts, .fd-row-acts, .row-acts) > .btn ~ .btn) :is(.btn, button) {
+    flex: 1 1 auto;
+  }
+
+  /* a card with "More details": the pill takes the right end of the footer line */
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more):has(> [data-a]) {
+    padding-bottom: 12px;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more) > [data-a] {
+    min-height: 44px;
+    padding-right: 124px;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more):has(> [data-a]) .mc-more {
+    bottom: 13px;
+  }
+}
+
+/* ───────── Phone: shorter button words, pop-up footers that share the line ───────── */
+@media (max-width: 760px) {
+  .ph-x {
+    display: none;
+  }
+
+  .ph-c {
+    display: inline-block;
+  }
+
+  .ph-x + .ph-c::first-letter {
+    text-transform: uppercase;
+  }
+
+  .modal__foot,
+  .drawer__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 8px;
+  }
+
+  .modal__foot > :is(.btn, button, a, label, details),
+  .drawer__foot > :is(.btn, button, a, label, details) {
+    flex: 1 1 auto;
+    justify-content: center;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  /* the explanation line that sits in some footers takes a line of its own */
+  .modal__foot > :not(.btn, button, a, label, details),
+  .drawer__foot > :not(.btn, button, a, label, details) {
+    flex: 1 1 100%;
+  }
+}
+
+/* ───────── Phone: room board chips – a dot, a short code and the room count ─────────
+   All · VC vacant clean · VD vacant dirty · OC occupied · DUE due out today · ARR arrivals today ·
+   OOO out of order / service. Floors and types become 5th … 1st. */
+@media (max-width: 760px) {
+  .rb-row--status:not(.ih-chips) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .rb-row--status:not(.ih-chips) > .rb-chip {
+    justify-content: center;
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .rb-row--status:not(.ih-chips) > .rb-chip:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .rb-row--status .rb-chip__l {
+    gap: 5px;
+    font-size: 0;
+    overflow: visible;
+  }
+
+  .rb-row--status .rb-chip__l::after {
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .rb-chip--f-all .rb-chip__l::after {
+    content: "All";
+  }
+
+  .rb-chip--f-ready .rb-chip__l::after {
+    content: "VC";
+  }
+
+  .rb-chip--f-dirty .rb-chip__l::after {
+    content: "VD";
+  }
+
+  .rb-chip--f-occupied .rb-chip__l::after {
+    content: "OC";
+  }
+
+  .rb-chip--f-dot .rb-chip__l::after {
+    content: "DUE";
+  }
+
+  .rb-chip--f-arr .rb-chip__l::after {
+    content: "ARR";
+  }
+
+  .rb-chip--f-ooo .rb-chip__l::after {
+    content: "OOO";
+  }
+
+  .rb-seg > .rb-chip:is(.rb-chip--f5, .rb-chip--f4, .rb-chip--f3, .rb-chip--f2, .rb-chip--f1) {
+    font-size: 0;
+  }
+
+  .rb-seg > .rb-chip--f5::before,
+  .rb-seg > .rb-chip--f4::before,
+  .rb-seg > .rb-chip--f3::before,
+  .rb-seg > .rb-chip--f2::before,
+  .rb-seg > .rb-chip--f1::before {
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .rb-seg > .rb-chip--f5::before {
+    content: "5th";
+  }
+
+  .rb-seg > .rb-chip--f4::before {
+    content: "4th";
+  }
+
+  .rb-seg > .rb-chip--f3::before {
+    content: "3rd";
+  }
+
+  .rb-seg > .rb-chip--f2::before {
+    content: "2nd";
+  }
+
+  .rb-seg > .rb-chip--f1::before {
+    content: "1st";
+  }
+}
+
+/* ───────── Phone: small cards with a heading and a few chips; buttons inside card values ───────── */
+@media (max-width: 760px) {
+  .page-header__actions > .pb-back {
+    display: none;
+  }
+
+  /* "Flags  [Rush] [Turndown]": the chips sit on the heading line, to the right */
+  .rd-card:has(> .rd-flags) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .rd-card:has(> .rd-flags) > .rd-card__t {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .rd-card:has(> .rd-flags) > .rd-flags {
+    flex: 1 1 0;
+    justify-content: flex-end;
+    min-width: 120px;
+    margin: 0;
+  }
+
+  /* buttons that live inside a labelled value of a card (Next step: Send / Approve) share the line and never run past the card */
+  .app__content table[data-mc] > tbody > tr > td[data-label]:not([data-a]):has(> .btn) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .app__content table[data-mc] > tbody > tr > td[data-label]:not([data-a]):has(> .btn)::before,
+  .app__content table[data-mc] > tbody > tr > td[data-label]:not([data-a]):has(> .btn) > :not(.btn) {
+    flex: 1 1 100%;
+  }
+
+  .app__content table[data-mc] > tbody > tr > td[data-label]:not([data-a]) > .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ───────── "What to show" chip rails as a dropdown (tools/add-phone-dropdowns.py) ───────── */
+.dd-m {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .dd-m {
+    display: block;
+    margin: 0 0 12px;
+  }
+
+  .dd-m + .hks-views {
+    display: none;
+  }
+
+  .dd-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 600 14px/1.2 var(--font-ui);
+    text-align: left;
+  }
+
+  .dd-btn::after {
+    content: "";
+    flex: none;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border: solid var(--ink-3);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .dd-list {
+    inset: auto 12px 12px;
+    width: auto;
+    max-height: 70vh;
+    margin: 0;
+    padding: 8px;
+    overflow-y: auto;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 18px 44px -12px rgb(14 26 43 / 0.45);
+  }
+
+  .dd-list:popover-open {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dd-list::backdrop {
+    background: rgb(14 26 43 / 0.35);
+  }
+
+  .dd-list > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    box-shadow: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .dd-list > a:active {
+    background: var(--em-50);
+  }
+}
+
+@media (max-width: 760px) {
+  /* a second "← Parent" link above the breadcrumb says the same as the breadcrumb */
+  .fd-back {
+    display: none;
+  }
+
+  /* a report / print bar whose only content was a back link and a hint has nothing left to show */
+  .paper-bar:not(:has(> :not(.pb-back, .fd-muted))) {
+    display: none;
+  }
+}
+
+/* ───────── Phone round 4 (user's screenshots 2026-11-04) ───────── */
+@media (max-width: 760px) {
+  /* Cards: contents centred; a value left alone on its line takes the whole line. :where keeps display at zero weight. */
+  :where(.app__content table[data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr) {
+    display: flex;
+  }
+
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr > :is(td, th) {
+    flex: 1 1 calc(50% - 7px);
+  }
+
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr > :is([data-t], [data-s], [data-a], [data-w], [colspan]) {
+    flex-basis: 100%;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > :is(td, th) {
+    text-align: center;
+  }
+
+  .app__content table[data-mc] > :is(tbody, tfoot) > tr > :is(td, th) > * {
+    justify-content: center;
+  }
+
+  .app__content table[data-mc] > :is(tbody, tfoot) > tr > :is(td, th) > .stack {
+    align-items: center;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-t] {
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr:has(> [data-sel]) > [data-t] {
+    padding-inline: 34px;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-s] {
+    justify-self: center;
+  }
+
+  /* group headings stay at the left */
+  .app__content table[data-mc][data-mc] > tbody > tr:not(:has(> :not([data-t], [data-e]))) > [data-t],
+  .app__content table[data-mc][data-mc] > tbody > tr > [colspan]:only-child {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  /* Footer: small buttons in the middle; with "More details" they sit left and the pill on the same line */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] {
+    display: flex;
+    justify-content: center;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-a] > :is(.row, .stack, .lg-acts, .fd-row-acts, .row-acts) {
+    flex: 0 1 auto;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more) > [data-a] {
+    justify-content: flex-start;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more) > [data-a] > * {
+    justify-content: flex-start;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more) > [data-a] :is(.btn, button) {
+    width: auto;
+    flex: 0 1 auto;
+  }
+
+  .app__content table[data-mc][data-mc] > tbody > tr:has(.mc-more):not(:has(> [data-a])) .mc-more {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Figure tiles: icon, label and figure centred */
+  .st-tile {
+    grid-template-columns: auto minmax(0, auto);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .st-tile__v {
+    justify-content: center;
+  }
+
+  /* Header: search, filter and every button on one line. With two or more buttons, secondary buttons that have an icon show the icon only; word buttons get tighter. */
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)) > .page-header__actions > :is(.btn, a, button):not(.btn--primary):has(> .icon) {
+    flex: 0 0 42px;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)) > .page-header__actions > :is(.btn, a, button):not(.btn--primary):not(:has(> .icon)) {
+    flex: 0 1 auto;
+    min-width: 0;
+    height: 42px;
+    padding-inline: 8px;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)):not(:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown))) > .page-header__actions {
+    grid-column: 3 / -1 !important;
+    grid-row: 2 !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .page-header .page-header__row:not(:has(.hsearch)):has(> .page-header__actions > :nth-child(2)):not(:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown))) > .page-header__actions {
+    grid-column: 2 / -1 !important;
+  }
+
+  .page-header .page-header__row:not(:has(.hsearch, .hfilter__btn)):has(> .page-header__actions > :nth-child(2)):not(:has(.hsearch:focus-within, .hsearch__input:not(:placeholder-shown))) > .page-header__actions {
+    grid-column: 1 / -1 !important;
+  }
+
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)) > .page-header__actions > .btn--primary {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 42px;
+    padding-inline: 10px;
+    white-space: nowrap;
+  }
+
+  /* search and filter: the same 42 px round icons as the buttons beside them */
+  .page-header .page-header__row .hsearch:not(:focus-within):has(.hsearch__input:placeholder-shown),
+  .page-header .page-header__row .hsearch:not(:focus-within):has(.hsearch__input:placeholder-shown) .hsearch__ic {
+    width: 42px;
+    height: 42px;
+  }
+
+  .page-header .page-header__row .hfilter__btn {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .page-header .page-header__row .hfilter__btn > :not(.icon:first-child, .hfilter__dot) {
+    display: none;
+  }
+
+  /* Option tiles: two or three options share one row */
+  #main .fd-fieldset > .fd-multi:has(> .check:nth-child(2):last-of-type) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #main .fd-fieldset > .fd-multi:has(> .check:nth-child(3):last-of-type) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  #main .fd-fieldset > .fd-multi:has(> .check:nth-child(3):last-of-type) > .check {
+    gap: 6px;
+    padding: 8px;
+    font-size: 12.5px;
+  }
+
+  /* Tabs: tiles without a tray. Three share a row, otherwise two per row and an odd last one across. */
+  .ltabs:not(.ltabs--steps, .ltabs--audit),
+  .ltabs:not(.ltabs--steps, .ltabs--audit):has(> .ltabs__end) {
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list,
+  .stabs:not(.stabs--steps) > .stabs__list,
+  .hv {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list:has(> :nth-child(3):last-child),
+  .stabs:not(.stabs--steps) > .stabs__list:has(> label:nth-child(3):last-child),
+  .hv:has(> :is(a, label):nth-of-type(3):last-of-type) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > :last-child:nth-child(2n + 5),
+  .stabs:not(.stabs--steps) > .stabs__list > label:last-child:nth-child(2n + 5),
+  .hv > :is(a, label):last-of-type:nth-of-type(2n + 5) {
+    grid-column: 1 / -1;
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > :is(a, span),
+  .stabs:not(.stabs--steps) > .stabs__list label,
+  .hv > :is(a, label) {
+    justify-content: center;
+    height: auto;
+    min-height: 42px;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__list > a[aria-current="page"] {
+    background: linear-gradient(180deg, var(--em-600), var(--em-800));
+    box-shadow: 0 10px 18px -12px var(--em-800), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__end {
+    justify-content: flex-end;
+  }
+
+  .ltabs:not(.ltabs--steps, .ltabs--audit) > .ltabs__end > * {
+    flex: 0 1 auto;
+  }
+
+  /* tabs inside a deck card keep a small margin from the card edge */
+  .arr-deck > .ltabs:not(.ltabs--steps, .ltabs--audit),
+  .arr-deck > .ltabs:not(.ltabs--steps, .ltabs--audit):has(> .ltabs__end) {
+    padding: 10px;
+  }
+
+  /* bottom action bars: the note on its own line, then one row of buttons */
+  .rv-bar {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .rv-bar > .fd-muted {
+    flex: 1 1 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .rv-bar:has(> .btn ~ .btn ~ .btn) > .btn:not(.btn--primary):has(> .icon) {
+    flex: 0 0 42px;
+    width: 42px;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  .rv-bar > .btn--primary {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 760px) {
+  /* a long main button among three or more: the words stay, its icon gives way */
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(3)) > .page-header__actions > .btn--primary {
+    padding-inline: 8px;
+    font-size: 12.5px;
+  }
+
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(3)) > .page-header__actions > .btn--primary > .icon {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  /* tick box of a card: small, in the top corner (not stretched by the title cell's field rule) */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td[data-t]:has(> input.fd-sel) {
+    padding-inline: 34px;
+  }
+
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td[data-t] > input.fd-sel {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    flex: none;
+    width: 20px !important;
+    height: 20px;
+    min-height: 0;
+    margin: 0;
+  }
+
+  /* values centred also where the cell lays out as a row on the laptop */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > :is(td, th) {
+    align-items: center;
+  }
+
+  /* the laptop's column line of the first cell does not belong on a card */
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > [data-t] {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc] > :is(tbody, tfoot) > tr > td[data-t]:has(> input.fd-sel):not(:has(> :is(.field__wrap, select))) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 650;
+  }
+}
+
+@media (max-width: 760px) {
+  /* sortable tables: same centred card rows (zero extra weight, so rows hidden by filters stay hidden) */
+  table.srt:where([data-mc]:not([data-mc="grid"])) > tbody > tr {
+    display: flex;
+  }
+}
+
+@media (max-width: 760px) {
+  /* a long main button shares the line: its words may take two lines rather than push it to a new row */
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)) > .page-header__actions > .btn--primary {
+    flex: 1 1 0;
+    min-width: 96px;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .page-header .page-header__row:has(> .page-header__actions > :nth-child(2)) > .page-header__actions > .btn--primary > .icon {
+    flex: none;
+  }
+}
+
+/* ───────── Phone cards: two values to a row (user 2026-11-04) ─────────
+   Short values pair up; values that truly need the full width (data-w, see tools/add-mobile-cards.py) follow them,
+   so a short value is never left alone between two wide ones. */
+@media (max-width: 760px) {
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr > [data-w]:not([data-t], [data-s], [data-a]) {
+    order: 5;
+  }
+
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr > :is(td, th):not([data-t], [data-s], [data-a], [data-sel]) {
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  .app__content table[data-mc][data-mc]:not([data-mc="grid"]) > :is(tbody, tfoot) > tr > .nw:not([data-t], [data-s], [data-a], [data-sel]) {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 760px) {
+  /* a tile's "more" menu opens as a small sheet at the foot of the screen, never past its edge */
+  .rt__more .rt__menu {
+    position: fixed;
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    z-index: 60;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* ───────── Phone cards: a status stands alone (user 2026-11-04) ─────────
+   The small description under a status pill is left out on phones (still shown on laptop and tablet).
+   Kept: error messages, links and buttons, and the confirmations that appear after an action. */
+@media (max-width: 760px) {
+  .app__content table[data-mc] > :is(tbody, tfoot) > tr > :is(td, th):not([data-t]) > .pill ~ br,
+  .app__content table[data-mc] > :is(tbody, tfoot) > tr > :is(td, th):not([data-t]) > .pill ~ :is(.fd-sub, .field__hint, .st-sub):not([class*="now"], .sk-pr, .oo-done, :has(a, button, input, [class*="now"])) {
+    display: none;
+  }
+}
+
+/* Dead-end audit 2026-11-05: view list on Stock on Hand must stay inside the phone width */
+@media (max-width: 760px) {
+  .st-views .hv__g { min-width: 0; max-width: 100%; flex-wrap: wrap; }
+  .st-views .hv__v { min-width: 0; max-width: 100%; white-space: normal; }
+}

@@ -1,0 +1,70 @@
+/* sts-05-reorder-and-par-levels.css: levels grid by store and item, store views, add level, items without a level. */
+.vn-views {
+  justify-self: start;
+  max-width: 100%;
+}
+
+.lv-name {
+  font-weight: 650;
+}
+
+[data-code="STS-05-list"] td:first-child {
+  min-width: 230px;
+}
+
+.prs-n--s {
+  width: 76px;
+}
+
+.lv-none {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px 16px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.lv-row--new {
+  display: none;
+}
+
+body:has(#added:target) .lv-row--new {
+  display: table-row;
+}
+
+body:has(#added:target) .lv-row--new > td {
+  background: var(--ok-bg);
+}
+
+/* store views */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-main:target) .hv__v[data-v="v-main"],
+#main:has(#v-kit:target) .hv__v[data-v="v-kit"],
+#main:has(#v-bar:target) .hv__v[data-v="v-bar"],
+#main:has(#v-mbr:target) .hv__v[data-v="v-mbr"],
+#main:has(#v-eng:target) .hv__v[data-v="v-eng"],
+#main:has(#v-hkl:target) .hv__v[data-v="v-hkl"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-main:target) .lv-row:not(.lv-row--main),
+#main:has(#v-kit:target) .lv-row:not(.lv-row--kit),
+#main:has(#v-bar:target) .lv-row:not(.lv-row--bar),
+#main:has(#v-mbr:target) .lv-row:not(.lv-row--mbr),
+#main:has(#v-eng:target) .lv-row:not(.lv-row--eng),
+#main:has(#v-hkl:target) .lv-row:not(.lv-row--hkl) {
+  display: none;
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

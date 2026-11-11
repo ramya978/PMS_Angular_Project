@@ -1,0 +1,389 @@
+/* hk-08-inspection-queue.css: Inspection Queue – dark summary hero, queue cards (room badge, cleaned by / waiting,
+   arrival, rule, attendant score trend, supervisor, actions, after-state tags), "coming up" side list, release / assign pop-ups. */
+.iqw {
+  display: grid;
+  gap: 16px;
+}
+
+.pm {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.modal:has(.pm:target) {
+  display: grid;
+  animation: av-fade 200ms ease-out;
+}
+
+.iq-hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 28px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  background:
+    radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.2), transparent 60%),
+    radial-gradient(50% 120% at 0% 100%, rgb(15 118 110 / 0.5), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 22px 44px -32px rgb(var(--deep-rgb, 14 26 43) / 0.75);
+  color: #fff;
+}
+
+.iq-hero__n {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgb(15 118 110 / 0.35);
+  box-shadow: inset 0 0 0 4px #4cc38a, 0 0 0 6px rgb(76 195 138 / 0.15);
+}
+
+.iq-hero__n b {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.iq-hero__n span {
+  font-size: 11px;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.iq-kick {
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.iq-hero__t p {
+  margin: 6px 0 0;
+  color: rgb(255 255 255 / 0.82);
+  font-size: 14px;
+}
+
+.iq-hero__k {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iq-hero__k li {
+  display: grid;
+  padding: 0 16px;
+  color: rgb(255 255 255 / 0.65);
+  font-size: 12px;
+}
+
+.iq-hero__k li + li {
+  box-shadow: -1px 0 0 rgb(255 255 255 / 0.12);
+}
+
+.iq-hero__k b {
+  color: #fff;
+  font-size: 22px;
+}
+
+.iq-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: 16px;
+}
+
+.iq-h {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.iq-h span {
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.iq-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iq {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 0.9fr) minmax(0, 0.8fr);
+  grid-template-areas: "no main rule tr sup" "no acts acts acts acts";
+  align-items: center;
+  gap: 12px 18px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.iq--late {
+  box-shadow: 0 0 0 1px #f3d2b8, 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.iq__no {
+  grid-area: no;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 75%, #fff), var(--hk));
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.iq__no small {
+  margin-top: 3px;
+  font-size: 10.5px;
+  opacity: 0.85;
+}
+
+.iq__no--sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  font-size: 13px;
+}
+
+.iq__main {
+  grid-area: main;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.iq__main b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.iq__main span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iq__w {
+  color: #c05621;
+}
+
+.iq__rule {
+  display: grid;
+  gap: 2px;
+  font-size: 12.5px;
+}
+
+.iq__rule:nth-of-type(2) {
+  grid-area: rule;
+}
+
+.iq__rule:nth-of-type(3) {
+  grid-area: tr;
+}
+
+.iq__sup {
+  grid-area: sup;
+  display: grid;
+  gap: 2px;
+  font-size: 12.5px;
+}
+
+.iq__k {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.iq__rule small,
+.iq__sup small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.iq-tr {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iq-tr small {
+  color: var(--ink-3);
+}
+
+.iq__a {
+  grid-area: acts;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+.iq__done {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: none;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #2f855a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.iq-side {
+  position: sticky;
+  top: 76px;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.iq-side .iq-h {
+  margin: 0;
+}
+
+.iq-up {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iq-up li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.iq-up li > span:last-child {
+  display: grid;
+}
+
+.iq-up small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.iq-note {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.iq-note .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+
+.pr {
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pr__no {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  color: #fff;
+  font-weight: 700;
+}
+
+.pr__t {
+  display: grid;
+}
+
+.pr__t small {
+  color: var(--ink-3);
+}
+
+@media (max-width: 1280px) {
+  .iq-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .iq-side {
+    position: static;
+  }
+
+  .iq {
+    grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "no main main" "no rule tr" "no sup sup" "acts acts acts";
+  }
+
+  .iq-hero {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .iq-hero__k {
+    grid-column: 1 / -1;
+  }
+}
+#hk08-rel:has(#rel-210:target) :is(.pr--210, .pb--210), #hk08-asg:has(#asg-210:target) :is(.pr--210, .pb--210) { display: flex; }
+body:has(:is(#released-210, #assigned-210, #rework-210):target) #q-210 { background: var(--ok-bg); box-shadow: inset 0 0 0 2px var(--em-500); }
+body:has(#released-210:target) #q-210 .iq__done--rel, body:has(#assigned-210:target) #q-210 .iq__done--asg, body:has(#rework-210:target) #q-210 .iq__done--rw { display: inline-flex; }
+body:has(:is(#released-210, #assigned-210, #rework-210):target) .tt-room::after { content: "210"; }
+#hk08-rel:has(#rel-215:target) :is(.pr--215, .pb--215), #hk08-asg:has(#asg-215:target) :is(.pr--215, .pb--215) { display: flex; }
+body:has(:is(#released-215, #assigned-215, #rework-215):target) #q-215 { background: var(--ok-bg); box-shadow: inset 0 0 0 2px var(--em-500); }
+body:has(#released-215:target) #q-215 .iq__done--rel, body:has(#assigned-215:target) #q-215 .iq__done--asg, body:has(#rework-215:target) #q-215 .iq__done--rw { display: inline-flex; }
+body:has(:is(#released-215, #assigned-215, #rework-215):target) .tt-room::after { content: "215"; }
+#hk08-rel:has(#rel-315:target) :is(.pr--315, .pb--315), #hk08-asg:has(#asg-315:target) :is(.pr--315, .pb--315) { display: flex; }
+body:has(:is(#released-315, #assigned-315, #rework-315):target) #q-315 { background: var(--ok-bg); box-shadow: inset 0 0 0 2px var(--em-500); }
+body:has(#released-315:target) #q-315 .iq__done--rel, body:has(#assigned-315:target) #q-315 .iq__done--asg, body:has(#rework-315:target) #q-315 .iq__done--rw { display: inline-flex; }
+body:has(:is(#released-315, #assigned-315, #rework-315):target) .tt-room::after { content: "315"; }
+#hk08-rel:has(#rel-405:target) :is(.pr--405, .pb--405), #hk08-asg:has(#asg-405:target) :is(.pr--405, .pb--405) { display: flex; }
+body:has(:is(#released-405, #assigned-405, #rework-405):target) #q-405 { background: var(--ok-bg); box-shadow: inset 0 0 0 2px var(--em-500); }
+body:has(#released-405:target) #q-405 .iq__done--rel, body:has(#assigned-405:target) #q-405 .iq__done--asg, body:has(#rework-405:target) #q-405 .iq__done--rw { display: inline-flex; }
+body:has(:is(#released-405, #assigned-405, #rework-405):target) .tt-room::after { content: "405"; }
+body:has(.pm[id^="released-"]:target) #t-released { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="assigned-"]:target) #t-assigned { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="rework-"]:target) #t-rework { display: flex; animation: av-rise 320ms var(--ease); }

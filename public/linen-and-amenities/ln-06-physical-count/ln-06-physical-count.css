@@ -1,0 +1,52 @@
+/* ln-06-physical-count.css: last count note, count form (date, type, locations, lines with calculated variance and required reasons),
+   start / submit after-states. */
+.cn-last {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.cn-last .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+
+.cn-scroll {
+  max-height: 520px;
+  margin-top: 12px;
+}
+
+tr.is-var > td {
+  background: #fffaf2;
+}
+
+body:has(#started:target) .ln-done--st,
+body:has(#submitted:target) .ln-done--sb,
+body:has(#started:target) #t-started,
+body:has(#submitted:target) #t-submitted {
+  display: flex;
+}
+
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.rp-acts .fd-muted {
+  margin-right: auto;
+  font-size: 12.5px;
+}
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

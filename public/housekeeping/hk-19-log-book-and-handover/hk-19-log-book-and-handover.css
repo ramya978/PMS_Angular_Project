@@ -1,0 +1,226 @@
+/* hk-19-log-book-and-handover.css: Log Book & Handover – hero, views, log entries as cards (category badge, meta,
+   text, attachment, read by, follow-up with state, acknowledge / close), HK-P16 entry and the close-follow-up pop-up.
+   Shared patterns (.hkh, .hv, .pm, .pr) are in css/aviv/housekeeping.css. */
+.lgw {
+  display: grid;
+  gap: 16px;
+}
+
+.lg-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lg {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 210px auto;
+  align-items: start;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+  --c: var(--ink-3);
+}
+
+.lg--ins { --c: #2b6cb0; }
+.lg--inc { --c: #c53030; }
+.lg--gf { --c: #2f855a; }
+.lg--mt { --c: #c05621; }
+.lg--st { --c: #6b46c1; }
+.lg--key { --c: #946200; }
+
+.lg.is-pin {
+  box-shadow: 0 0 0 1px var(--br-300), 0 1px 2px rgb(16 24 40 / 0.04);
+  background: linear-gradient(180deg, var(--br-50), var(--surface) 60px);
+}
+
+.lg__ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--c) 12%, var(--surface));
+  color: var(--c);
+}
+
+.lg__main {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lg__meta {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lg__meta b {
+  color: var(--c);
+}
+
+.lg-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--br-700);
+  font-weight: 650;
+}
+
+.lg__txt {
+  margin: 0;
+  font-size: 14px;
+}
+
+.lg__att,
+.lg__rb {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.lg-me {
+  display: none;
+  color: #2f855a;
+  font-weight: 650;
+}
+
+.lg__fu {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.lg__k {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lg-st {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: start;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 650;
+}
+
+.lg-st--open {
+  background: #fdf3dc;
+  color: #946200;
+}
+
+.lg-st--done {
+  background: var(--ok-bg);
+  color: #2f855a;
+}
+
+.lg-now::after {
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.lg__a {
+  display: grid;
+  gap: 6px;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .lg {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+
+  .lg__fu,
+  .lg__a {
+    grid-column: 2;
+  }
+
+  .lg__a {
+    display: flex;
+  }
+}
+.lgw:has(#lv-t:checked) .lg:not(.is-t), .lgw:has(#lv-pin:checked) .lg:not(.is-pin) { display: none; }
+.lgw:has(#lv-open:checked) .lg:not(:has(.lg-st--open)) { display: none; }
+.lgw:has(#lv-t:checked) .hv__v[for="lv-t"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lgw:has(#lv-pin:checked) .hv__v[for="lv-pin"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lgw:has(#lv-open:checked) .hv__v[for="lv-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lgw:has(#lv-all:checked) .hv__v[for="lv-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+body:has(#ack-LG-0422-01:target) #LG-0422-01 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-01:target) #LG-0422-01 .lg-me { display: inline; }
+body:has(#ack-LG-0422-02:target) #LG-0422-02 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-02:target) #LG-0422-02 .lg-me { display: inline; }
+body:has(#ack-LG-0422-03:target) #LG-0422-03 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-03:target) #LG-0422-03 .lg-me { display: inline; }
+#lg-fu:has(#fu-LG-0422-03:target) :is(.pr--LG-0422-03, .pb--LG-0422-03) { display: flex; }
+body:has(#closed-LG-0422-03:target) #LG-0422-03 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#closed-LG-0422-03:target) #LG-0422-03 .lg-st { display: none; }
+body:has(#closed-LG-0422-03:target) #LG-0422-03 .lg-now::after { content: "Done – closed now"; }
+body:has(#ack-LG-0422-04:target) #LG-0422-04 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-04:target) #LG-0422-04 .lg-me { display: inline; }
+body:has(#ack-LG-0422-05:target) #LG-0422-05 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-05:target) #LG-0422-05 .lg-me { display: inline; }
+body:has(#ack-LG-0422-06:target) #LG-0422-06 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0422-06:target) #LG-0422-06 .lg-me { display: inline; }
+#lg-fu:has(#fu-LG-0422-06:target) :is(.pr--LG-0422-06, .pb--LG-0422-06) { display: flex; }
+body:has(#closed-LG-0422-06:target) #LG-0422-06 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#closed-LG-0422-06:target) #LG-0422-06 .lg-st { display: none; }
+body:has(#closed-LG-0422-06:target) #LG-0422-06 .lg-now::after { content: "Done – closed now"; }
+body:has(#ack-LG-0421-07:target) #LG-0421-07 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0421-07:target) #LG-0421-07 .lg-me { display: inline; }
+#lg-fu:has(#fu-LG-0421-07:target) :is(.pr--LG-0421-07, .pb--LG-0421-07) { display: flex; }
+body:has(#closed-LG-0421-07:target) #LG-0421-07 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#closed-LG-0421-07:target) #LG-0421-07 .lg-st { display: none; }
+body:has(#closed-LG-0421-07:target) #LG-0421-07 .lg-now::after { content: "Done – closed now"; }
+body:has(#ack-LG-0421-08:target) #LG-0421-08 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0421-08:target) #LG-0421-08 .lg-me { display: inline; }
+#lg-fu:has(#fu-LG-0421-08:target) :is(.pr--LG-0421-08, .pb--LG-0421-08) { display: flex; }
+body:has(#closed-LG-0421-08:target) #LG-0421-08 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#closed-LG-0421-08:target) #LG-0421-08 .lg-st { display: none; }
+body:has(#closed-LG-0421-08:target) #LG-0421-08 .lg-now::after { content: "Done – closed now"; }
+body:has(#ack-LG-0421-09:target) #LG-0421-09 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0421-09:target) #LG-0421-09 .lg-me { display: inline; }
+body:has(#ack-LG-0418-10:target) #LG-0418-10 { box-shadow: 0 0 0 2px var(--em-500); }
+body:has(#ack-LG-0418-10:target) #LG-0418-10 .lg-me { display: inline; }
+body:has(.pm[id^="ack-"]:target) #t-ack, body:has(.pm[id^="closed-"]:target) #t-closed, body:has(#printed:target) #t-printed { display: flex; animation: av-rise 320ms var(--ease); }

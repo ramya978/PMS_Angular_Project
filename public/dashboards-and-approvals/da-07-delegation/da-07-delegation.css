@@ -1,0 +1,9 @@
+/* da-07-delegation.css – styles of DA-07 Delegation (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#saved:target) #t-saved,
+body:has(#ended-0:target) #t-end-0,
+body:has(#ended-1:target) #t-end-1,
+body:has(#ended-2:target) #t-end-2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

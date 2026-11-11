@@ -1,0 +1,41 @@
+/* da-03-approvals-inbox.css – styles of DA-03 Approvals Inbox (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#bulk-ok:target) #t-bulk,
+body:has(#rq-ok-0484:target) #t-ok-0484,
+body:has(#rq-ok-0485:target) #t-ok-0485,
+body:has(#rq-no-0484:target) #t-no-0484,
+body:has(#rq-no-0485:target) #t-no-0485 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-wait"],
+#main:has(#v-wait:target) .hv__v[data-v="v-wait"],
+#main:has(#v-esc:target) .hv__v[data-v="v-esc"],
+#main:has(#v-del:target) .hv__v[data-v="v-del"],
+#main:has(#v-dec:target) .hv__v[data-v="v-dec"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-esc:target) .da-card:not(.dr-esc),
+#main:has(#v-del:target) .da-card:not(.dr-del),
+#main:has(#v-dec:target) .da-card:not(.dr-dec) {
+  display: none;
+}
+
+#main:not(:has(.pm--v:target)) .da-card:not(.dr-wait) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+.rq-ok-0484, .rq-no-0484 { display: none; }
+body:has(#rq-ok-0484:target) .rq-now-0484, body:has(#rq-no-0484:target) .rq-now-0484, body:has(#rq-ok-0484:target) #r-0484 .da-card__b, body:has(#rq-no-0484:target) #r-0484 .da-card__b, body:has(#bulk-ok:target) #r-0484 .da-card__b { display: none; }
+body:has(#rq-ok-0484:target) .rq-ok-0484, body:has(#rq-no-0484:target) .rq-no-0484, body:has(#bulk-ok:target) .rq-ok-0484 { display: inline-flex; }
+body:has(#bulk-ok:target) .rq-now-0484 { display: none; }
+.rq-ok-0485, .rq-no-0485 { display: none; }
+body:has(#rq-ok-0485:target) .rq-now-0485, body:has(#rq-no-0485:target) .rq-now-0485, body:has(#rq-ok-0485:target) #r-0485 .da-card__b, body:has(#rq-no-0485:target) #r-0485 .da-card__b, body:has(#bulk-ok:target) #r-0485 .da-card__b { display: none; }
+body:has(#rq-ok-0485:target) .rq-ok-0485, body:has(#rq-no-0485:target) .rq-no-0485, body:has(#bulk-ok:target) .rq-ok-0485 { display: inline-flex; }
+body:has(#bulk-ok:target) .rq-now-0485 { display: none; }

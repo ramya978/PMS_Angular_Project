@@ -1,0 +1,161 @@
+/* mt-06-guest-room-pm.css: room PM board by floor (ok / due soon / planned / overdue), Plan after-state, room PM checklist MT-P06 per room. */
+
+.rp-k {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.rp-w {
+  display: grid;
+  gap: 12px;
+}
+
+.rp-f h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.rp-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 6px;
+}
+
+.rp {
+  display: grid;
+  gap: 1px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.rp small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.rp--soon {
+  background: #fdf8ec;
+  box-shadow: inset 0 0 0 1px #e8cf8d;
+}
+
+.rp--plan {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1.5px var(--em-600);
+}
+
+.rp--over {
+  background: #fdecec;
+  box-shadow: inset 0 0 0 1.5px var(--st-cancelled);
+}
+
+.rp-flag {
+  color: var(--st-cancelled) !important;
+}
+
+.rp-planned {
+  display: none;
+}
+
+.rpw:has(#planned:target) .rp-planned {
+  display: flex;
+}
+.rpw:has(#pmdone-101:target) #t-pm-101 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-102:target) #t-pm-102 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-103:target) #t-pm-103 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-104:target) #t-pm-104 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-105:target) #t-pm-105 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-106:target) #t-pm-106 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-107:target) #t-pm-107 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-108:target) #t-pm-108 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-109:target) #t-pm-109 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-110:target) #t-pm-110 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-111:target) #t-pm-111 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-112:target) #t-pm-112 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-113:target) #t-pm-113 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-114:target) #t-pm-114 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-115:target) #t-pm-115 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-116:target) #t-pm-116 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-117:target) #t-pm-117 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-118:target) #t-pm-118 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-119:target) #t-pm-119 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-201:target) #t-pm-201 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-202:target) #t-pm-202 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-203:target) #t-pm-203 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-204:target) #t-pm-204 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-205:target) #t-pm-205 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-206:target) #t-pm-206 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-207:target) #t-pm-207 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-208:target) #t-pm-208 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-209:target) #t-pm-209 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-210:target) #t-pm-210 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-211:target) #t-pm-211 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-212:target) #t-pm-212 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-213:target) #t-pm-213 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-214:target) #t-pm-214 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-215:target) #t-pm-215 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-216:target) #t-pm-216 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-217:target) #t-pm-217 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-218:target) #t-pm-218 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-219:target) #t-pm-219 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-301:target) #t-pm-301 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-302:target) #t-pm-302 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-303:target) #t-pm-303 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-304:target) #t-pm-304 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-305:target) #t-pm-305 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-306:target) #t-pm-306 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-307:target) #t-pm-307 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-308:target) #t-pm-308 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-309:target) #t-pm-309 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-310:target) #t-pm-310 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-311:target) #t-pm-311 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-312:target) #t-pm-312 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-313:target) #t-pm-313 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-314:target) #t-pm-314 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-315:target) #t-pm-315 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-316:target) #t-pm-316 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-317:target) #t-pm-317 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-318:target) #t-pm-318 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-319:target) #t-pm-319 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-401:target) #t-pm-401 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-402:target) #t-pm-402 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-403:target) #t-pm-403 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-404:target) #t-pm-404 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-405:target) #t-pm-405 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-406:target) #t-pm-406 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-407:target) #t-pm-407 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-408:target) #t-pm-408 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-409:target) #t-pm-409 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-410:target) #t-pm-410 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-411:target) #t-pm-411 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-412:target) #t-pm-412 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-413:target) #t-pm-413 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-414:target) #t-pm-414 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-415:target) #t-pm-415 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-416:target) #t-pm-416 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-417:target) #t-pm-417 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-418:target) #t-pm-418 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-501:target) #t-pm-501 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-502:target) #t-pm-502 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-503:target) #t-pm-503 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-504:target) #t-pm-504 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-505:target) #t-pm-505 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-506:target) #t-pm-506 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-507:target) #t-pm-507 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-508:target) #t-pm-508 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-509:target) #t-pm-509 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-510:target) #t-pm-510 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-511:target) #t-pm-511 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-512:target) #t-pm-512 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-513:target) #t-pm-513 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-514:target) #t-pm-514 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-515:target) #t-pm-515 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-516:target) #t-pm-516 { display: flex; animation: av-rise 320ms var(--ease); }
+.rpw:has(#pmdone-517:target) #t-pm-517 { display: flex; animation: av-rise 320ms var(--ease); }

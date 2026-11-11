@@ -1,0 +1,6 @@
+/* kt-05-item-availability.css: items not available (86) or limited with count, since, by, until; Change → KT-P01. */
+#kt-p01:has(input[name="status"][value="limited"]:checked) .lf-if--lim {
+  display: flex;
+}
+
+.ktw:has(#avail-saved:target) #t-avail-saved { display: flex; animation: av-rise 320ms var(--ease); }

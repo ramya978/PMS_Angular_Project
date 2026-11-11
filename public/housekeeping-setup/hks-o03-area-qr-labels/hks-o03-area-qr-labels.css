@@ -1,0 +1,187 @@
+/* hks-o03-area-qr-labels.css: label sheets with a sample QR pattern; the area set shows first, the room set with #rooms. */
+
+.hks-filters {
+  margin-bottom: 14px;
+}
+
+.hks-filterrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+
+.paper h2 {
+  margin: 18px 0 8px;
+  font-size: 15px;
+}
+
+.paper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.paper th,
+.paper td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #d9d4c6;
+  text-align: left;
+  vertical-align: top;
+}
+
+.paper th {
+  background: #f4f1ea;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.paper .r {
+  text-align: right;
+}
+
+.paper .c {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.paper__note {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 11.5px;
+}
+
+.hks-views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+
+.hks-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hks-view__n {
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--sunken);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.hks-views__sum {
+  margin-left: auto;
+  font-size: 12.5px;
+}
+
+.hks-labels {
+  display: none;
+}
+
+.hks-labels:target,
+body:not(:has(.hks-labels:target)) #areas {
+  display: block;
+}
+
+.hks-view--areas {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+.hks-view--areas .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+}
+
+body:has(#rooms:target) .hks-view--areas {
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+body:has(#rooms:target) .hks-view--areas .hks-view__n {
+  background: var(--sunken);
+}
+
+body:has(#rooms:target) .hks-view--rooms {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#rooms:target) .hks-view--rooms .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+}
+
+.hks-label-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.hks-label {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 12px;
+  border: 1px dashed #b8b09a;
+  border-radius: 8px;
+  break-inside: avoid;
+}
+
+.hks-qr {
+  width: 96px;
+  height: 96px;
+}
+
+.hks-label figcaption {
+  display: grid;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.hks-label figcaption strong {
+  font-size: 15px;
+}
+
+.hks-label__code {
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.hks-label__hint {
+  color: #6b7280;
+  font-size: 10.5px;
+  line-height: 1.3;
+}
+
+.hks-label--room {
+  grid-template-columns: 80px minmax(0, 1fr);
+}
+
+.hks-label--room .hks-qr {
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-width: 1000px) {
+  .hks-label-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

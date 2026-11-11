@@ -1,0 +1,11 @@
+/* ac-07-trial-balance.css: level tabs and export toast. */
+.ac-tabs > input:nth-of-type(1):checked ~ .stabs__panels > .stabs__panel:nth-child(1),
+.ac-tabs > input:nth-of-type(2):checked ~ .stabs__panels > .stabs__panel:nth-child(2),
+.ac-tabs > input:nth-of-type(3):checked ~ .stabs__panels > .stabs__panel:nth-child(3) {
+  display: block;
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

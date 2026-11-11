@@ -1,0 +1,94 @@
+/* las-01-laundry-setup-home.css: Laundry Setup Home – uses setup-home.css (progress hero, Show filter) and setup-cards.css
+   (cards, go-live checks); here only the Show filter wiring for the nine cards. */
+.app:has(#shf-warn:checked) .hks-card:not(.hks-card--warning),
+.app:has(#shf-todo:checked) .hks-card:not(.hks-card--missing),
+.app:has(#shf-done:checked) .hks-card:not(.hks-card--complete) {
+  display: none;
+}
+
+/* hero design (colours are the --hx-* variables of setup-home.css) */
+.sh__hero[data-code="LAS-01-progress"] {
+  background: linear-gradient(120deg, var(--hx-a) 0%, var(--hx-b) 100%);
+  box-shadow: 0 0 0 1px var(--hx-line), var(--sh-2);
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__hero-main {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  padding-bottom: 30px;
+  background:
+    radial-gradient(circle at 24% 62%, var(--hx-art) 0 22px, transparent 23px),
+    radial-gradient(circle at 54% 18%, var(--hx-art) 0 11px, transparent 12px),
+    radial-gradient(circle at 76% 70%, var(--hx-art) 0 17px, transparent 18px);
+}
+
+/* waves along the bottom edge */
+.sh__hero[data-code="LAS-01-progress"] .sh__hero-main::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18px;
+  background:
+    radial-gradient(22px 12px at 50% 100%, var(--hx-art) 98%, transparent 100%) 0 100% / 44px 18px repeat-x,
+    radial-gradient(22px 9px at 50% 100%, var(--hx-art) 98%, transparent 100%) 22px 100% / 44px 18px repeat-x;
+  pointer-events: none;
+}
+
+/* the gauge: a half circle on the right */
+.sh__hero[data-code="LAS-01-progress"] .sh__ring {
+  order: 3;
+  width: 148px;
+  height: 76px;
+  align-items: end;
+  border-radius: 148px 148px 0 0;
+  background: conic-gradient(from 270deg at 50% 100%, var(--hx-gold) calc(var(--pct) * 0.5%), var(--hx-track) 0 50%, transparent 0);
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__ring::after {
+  inset: 16px 16px 0;
+  border-radius: 140px 140px 0 0;
+  background: var(--hx-core);
+  box-shadow: none;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__ring-text {
+  margin-bottom: 4px;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__ring-num {
+  font-size: 22px;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__stats {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__stat {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px 4px 5px;
+  border-radius: 999px;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__stat-ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__stat-txt {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.sh__hero[data-code="LAS-01-progress"] .sh__stat-txt b {
+  font-size: 18px;
+}

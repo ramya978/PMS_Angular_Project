@@ -1,0 +1,181 @@
+/* la-o01-laundry-bill-voucher.css: LA-O01 guest laundry bill – one bill per order (#o<order>), #mail-<order> sent toast, #posted-o20261021-010 after-state. */
+.lo-w:not(.low6) > :is(.paper-bar, .lo-pick) {
+  width: min(820px, 100%);
+  margin-inline: auto;
+  justify-content: flex-start;
+}
+
+.lo-w {
+  display: grid;
+  gap: 16px;
+}
+
+.lo-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.lo-pick > span {
+  margin-right: 4px;
+  color: var(--ink-3);
+}
+
+.lo-pick a {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.lo-pick a:hover {
+  border-color: var(--em-600);
+  color: var(--em-800);
+}
+
+.lo-copy {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  border: 1px solid var(--ink-3);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lo-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--ok-bg);
+  color: var(--em-800);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.lo-stamp--warn {
+  background: #fdf3e7;
+  color: #8a4b0f;
+}
+
+.la-doc tfoot td.lbl {
+  text-align: right;
+  font-weight: 500;
+}
+.low1 .lo1 { display: none; }
+body:has(#o20261022-001:target) .low1 .lo1--o20261022-001, body:has(#mail-o20261022-001:target) .low1 .lo1--o20261022-001 { display: block; }
+body:has(#o20261022-001:target) .low1 .lo-pick a[href="#o20261022-001"], body:has(#mail-o20261022-001:target) .low1 .lo-pick a[href="#o20261022-001"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-002:target) .low1 .lo1--o20261022-002, body:has(#mail-o20261022-002:target) .low1 .lo1--o20261022-002 { display: block; }
+body:has(#o20261022-002:target) .low1 .lo-pick a[href="#o20261022-002"], body:has(#mail-o20261022-002:target) .low1 .lo-pick a[href="#o20261022-002"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-003:target) .low1 .lo1--o20261022-003, body:has(#mail-o20261022-003:target) .low1 .lo1--o20261022-003 { display: block; }
+body:has(#o20261022-003:target) .low1 .lo-pick a[href="#o20261022-003"], body:has(#mail-o20261022-003:target) .low1 .lo-pick a[href="#o20261022-003"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-004:target) .low1 .lo1--o20261022-004, body:has(#mail-o20261022-004:target) .low1 .lo1--o20261022-004 { display: block; }
+body:has(#o20261022-004:target) .low1 .lo-pick a[href="#o20261022-004"], body:has(#mail-o20261022-004:target) .low1 .lo-pick a[href="#o20261022-004"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-005:target) .low1 .lo1--o20261022-005, body:has(#mail-o20261022-005:target) .low1 .lo1--o20261022-005 { display: block; }
+body:has(#o20261022-005:target) .low1 .lo-pick a[href="#o20261022-005"], body:has(#mail-o20261022-005:target) .low1 .lo-pick a[href="#o20261022-005"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-006:target) .low1 .lo1--o20261022-006, body:has(#mail-o20261022-006:target) .low1 .lo1--o20261022-006 { display: block; }
+body:has(#o20261022-006:target) .low1 .lo-pick a[href="#o20261022-006"], body:has(#mail-o20261022-006:target) .low1 .lo-pick a[href="#o20261022-006"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-007:target) .low1 .lo1--o20261022-007, body:has(#mail-o20261022-007:target) .low1 .lo1--o20261022-007 { display: block; }
+body:has(#o20261022-007:target) .low1 .lo-pick a[href="#o20261022-007"], body:has(#mail-o20261022-007:target) .low1 .lo-pick a[href="#o20261022-007"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-009:target) .low1 .lo1--o20261022-009, body:has(#mail-o20261022-009:target) .low1 .lo1--o20261022-009 { display: block; }
+body:has(#o20261022-009:target) .low1 .lo-pick a[href="#o20261022-009"], body:has(#mail-o20261022-009:target) .low1 .lo-pick a[href="#o20261022-009"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-010:target) .low1 .lo1--o20261022-010, body:has(#mail-o20261022-010:target) .low1 .lo1--o20261022-010 { display: block; }
+body:has(#o20261022-010:target) .low1 .lo-pick a[href="#o20261022-010"], body:has(#mail-o20261022-010:target) .low1 .lo-pick a[href="#o20261022-010"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261022-011:target) .low1 .lo1--o20261022-011, body:has(#mail-o20261022-011:target) .low1 .lo1--o20261022-011 { display: block; }
+body:has(#o20261022-011:target) .low1 .lo-pick a[href="#o20261022-011"], body:has(#mail-o20261022-011:target) .low1 .lo-pick a[href="#o20261022-011"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261021-005:target) .low1 .lo1--o20261021-005, body:has(#mail-o20261021-005:target) .low1 .lo1--o20261021-005 { display: block; }
+body:has(#o20261021-005:target) .low1 .lo-pick a[href="#o20261021-005"], body:has(#mail-o20261021-005:target) .low1 .lo-pick a[href="#o20261021-005"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261021-007:target) .low1 .lo1--o20261021-007, body:has(#mail-o20261021-007:target) .low1 .lo1--o20261021-007 { display: block; }
+body:has(#o20261021-007:target) .low1 .lo-pick a[href="#o20261021-007"], body:has(#mail-o20261021-007:target) .low1 .lo-pick a[href="#o20261021-007"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261021-010:target) .low1 .lo1--o20261021-010, body:has(#mail-o20261021-010:target) .low1 .lo1--o20261021-010, body:has(#posted-o20261021-010:target) .low1 .lo1--o20261021-010 { display: block; }
+body:has(#o20261021-010:target) .low1 .lo-pick a[href="#o20261021-010"], body:has(#mail-o20261021-010:target) .low1 .lo-pick a[href="#o20261021-010"], body:has(#posted-o20261021-010:target) .low1 .lo-pick a[href="#o20261021-010"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261021-012:target) .low1 .lo1--o20261021-012, body:has(#mail-o20261021-012:target) .low1 .lo1--o20261021-012 { display: block; }
+body:has(#o20261021-012:target) .low1 .lo-pick a[href="#o20261021-012"], body:has(#mail-o20261021-012:target) .low1 .lo-pick a[href="#o20261021-012"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261021-006:target) .low1 .lo1--o20261021-006, body:has(#mail-o20261021-006:target) .low1 .lo1--o20261021-006 { display: block; }
+body:has(#o20261021-006:target) .low1 .lo-pick a[href="#o20261021-006"], body:has(#mail-o20261021-006:target) .low1 .lo-pick a[href="#o20261021-006"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261020-014:target) .low1 .lo1--o20261020-014, body:has(#mail-o20261020-014:target) .low1 .lo1--o20261020-014 { display: block; }
+body:has(#o20261020-014:target) .low1 .lo-pick a[href="#o20261020-014"], body:has(#mail-o20261020-014:target) .low1 .lo-pick a[href="#o20261020-014"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261020-004:target) .low1 .lo1--o20261020-004, body:has(#mail-o20261020-004:target) .low1 .lo1--o20261020-004 { display: block; }
+body:has(#o20261020-004:target) .low1 .lo-pick a[href="#o20261020-004"], body:has(#mail-o20261020-004:target) .low1 .lo-pick a[href="#o20261020-004"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261019-011:target) .low1 .lo1--o20261019-011, body:has(#mail-o20261019-011:target) .low1 .lo1--o20261019-011 { display: block; }
+body:has(#o20261019-011:target) .low1 .lo-pick a[href="#o20261019-011"], body:has(#mail-o20261019-011:target) .low1 .lo-pick a[href="#o20261019-011"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261018-006:target) .low1 .lo1--o20261018-006, body:has(#mail-o20261018-006:target) .low1 .lo1--o20261018-006 { display: block; }
+body:has(#o20261018-006:target) .low1 .lo-pick a[href="#o20261018-006"], body:has(#mail-o20261018-006:target) .low1 .lo-pick a[href="#o20261018-006"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#o20261017-009:target) .low1 .lo1--o20261017-009, body:has(#mail-o20261017-009:target) .low1 .lo1--o20261017-009 { display: block; }
+body:has(#o20261017-009:target) .low1 .lo-pick a[href="#o20261017-009"], body:has(#mail-o20261017-009:target) .low1 .lo-pick a[href="#o20261017-009"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:not(:has(:is(#o20261022-001, #mail-o20261022-001, #o20261022-002, #mail-o20261022-002, #o20261022-003, #mail-o20261022-003, #o20261022-004, #mail-o20261022-004, #o20261022-005, #mail-o20261022-005, #o20261022-006, #mail-o20261022-006, #o20261022-007, #mail-o20261022-007, #o20261022-009, #mail-o20261022-009, #o20261022-010, #mail-o20261022-010, #o20261022-011, #mail-o20261022-011, #o20261021-005, #mail-o20261021-005, #o20261021-007, #mail-o20261021-007, #o20261021-010, #mail-o20261021-010, #posted-o20261021-010, #o20261021-012, #mail-o20261021-012, #o20261021-006, #mail-o20261021-006, #o20261020-014, #mail-o20261020-014, #o20261020-004, #mail-o20261020-004, #o20261019-011, #mail-o20261019-011, #o20261018-006, #mail-o20261018-006, #o20261017-009, #mail-o20261017-009):target)) .low1 .lo1--o20261022-003 { display: block; }
+body:not(:has(:is(#o20261022-001, #mail-o20261022-001, #o20261022-002, #mail-o20261022-002, #o20261022-003, #mail-o20261022-003, #o20261022-004, #mail-o20261022-004, #o20261022-005, #mail-o20261022-005, #o20261022-006, #mail-o20261022-006, #o20261022-007, #mail-o20261022-007, #o20261022-009, #mail-o20261022-009, #o20261022-010, #mail-o20261022-010, #o20261022-011, #mail-o20261022-011, #o20261021-005, #mail-o20261021-005, #o20261021-007, #mail-o20261021-007, #o20261021-010, #mail-o20261021-010, #posted-o20261021-010, #o20261021-012, #mail-o20261021-012, #o20261021-006, #mail-o20261021-006, #o20261020-014, #mail-o20261020-014, #o20261020-004, #mail-o20261020-004, #o20261019-011, #mail-o20261019-011, #o20261018-006, #mail-o20261018-006, #o20261017-009, #mail-o20261017-009):target)) .low1 .lo-pick a[href="#o20261022-003"] { border-color: var(--em-600); background: var(--em-50); color: var(--em-800); font-weight: 600; }
+body:has(#mail-o20261022-001:target) #t-mail-o20261022-001 { display: flex; }
+body:has(#mail-o20261022-002:target) #t-mail-o20261022-002 { display: flex; }
+body:has(#mail-o20261022-003:target) #t-mail-o20261022-003 { display: flex; }
+body:has(#mail-o20261022-004:target) #t-mail-o20261022-004 { display: flex; }
+body:has(#mail-o20261022-005:target) #t-mail-o20261022-005 { display: flex; }
+body:has(#mail-o20261022-006:target) #t-mail-o20261022-006 { display: flex; }
+body:has(#mail-o20261022-007:target) #t-mail-o20261022-007 { display: flex; }
+body:has(#mail-o20261022-009:target) #t-mail-o20261022-009 { display: flex; }
+body:has(#mail-o20261022-010:target) #t-mail-o20261022-010 { display: flex; }
+body:has(#mail-o20261022-011:target) #t-mail-o20261022-011 { display: flex; }
+body:has(#mail-o20261021-005:target) #t-mail-o20261021-005 { display: flex; }
+body:has(#mail-o20261021-007:target) #t-mail-o20261021-007 { display: flex; }
+body:has(#mail-o20261021-010:target) #t-mail-o20261021-010 { display: flex; }
+body:has(#mail-o20261021-012:target) #t-mail-o20261021-012 { display: flex; }
+body:has(#mail-o20261021-006:target) #t-mail-o20261021-006 { display: flex; }
+body:has(#mail-o20261020-014:target) #t-mail-o20261020-014 { display: flex; }
+body:has(#mail-o20261020-004:target) #t-mail-o20261020-004 { display: flex; }
+body:has(#mail-o20261019-011:target) #t-mail-o20261019-011 { display: flex; }
+body:has(#mail-o20261018-006:target) #t-mail-o20261018-006 { display: flex; }
+body:has(#mail-o20261017-009:target) #t-mail-o20261017-009 { display: flex; }
+.lo1-mail { display: none; }
+body:has(#o20261022-001:target) .lo1-mail--o20261022-001, body:has(#mail-o20261022-001:target) .lo1-mail--o20261022-001 { display: inline-flex; }
+body:has(#o20261022-002:target) .lo1-mail--o20261022-002, body:has(#mail-o20261022-002:target) .lo1-mail--o20261022-002 { display: inline-flex; }
+body:has(#o20261022-003:target) .lo1-mail--o20261022-003, body:has(#mail-o20261022-003:target) .lo1-mail--o20261022-003 { display: inline-flex; }
+body:has(#o20261022-004:target) .lo1-mail--o20261022-004, body:has(#mail-o20261022-004:target) .lo1-mail--o20261022-004 { display: inline-flex; }
+body:has(#o20261022-005:target) .lo1-mail--o20261022-005, body:has(#mail-o20261022-005:target) .lo1-mail--o20261022-005 { display: inline-flex; }
+body:has(#o20261022-006:target) .lo1-mail--o20261022-006, body:has(#mail-o20261022-006:target) .lo1-mail--o20261022-006 { display: inline-flex; }
+body:has(#o20261022-007:target) .lo1-mail--o20261022-007, body:has(#mail-o20261022-007:target) .lo1-mail--o20261022-007 { display: inline-flex; }
+body:has(#o20261022-009:target) .lo1-mail--o20261022-009, body:has(#mail-o20261022-009:target) .lo1-mail--o20261022-009 { display: inline-flex; }
+body:has(#o20261022-010:target) .lo1-mail--o20261022-010, body:has(#mail-o20261022-010:target) .lo1-mail--o20261022-010 { display: inline-flex; }
+body:has(#o20261022-011:target) .lo1-mail--o20261022-011, body:has(#mail-o20261022-011:target) .lo1-mail--o20261022-011 { display: inline-flex; }
+body:has(#o20261021-005:target) .lo1-mail--o20261021-005, body:has(#mail-o20261021-005:target) .lo1-mail--o20261021-005 { display: inline-flex; }
+body:has(#o20261021-007:target) .lo1-mail--o20261021-007, body:has(#mail-o20261021-007:target) .lo1-mail--o20261021-007 { display: inline-flex; }
+body:has(#o20261021-010:target) .lo1-mail--o20261021-010, body:has(#mail-o20261021-010:target) .lo1-mail--o20261021-010, body:has(#posted-o20261021-010:target) .lo1-mail--o20261021-010 { display: inline-flex; }
+body:has(#o20261021-012:target) .lo1-mail--o20261021-012, body:has(#mail-o20261021-012:target) .lo1-mail--o20261021-012 { display: inline-flex; }
+body:has(#o20261021-006:target) .lo1-mail--o20261021-006, body:has(#mail-o20261021-006:target) .lo1-mail--o20261021-006 { display: inline-flex; }
+body:has(#o20261020-014:target) .lo1-mail--o20261020-014, body:has(#mail-o20261020-014:target) .lo1-mail--o20261020-014 { display: inline-flex; }
+body:has(#o20261020-004:target) .lo1-mail--o20261020-004, body:has(#mail-o20261020-004:target) .lo1-mail--o20261020-004 { display: inline-flex; }
+body:has(#o20261019-011:target) .lo1-mail--o20261019-011, body:has(#mail-o20261019-011:target) .lo1-mail--o20261019-011 { display: inline-flex; }
+body:has(#o20261018-006:target) .lo1-mail--o20261018-006, body:has(#mail-o20261018-006:target) .lo1-mail--o20261018-006 { display: inline-flex; }
+body:has(#o20261017-009:target) .lo1-mail--o20261017-009, body:has(#mail-o20261017-009:target) .lo1-mail--o20261017-009 { display: inline-flex; }
+body:not(:has(:is(#o20261022-001, #mail-o20261022-001, #o20261022-002, #mail-o20261022-002, #o20261022-003, #mail-o20261022-003, #o20261022-004, #mail-o20261022-004, #o20261022-005, #mail-o20261022-005, #o20261022-006, #mail-o20261022-006, #o20261022-007, #mail-o20261022-007, #o20261022-009, #mail-o20261022-009, #o20261022-010, #mail-o20261022-010, #o20261022-011, #mail-o20261022-011, #o20261021-005, #mail-o20261021-005, #o20261021-007, #mail-o20261021-007, #o20261021-010, #mail-o20261021-010, #posted-o20261021-010, #o20261021-012, #mail-o20261021-012, #o20261021-006, #mail-o20261021-006, #o20261020-014, #mail-o20261020-014, #o20261020-004, #mail-o20261020-004, #o20261019-011, #mail-o20261019-011, #o20261018-006, #mail-o20261018-006, #o20261017-009, #mail-o20261017-009):target)) .lo1-mail--o20261022-003 { display: inline-flex; }
+.lo1-back { display: none; }
+body:has(#o20261022-001:target) .lo1-back--o20261022-001, body:has(#mail-o20261022-001:target) .lo1-back--o20261022-001 { display: inline-flex; }
+body:has(#o20261022-002:target) .lo1-back--o20261022-002, body:has(#mail-o20261022-002:target) .lo1-back--o20261022-002 { display: inline-flex; }
+body:has(#o20261022-003:target) .lo1-back--o20261022-003, body:has(#mail-o20261022-003:target) .lo1-back--o20261022-003 { display: inline-flex; }
+body:has(#o20261022-004:target) .lo1-back--o20261022-004, body:has(#mail-o20261022-004:target) .lo1-back--o20261022-004 { display: inline-flex; }
+body:has(#o20261022-005:target) .lo1-back--o20261022-005, body:has(#mail-o20261022-005:target) .lo1-back--o20261022-005 { display: inline-flex; }
+body:has(#o20261022-006:target) .lo1-back--o20261022-006, body:has(#mail-o20261022-006:target) .lo1-back--o20261022-006 { display: inline-flex; }
+body:has(#o20261022-007:target) .lo1-back--o20261022-007, body:has(#mail-o20261022-007:target) .lo1-back--o20261022-007 { display: inline-flex; }
+body:has(#o20261022-009:target) .lo1-back--o20261022-009, body:has(#mail-o20261022-009:target) .lo1-back--o20261022-009 { display: inline-flex; }
+body:has(#o20261022-010:target) .lo1-back--o20261022-010, body:has(#mail-o20261022-010:target) .lo1-back--o20261022-010 { display: inline-flex; }
+body:has(#o20261022-011:target) .lo1-back--o20261022-011, body:has(#mail-o20261022-011:target) .lo1-back--o20261022-011 { display: inline-flex; }
+body:has(#o20261021-005:target) .lo1-back--o20261021-005, body:has(#mail-o20261021-005:target) .lo1-back--o20261021-005 { display: inline-flex; }
+body:has(#o20261021-007:target) .lo1-back--o20261021-007, body:has(#mail-o20261021-007:target) .lo1-back--o20261021-007 { display: inline-flex; }
+body:has(#o20261021-010:target) .lo1-back--o20261021-010, body:has(#mail-o20261021-010:target) .lo1-back--o20261021-010, body:has(#posted-o20261021-010:target) .lo1-back--o20261021-010 { display: inline-flex; }
+body:has(#o20261021-012:target) .lo1-back--o20261021-012, body:has(#mail-o20261021-012:target) .lo1-back--o20261021-012 { display: inline-flex; }
+body:has(#o20261021-006:target) .lo1-back--o20261021-006, body:has(#mail-o20261021-006:target) .lo1-back--o20261021-006 { display: inline-flex; }
+body:has(#o20261020-014:target) .lo1-back--o20261020-014, body:has(#mail-o20261020-014:target) .lo1-back--o20261020-014 { display: inline-flex; }
+body:has(#o20261020-004:target) .lo1-back--o20261020-004, body:has(#mail-o20261020-004:target) .lo1-back--o20261020-004 { display: inline-flex; }
+body:has(#o20261019-011:target) .lo1-back--o20261019-011, body:has(#mail-o20261019-011:target) .lo1-back--o20261019-011 { display: inline-flex; }
+body:has(#o20261018-006:target) .lo1-back--o20261018-006, body:has(#mail-o20261018-006:target) .lo1-back--o20261018-006 { display: inline-flex; }
+body:has(#o20261017-009:target) .lo1-back--o20261017-009, body:has(#mail-o20261017-009:target) .lo1-back--o20261017-009 { display: inline-flex; }
+body:not(:has(:is(#o20261022-001, #mail-o20261022-001, #o20261022-002, #mail-o20261022-002, #o20261022-003, #mail-o20261022-003, #o20261022-004, #mail-o20261022-004, #o20261022-005, #mail-o20261022-005, #o20261022-006, #mail-o20261022-006, #o20261022-007, #mail-o20261022-007, #o20261022-009, #mail-o20261022-009, #o20261022-010, #mail-o20261022-010, #o20261022-011, #mail-o20261022-011, #o20261021-005, #mail-o20261021-005, #o20261021-007, #mail-o20261021-007, #o20261021-010, #mail-o20261021-010, #posted-o20261021-010, #o20261021-012, #mail-o20261021-012, #o20261021-006, #mail-o20261021-006, #o20261020-014, #mail-o20261020-014, #o20261020-004, #mail-o20261020-004, #o20261019-011, #mail-o20261019-011, #o20261018-006, #mail-o20261018-006, #o20261017-009, #mail-o20261017-009):target)) .lo1-back--o20261022-003 { display: inline-flex; }
+.lo-now-post { display: none; } body:has(#posted-o20261021-010:target) .lo-now-post, body:has(#posted-o20261021-010:target) #t-posted { display: flex; }
+body:has(#posted-o20261021-010:target) .lo1--o20261021-010 .lo-stamp--warn { display: none; }

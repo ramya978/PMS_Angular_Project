@@ -1,0 +1,30 @@
+/* RS-15 Rooming list */
+.rs15-drop {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 26px 18px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  border: 1.5px dashed var(--line-strong);
+  text-align: center;
+}
+
+.rs15-drop .icon {
+  width: 28px;
+  height: 28px;
+  color: var(--br-500);
+}
+
+/* Show / hide logic: tabs, record switching, filters. Display toggles only, no design. */
+#GRP-0001:target ~ .v-GRP-0001 {
+  display: block;
+}
+
+#GRP-0002:target ~ .v-GRP-0002 {
+  display: block;
+}
+
+#GRP-0003:target ~ .v-GRP-0003 {
+  display: block;
+}

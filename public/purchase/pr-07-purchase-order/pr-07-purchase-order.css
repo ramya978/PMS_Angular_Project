@@ -1,0 +1,19 @@
+/* pr-07-purchase-order.css: purchase order form (header, lines with tax and price check, totals, terms), approval path and after-states of submit, send, amend, short-close and reminder. */
+.pq-fs { min-width: 0; margin: 0; padding: 0; border: 0; display: grid; gap: 16px; }
+.pq-fs .la-ro { min-height: 38px; }
+.pq-doc:has(#submitted:target) .pq-now,
+.pq-doc:has(#cancelled:target) .pq-now,
+.pq-doc:has(#closed:target) .pq-now { display: none; }
+.pq-doc:has(#submitted:target) .pq-to--sub,
+.pq-doc:has(#cancelled:target) .pq-to--can,
+.pq-doc:has(#closed:target) .pq-to--close { display: inline-flex; }
+body:has(#saved:target) #t-saved,
+body:has(#submitted:target) #t-submitted,
+body:has(#cancelled:target) #t-cancelled,
+body:has(#reminded:target) #t-reminded,
+body:has(#amended:target) #t-amended,
+body:has(#closed:target) #t-closed,
+body:has(#line-added:target) #t-line {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

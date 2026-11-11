@@ -1,0 +1,52 @@
+/* las-02-service-types.css: Service Types – summary card, services table, after-state of a saved / added service. */
+.las-intro {
+  display: grid;
+  gap: 10px;
+  padding: 16px 20px;
+}
+
+.las-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.las-kpis li {
+  display: grid;
+}
+
+.las-kpis b {
+  color: var(--ink);
+  font-size: 22px;
+}
+
+.las-intro .fd-muted {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.las-new {
+  display: none;
+}
+
+body:has(#saved-new:target) .las-new {
+  display: table-row;
+}
+body:has(#saved-reg:target) #t-reg { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-exp:target) #t-exp { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-sdy:target) #t-sdy { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-prs:target) #t-prs { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-dry:target) #t-dry { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-out:target) #t-out { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#saved-new:target) #t-new { display: flex; animation: av-rise 320ms var(--ease); }

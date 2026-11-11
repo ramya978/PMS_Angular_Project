@@ -1,0 +1,4 @@
+/* ms-07-kpi-ratios.css – styles of MS-07 KPI Ratios (laptop rules; phone rules sit in max-width media queries). */
+
+.ms-spark--s { width: 110px; height: 30px; }
+.fd-sub { display: block; color: var(--ink-3); font-size: 12px; }

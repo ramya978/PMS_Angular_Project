@@ -1,0 +1,93 @@
+/* la-06-house-linen-exchange.css: hero, the new-exchange form (header, item lines with difference, signatures,
+   Save / Print slip / Send to batch) and today's exchanges with the saved row as after-state. */
+.lx-form {
+  gap: 14px;
+}
+
+.lx-head {
+  display: grid;
+  grid-template-columns: 220px minmax(260px, 1fr) minmax(0, 1.4fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.lx-type {
+  margin: 0;
+}
+
+/* the three Type options take the roomier share of the header row so they stay on one line */
+@media (min-width: 1025px) {
+  .lx-head:has(> .field) > .field.lx-type {
+    flex: 2 1 400px;
+  }
+}
+
+.lx-lines td,
+.lx-lines th {
+  vertical-align: middle;
+}
+
+.lx-lines tfoot :is(th, td) {
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.lx-lines .lo3-in--n {
+  width: 90px;
+}
+
+.lx-sign {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lx-sig {
+  min-height: 52px;
+}
+
+.lx-rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.lx-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lx-t td {
+  vertical-align: top;
+}
+
+.lxw .lx-t tr.lx-new {
+  display: none;
+}
+
+body:has(#saved-09:target) .lxw .lx-t tr.lx-new {
+  display: grid;
+}
+
+body:has(#saved-09:target) .lx-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved-09:target) .lx-now,
+body:has(#saved-09:target) #t-saved {
+  display: flex;
+}
+
+.lx-form .lo3-in--sel {
+  min-width: 170px;
+}
+
+@media (max-width: 1240px) {
+  .lx-head {
+    grid-template-columns: 1fr 1fr;
+  }
+}

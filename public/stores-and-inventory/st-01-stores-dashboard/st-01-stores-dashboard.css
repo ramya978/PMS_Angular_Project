@@ -1,0 +1,23 @@
+/* st-01-stores-dashboard.css: greeting, figures, deliveries, requisitions, low stock, expiry, slow stock and value by store – card styles are in purchase.css / laundry.css. */
+.pqd .pq-g2 {
+  margin: 0;
+}
+
+.st-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.st-links li {
+  display: grid;
+  gap: 1px;
+}
+
+.st-links small {
+  color: var(--ink-3);
+  font-size: 12px;
+}

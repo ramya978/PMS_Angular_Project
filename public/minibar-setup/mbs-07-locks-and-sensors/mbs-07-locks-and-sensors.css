@@ -1,0 +1,66 @@
+/* mbs-07-locks-and-sensors.css: lock rules, sensor connection fields shown only when "Sensor minibars installed" is on (:has),
+   connection-test after-state. */
+.l7-later,
+.l7-res {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.l7-later {
+  background: #eef0fb;
+  color: #3c3f86;
+}
+
+.l7-res {
+  display: none;
+  background: var(--ok-bg);
+  color: var(--ink-2);
+}
+
+body:has(#tested:target) .l7-res,
+body:has(#tested:target) #t-tested {
+  display: flex;
+}
+
+.l7-con {
+  display: none;
+}
+
+.l7-test {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.l7-test .field__hint {
+  margin: 0;
+}
+
+.l7-off {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.fd-form:has(input[name="sensors"]:checked) .l7-con,
+body:has(#tested:target) .l7-con {
+  display: block;
+}
+
+.fd-form:has(input[name="sensors"]:checked) .l7-off,
+body:has(#tested:target) .l7-off {
+  display: none;
+}
+
+.fd-form:has(input[name="sensors"]:checked) .l7-con input[name="vendor"],
+.fd-form:has(input[name="sensors"]:checked) .l7-con input[name="endpoint"] {
+  border-color: var(--br-400);
+}

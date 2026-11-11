@@ -1,0 +1,58 @@
+/* hrs-03-pay-components-and-structures.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.hr-prev {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hr-prev h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+
+.hr-dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.hr-dl dt {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.hr-dl dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+#ctc-preview {
+  display: none;
+}
+
+body:has(#preview:target) #ctc-preview {
+  display: block;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled,
+body:has(#preview:target) #t-preview {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,121 @@
+/* kt-03-expo-pass-display.css: orders across stations with item status, Ready – call / Served / Re-fire after-states. */
+.kt-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 16px;
+}
+
+/* every ticket is the same size: header, notes and items on top, the action pinned to the bottom edge */
+.kt-tk {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 300px;
+  padding: 18px 16px 16px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--surface) 60%, var(--surface-2));
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.05), 0 16px 28px -22px rgb(var(--deep-rgb, 14 26 43) / 0.45);
+}
+
+.kt-tk--ok { --hk: #2f855a; }
+.kt-tk--amber { --hk: #b7791f; }
+.kt-tk--red { --hk: #c53030; }
+
+.kt-tk header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.kt-tm {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hk) 12%, var(--surface));
+  color: var(--hk);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.kt-w {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.ex-l {
+  display: grid;
+  flex: 1 1 auto;
+  align-content: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.ex-l li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-2, var(--line));
+}
+
+.ex-l li:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.ex-l li > b {
+  grid-column: 1;
+  grid-row: 1;
+  font-weight: 650;
+}
+
+.ex-l li > span:not(.pill) {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ex-l .pill {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+/* actions: the first one (Waiting / Ready) spans the card, the others share the row below it */
+.ex-a {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: auto;
+}
+
+.ex-a .btn {
+  justify-content: center;
+  min-height: 44px;
+}
+
+.ex-a .btn:first-child:nth-last-child(n+3) {
+  grid-column: 1 / -1;
+}
+.exw:has(:is(#ready-0, #served-0):target) #ex-0 { opacity: 0.45; }
+.exw:has(#ready-0:target) #t-ready-0, .exw:has(#served-0:target) #t-served-0, .exw:has(#refire-0:target) #t-refire-0 { display: flex; animation: av-rise 320ms var(--ease); }
+.exw:has(:is(#ready-1, #served-1):target) #ex-1 { opacity: 0.45; }
+.exw:has(#ready-1:target) #t-ready-1, .exw:has(#served-1:target) #t-served-1, .exw:has(#refire-1:target) #t-refire-1 { display: flex; animation: av-rise 320ms var(--ease); }
+.exw:has(:is(#ready-2, #served-2):target) #ex-2 { opacity: 0.45; }
+.exw:has(#ready-2:target) #t-ready-2, .exw:has(#served-2:target) #t-served-2, .exw:has(#refire-2:target) #t-refire-2 { display: flex; animation: av-rise 320ms var(--ease); }

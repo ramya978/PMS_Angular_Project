@@ -1,0 +1,15 @@
+/* ccs-05-cost-periods-and-store-mapping.css: cost period, store mapping, sales sources and the list of periods. */
+.check--off {
+  opacity: 0.55;
+}
+
+body:has(#added:target) .pd-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

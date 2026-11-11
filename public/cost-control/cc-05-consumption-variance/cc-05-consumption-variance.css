@@ -1,0 +1,45 @@
+/* cc-05-consumption-variance.css: variance lines and the drill-down pop-ups. */
+.cv-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin: 0;
+}
+
+.cv-filter .field {
+  min-width: 240px;
+}
+
+.cv-ex.field__input {
+  min-width: 260px;
+}
+
+.cv-ex-t {
+  display: block;
+  max-width: 340px;
+  font-size: 12.5px;
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+.cv-row--above > td {
+  background: color-mix(in srgb, #fdf3dc 45%, transparent);
+}
+
+.cv-act {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,15 @@
+/* hks-10-allocation-rules.css: allocation rules form with a small card of calculated meanings. */
+
+.hks-calc {
+  margin-top: 16px;
+  padding: 16px 20px;
+}
+
+.hks-calc ul {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 18px;
+  list-style: disc;
+  color: var(--ink-2);
+}

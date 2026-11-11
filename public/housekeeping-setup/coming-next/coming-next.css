@@ -1,0 +1,10 @@
+/* coming-next: static placeholder for screens of other modules that Housekeeping Setup links to;
+   the #CODE fragment picks the panel (design: .hk-next in css/aviv/housekeeping.css). */
+.hks-next > .hk-next {
+  display: none;
+}
+
+.hks-next > .hk-next:target,
+.hks-next:not(:has(> .hk-next:target)) > .hks-next__generic {
+  display: grid;
+}

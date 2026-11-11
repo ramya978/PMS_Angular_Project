@@ -1,0 +1,249 @@
+/* stores.css: shared styles of the Stores Setup (STS) and Stores & Inventory (ST) pages – the section strip,
+   storage and batch tags, the "needs attention" flag and the level bars. Linked after purchase.css,
+   before the screen stylesheet. Everything for phones sits inside the max-width queries at the end. */
+
+/* section strip linking the six setup screens */
+.sts-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sts-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sts-nav a:hover {
+  color: var(--ink);
+}
+
+.sts-nav a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+/* storage tags: where an item is kept */
+.sts-store {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.sts-store--dry { background: #f3efe6; color: #6b5a2e; }
+.sts-store--chilled { background: #e3f1fa; color: #1d5f8f; }
+.sts-store--frozen { background: #e6e9fb; color: #35439a; }
+.sts-store--bar { background: #f6e8f0; color: #8a2f5f; }
+.sts-store--engineering { background: #e9edf0; color: #3f4b57; }
+
+/* batch / expiry tag and "needs attention" flag */
+.sts-batch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--em-700, #2f855a);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sts-batch .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.sts-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: #fdecec;
+  color: #a12626;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.sts-flag .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.sts-flag--ok {
+  background: #e7f4ec;
+  color: #226b46;
+}
+
+/* a small "min – reorder – max" bar used on level rows (STS-05) and stock lists (ST-06) */
+.sts-bar {
+  position: relative;
+  display: block;
+  height: 6px;
+  min-width: 90px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sts-bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--em-500, #3a7a62), var(--em-700, #1f3d33));
+}
+
+.sts-bar--low > i {
+  background: linear-gradient(90deg, #d69e2e, #b7791f);
+}
+
+.sts-bar--out > i {
+  background: linear-gradient(90deg, #e05252, #c53030);
+}
+
+@media (max-width: 760px) {
+  .sts-nav {
+    flex-wrap: nowrap;
+    width: auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    scrollbar-width: none;
+  }
+}
+
+/* ───────── Stores & Inventory (ST) ───────── */
+
+/* status chips: colour + icon + label (the .pill.hk-pill look of aviv.css) */
+.st--draft { --hk: #718096; }
+.st--wait { --hk: #b7791f; }
+.st--ok { --hk: #2f855a; }
+.st--part { --hk: #2b6cb0; }
+.st--done { --hk: #4a5568; }
+.st--warn { --hk: #c05621; }
+.st--bad { --hk: #c53030; }
+
+.pill.hk-pill[class*="st--"] > .icon {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--hk);
+  color: #fff;
+}
+
+/* quick views above a list */
+.st-views {
+  justify-self: start;
+  max-width: 100%;
+}
+
+.st-list {
+  display: grid;
+  gap: 12px;
+}
+
+/* quantity cells: tabular figures, right aligned */
+.st-q {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* a small stacked line under the main text of a cell */
+.st-sub {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* the "changed" row of an after-state */
+.st-hot > td {
+  background: var(--ok-bg);
+}
+
+@media (max-width: 760px) {
+  .st-views {
+    justify-self: stretch;
+  }
+}
+
+/* sheets and forms of the Stores pages */
+.vn-code {
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vn-form {
+  display: grid;
+  gap: 16px;
+}
+
+.vn-sec {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.vn-sec__t {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.vn-x01 {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--ok-bg);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.vn-x01 .icon {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--em-600);
+  vertical-align: -2px;
+}
+
+.st-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.st-note .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+@media (max-width: 760px) {
+  .vn-sec {
+    padding: 14px;
+  }
+}

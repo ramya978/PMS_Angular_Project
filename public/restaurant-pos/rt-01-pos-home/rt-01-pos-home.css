@@ -1,0 +1,42 @@
+/* rt-01-pos-home.css: outlet greeting, outlet and shift form, outlet status, messages (86'd items, specials). */
+.lfd-hello {
+  margin: 4px 0 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.rth-g {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.rth-m {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.rth-m li {
+  display: flex;
+  gap: 8px;
+}
+
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+@media (max-width: 1280px) {
+  .rth-g {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

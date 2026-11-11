@@ -1,0 +1,94 @@
+/* linen.css: shared styles of the Linen & Amenities (LN) pages, linked after laundry.css (cards, room badge, documents). */
+
+/* hidden :target markers of after-states – fixed, so following a marker never scrolls the page */
+.hb-mks {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* status colours: colour + icon + label (uses the .pill.hk-pill look of aviv.css) */
+.ls--draft { --hk: #718096; }
+.ls--pend { --hk: #b7791f; }
+.ls--ok { --hk: #2f855a; }
+.ls--rej { --hk: #c53030; }
+.ls--sub { --hk: #2b6cb0; }
+.ls--part { --hk: #b83280; }
+
+/* icons inside running text stay on the line */
+.law :is(.la-late, .la-ok, .la-warn, .ln-k, .mc-note) > .icon {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+.ln-k {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mc-note {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 12.5px;
+}
+
+.pc {
+  display: none;
+  margin-bottom: 4px;
+}
+
+.ln-done {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+.mr-rm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mr-g {
+  display: grid;
+}
+
+.ln-in {
+  width: 80px;
+}
+
+/* item / quantity lists as chips (LN-04, LN-08) */
+.ln-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ln-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.ln-chips b {
+  color: var(--em-700);
+  font-variant-numeric: tabular-nums;
+}

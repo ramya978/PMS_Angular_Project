@@ -1,0 +1,147 @@
+/* cc-08-menu-engineering.css: the four classes and the item list. */
+/* the four classes as a 2 × 2 matrix: profit up the side, popularity along the bottom */
+.me-matrix {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px 12px;
+}
+
+.me-ax {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.me-ax--y {
+  grid-row: 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+}
+
+.me-ax--x {
+  grid-column: 2;
+  text-align: center;
+}
+
+.me-quad {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.me-q {
+  --c: var(--line);
+  --bg: var(--surface-2);
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--bg), var(--surface) 70%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 28%, var(--line)), var(--sh-1);
+}
+
+.me-q--star { --c: #2f855a; --bg: #e3f3ea; }
+.me-q--plough { --c: #2b6cb0; --bg: #e6eef9; }
+.me-q--puzzle { --c: #b7791f; --bg: #fbf0d9; }
+.me-q--dog { --c: #c53030; --bg: #fbe7e4; }
+
+.me-q__hd {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.me-q__ic {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--c);
+  color: #fff;
+  box-shadow: 0 10px 18px -12px var(--c);
+}
+
+.me-q__t {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.me-q__c {
+  color: var(--c);
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.me-q p {
+  margin: 0;
+}
+
+.me-q__h {
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.me-q__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.me-q__chips li {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 30%, var(--line));
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.me-q__a {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed color-mix(in srgb, var(--c) 35%, var(--line));
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+@media (max-width: 760px) {
+  .me-quad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .me-ax--y {
+    display: none;
+  }
+
+  .me-matrix {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .me-ax--x {
+    grid-column: 1;
+  }
+}
+
+[data-code="CC-08-items"] td:first-child {
+  min-width: 220px;
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

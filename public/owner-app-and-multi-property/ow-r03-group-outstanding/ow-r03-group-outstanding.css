@@ -1,0 +1,27 @@
+/* ow-r03-group-outstanding.css: printable group outstanding. */
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+.sg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.sg span {
+  padding-top: 4px;
+  border-top: 1px solid currentcolor;
+  font-size: 12px;
+}
+
+.pq-r {
+  text-align: right;
+}
+
+.ow-paper h3 {
+  margin: 18px 0 8px;
+  font-size: 14px;
+}

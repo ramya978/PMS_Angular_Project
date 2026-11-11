@@ -1,0 +1,158 @@
+/* lf-o01-item-tag.css: item tags (label 50 × 25 mm) – one tag chosen by a marker (#tNNNN), today's tags without one. */
+.o3 h2 small {
+  margin-left: 8px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.o3-sum {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0;
+  margin: 16px 0 8px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  list-style: none;
+}
+
+.o3-sum li {
+  display: grid;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.o3-sum li + li {
+  border-left: 1px solid var(--line);
+}
+
+.o3-sum b {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.o3 td,
+.o3 th {
+  font-size: 11.5px;
+}
+
+.o3-chk {
+  width: 56px;
+}
+
+.o3-foot {
+  margin-top: 16px;
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.o3-sign {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  font-size: 12px;
+}
+
+@media print {
+  .o3 h2 {
+    break-after: avoid;
+  }
+
+  .o3 table {
+    break-inside: auto;
+  }
+}
+
+.tg-g {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tg {
+  display: none;
+  width: 340px;
+  padding: 12px 14px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+}
+
+.tg__h {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.tg__b {
+  display: flex;
+  gap: 12px;
+}
+
+.tg__b span {
+  display: block;
+}
+
+.tg__qr .icon {
+  width: 46px;
+  height: 46px;
+}
+
+.tg__no {
+  display: block;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.tg__bar {
+  height: 30px;
+  margin-top: 8px;
+  background: repeating-linear-gradient(90deg, #111 0 2px, transparent 2px 4px, #111 4px 5px, transparent 5px 8px, #111 8px 11px, transparent 11px 12px);
+}
+
+.tg__n {
+  display: block;
+  font-family: ui-monospace, monospace;
+  font-size: 10.5px;
+  text-align: center;
+}
+
+.tgw:not(:has(.pm:target)) :is(.tg--0112, .tg--0111, .tg--0110, .tg--0109),
+.tgw:has(#t0113:target) .tg--0113,
+.tgw:has(#t0112:target) .tg--0112,
+.tgw:has(#t0111:target) .tg--0111,
+.tgw:has(#t0110:target) .tg--0110,
+.tgw:has(#t0109:target) .tg--0109,
+.tgw:has(#t0108:target) .tg--0108,
+.tgw:has(#t0107:target) .tg--0107,
+.tgw:has(#t0106:target) .tg--0106,
+.tgw:has(#t0105:target) .tg--0105,
+.tgw:has(#t0104:target) .tg--0104,
+.tgw:has(#t0103:target) .tg--0103,
+.tgw:has(#t0102:target) .tg--0102,
+.tgw:has(#t0101:target) .tg--0101,
+.tgw:has(#t0100:target) .tg--0100,
+.tgw:has(#t0099:target) .tg--0099,
+.tgw:has(#t0098:target) .tg--0098,
+.tgw:has(#t0097:target) .tg--0097,
+.tgw:has(#t0095:target) .tg--0095,
+.tgw:has(#t0094:target) .tg--0094,
+.tgw:has(#t0090:target) .tg--0090,
+.tgw:has(#t0072:target) .tg--0072,
+.tgw:has(#t0063:target) .tg--0063,
+.tgw:has(#t0061:target) .tg--0061,
+.tgw:has(#t0058:target) .tg--0058,
+.tgw:has(#t0052:target) .tg--0052,
+.tgw:has(#t0049:target) .tg--0049 {
+  display: block;
+}
+
+.tgw:has(.pm:target) .tg-k {
+  display: none;
+}

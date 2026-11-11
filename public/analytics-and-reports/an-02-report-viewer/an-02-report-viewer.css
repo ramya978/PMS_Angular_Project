@@ -1,0 +1,35 @@
+/* an-02-report-viewer.css – styles of AN-02 Report Viewer (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#exp-pdf:target) #t-pdf,
+body:has(#exp-xls:target) #t-xls,
+body:has(#exp-csv:target) #t-csv,
+body:has(#view-saved:target) #t-view,
+body:has(#sched-saved:target) #t-sched,
+body:has(#ran:target) #t-ran {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.an-view:has(#c-av:not(:checked)) .c-av {
+  display: none;
+}
+.an-view:has(#c-so:not(:checked)) .c-so {
+  display: none;
+}
+.an-view:has(#c-oc:not(:checked)) .c-oc {
+  display: none;
+}
+.an-view:has(#c-adr:not(:checked)) .c-adr {
+  display: none;
+}
+.an-view:has(#c-rp:not(:checked)) .c-rp {
+  display: none;
+}
+.an-view:has(#c-rv:not(:checked)) .c-rv {
+  display: none;
+}
+.an-view:has(#c-bu:not(:checked)) .c-bu {
+  display: none;
+}
+.an-view:has(#c-vb:not(:checked)) .c-vb {
+  display: none;
+}

@@ -1,0 +1,270 @@
+/* la-02-guest-laundry-orders.css: hero, status views (:target links – the dashboard tiles open them), service ticks
+   that filter the rows, order table, LA-P01 pickup / receive pop-up with two modes and its after-states. */
+.lo-t td {
+  vertical-align: top;
+}
+
+.lo-t td:nth-child(7) {
+  min-width: 200px;
+}
+
+.la-note {
+  max-width: 300px;
+  white-space: normal;
+}
+
+.lo-row.is-due:has(.la-late) > td {
+  background: #fdf3f3;
+}
+
+.low .lo-t tr.lo-new,
+.la-is,
+.la-empty-row {
+  display: none;
+}
+
+.lo-t td:nth-child(2),
+.lo-t td:nth-child(4),
+.lo-t td:nth-child(6),
+.lo-t td:last-child {
+  white-space: nowrap;
+}
+
+.la-views {
+  flex-wrap: wrap;
+}
+
+.la-views .hv__v {
+  text-decoration: none;
+}
+
+.la-svcs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.la-svc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--input);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.la-svc:has(:checked) {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-500);
+  color: var(--em-800);
+}
+
+.la-empty {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 26px;
+  color: var(--ink-3);
+}
+
+.la-empty .icon {
+  color: var(--st-ready);
+}
+
+.la-empty b {
+  color: var(--ink);
+}
+
+.low:not(:has(.la-svc :checked)) .la-empty-row {
+  display: grid;
+}
+
+/* LA-P01: mode shown by the marker that opened it */
+.la-mode {
+  display: grid;
+}
+
+.la-mode > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--info-bg);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.la-mode > .la-mode__b,
+.la-save-room,
+#la-p01:has(#la-p01-room:target) .la-mode > .la-mode__a,
+#la-p01:has(#la-p01-room:target) .la-save-lau {
+  display: none;
+}
+
+#la-p01:has(#la-p01-room:target) .la-mode > .la-mode__b,
+#la-p01:has(#la-p01-room:target) .la-save-room {
+  display: flex;
+}
+
+/* after-states */
+body:has(#picked-new:target) .low .lo-t tr.lo-new {
+  display: grid;
+}
+
+body:has(#picked-new:target) .lo-new > td,
+body:has(#received-008:target) #r-oLDY-20261022-008 > td,
+body:has(#p01-next:target) #r-oLDY-20261022-008 > td {
+  background: var(--ok-bg);
+}
+
+body:has(#picked-new:target) .la-now--new,
+body:has(:is(#received-008, #p01-next):target) .la-now--rcv {
+  display: flex;
+}
+
+body:has(:is(#received-008, #p01-next):target) #r-oLDY-20261022-008 .la-was {
+  display: none;
+}
+
+body:has(:is(#received-008, #p01-next):target) #r-oLDY-20261022-008 .la-is {
+  display: inline;
+}
+
+body:has(#received-008:target) #t-rcv,
+body:has(#picked-new:target) #t-new,
+body:has(#p01-next:target) #t-next {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.low:not(:has(:is(#v-open, #v-due, #v-dep, #v-pick, #v-recv, #v-proc, #v-ready, #v-out, #v-dlv, #v-billed, #v-hold, #v-cxl, #v-claim, #v-all):target)) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-open:target) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-open:target) .lo-row:not(:not(.is-closed)), .low:not(:has(:is(#v-open, #v-due, #v-dep, #v-pick, #v-recv, #v-proc, #v-ready, #v-out, #v-dlv, #v-billed, #v-hold, #v-cxl, #v-claim, #v-all):target)) .lo-row:not(:not(.is-closed)) { display: none; }
+.low:has(#v-due:target) .hv__v[data-v="v-due"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-due:target) .lo-row:not(.is-due) { display: none; }
+.low:has(#v-dep:target) .hv__v[data-v="v-dep"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-dep:target) .lo-row:not(.is-dep) { display: none; }
+.low:has(#v-pick:target) .hv__v[data-v="v-pick"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-pick:target) .lo-row:not(.st-pick) { display: none; }
+.low:has(#v-recv:target) .hv__v[data-v="v-recv"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-recv:target) .lo-row:not(.st-recv) { display: none; }
+.low:has(#v-proc:target) .hv__v[data-v="v-proc"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-proc:target) .lo-row:not(.st-proc) { display: none; }
+.low:has(#v-ready:target) .hv__v[data-v="v-ready"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-ready:target) .lo-row:not(.st-ready) { display: none; }
+.low:has(#v-out:target) .hv__v[data-v="v-out"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-out:target) .lo-row:not(.st-out) { display: none; }
+.low:has(#v-dlv:target) .hv__v[data-v="v-dlv"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-dlv:target) .lo-row:not(.st-dlv) { display: none; }
+.low:has(#v-billed:target) .hv__v[data-v="v-billed"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-billed:target) .lo-row:not(.st-billed) { display: none; }
+.low:has(#v-hold:target) .hv__v[data-v="v-hold"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-hold:target) .lo-row:not(.st-hold) { display: none; }
+.low:has(#v-cxl:target) .hv__v[data-v="v-cxl"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-cxl:target) .lo-row:not(.st-cxl) { display: none; }
+.low:has(#v-claim:target) .hv__v[data-v="v-claim"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#v-claim:target) .lo-row:not(.is-claim) { display: none; }
+.low:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.low:has(#fs-REG:not(:checked)) .lo-row.sv-REG { display: none; }
+.low:has(#fs-EXP:not(:checked)) .lo-row.sv-EXP { display: none; }
+.low:has(#fs-SDY:not(:checked)) .lo-row.sv-SDY { display: none; }
+.low:has(#fs-PRS:not(:checked)) .lo-row.sv-PRS { display: none; }
+.low:has(#fs-DRY:not(:checked)) .lo-row.sv-DRY { display: none; }

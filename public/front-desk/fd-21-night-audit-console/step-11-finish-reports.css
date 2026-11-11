@@ -1,0 +1,22 @@
+/* step-11-finish-reports.css – styles of FD-21-11 Night Audit Console – the “step 11 finish reports” tab / step (laptop rules; phone rules sit in max-width media queries). */
+
+.variants > .variant:has(.fd-toast:target) {
+  display: block;
+}
+
+.variants:has(.variant:not(.is-default) .fd-toast:target) > .variant.is-default {
+  display: none;
+}
+
+#done:target ~ .v-done {
+  display: block;
+}
+
+/* record variants */
+#locked:target ~ .v-locked {
+  display: block;
+}
+
+#done:target ~ .v-done {
+  display: block;
+}

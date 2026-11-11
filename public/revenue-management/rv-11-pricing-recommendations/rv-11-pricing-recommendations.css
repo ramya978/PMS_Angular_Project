@@ -1,0 +1,65 @@
+/* rv-11-pricing-recommendations.css – styles of RV-11 Pricing Recommendations (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#rc-ok-1041:target) #t-ok-1041,
+body:has(#rc-ok-1042:target) #t-ok-1042,
+body:has(#rc-ok-1043:target) #t-ok-1043,
+body:has(#rc-ok-1045:target) #t-ok-1045,
+body:has(#rc-ok-1046:target) #t-ok-1046,
+body:has(#rc-ok-1049:target) #t-ok-1049,
+body:has(#rc-ok-1050:target) #t-ok-1050,
+body:has(#rc-ok-1051:target) #t-ok-1051,
+body:has(#rc-no-1041:target) #t-no-1041,
+body:has(#rc-no-1042:target) #t-no-1042,
+body:has(#rc-no-1043:target) #t-no-1043,
+body:has(#rc-no-1045:target) #t-no-1045,
+body:has(#rc-no-1046:target) #t-no-1046,
+body:has(#rc-no-1049:target) #t-no-1049,
+body:has(#rc-no-1050:target) #t-no-1050,
+body:has(#rc-no-1051:target) #t-no-1051,
+body:has(#all-ok:target) #t-all {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-pending:target) .hv__v[data-v="v-pending"],
+#main:has(#v-accepted:target) .hv__v[data-v="v-accepted"],
+#main:has(#v-rejected:target) .hv__v[data-v="v-rejected"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-pending:target) .gl-row:not(.rc-pending),
+#main:has(#v-accepted:target) .gl-row:not(.rc-accepted),
+#main:has(#v-rejected:target) .gl-row:not(.rc-rejected) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+.rc-ok-1041, .rc-no-1041 { display: none; }
+body:has(#rc-ok-1041:target) .rc-now-1041, body:has(#rc-no-1041:target) .rc-now-1041, body:has(#rc-ok-1041:target) #rc-1041 .rc-act, body:has(#rc-no-1041:target) #rc-1041 .rc-act { display: none; }
+body:has(#rc-ok-1041:target) .rc-ok-1041, body:has(#rc-no-1041:target) .rc-no-1041 { display: inline-flex; }
+.rc-ok-1042, .rc-no-1042 { display: none; }
+body:has(#rc-ok-1042:target) .rc-now-1042, body:has(#rc-no-1042:target) .rc-now-1042, body:has(#rc-ok-1042:target) #rc-1042 .rc-act, body:has(#rc-no-1042:target) #rc-1042 .rc-act { display: none; }
+body:has(#rc-ok-1042:target) .rc-ok-1042, body:has(#rc-no-1042:target) .rc-no-1042 { display: inline-flex; }
+.rc-ok-1043, .rc-no-1043 { display: none; }
+body:has(#rc-ok-1043:target) .rc-now-1043, body:has(#rc-no-1043:target) .rc-now-1043, body:has(#rc-ok-1043:target) #rc-1043 .rc-act, body:has(#rc-no-1043:target) #rc-1043 .rc-act { display: none; }
+body:has(#rc-ok-1043:target) .rc-ok-1043, body:has(#rc-no-1043:target) .rc-no-1043 { display: inline-flex; }
+.rc-ok-1045, .rc-no-1045 { display: none; }
+body:has(#rc-ok-1045:target) .rc-now-1045, body:has(#rc-no-1045:target) .rc-now-1045, body:has(#rc-ok-1045:target) #rc-1045 .rc-act, body:has(#rc-no-1045:target) #rc-1045 .rc-act { display: none; }
+body:has(#rc-ok-1045:target) .rc-ok-1045, body:has(#rc-no-1045:target) .rc-no-1045 { display: inline-flex; }
+.rc-ok-1046, .rc-no-1046 { display: none; }
+body:has(#rc-ok-1046:target) .rc-now-1046, body:has(#rc-no-1046:target) .rc-now-1046, body:has(#rc-ok-1046:target) #rc-1046 .rc-act, body:has(#rc-no-1046:target) #rc-1046 .rc-act { display: none; }
+body:has(#rc-ok-1046:target) .rc-ok-1046, body:has(#rc-no-1046:target) .rc-no-1046 { display: inline-flex; }
+.rc-ok-1049, .rc-no-1049 { display: none; }
+body:has(#rc-ok-1049:target) .rc-now-1049, body:has(#rc-no-1049:target) .rc-now-1049, body:has(#rc-ok-1049:target) #rc-1049 .rc-act, body:has(#rc-no-1049:target) #rc-1049 .rc-act { display: none; }
+body:has(#rc-ok-1049:target) .rc-ok-1049, body:has(#rc-no-1049:target) .rc-no-1049 { display: inline-flex; }
+.rc-ok-1050, .rc-no-1050 { display: none; }
+body:has(#rc-ok-1050:target) .rc-now-1050, body:has(#rc-no-1050:target) .rc-now-1050, body:has(#rc-ok-1050:target) #rc-1050 .rc-act, body:has(#rc-no-1050:target) #rc-1050 .rc-act { display: none; }
+body:has(#rc-ok-1050:target) .rc-ok-1050, body:has(#rc-no-1050:target) .rc-no-1050 { display: inline-flex; }
+.rc-ok-1051, .rc-no-1051 { display: none; }
+body:has(#rc-ok-1051:target) .rc-now-1051, body:has(#rc-no-1051:target) .rc-now-1051, body:has(#rc-ok-1051:target) #rc-1051 .rc-act, body:has(#rc-no-1051:target) #rc-1051 .rc-act { display: none; }
+body:has(#rc-ok-1051:target) .rc-ok-1051, body:has(#rc-no-1051:target) .rc-no-1051 { display: inline-flex; }

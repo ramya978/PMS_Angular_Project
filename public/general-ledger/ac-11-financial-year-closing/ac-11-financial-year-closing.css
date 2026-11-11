@@ -1,0 +1,151 @@
+/* ac-11-financial-year-closing.css: the year-close wizard (same look as AC-10). */
+.gl-close {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.gl-close__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px 24px;
+}
+
+.gl-close__head > div:first-child {
+  flex: 1 1 420px;
+}
+
+.gl-close__k {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--em-700);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gl-close h2 {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.gl-close__head p {
+  max-width: 72ch;
+  margin-top: 4px;
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+
+.gl-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gl-steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--em-50);
+  color: var(--em-800);
+  font-weight: 600;
+}
+
+.gl-steps b {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--em-700);
+  color: #fff;
+  font-size: 12px;
+}
+
+.gl-close__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.gl-close__step:first-child {
+  grid-row: span 2;
+}
+
+.gl-close__step h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.gl-close__step h3 small {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gl-lockf__a {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.gl-close-c,
+.gl-aft {
+  display: none !important;
+}
+
+.gl-close:has(#when-close:checked) .gl-now-c {
+  display: none !important;
+}
+
+.gl-close:has(#when-close:checked) .gl-close-c {
+  display: grid !important;
+}
+
+.gl-close:has(#when-close:checked) :is(small, p, .btn).gl-close-c {
+  display: inline-flex !important;
+}
+
+.gl-when > input:nth-of-type(1):checked ~ .stabs__list label:nth-child(1),
+.gl-when > input:nth-of-type(2):checked ~ .stabs__list label:nth-child(2) {
+  background: var(--em-700);
+  color: #fff;
+}
+
+.gl-new {
+  display: none;
+}
+
+body:has(#closed:target) .gl-new {
+  display: table-row;
+  background: var(--em-50);
+}
+
+@media (max-width: 1024px) {
+  .gl-close__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+body:has(#closed:target) #t-closed {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

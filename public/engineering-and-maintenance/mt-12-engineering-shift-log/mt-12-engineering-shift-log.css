@@ -1,0 +1,82 @@
+/* mt-12-engineering-shift-log.css: new entry form, shift log by category, handover with Acknowledge after-state. */
+.la-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.la-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.la-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mt-sg {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.ho-l {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ho {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.ho span {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ho p {
+  margin: 0;
+}
+
+.ho-a {
+  display: none;
+}
+
+.slw:has(#ack:target) .ho-b {
+  display: none;
+}
+
+.slw:has(#ack:target) .ho-a {
+  display: inline;
+}
+
+.slw:has(#added:target) .lf-new {
+  display: table-row;
+}
+
+.slw:has(#added:target) #t-added,
+.slw:has(#ack:target) #t-ack { display: flex; animation: av-rise 320ms var(--ease); }
+
+@media (max-width: 1200px) {
+  .mt-sg {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

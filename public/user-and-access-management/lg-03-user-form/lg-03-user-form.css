@@ -1,0 +1,11 @@
+/* lg-03-user-form.css: toasts. */
+body:has(#sent:target) #t-sent,
+body:has(#p02-exported:target) #t-p02-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+.lg-h3 {
+  margin: 18px 0 8px;
+  font-size: 14px;
+}

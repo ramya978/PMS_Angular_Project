@@ -1,0 +1,87 @@
+/* ac-03-vouchers.css: status views, the new reversing voucher and the approval after-state. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-draft:target) .hv__v[data-v="v-draft"],
+#main:has(#v-pending:target) .hv__v[data-v="v-pending"],
+#main:has(#v-posted:target) .hv__v[data-v="v-posted"],
+#main:has(#v-reversed:target) .hv__v[data-v="v-reversed"],
+#main:has(#v-rejected:target) .hv__v[data-v="v-rejected"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-draft:target) .gl-row:not(.vr-draft),
+#main:has(#v-pending:target) .gl-row:not(.vr-pending),
+#main:has(#v-posted:target) .gl-row:not(.vr-posted),
+#main:has(#v-reversed:target) .gl-row:not(.vr-reversed),
+#main:has(#v-rejected:target) .gl-row:not(.vr-rejected) {
+  display: none;
+}
+
+.gl-new,
+.gl-aft {
+  display: none;
+}
+
+body:has(#reversed-cv-26-27-00096:target) table.srt > tbody > tr.gl-new-cv-26-27-00096 { display: grid; background: var(--em-50); }
+body:has(#reversed-cv-26-27-00096:target) #r-cv-26-27-00096 .gl-now { display: none; }
+body:has(#reversed-cv-26-27-00096:target) #r-cv-26-27-00096 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00182:target) table.srt > tbody > tr.gl-new-jv-26-27-00182 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00182:target) #r-jv-26-27-00182 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00182:target) #r-jv-26-27-00182 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00181:target) table.srt > tbody > tr.gl-new-jv-26-27-00181 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00181:target) #r-jv-26-27-00181 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00181:target) #r-jv-26-27-00181 .gl-aft { display: inline-flex; }
+body:has(#reversed-cv-26-27-00095:target) table.srt > tbody > tr.gl-new-cv-26-27-00095 { display: grid; background: var(--em-50); }
+body:has(#reversed-cv-26-27-00095:target) #r-cv-26-27-00095 .gl-now { display: none; }
+body:has(#reversed-cv-26-27-00095:target) #r-cv-26-27-00095 .gl-aft { display: inline-flex; }
+body:has(#reversed-pv-26-27-00210:target) table.srt > tbody > tr.gl-new-pv-26-27-00210 { display: grid; background: var(--em-50); }
+body:has(#reversed-pv-26-27-00210:target) #r-pv-26-27-00210 .gl-now { display: none; }
+body:has(#reversed-pv-26-27-00210:target) #r-pv-26-27-00210 .gl-aft { display: inline-flex; }
+body:has(#reversed-rv-26-27-00417:target) table.srt > tbody > tr.gl-new-rv-26-27-00417 { display: grid; background: var(--em-50); }
+body:has(#reversed-rv-26-27-00417:target) #r-rv-26-27-00417 .gl-now { display: none; }
+body:has(#reversed-rv-26-27-00417:target) #r-rv-26-27-00417 .gl-aft { display: inline-flex; }
+body:has(#reversed-cv-26-27-00094:target) table.srt > tbody > tr.gl-new-cv-26-27-00094 { display: grid; background: var(--em-50); }
+body:has(#reversed-cv-26-27-00094:target) #r-cv-26-27-00094 .gl-now { display: none; }
+body:has(#reversed-cv-26-27-00094:target) #r-cv-26-27-00094 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00173:target) table.srt > tbody > tr.gl-new-jv-26-27-00173 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00173:target) #r-jv-26-27-00173 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00173:target) #r-jv-26-27-00173 .gl-aft { display: inline-flex; }
+body:has(#reversed-cv-26-27-00093:target) table.srt > tbody > tr.gl-new-cv-26-27-00093 { display: grid; background: var(--em-50); }
+body:has(#reversed-cv-26-27-00093:target) #r-cv-26-27-00093 .gl-now { display: none; }
+body:has(#reversed-cv-26-27-00093:target) #r-cv-26-27-00093 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00172:target) table.srt > tbody > tr.gl-new-jv-26-27-00172 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00172:target) #r-jv-26-27-00172 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00172:target) #r-jv-26-27-00172 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00171:target) table.srt > tbody > tr.gl-new-jv-26-27-00171 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00171:target) #r-jv-26-27-00171 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00171:target) #r-jv-26-27-00171 .gl-aft { display: inline-flex; }
+body:has(#reversed-jv-26-27-00168:target) table.srt > tbody > tr.gl-new-jv-26-27-00168 { display: grid; background: var(--em-50); }
+body:has(#reversed-jv-26-27-00168:target) #r-jv-26-27-00168 .gl-now { display: none; }
+body:has(#reversed-jv-26-27-00168:target) #r-jv-26-27-00168 .gl-aft { display: inline-flex; }
+
+body:has(#approved-pv-26-27-00211:target) #r-pv-26-27-00211 .gl-now { display: none; }
+body:has(#approved-pv-26-27-00211:target) #r-pv-26-27-00211 .gl-aft { display: inline-flex; }
+body:has(#approved-pv-26-27-00211:target) #r-pv-26-27-00211 { background: var(--em-50); }
+body:has(#approved-jv-26-27-00183:target) #r-jv-26-27-00183 .gl-now { display: none; }
+body:has(#approved-jv-26-27-00183:target) #r-jv-26-27-00183 .gl-aft { display: inline-flex; }
+body:has(#approved-jv-26-27-00183:target) #r-jv-26-27-00183 { background: var(--em-50); }
+
+body:has(#reversed-cv-26-27-00096:target) #t-reversed-cv-26-27-00096,
+body:has(#reversed-jv-26-27-00182:target) #t-reversed-jv-26-27-00182,
+body:has(#reversed-jv-26-27-00181:target) #t-reversed-jv-26-27-00181,
+body:has(#reversed-cv-26-27-00095:target) #t-reversed-cv-26-27-00095,
+body:has(#reversed-pv-26-27-00210:target) #t-reversed-pv-26-27-00210,
+body:has(#reversed-rv-26-27-00417:target) #t-reversed-rv-26-27-00417,
+body:has(#reversed-cv-26-27-00094:target) #t-reversed-cv-26-27-00094,
+body:has(#reversed-jv-26-27-00173:target) #t-reversed-jv-26-27-00173,
+body:has(#reversed-cv-26-27-00093:target) #t-reversed-cv-26-27-00093,
+body:has(#reversed-jv-26-27-00172:target) #t-reversed-jv-26-27-00172,
+body:has(#reversed-jv-26-27-00171:target) #t-reversed-jv-26-27-00171,
+body:has(#reversed-jv-26-27-00168:target) #t-reversed-jv-26-27-00168,
+body:has(#approved-pv-26-27-00211:target) #t-approved-pv-26-27-00211,
+body:has(#approved-jv-26-27-00183:target) #t-approved-jv-26-27-00183 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

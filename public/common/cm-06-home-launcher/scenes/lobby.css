@@ -1,0 +1,89 @@
+/* Home Launcher scene: The Grand Lobby. HTML + CSS only; colours come from the theme variables (docs/THEME.md). */
+html, body { height: 100%; margin: 0; overflow: hidden; background: var(--deep, #0e1a2b); }
+.hsc {
+  --g: var(--gold, #c8a96a);
+  --d: var(--deep, #0e1a2b);
+  --d2: var(--deep-2, var(--d));
+  --b: var(--em-700, #174a3c);
+  --b5: var(--em-500, #2b7561);
+  --lit: color-mix(in srgb, var(--g) 68%, #fff);
+  --sil: color-mix(in srgb, var(--d2) 82%, #000);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.hsc-l { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+.bg { fill: var(--d2); }
+.s-halo1 { stop-color: var(--lit); stop-opacity: .62; }
+.s-halo2 { stop-color: var(--g); stop-opacity: .16; }
+.s-halo3 { stop-color: var(--g); stop-opacity: 0; }
+.s-col1 { stop-color: color-mix(in srgb, var(--b) 36%, var(--d2)); }
+.s-col2 { stop-color: color-mix(in srgb, var(--g) 30%, var(--b)); }
+.s-col3 { stop-color: color-mix(in srgb, var(--b) 14%, var(--sil)); }
+.s-sky1 { stop-color: var(--d); }
+.s-sky2 { stop-color: color-mix(in srgb, var(--b) 60%, var(--d)); }
+.s-sky3 { stop-color: color-mix(in srgb, var(--g) 66%, var(--b)); }
+.s-ce1 { stop-color: var(--sil); }
+.s-ce2 { stop-color: color-mix(in srgb, var(--g) 18%, var(--d)); }
+.s-w1 { stop-color: var(--sil); }
+.s-w2 { stop-color: color-mix(in srgb, var(--b) 40%, var(--d)); }
+.s-rf1 { stop-color: var(--g); stop-opacity: .22; }
+.s-rf2 { stop-color: var(--g); stop-opacity: 0; }
+.coffer { fill: none; stroke: var(--g); stroke-opacity: .3; stroke-width: 1.2; }
+.panel { fill: none; stroke: var(--g); stroke-opacity: .34; stroke-width: 1.3; }
+.sconce { fill: var(--lit); }
+.sconce-g { animation: pulse 5s ease-in-out var(--d) infinite alternate; }
+.backwall { fill: color-mix(in srgb, var(--b) 34%, var(--d)); }
+.band { fill: none; stroke: var(--g); stroke-opacity: .5; stroke-width: 1.5; }
+.moon { fill: var(--lit); opacity: .85; }
+.fan { fill: none; stroke: var(--g); stroke-opacity: .85; stroke-width: 2; }
+.frame { fill: none; stroke: var(--g); stroke-width: 3; }
+.drum { fill: color-mix(in srgb, var(--lit) 34%, transparent); }
+.wing rect { fill: var(--g); }
+.wing { transform-origin: 800px 0; animation: door 12s linear infinite; }
+.wing--b { animation-delay: -4s; } .wing--c { animation-delay: -8s; }
+.tile1 { fill: color-mix(in srgb, var(--g) 26%, var(--d)); }
+.tile2 { fill: color-mix(in srgb, var(--b) 18%, var(--sil)); }
+.runner { fill: color-mix(in srgb, var(--b) 72%, var(--d)); }
+.runner-b { fill: none; stroke: var(--g); stroke-width: 2.4; }
+.runner-d { fill: none; stroke: var(--g); stroke-opacity: .55; stroke-width: 1.4; }
+.glow-floor { opacity: .6; animation: pulse 6s ease-in-out infinite alternate; }
+.doorlight { fill: var(--lit); opacity: .06; }
+.flute { fill: none; stroke: var(--lit); stroke-opacity: .2; }
+.cap { fill: var(--g); }
+.chandelier { transform-origin: 800px 0; animation: swing 9s ease-in-out infinite alternate; }
+.chain { stroke: var(--g); stroke-width: 3; }
+.halo { animation: pulse 6s ease-in-out infinite alternate; }
+.ch-arm { fill: none; stroke: var(--g); stroke-width: 3; }
+.ch-ring { fill: none; stroke: var(--g); stroke-width: 2.4; }
+.ch-drop { fill: var(--lit); }
+.ch-drop.back { opacity: .45; }
+.ch-drop.tw { animation: twinkle var(--t) ease-in-out var(--d) infinite alternate; }
+.fig, .fig-cap { fill: var(--sil); }
+.fig-cap { fill: var(--g); }
+.fig-arm, .fig-leg { fill: none; stroke: var(--sil); stroke-linecap: round; stroke-width: 10; }
+.fig-leg { stroke-width: 12; }
+.leg { transform-origin: -58px -52px; animation: stride 1.1s ease-in-out infinite alternate; }
+.leg--b { animation-direction: alternate-reverse; }
+.brass { fill: none; stroke: var(--g); stroke-linecap: round; stroke-width: 4; }
+.brass-t { fill: none; stroke: var(--sil); stroke-width: 3; }
+.case1 { fill: color-mix(in srgb, var(--g) 44%, var(--d)); }
+.case2 { fill: color-mix(in srgb, var(--b5) 62%, var(--d)); }
+.case3 { fill: var(--lit); }
+.wheel { fill: var(--sil); stroke: var(--g); stroke-width: 2; }
+.crosser { animation: cross 64s linear -14s infinite; }
+.bob { animation: bob 1.1s ease-in-out infinite alternate; }
+.mote { fill: var(--lit); opacity: .35; animation: mote var(--t) ease-in-out var(--d) infinite alternate; }
+@keyframes pulse { from { opacity: .72; } to { opacity: 1; } }
+@keyframes swing { from { transform: rotate(-.5deg); } to { transform: rotate(.5deg); } }
+@keyframes twinkle { from { opacity: .3; } to { opacity: 1; } }
+@keyframes door { 0% { transform: translateX(-80px) scaleX(.2); opacity: .15; } 50% { transform: translateX(0) scaleX(1.5); opacity: 1; } 100% { transform: translateX(80px) scaleX(.2); opacity: .15; } }
+@keyframes cross { 0% { transform: translate(-220px, 806px); } 55%, 100% { transform: translate(1820px, 806px); } }
+@keyframes bob { from { translate: 0 0; } to { translate: 0 -3px; } }
+@keyframes stride { from { transform: rotate(-11deg); } to { transform: rotate(11deg); } }
+@keyframes mote { from { transform: translate(-12px, 14px); opacity: .12; } to { transform: translate(12px, -18px); opacity: .55; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hsc *, .hsc *::before, .hsc *::after { animation: none !important; }
+}

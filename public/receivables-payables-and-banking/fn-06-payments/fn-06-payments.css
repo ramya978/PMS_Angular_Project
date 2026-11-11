@@ -1,0 +1,88 @@
+/* fn-06-payments.css: payment proposal with its five steps. */
+.pm--p {
+  position: absolute;
+}
+
+.py-steps {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.py-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.py-step > span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+/* the step reached is lit: the proposal first, then the one named by the last button pressed */
+.py-step--created,
+#main:has(#created:target) .py-step--created,
+#main:has(#submitted:target) .py-step--created,
+#main:has(#submitted:target) .py-step--submitted,
+#main:has(#approved:target) :is(.py-step--created, .py-step--submitted, .py-step--approved),
+#main:has(#filegen:target) :is(.py-step--created, .py-step--submitted, .py-step--approved, .py-step--filegen),
+#main:has(#paid:target) .py-step {
+  color: var(--em-800);
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-600);
+}
+
+.py-a {
+  display: none;
+}
+
+body:has(#paid:target) .py-b {
+  display: none;
+}
+
+body:has(#paid:target) .py-a {
+  display: inline-flex;
+}
+
+.py-acts .btn {
+  white-space: nowrap;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+[data-code="FN-06-bills"] td:nth-child(3) {
+  min-width: 220px;
+}
+
+body:has(#created:target) #t-created,
+body:has(#submitted:target) #t-submitted,
+body:has(#approved:target) #t-approved,
+body:has(#filegen:target) #t-filegen,
+body:has(#paid:target) #t-paid {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 760px) {
+  .py-steps {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

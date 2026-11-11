@@ -1,0 +1,154 @@
+/* bqs-02-sessions-and-rental-rates.css: sessions, rental grid per day type (radio tabs), season, rate versions with Submit / Approve / Send back after-states. */
+.ln-k {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ln-k .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pl-grp th {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.la-new {
+  display: none;
+}
+
+body:has(#added:target) .la-new {
+  display: table-row;
+}
+
+body:has(#added:target) .la-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved-rec:target) #t-rec { display: flex; animation: av-rise 320ms var(--ease); }
+
+.mt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.mt-tag {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.mt-in-n {
+  width: 92px;
+}
+
+.mt-in-s {
+  min-width: 150px;
+}
+
+:is(.dt__td, .fd-sub a) > .icon {
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.mt-warn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: #fdf3dc;
+  color: #946200;
+  font-size: 11.5px;
+  font-weight: 650;
+}
+
+.la-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.la-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.la-add > summary::-webkit-details-marker {
+  display: none;
+}
+
+.la-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.la-add__a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.fd-sec--wide .mt-in {
+  grid-column: 2;
+  display: grid;
+  gap: 12px;
+  margin: 0 28px 20px;
+  min-width: 0;
+}
+
+.mt-form {
+  display: grid;
+  gap: 12px;
+}
+
+body:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }
+
+input[type="time"].mt-in-n {
+  width: 130px;
+  max-width: 130px;
+}
+#main:has(#dt-weekday:checked) .bqs-pane--weekday { display: block; }
+#main:has(#dt-weekday:checked) label[for="dt-weekday"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+#main:has(#dt-weekend:checked) .bqs-pane--weekend { display: block; }
+#main:has(#dt-weekend:checked) label[for="dt-weekend"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+#main:has(#dt-muhurtham:checked) .bqs-pane--muhurtham { display: block; }
+#main:has(#dt-muhurtham:checked) label[for="dt-muhurtham"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+body:has(#submit-0:target) #rv-0 .bq-now, body:has(#approve-0:target) #rv-0 .bq-now { display: none; }
+body:has(#submit-0:target) #rv-0 .bq-new, body:has(#approve-0:target) #rv-0 .bq-new { display: inline-flex; }
+body:has(:is(#submit-0, #approve-0, #back-0):target) #rv-0 .btn { display: none; }
+body:has(#submit-0:target) #t-submit-0, body:has(#approve-0:target) #t-approve-0, body:has(#back-0:target) #t-back-0 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#submit-1:target) #rv-1 .bq-now, body:has(#approve-1:target) #rv-1 .bq-now { display: none; }
+body:has(#submit-1:target) #rv-1 .bq-new, body:has(#approve-1:target) #rv-1 .bq-new { display: inline-flex; }
+body:has(:is(#submit-1, #approve-1, #back-1):target) #rv-1 .btn { display: none; }
+body:has(#submit-1:target) #t-submit-1, body:has(#approve-1:target) #t-approve-1, body:has(#back-1:target) #t-back-1 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#submit-2:target) #rv-2 .bq-now, body:has(#approve-2:target) #rv-2 .bq-now { display: none; }
+body:has(#submit-2:target) #rv-2 .bq-new, body:has(#approve-2:target) #rv-2 .bq-new { display: inline-flex; }
+body:has(:is(#submit-2, #approve-2, #back-2):target) #rv-2 .btn { display: none; }
+body:has(#submit-2:target) #t-submit-2, body:has(#approve-2:target) #t-approve-2, body:has(#back-2:target) #t-back-2 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#submit-3:target) #rv-3 .bq-now, body:has(#approve-3:target) #rv-3 .bq-now { display: none; }
+body:has(#submit-3:target) #rv-3 .bq-new, body:has(#approve-3:target) #rv-3 .bq-new { display: inline-flex; }
+body:has(:is(#submit-3, #approve-3, #back-3):target) #rv-3 .btn { display: none; }
+body:has(#submit-3:target) #t-submit-3, body:has(#approve-3:target) #t-approve-3, body:has(#back-3:target) #t-back-3 { display: flex; animation: av-rise 320ms var(--ease); }

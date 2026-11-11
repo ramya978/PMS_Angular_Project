@@ -1,0 +1,239 @@
+/* hks-05-task-types-and-credits.css: task type list, credits matrix with in-place cells, linen-change fields, workload preview, pending banner. */
+
+/* credits matrix */
+.hks-matrix {
+  width: 100%;
+  min-width: 1040px;
+  table-layout: fixed;
+}
+
+.hks-matrix .hks-th--first {
+  width: 200px;
+}
+
+.hks-th {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hks-th--first {
+  text-align: left;
+}
+
+.hks-th span {
+  display: block;
+  font-weight: 500;
+}
+
+.hks-th small {
+  display: block;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.hks-rt {
+  text-align: left;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.hks-rt .fd-sub {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.hks-cell--one input {
+  width: calc(50% - 2px);
+}
+
+.hks-cell {
+  padding: 6px 4px;
+}
+
+/* credits and minutes as one joined control: credits (bold) | minutes */
+.hks-cell__in {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--input);
+  transition: box-shadow var(--t-fast);
+}
+
+.hks-cell__in:focus-within {
+  box-shadow: inset 0 0 0 1px var(--em-600), 0 0 0 3px rgb(var(--gold-rgb, 200 169 106) / 0.25);
+}
+
+.hks-cell__in > input + input {
+  box-shadow: inset 1px 0 0 var(--line);
+  color: var(--ink-3);
+}
+
+.hks-cell__in > input:first-child {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.hks-cell input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.hks-cell input:focus,
+.hks-cell input:focus-visible {
+  outline: 0;
+  box-shadow: none;
+}
+
+.hks-cell input::-webkit-outer-spin-button,
+.hks-cell input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/* extra-credit rows: one value per cell, same look as the joined control */
+.hks-cell--one input {
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--input);
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.hks-cell--one input:focus,
+.hks-cell--one input:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--em-600), 0 0 0 3px rgb(var(--gold-rgb, 200 169 106) / 0.25);
+}
+
+.hks-prs--empty .hks-cell__in {
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px rgb(183 121 31 / 0.35);
+}
+
+.hks-prs--empty input:placeholder-shown {
+  background: transparent;
+}
+
+.hks-prs__no,
+.hks-prs__ok {
+  margin-top: 4px;
+}
+
+.hks-prs--empty input:placeholder-shown {
+  background: var(--warn-bg);
+}
+
+/* after “Copy room type” the Premium Suite row shows the copied values */
+.hks-prs--copied {
+  display: none;
+}
+
+body:has(#copied:target) .hks-prs--copied {
+  display: table-row;
+}
+
+body:has(#copied:target) .hks-prs--empty,
+body:has(#copied:target) .hks-nocredit {
+  display: none;
+}
+
+body:has(#copied:target) .hks-prs--copied td,
+body:has(#copied:target) .hks-prs--copied th {
+  background: var(--ok-bg);
+}
+
+.hks-sum {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font-size: 12.5px;
+}
+
+.hks-sum .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+/* towel nights field only when towels change every N nights */
+.hks-form:not(:has(#hks05-towel option[value="Every N nights"]:checked)) .hks-towel-n {
+  opacity: 0.5;
+}
+
+/* the pending banner and the preview only show after their action */
+.hks-pending {
+  display: none;
+}
+
+body:has(#pending:target) .hks-pending {
+  display: flex;
+}
+
+.hks-preview {
+  display: none;
+}
+
+.hks-preview:target {
+  display: block;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+/* a saved row is highlighted when the page is opened after Save */
+.dt__table tbody tr:target td {
+  background: var(--ok-bg);
+}
+
+/* saved task type toasts: shown with the row that was saved */
+body:has(#saved-dep:target) #t-dep {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr:target) #t-arr {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tch:target) #t-tch {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty:target) #t-sty {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lch:target) #t-lch {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl:target) #t-dcl {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tdn:target) #t-tdn {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

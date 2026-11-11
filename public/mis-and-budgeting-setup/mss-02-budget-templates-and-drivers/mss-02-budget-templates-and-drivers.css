@@ -1,0 +1,49 @@
+/* mss-02-budget-templates-and-drivers.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-rooms:target) .hv__v[data-v="v-rooms"],
+#main:has(#v-fnb:target) .hv__v[data-v="v-fnb"],
+#main:has(#v-oth:target) .hv__v[data-v="v-oth"],
+#main:has(#v-ag:target) .hv__v[data-v="v-ag"],
+#main:has(#v-it:target) .hv__v[data-v="v-it"],
+#main:has(#v-sm:target) .hv__v[data-v="v-sm"],
+#main:has(#v-pom:target) .hv__v[data-v="v-pom"],
+#main:has(#v-utl:target) .hv__v[data-v="v-utl"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-rooms:target) .gl-row:not(.rg-rooms),
+#main:has(#v-fnb:target) .gl-row:not(.rg-fnb),
+#main:has(#v-oth:target) .gl-row:not(.rg-oth),
+#main:has(#v-ag:target) .gl-row:not(.rg-ag),
+#main:has(#v-it:target) .gl-row:not(.rg-it),
+#main:has(#v-sm:target) .gl-row:not(.rg-sm),
+#main:has(#v-pom:target) .gl-row:not(.rg-pom),
+#main:has(#v-utl:target) .gl-row:not(.rg-utl) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+.mss-w { min-width: 250px; }
+.mss-w2 { min-width: 270px; }
+.gl-row td:nth-child(3) select { min-width: 210px; }
+.gl-row td:nth-child(5) { min-width: 150px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

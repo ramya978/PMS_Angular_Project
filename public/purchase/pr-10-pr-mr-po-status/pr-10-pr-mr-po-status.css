@@ -1,0 +1,26 @@
+/* pr-10-pr-mr-po-status.css: one row per request with every document of the chain (MR, PR, RFQ, PO, GRN, bill, payment). */
+#main:not(:has(.hb-mks .pm:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-appr:target) .hv__v[data-v="v-appr"],
+#main:has(#v-ord:target) .hv__v[data-v="v-ord"],
+#main:has(#v-rec:target) .hv__v[data-v="v-rec"],
+#main:has(#v-end:target) .hv__v[data-v="v-end"],
+#main:has(#v-draft:target) .hv__v[data-v="v-draft"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-appr:target) .pq-row:not(.pq-row--appr),
+#main:has(#v-ord:target) .pq-row:not(.pq-row--ord),
+#main:has(#v-rec:target) .pq-row:not(.pq-row--rec),
+#main:has(#v-end:target) .pq-row:not(.pq-row--end),
+#main:has(#v-draft:target) .pq-row:not(.pq-row--draft) {
+  display: none;
+}
+
+.pq-ch { display: grid; gap: 1px; white-space: nowrap; }
+.pq-ch--wait .fd-sub { color: #946200; }
+.pq-ch--bad .fd-sub { color: #9b1c1c; }

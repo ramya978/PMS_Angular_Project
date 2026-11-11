@@ -1,0 +1,198 @@
+/* mb-03-posting-queue.css: summary hero, four :target tabs (Pending default; #counted opens Pending, #posted-now / #posted-sel
+   open Posted), lines with an item / tax table, bulk Post now, MB-P02 and MB-P03 – one modal each with a marker per line. */
+.pq-hero {
+  padding: 18px 24px;
+}
+
+.pq-tabs__t small {
+  font-weight: 500;
+}
+
+.pq-tab,
+.pq-empty,
+.pq-new,
+.pq-newsel,
+.pq-st2,
+.pq-rev,
+.pc {
+  display: none;
+}
+
+.pq-empty {
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.pq-t .dt__td {
+  vertical-align: top;
+}
+
+.pq-it {
+  width: 100%;
+  max-width: 420px;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.pq-it th,
+.pq-it td {
+  padding: 2px 8px 2px 0;
+  text-align: left;
+}
+
+.pq-it th {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pq-it .num {
+  text-align: right;
+}
+
+.pq-it tfoot td {
+  border-top: 1px solid var(--line);
+  padding-top: 4px;
+}
+
+.pq-st,
+.pq-st2,
+.pq-rev {
+  margin-bottom: 4px;
+}
+
+.pq-t .la-warn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.pq-note {
+  max-width: 260px;
+  white-space: normal;
+}
+
+.mr-rm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mr-g {
+  display: grid;
+}
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mc-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 12.5px;
+}
+
+.pc {
+  margin-bottom: 4px;
+}
+
+.pq-bulk {
+  margin-bottom: 10px;
+}
+
+/* tabs */
+.pq:not(:has(:is(#mb-03-1, #mb-03-2, #mb-03-3, #mb-03-4, #counted, #posted-now, #posted-sel, #reversed, #link-sent):target)) .pq-tab[data-code="MB-03-1"],
+.pq:has(:is(#mb-03-1, #counted, #reversed):target) .pq-tab[data-code="MB-03-1"],
+.pq:has(:is(#mb-03-2, #posted-now, #posted-sel):target) .pq-tab[data-code="MB-03-2"],
+.pq:has(:is(#mb-03-3, #link-sent):target) .pq-tab[data-code="MB-03-3"],
+.pq:has(#mb-03-4:target) .pq-tab[data-code="MB-03-4"] {
+  display: block;
+}
+
+.pq:not(:has(:is(#mb-03-1, #mb-03-2, #mb-03-3, #mb-03-4, #counted, #posted-now, #posted-sel, #reversed, #link-sent):target)) .pq-tabs__t[data-t="mb-03-1"],
+.pq:has(:is(#mb-03-1, #counted, #reversed):target) .pq-tabs__t[data-t="mb-03-1"],
+.pq:has(:is(#mb-03-2, #posted-now, #posted-sel):target) .pq-tabs__t[data-t="mb-03-2"],
+.pq:has(:is(#mb-03-3, #link-sent):target) .pq-tabs__t[data-t="mb-03-3"],
+.pq:has(#mb-03-4:target) .pq-tabs__t[data-t="mb-03-4"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+/* after-states */
+.pq:has(#counted:target) .pq-new--counted,
+.pq:has(#posted-now:target) .pq-new--posted,
+.pq:has(#posted-sel:target) .pq-newsel {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.pq:has(#posted-sel:target) .pq-newsel .pq-st2 {
+  display: block;
+}
+
+.pq:has(#posted-sel:target) .pq-newsel .la-warn,
+.pq:has(#posted-sel:target) .pq-newsel .check,
+.pq:has(#posted-sel:target) .pq-bulk {
+  display: none;
+}
+
+.pq:has(#posted-sel:target) .pq-tab[data-code="MB-03-1"] .pq-r:not(.pq-new) {
+  display: none;
+}
+
+.pq-hide {
+  display: none;
+}
+
+body:has(#counted:target) #t-counted,
+body:has(#posted-now:target) #t-posted-now,
+body:has(#posted-sel:target) #t-posted-sel,
+body:has(#reversed:target) #t-reversed,
+body:has(#link-sent:target) #t-link {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+.mc-note {
+  display: block;
+}
+
+.mc-note > .icon {
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+#mb-p02:has(#mb-p02-l20261018004:target) .pc--l20261018004 { display: flex; }
+#mb-p02:has(#mb-p02-l20261019006:target) .pc--l20261019006 { display: flex; }
+#mb-p02:has(#mb-p02-l20261019007:target) .pc--l20261019007 { display: flex; }
+#mb-p02:has(#mb-p02-l20261020003:target) .pc--l20261020003 { display: flex; }
+#mb-p02:has(#mb-p02-l20261020005:target) .pc--l20261020005 { display: flex; }
+#mb-p02:has(#mb-p02-l20261020006:target) .pc--l20261020006 { display: flex; }
+#mb-p02:has(#mb-p02-l20261021002:target) .pc--l20261021002 { display: flex; }
+#mb-p02:has(#mb-p02-l20261021003:target) .pc--l20261021003 { display: flex; }
+#mb-p02:has(#mb-p02-l20261021004:target) .pc--l20261021004 { display: flex; }
+#mb-p02:has(#mb-p02-l20261021006:target) .pc--l20261021006 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022001:target) .pc--l20261022001 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022002:target) .pc--l20261022002 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022003:target) .pc--l20261022003 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022004:target) .pc--l20261022004 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022005:target) .pc--l20261022005 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022006:target) .pc--l20261022006 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022007:target) .pc--l20261022007 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022008:target) .pc--l20261022008 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022009:target) .pc--l20261022009 { display: flex; }
+#mb-p02:has(#mb-p02-l20261022010:target) .pc--l20261022010 { display: flex; }
+#mb-p03:has(#mb-p03-l20261021009:target) .pc--l20261021009 { display: flex; }

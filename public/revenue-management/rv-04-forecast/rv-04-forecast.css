@@ -1,0 +1,11 @@
+/* rv-04-forecast.css – styles of RV-04 Forecast (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#saved:target) #t-saved,
+body:has(#recalculated:target) #t-recalc,
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.rv-note {
+  min-width: 140px;
+}

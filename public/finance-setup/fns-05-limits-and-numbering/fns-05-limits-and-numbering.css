@@ -1,0 +1,20 @@
+/* fns-05-limits-and-numbering.css: credit note and write-off limits and numbering series. */
+.nm-fmt.field__input {
+  min-width: 220px;
+}
+
+[data-code="FNS-05-credit"] td:first-child,
+[data-code="FNS-05-writeoff"] td:first-child {
+  min-width: 220px;
+}
+
+body:has(#added:target) .lm-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

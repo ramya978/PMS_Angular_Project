@@ -1,0 +1,6 @@
+/* da-08-daily-management-briefing.css – styles of DA-08 Daily Management Briefing (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#sent:target) #t-sent {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,6 @@
+/* fds-29-finance-posting-mapping.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* FDS-29a mapping grid fits the sheet (laptop only) */
+@media (min-width: 761px) {
+  #FDS-29a table :is(th, td) { padding-inline: 10px; white-space: normal; }
+}

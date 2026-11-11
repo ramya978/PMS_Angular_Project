@@ -1,0 +1,192 @@
+/* RS-25 Room Allocation – the list uses the shared compact-list styles (.arl); this file adds the allocation bar, room tiles and the CSS-only filters. */
+
+.ra-t :is(th, td):is(.c-rem, .c-last, .c-src, .c-by) { display: none; }
+.ra-t td.arl-gn { white-space: nowrap; }
+.ra-t td.c-rem, .ra-t td.c-pref { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+main:has(#rac-tar:checked) .arl-t :is(th, td).c-tar { display: table-cell; }
+main:has(#rac-pref:checked) .arl-t :is(th, td).c-pref { display: table-cell; }
+main:has(#rac-adv:checked) .arl-t :is(th, td).c-adv { display: table-cell; }
+main:has(#rac-rem:checked) .ra-t :is(th, td).c-rem { display: table-cell; }
+main:has(#rac-last:checked) .ra-t :is(th, td).c-last { display: table-cell; }
+main:has(#rac-src:checked) .ra-t :is(th, td).c-src { display: table-cell; }
+main:has(#rac-by:checked) .ra-t :is(th, td).c-by { display: table-cell; }
+
+/* filters – each hides the rows that do not match */
+main:has(select[name="ra-al"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.al-yes) { display: none; }
+main:has(select[name="ra-al"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.al-no) { display: none; }
+main:has(select[name="ra-rt"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.rt-GDLX) { display: none; }
+main:has(select[name="ra-rt"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.rt-PDLX) { display: none; }
+main:has(select[name="ra-rt"] option:nth-child(4):checked) .ra-t > tbody > tr:not(.rt-DLXS) { display: none; }
+main:has(select[name="ra-rt"] option:nth-child(5):checked) .ra-t > tbody > tr:not(.rt-PRMS) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.ag-agoda) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.ag-booking-com) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(4):checked) .ra-t > tbody > tr:not(.ag-cochin-marine-services-ltd) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(5):checked) .ra-t > tbody > tr:not(.ag-email) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(6):checked) .ra-t > tbody > tr:not(.ag-expedia) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(7):checked) .ra-t > tbody > tr:not(.ag-makemytrip-goibibo) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(8):checked) .ra-t > tbody > tr:not(.ag-malabar-spice-exports-pvt-ltd) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(9):checked) .ra-t > tbody > tr:not(.ag-phone) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(10):checked) .ra-t > tbody > tr:not(.ag-self-booking) { display: none; }
+main:has(select[name="ra-ag"] option:nth-child(11):checked) .ra-t > tbody > tr:not(.ag-aviv-mobile-app) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.gc-corporate) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.gc-regular) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(4):checked) .ra-t > tbody > tr:not(.gc-vip) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(5):checked) .ra-t > tbody > tr:not(.gc-aviv-club-gold) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(6):checked) .ra-t > tbody > tr:not(.gc-aviv-club-platinum) { display: none; }
+main:has(select[name="ra-gc"] option:nth-child(7):checked) .ra-t > tbody > tr:not(.gc-aviv-club-silver) { display: none; }
+main:has(select[name="ra-nt"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.nt-1) { display: none; }
+main:has(select[name="ra-nt"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.nt-2) { display: none; }
+main:has(select[name="ra-nt"] option:nth-child(4):checked) .ra-t > tbody > tr:not(.nt-3) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(2):checked) .ra-t > tbody > tr:not(.pf-high-floor) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(3):checked) .ra-t > tbody > tr:not(.pf-non-smoking) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(4):checked) .ra-t > tbody > tr:not(.pf-garden-view) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(5):checked) .ra-t > tbody > tr:not(.pf-pool-view) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(6):checked) .ra-t > tbody > tr:not(.pf-twin-beds) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(7):checked) .ra-t > tbody > tr:not(.pf-quiet-room) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(8):checked) .ra-t > tbody > tr:not(.pf-near-lift) { display: none; }
+main:has(select[name="ra-pf"] option:nth-child(9):checked) .ra-t > tbody > tr:not(.pf-adjoining-rooms) { display: none; }
+
+.ra-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--br-500) 9%, var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--br-500) 24%, var(--line));
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.ra-note .icon { flex: none; margin-top: 2px; color: var(--br-600); }
+
+.ra-fo { font-size: 12px; font-weight: 600; }
+.ra-fo--ok { color: var(--st-ready); }
+.ra-fo--wait { color: var(--st-dirty); }
+.ra-fo--no { color: var(--st-cancelled); }
+
+.ra-t .fd-sel { margin-right: 8px; }
+.ra-t > tbody > tr:has(.ra-sel:checked) > td {
+  background: color-mix(in srgb, var(--br-500) 12%, var(--surface));
+}
+.ra-chg { margin-left: 8px; }
+
+/* the action bar under the list */
+.ra-bar {
+  position: sticky;
+  bottom: 8px;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+}
+.ra-bar__hint { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-3); font-size: 12.5px; }
+.ra-bar__hint .icon { color: var(--br-600); }
+.ra-bar__on { display: none; }
+main:has(.ra-sel:checked) .ra-bar__on { display: inline; }
+main:has(.ra-sel:checked) .ra-bar__off { display: none; }
+.ra-bar__btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.ra-bar__btns .btn { opacity: 0.55; pointer-events: none; }
+main:has(.ra-sel:checked) .ra-bar__btns .btn { opacity: 1; pointer-events: auto; }
+
+/* pop-ups */
+.ra-ctx { display: grid; gap: 10px; margin-bottom: 14px; }
+.ra-rule {
+  position: relative;
+  margin-top: 6px;
+  padding-left: 22px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.ra-rule .icon { position: absolute; left: 0; top: 2px; color: var(--br-600); }
+.ra-grp { margin-top: 16px; }
+.ra-grp h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-family: var(--font-display); font-size: 16px; font-weight: 500; }
+.ra-grp__n { color: var(--ink-3); font-family: var(--font-body, inherit); font-size: 12px; font-weight: 500; }
+.ra-grp__tag {
+  margin-left: auto;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  font-family: var(--font-body, inherit);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.ra-pick:has(option[value="GDLX"]:checked) .ra-grp[data-t="GDLX"] .ra-grp__tag,
+.ra-pick:has(option[value="PDLX"]:checked) .ra-grp[data-t="PDLX"] .ra-grp__tag,
+.ra-pick:has(option[value="PRMS"]:checked) .ra-grp[data-t="PRMS"] .ra-grp__tag {
+  background: color-mix(in srgb, var(--st-ready) 14%, var(--surface));
+  color: var(--st-ready);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--st-ready) 38%, var(--line));
+}
+.ra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 8px; }
+.ra-rm {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  cursor: pointer;
+}
+.ra-rm--wait { box-shadow: inset 0 0 0 1px var(--line); }
+.ra-rm:hover { box-shadow: inset 0 0 0 1px var(--br-500); }
+.ra-rm:has(input:checked) {
+  background: color-mix(in srgb, var(--br-500) 12%, var(--surface));
+  box-shadow: inset 0 0 0 2px var(--br-600);
+}
+.ra-rm input { position: absolute; opacity: 0; inset: 0; }
+.ra-rm__n { font-family: var(--font-display); font-size: 20px; font-weight: 500; }
+.ra-rm__d { color: var(--ink-3); font-size: 11.5px; }
+.ra-rm__s { font-size: 11.5px; font-weight: 650; color: var(--st-ready); }
+.ra-rm--wait .ra-rm__s { color: var(--st-dirty); }
+.ra-rm__best {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgb(var(--gold-rgb, 200 169 106) / 0.22);
+  color: var(--ink);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.ra-swap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px; margin: 12px 0; }
+.ra-swap__ar { display: grid; place-items: center; height: 40px; color: var(--br-600); }
+.ra-rules { display: grid; gap: 10px; margin: 14px 0; }
+.ra-preview {
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+}
+
+@media (max-width: 760px) {
+  .ra-swap { grid-template-columns: 1fr; }
+  .ra-swap__ar { transform: rotate(90deg); }
+  .ra-bar { bottom: 0; }
+  .ra-bar__btns .btn { flex: 1 1 calc(50% - 8px); }
+}
+
+@media (max-width: 1024px) { .st-tile__l { white-space: normal; min-width: 0; } }
+
+/* Phone: the action bar appears only once a booking is ticked, four small buttons per row */
+@media (max-width: 760px) {
+  main:not(:has(.ra-sel:checked)) .ra-bar { display: none; }
+  .ra-bar { gap: 8px; padding: 10px; }
+  .ra-bar__btns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .ra-bar__btns .btn { flex: none; min-height: 38px; height: auto; padding: 4px; font-size: 11.5px; line-height: 1.15; white-space: normal; }
+}

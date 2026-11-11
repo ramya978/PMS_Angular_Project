@@ -1,0 +1,72 @@
+/* mt-04-work-orders.css: views (:target), work orders with SLA result, status, technician and cost, New work order MT-P01, export after-state. */
+.wol:not(:has(:is(#v-open, #v-guest, #v-over, #v-done, #v-cxl, #v-all):target)) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-open:target) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-open:target) tr.wor:not(.r-open), .wol:not(:has(:is(#v-open, #v-guest, #v-over, #v-done, #v-cxl, #v-all):target)) tr.wor:not(.r-open) { display: none; }
+.wol:has(#v-guest:target) .hv__v[data-v="v-guest"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-guest:target) tr.wor:not(.r-guest) { display: none; }
+.wol:has(#v-over:target) .hv__v[data-v="v-over"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-over:target) tr.wor:not(.r-over) { display: none; }
+.wol:has(#v-done:target) .hv__v[data-v="v-done"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-done:target) tr.wor:not(.r-done) { display: none; }
+.wol:has(#v-cxl:target) .hv__v[data-v="v-cxl"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-cxl:target) tr.wor:not(.r-cxl) { display: none; }
+.wol:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wol:has(#v-all:target) tr.wor:not(.r-all) { display: none; }
+#mt-p01:has(input[name="loc_type"][value="Guest room"]:checked) :is(.lf-if--room, .lf-if--use),
+#mt-p01:has(input[name="loc_type"]:is([value="Public area"], [value="Back of house"]):checked) .lf-if--area,
+#mt-p01:has(input[name="loc_type"][value="Asset"]:checked) .lf-if--asset {
+  display: flex;
+}
+
+#mt-p01 .modal__body .s-grid2 > :is(.lf-if--room, .lf-if--area, .lf-if--asset) {
+  order: 3;
+}
+
+.wol:has(#added:target) .lf-new {
+  display: table-row;
+}
+
+.wol:has(#added:target) #t-added,
+.wol:has(#exported:target) #t-exported { display: flex; animation: av-rise 320ms var(--ease); }

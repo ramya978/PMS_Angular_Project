@@ -1,0 +1,315 @@
+/* hk-16-deep-cleaning-and-projects.css: Deep Cleaning & Projects – hero with a 7-day occupancy forecast strip,
+   status views, jobs table (overdue in red), room projects with progress, selection bar, HK-P14 date cards, mark-done
+   pop-up. Shared patterns (.hkh, .hv, .pm, .pr) are in css/aviv/housekeeping.css. */
+.dw {
+  display: grid;
+  gap: 16px;
+}
+
+.dc-fc {
+  display: grid;
+  grid-template-columns: repeat(7, 54px);
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dc-fc li {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 11px;
+}
+
+.dc-fc i {
+  position: relative;
+  width: 14px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.12);
+}
+
+.dc-fc i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--p);
+  border-radius: inherit;
+  background: #8fb3d9;
+}
+
+.dc-fc .is-low i::after {
+  background: #4cc38a;
+}
+
+.dc-fc .is-high i::after {
+  background: #e6a46a;
+}
+
+.dc-fc b {
+  color: #fff;
+  font-size: 12px;
+}
+
+.dc-t td {
+  vertical-align: top;
+}
+
+.dj-next.is-over {
+  color: #c53030;
+  font-weight: 650;
+}
+
+.dj.is-due:has(.is-over) > td {
+  background: #fffaf2;
+}
+
+.dj-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.rt__sel {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--em-600);
+}
+
+.dc-h {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.dp-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dp {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.dp > div {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+}
+
+.dp small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.dp__ic {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--br-50);
+  color: var(--br-700);
+}
+
+.dp__k {
+  color: var(--br-700);
+}
+
+.dp__bar {
+  height: 6px;
+  margin-top: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line-2);
+}
+
+.dp__bar i {
+  display: block;
+  height: 100%;
+  background: var(--em-500);
+}
+
+.dc-bulk {
+  position: sticky;
+  bottom: 20px;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  justify-self: center;
+  padding: 10px 12px 10px 18px;
+  border-radius: 14px;
+  background: var(--em-900);
+  color: #fff;
+  box-shadow: 0 18px 40px -16px rgb(var(--em-950-rgb, 6 28 22) / 0.7);
+}
+
+.dw:has(.rt__sel:checked) .dc-bulk {
+  display: inline-flex;
+}
+
+.p14-dates {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.p14-d input {
+  position: absolute;
+  opacity: 0;
+}
+
+.p14-d span {
+  display: grid;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.p14-d small {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.p14-d.is-low span {
+  background: var(--ok-bg);
+}
+
+.p14-d input:checked + span {
+  background: var(--em-700);
+  box-shadow: none;
+  color: #fff;
+}
+
+.p14-d input:checked + span small {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.p14-d input:focus-visible + span {
+  outline: 2px solid var(--br-400);
+}
+
+.pr + .pr {
+  margin-top: 8px;
+}
+
+#dc-done .pr,
+.pb {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .dp-list {
+    grid-template-columns: 1fr;
+  }
+
+  .p14-dates {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.dc-t td:nth-child(3) {
+  min-width: 200px;
+}
+.dw:has(#dv-due:checked) .dj:not(.is-due) { display: none; }
+.dw:has(#dv-planned:checked) .dj:not(.is-planned) { display: none; }
+.dw:has(#dv-inprogress:checked) .dj:not(.is-inprogress) { display: none; }
+.dw:has(#dv-done:checked) .dj:not(.is-done) { display: none; }
+.dw:has(#dv-skipped:checked) .dj:not(.is-skipped) { display: none; }
+.dw:has(#dv-all:checked) .hv__v[for="dv-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dw:has(#dv-due:checked) .hv__v[for="dv-due"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dw:has(#dv-planned:checked) .hv__v[for="dv-planned"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dw:has(#dv-inprogress:checked) .hv__v[for="dv-inprogress"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dw:has(#dv-done:checked) .hv__v[for="dv-done"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dw:has(#dv-skipped:checked) .hv__v[for="dv-skipped"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+#dc-done:has(#dc-DC-1041:target) :is(.pr--DC-1041, .pb--DC-1041) { display: flex; }
+body:has(#done-DC-1041:target) #DC-1041 > td { background: var(--ok-bg); }
+body:has(#done-DC-1041:target) #DC-1041 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1042:target) :is(.pr--DC-1042, .pb--DC-1042) { display: flex; }
+body:has(#done-DC-1042:target) #DC-1042 > td { background: var(--ok-bg); }
+body:has(#done-DC-1042:target) #DC-1042 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1043:target) :is(.pr--DC-1043, .pb--DC-1043) { display: flex; }
+body:has(#done-DC-1043:target) #DC-1043 > td { background: var(--ok-bg); }
+body:has(#done-DC-1043:target) #DC-1043 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1045:target) :is(.pr--DC-1045, .pb--DC-1045) { display: flex; }
+body:has(#done-DC-1045:target) #DC-1045 > td { background: var(--ok-bg); }
+body:has(#done-DC-1045:target) #DC-1045 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1046:target) :is(.pr--DC-1046, .pb--DC-1046) { display: flex; }
+body:has(#done-DC-1046:target) #DC-1046 > td { background: var(--ok-bg); }
+body:has(#done-DC-1046:target) #DC-1046 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1047:target) :is(.pr--DC-1047, .pb--DC-1047) { display: flex; }
+body:has(#done-DC-1047:target) #DC-1047 > td { background: var(--ok-bg); }
+body:has(#done-DC-1047:target) #DC-1047 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1048:target) :is(.pr--DC-1048, .pb--DC-1048) { display: flex; }
+body:has(#done-DC-1048:target) #DC-1048 > td { background: var(--ok-bg); }
+body:has(#done-DC-1048:target) #DC-1048 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1051:target) :is(.pr--DC-1051, .pb--DC-1051) { display: flex; }
+body:has(#done-DC-1051:target) #DC-1051 > td { background: var(--ok-bg); }
+body:has(#done-DC-1051:target) #DC-1051 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1052:target) :is(.pr--DC-1052, .pb--DC-1052) { display: flex; }
+body:has(#done-DC-1052:target) #DC-1052 > td { background: var(--ok-bg); }
+body:has(#done-DC-1052:target) #DC-1052 .dj-now { display: flex; }
+#dc-done:has(#dc-DC-1053:target) :is(.pr--DC-1053, .pb--DC-1053) { display: flex; }
+body:has(#done-DC-1053:target) #DC-1053 > td { background: var(--ok-bg); }
+body:has(#done-DC-1053:target) #DC-1053 .dj-now { display: flex; }
+body:has(.pm[id^="done-"]:target) #t-done { display: flex; animation: av-rise 320ms var(--ease); }

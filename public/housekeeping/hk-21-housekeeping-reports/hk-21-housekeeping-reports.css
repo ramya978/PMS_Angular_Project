@@ -1,0 +1,20 @@
+/* hk-21-housekeeping-reports.css: Housekeeping Reports – hero with the productivity shortcut, one filter bar for every
+   report, report cards (code, group, description, last run, schedule, Run / Export / Schedule). Shared: housekeeping.css. */
+.rlw {
+  display: grid;
+  gap: 16px;
+}
+
+.rl-prod {
+  background: #fff;
+  color: var(--em-800);
+}
+
+.rl-f {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* the report cards (.rl-list / .rl) are shared – see housekeeping.css */

@@ -1,0 +1,14 @@
+/* mt-09-utility-meter-readings.css: date / shift, meter grid with previous, current, consumption, 7-day comparison and per occupied room; diesel; Upload bill after-state. */
+.mr-hg {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mr-in {
+  width: 120px;
+}
+
+tr.mr-abn > td {
+  background: #fff6f6;
+}
+
+body:has(#bill:target) #t-bill { display: flex; animation: av-rise 320ms var(--ease); }

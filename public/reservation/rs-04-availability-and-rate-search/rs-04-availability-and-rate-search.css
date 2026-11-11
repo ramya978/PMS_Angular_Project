@@ -1,0 +1,578 @@
+/* RS-04 Availability chart (user 2026-10-31: calendar view only, detailed figures, any month, own window) */
+
+.avc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* the wide chart scrolls inside its card, never the page */
+  gap: 10px;
+}
+
+.avc-in {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.avc-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+/* period tabs: next 30 days, then one tab per month – scrolls sideways when narrow */
+.avc-tabs {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.avc-tabs > label {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.avc-tabs > label:hover {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.avc-tabs > .avc-tab--now {
+  margin-right: 6px;
+}
+
+.avc-in:focus-visible ~ .avc-bar .avc-tabs {
+  box-shadow: inset 0 0 0 1px var(--line), var(--ring);
+}
+
+.avc-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avc-sw {
+  font-size: 12.5px;
+}
+
+.btn.btn--xs {
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 8px;
+  font-size: 12.5px;
+}
+
+.avc-panel {
+  display: none;
+}
+
+.avc-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.avc-t {
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.avc-t :is(th, td) {
+  height: 30px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+.avc-t td {
+  min-width: 34px;
+  border-left: 1px solid var(--line-2);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* description column stays in view while the days scroll */
+.avc-t tbody th,
+.avc-corner {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 230px;
+  padding: 0 14px;
+  background: var(--surface);
+  box-shadow: inset -1px 0 0 var(--line);
+  color: var(--ink);
+  font-weight: 550;
+  text-align: left;
+}
+
+.avc-t thead th {
+  height: auto;
+  padding: 7px 4px 6px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.avc-t thead .avc-corner {
+  z-index: 2;
+  background: var(--surface-2);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.avc-d > span,
+.avc-d > b {
+  display: block;
+}
+
+.avc-d > b {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.avc-d.is-we {
+  background: color-mix(in srgb, var(--br-100) 55%, var(--surface-2));
+}
+
+.avc-d.is-past {
+  opacity: 0.6;
+}
+
+.avc-d.is-today {
+  background: var(--em-800);
+  color: var(--br-300);
+}
+
+.avc-d.is-today > b {
+  color: #fff;
+}
+
+.avc-t td.is-we {
+  background: color-mix(in srgb, var(--br-50) 70%, transparent);
+}
+
+.avc-t td.is-today {
+  box-shadow: inset 2px 0 0 var(--em-700), inset -2px 0 0 var(--em-700);
+  font-weight: 700;
+}
+
+.avc-t tr.avc-g > th {
+  position: static;
+  height: 26px;
+  padding: 0 14px;
+  background: var(--sunken);
+  box-shadow: none;
+  color: var(--em-700);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.avc-t tr.avc-g > th > * {
+  position: sticky;
+  left: 14px;
+}
+
+.avc-t tr:not(.avc-g):hover > :is(td, th) {
+  background-color: var(--em-50);
+}
+
+.avc-t td.is-flag {
+  color: var(--st-cancelled);
+  font-weight: 700;
+}
+
+/* the key row and the room-type rows show the free rooms as a heat scale */
+.avc-key > th {
+  font-weight: 700;
+}
+
+.avc-key > td,
+.avc-rt > td {
+  font-weight: 700;
+}
+
+.avc-t td.lv-3,
+.avc-legend .lv-3::before {
+  --lv: var(--st-ready);
+}
+
+.avc-t td.lv-2,
+.avc-legend .lv-2::before {
+  --lv: var(--em-500);
+}
+
+.avc-t td.lv-1,
+.avc-legend .lv-1::before {
+  --lv: var(--st-tentative);
+}
+
+.avc-t td.lv-0,
+.avc-legend .lv-0::before {
+  --lv: var(--st-dirty);
+}
+
+.avc-t td.lv-neg,
+.avc-legend .lv-neg::before {
+  --lv: var(--st-cancelled);
+}
+
+.avc-t td[class*="lv-"] {
+  background: color-mix(in srgb, var(--lv) 11%, var(--surface));
+  color: color-mix(in srgb, var(--lv) 85%, #000);
+}
+
+.avc-rt .code-chip {
+  margin-right: 8px;
+}
+
+.avc-ob {
+  display: none;
+}
+
+.avc:has(.avc-sw input:checked) .avc-ob {
+  display: table-row;
+}
+
+.avc-ob > th {
+  padding-left: 30px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.avc-ob small {
+  margin-left: 2px;
+  color: var(--st-tentative);
+  font-size: 9.5px;
+}
+
+.avc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.avc-legend > [class^="lv-"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.avc-legend > [class^="lv-"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--lv) 30%, var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--lv) 45%, transparent);
+}
+
+.avc-legend__t {
+  flex: 1 1 360px;
+  text-align: right;
+}
+
+/* the chart in its own window: no sidebar, full width */
+.avc-win {
+  margin: 0;
+  background: var(--bg);
+}
+
+.avc-win__top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.avc-win__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.avc-win__brand .icon {
+  color: var(--em-600);
+}
+
+.avc-win__meta {
+  flex: 1;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.avc-win__main {
+  padding: 16px 20px 24px;
+}
+
+
+.avc > .avc-in:nth-of-type(1):checked ~ .avc-bar .avc-tabs > label:nth-child(1),
+.avc > .avc-in:nth-of-type(2):checked ~ .avc-bar .avc-tabs > label:nth-child(2),
+.avc > .avc-in:nth-of-type(3):checked ~ .avc-bar .avc-tabs > label:nth-child(3),
+.avc > .avc-in:nth-of-type(4):checked ~ .avc-bar .avc-tabs > label:nth-child(4),
+.avc > .avc-in:nth-of-type(5):checked ~ .avc-bar .avc-tabs > label:nth-child(5),
+.avc > .avc-in:nth-of-type(6):checked ~ .avc-bar .avc-tabs > label:nth-child(6),
+.avc > .avc-in:nth-of-type(7):checked ~ .avc-bar .avc-tabs > label:nth-child(7),
+.avc > .avc-in:nth-of-type(8):checked ~ .avc-bar .avc-tabs > label:nth-child(8),
+.avc > .avc-in:nth-of-type(9):checked ~ .avc-bar .avc-tabs > label:nth-child(9),
+.avc > .avc-in:nth-of-type(10):checked ~ .avc-bar .avc-tabs > label:nth-child(10),
+.avc > .avc-in:nth-of-type(11):checked ~ .avc-bar .avc-tabs > label:nth-child(11),
+.avc > .avc-in:nth-of-type(12):checked ~ .avc-bar .avc-tabs > label:nth-child(12),
+.avc > .avc-in:nth-of-type(13):checked ~ .avc-bar .avc-tabs > label:nth-child(13),
+.avc > .avc-in:nth-of-type(14):checked ~ .avc-bar .avc-tabs > label:nth-child(14) {
+  background: var(--em-800);
+  box-shadow: none;
+  color: #fff;
+}
+
+.avc > .avc-in:nth-of-type(1):checked ~ .avc-panels > .avc-panel:nth-child(1),
+.avc > .avc-in:nth-of-type(2):checked ~ .avc-panels > .avc-panel:nth-child(2),
+.avc > .avc-in:nth-of-type(3):checked ~ .avc-panels > .avc-panel:nth-child(3),
+.avc > .avc-in:nth-of-type(4):checked ~ .avc-panels > .avc-panel:nth-child(4),
+.avc > .avc-in:nth-of-type(5):checked ~ .avc-panels > .avc-panel:nth-child(5),
+.avc > .avc-in:nth-of-type(6):checked ~ .avc-panels > .avc-panel:nth-child(6),
+.avc > .avc-in:nth-of-type(7):checked ~ .avc-panels > .avc-panel:nth-child(7),
+.avc > .avc-in:nth-of-type(8):checked ~ .avc-panels > .avc-panel:nth-child(8),
+.avc > .avc-in:nth-of-type(9):checked ~ .avc-panels > .avc-panel:nth-child(9),
+.avc > .avc-in:nth-of-type(10):checked ~ .avc-panels > .avc-panel:nth-child(10),
+.avc > .avc-in:nth-of-type(11):checked ~ .avc-panels > .avc-panel:nth-child(11),
+.avc > .avc-in:nth-of-type(12):checked ~ .avc-panels > .avc-panel:nth-child(12),
+.avc > .avc-in:nth-of-type(13):checked ~ .avc-panels > .avc-panel:nth-child(13),
+.avc > .avc-in:nth-of-type(14):checked ~ .avc-panels > .avc-panel:nth-child(14) {
+  display: block;
+}
+
+/* Phone: three days per row, today is a soft tile instead of the laptop column lines */
+@media (max-width: 760px) {
+  .app__content table.avc-t[data-mc][data-mc] > tbody > tr > td {
+    flex: 1 1 calc(33.33% - 10px) !important;
+    padding: 6px 4px;
+    border-radius: 10px;
+    box-shadow: none;
+    background: none;
+  }
+
+  .app__content table.avc-t[data-mc][data-mc] > tbody > tr > td.is-today {
+    background: var(--em-50);
+    box-shadow: inset 0 0 0 1px var(--em-100);
+    color: var(--em-800);
+  }
+
+  .app__content table.avc-t[data-mc][data-mc] > tbody > tr > td.is-today::before {
+    color: var(--em-700);
+  }
+
+  .app__content table.avc-t[data-mc][data-mc] > tbody > tr > td.is-flag {
+    color: var(--st-cancelled);
+  }
+
+  .app__content table.avc-t[data-mc][data-mc] > tbody > tr > th {
+    box-shadow: none;
+    background: none;
+  }
+
+  .app__content table.avc-t tr.avc-g > th {
+    text-align: left;
+  }
+}
+
+
+/* 2026-11-11 · book from the chart: a number in "Available by room type" opens the reservation for that category and date */
+.avc-book { display: block; margin: -4px -6px; padding: 4px 6px; border-radius: 8px; color: inherit; font-weight: 650; text-decoration: none; }
+.avc-book:hover, .avc-book:focus-visible { background: color-mix(in srgb, var(--em-600) 14%, #fff); box-shadow: inset 0 0 0 1px var(--em-600); color: var(--em-800, var(--em-600)); }
+.avc-hint { color: var(--ink-3); font-size: 12px; }
+@media (max-width: 760px) { .avc-hint { display: none; } }
+
+
+/* 2026-11-11 · stay search: arrival / departure / category, earliest date = business date; minus = over-sold */
+.avf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+  padding: 12px 16px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.avf__t {
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.avf__t strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.avf__t .icon {
+  color: var(--em-600);
+}
+
+.avf .field {
+  margin: 0;
+}
+
+.avf .field[data-fw="s"] { width: 168px; }
+.avf .field[data-fw="m"] { width: 260px; }
+.avf .field[data-fw="x"] { width: 90px; }
+
+.avf > .btn {
+  height: 40px;
+}
+
+.avf-res {
+  display: grid;
+  gap: 8px;
+  padding: 12px 16px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.avf-res__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 14px;
+}
+
+.avf-res__h > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+}
+
+.avf-res__h strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+
+.avf-res__h span:not(.pill) {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.avf-res .avc-scroll {
+  box-shadow: 0 0 0 1px var(--line-2);
+}
+
+.avf-t .avc-corner,
+.avf-t tbody th {
+  min-width: 250px;
+}
+
+.avf-t td {
+  min-width: 64px;
+  font-weight: 700;
+}
+
+.avf-t .avf-h > span {
+  font-weight: 500;
+}
+
+.avf-t td.avf-stay {
+  min-width: 150px;
+  box-shadow: inset 2px 0 0 var(--line);
+}
+
+.avf-stay > b {
+  display: block;
+  font-size: 15px;
+}
+
+.avf-st {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.avf-t td.avf-act {
+  min-width: 90px;
+  background: var(--surface);
+}
+
+.avf-sum > th {
+  font-weight: 700;
+}
+
+.avf-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* a minus figure is shown in red and bold in the chart as well (symbol + colour, never colour alone) */
+.avc-t td.lv-neg {
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .avf .field[data-fw] { width: calc(50% - 6px); }
+  .avf .field[data-fw="m"] { width: 100%; }
+  .avf > .btn { flex: 1 1 calc(50% - 6px); }
+  .avf__t span { display: none; }
+}
+
+@media (max-width: 760px) {
+  .avc-win__top { flex-wrap: wrap; gap: 8px 12px; padding: 10px 16px; }
+  .avc-win__meta { display: none; }
+}

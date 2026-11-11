@@ -1,0 +1,15 @@
+/* ac-01-gl-dashboard.css: posting-status grid and period strip of the GL dashboard (shared parts in ledger.css). */
+.gl-dash .dsh-c12 > :is(.lf-card__t, .pq-muted),
+.gl-dash .dsh-c12 > .s-scroll {
+  flex: 0 0 auto;
+}
+
+.gl-dash .dsh-c12 > .s-scroll {
+  margin-bottom: 10px;
+}
+
+.gl-dash .gl-grid th.gl-d small {
+  display: block;
+  color: var(--ink-3);
+  font-weight: 500;
+}

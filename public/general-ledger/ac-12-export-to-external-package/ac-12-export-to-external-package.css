@@ -1,0 +1,14 @@
+/* ac-12-export-to-external-package.css: the new export row and toast. */
+.gl-new {
+  display: none;
+}
+
+body:has(#exported-file:target) .gl-new {
+  display: table-row;
+  background: var(--em-50);
+}
+
+body:has(#exported-file:target) #t-exported-file {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

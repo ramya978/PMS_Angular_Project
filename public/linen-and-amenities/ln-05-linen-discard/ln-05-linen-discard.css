@@ -1,0 +1,51 @@
+/* ln-05-linen-discard.css: discard requests with status (Draft, Pending approval, Approved, Rejected), approve / reject after-states,
+   discard entry LN-P04. */
+.dc-new,
+.dc-ap,
+.dc-rj {
+  display: none;
+}
+
+body:has(#submitted:target) .dc-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.dc-st,
+.dc-ap,
+.dc-rj {
+  margin-bottom: 4px;
+}
+
+body:has(#submitted:target) #t-submitted { display: flex; animation: av-rise 320ms var(--ease); }
+
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.rp-acts .fd-muted {
+  margin-right: auto;
+  font-size: 12.5px;
+}
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+body:has(#approved-034:target) #dc-034 .dc-st, body:has(#rejected-034:target) #dc-034 .dc-st { display: none; }
+body:has(#approved-034:target) #dc-034 .dc-ap, body:has(#rejected-034:target) #dc-034 .dc-rj { display: inline-flex; }
+body:has(:is(#approved-034, #rejected-034):target) #dc-034 > td { background: var(--ok-bg); }
+body:has(:is(#approved-034, #rejected-034):target) #dc-034 .mr-acts a:not(.btn--ghost) { display: none; }
+body:has(#approved-034:target) #t-ap-034, body:has(#rejected-034:target) #t-rj-034 { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(#approved-035:target) #dc-035 .dc-st, body:has(#rejected-035:target) #dc-035 .dc-st { display: none; }
+body:has(#approved-035:target) #dc-035 .dc-ap, body:has(#rejected-035:target) #dc-035 .dc-rj { display: inline-flex; }
+body:has(:is(#approved-035, #rejected-035):target) #dc-035 > td { background: var(--ok-bg); }
+body:has(:is(#approved-035, #rejected-035):target) #dc-035 .mr-acts a:not(.btn--ghost) { display: none; }
+body:has(#approved-035:target) #t-ap-035, body:has(#rejected-035:target) #t-rj-035 { display: flex; animation: av-rise 320ms var(--ease); }
+#ln-p04:has(#p04-036:target) .pc--036 { display: flex; }

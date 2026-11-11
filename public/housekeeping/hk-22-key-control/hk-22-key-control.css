@@ -1,0 +1,255 @@
+/* hk-22-key-control.css: Key Control – hero, key table (key, opens, issued to, returned – late in red, signature, state),
+   latest movements, HK-P17 issue / return with scanned key and captured signature, lost-key pop-up. Shared: housekeeping.css. */
+.kcw {
+  display: grid;
+  gap: 16px;
+}
+
+.kc-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kc-key .icon {
+  color: var(--br-600);
+}
+
+.kc-late {
+  color: #c53030;
+  font-weight: 650;
+}
+
+.kc-sig {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--em-700);
+  font-size: 12.5px;
+}
+
+.kc-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.kc.is-lost > td {
+  background: #fdf3f3;
+}
+
+.kc.is-retired > td {
+  color: var(--ink-3);
+}
+
+.kc-h {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.kc-mv {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kc-mv li {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+}
+
+.kc-mv small {
+  color: var(--ink-3);
+}
+
+.kc-mv .is-late {
+  box-shadow: inset 0 0 0 1px #f3c4c4;
+  background: #fdf3f3;
+}
+
+.kc-mv .is-lost {
+  box-shadow: inset 0 0 0 1px #f3c4c4;
+}
+
+.sig-pad {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  color: var(--em-800);
+}
+
+.sig {
+  width: 220px;
+  height: 60px;
+}
+
+.sig-ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.kc-warn {
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fdecec;
+  color: #9b2c2c;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .kc-mv {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+#hk-p17:target :is(.pr--def, .pb--def) { display: flex; }
+#hk-p17:has(#kp-FM-F1:target) :is(.pr--FM-F1, .pb--FM-F1) { display: flex; }
+body:has(#moved-FM-F1:target) #FM-F1 > td { background: var(--ok-bg); }
+body:has(#moved-FM-F1:target) #FM-F1 .kc-now { display: flex; }
+body:has(#moved-FM-F1:target) #FM-F1 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-FM-F1:target) .tt-key::after { content: "FM-F1"; }
+#kc-lost:has(#kl-FM-F1:target) :is(.pr--FM-F1, .pb--FM-F1) { display: flex; }
+body:has(#lost-FM-F1:target) #FM-F1 > td { background: #fdf3f3; }
+body:has(#lost-FM-F1:target) #FM-F1 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-FM-F1:target) #FM-F1 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-FM-F1:target) .tt-key::after { content: "FM-F1"; }
+#hk-p17:has(#kp-FM-F2:target) :is(.pr--FM-F2, .pb--FM-F2) { display: flex; }
+body:has(#moved-FM-F2:target) #FM-F2 > td { background: var(--ok-bg); }
+body:has(#moved-FM-F2:target) #FM-F2 .kc-now { display: flex; }
+body:has(#moved-FM-F2:target) #FM-F2 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-FM-F2:target) .tt-key::after { content: "FM-F2"; }
+#kc-lost:has(#kl-FM-F2:target) :is(.pr--FM-F2, .pb--FM-F2) { display: flex; }
+body:has(#lost-FM-F2:target) #FM-F2 > td { background: #fdf3f3; }
+body:has(#lost-FM-F2:target) #FM-F2 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-FM-F2:target) #FM-F2 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-FM-F2:target) .tt-key::after { content: "FM-F2"; }
+#hk-p17:has(#kp-FM-F3:target) :is(.pr--FM-F3, .pb--FM-F3) { display: flex; }
+body:has(#moved-FM-F3:target) #FM-F3 > td { background: var(--ok-bg); }
+body:has(#moved-FM-F3:target) #FM-F3 .kc-now { display: flex; }
+body:has(#moved-FM-F3:target) #FM-F3 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-FM-F3:target) .tt-key::after { content: "FM-F3"; }
+#kc-lost:has(#kl-FM-F3:target) :is(.pr--FM-F3, .pb--FM-F3) { display: flex; }
+body:has(#lost-FM-F3:target) #FM-F3 > td { background: #fdf3f3; }
+body:has(#lost-FM-F3:target) #FM-F3 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-FM-F3:target) #FM-F3 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-FM-F3:target) .tt-key::after { content: "FM-F3"; }
+#hk-p17:has(#kp-FM-F5:target) :is(.pr--FM-F5, .pb--FM-F5) { display: flex; }
+body:has(#moved-FM-F5:target) #FM-F5 > td { background: var(--ok-bg); }
+body:has(#moved-FM-F5:target) #FM-F5 .kc-now { display: flex; }
+body:has(#moved-FM-F5:target) #FM-F5 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-FM-F5:target) .tt-key::after { content: "FM-F5"; }
+#hk-p17:has(#kp-SK-S1:target) :is(.pr--SK-S1, .pb--SK-S1) { display: flex; }
+body:has(#moved-SK-S1:target) #SK-S1 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S1:target) #SK-S1 .kc-now { display: flex; }
+body:has(#moved-SK-S1:target) #SK-S1 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S1:target) .tt-key::after { content: "SK-S1"; }
+#kc-lost:has(#kl-SK-S1:target) :is(.pr--SK-S1, .pb--SK-S1) { display: flex; }
+body:has(#lost-SK-S1:target) #SK-S1 > td { background: #fdf3f3; }
+body:has(#lost-SK-S1:target) #SK-S1 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S1:target) #SK-S1 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S1:target) .tt-key::after { content: "SK-S1"; }
+#hk-p17:has(#kp-SK-S2:target) :is(.pr--SK-S2, .pb--SK-S2) { display: flex; }
+body:has(#moved-SK-S2:target) #SK-S2 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S2:target) #SK-S2 .kc-now { display: flex; }
+body:has(#moved-SK-S2:target) #SK-S2 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S2:target) .tt-key::after { content: "SK-S2"; }
+#kc-lost:has(#kl-SK-S2:target) :is(.pr--SK-S2, .pb--SK-S2) { display: flex; }
+body:has(#lost-SK-S2:target) #SK-S2 > td { background: #fdf3f3; }
+body:has(#lost-SK-S2:target) #SK-S2 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S2:target) #SK-S2 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S2:target) .tt-key::after { content: "SK-S2"; }
+#hk-p17:has(#kp-SK-S3:target) :is(.pr--SK-S3, .pb--SK-S3) { display: flex; }
+body:has(#moved-SK-S3:target) #SK-S3 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S3:target) #SK-S3 .kc-now { display: flex; }
+body:has(#moved-SK-S3:target) #SK-S3 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S3:target) .tt-key::after { content: "SK-S3"; }
+#kc-lost:has(#kl-SK-S3:target) :is(.pr--SK-S3, .pb--SK-S3) { display: flex; }
+body:has(#lost-SK-S3:target) #SK-S3 > td { background: #fdf3f3; }
+body:has(#lost-SK-S3:target) #SK-S3 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S3:target) #SK-S3 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S3:target) .tt-key::after { content: "SK-S3"; }
+#hk-p17:has(#kp-SK-S4:target) :is(.pr--SK-S4, .pb--SK-S4) { display: flex; }
+body:has(#moved-SK-S4:target) #SK-S4 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S4:target) #SK-S4 .kc-now { display: flex; }
+body:has(#moved-SK-S4:target) #SK-S4 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S4:target) .tt-key::after { content: "SK-S4"; }
+#kc-lost:has(#kl-SK-S4:target) :is(.pr--SK-S4, .pb--SK-S4) { display: flex; }
+body:has(#lost-SK-S4:target) #SK-S4 > td { background: #fdf3f3; }
+body:has(#lost-SK-S4:target) #SK-S4 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S4:target) #SK-S4 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S4:target) .tt-key::after { content: "SK-S4"; }
+#hk-p17:has(#kp-SK-S5:target) :is(.pr--SK-S5, .pb--SK-S5) { display: flex; }
+body:has(#moved-SK-S5:target) #SK-S5 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S5:target) #SK-S5 .kc-now { display: flex; }
+body:has(#moved-SK-S5:target) #SK-S5 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S5:target) .tt-key::after { content: "SK-S5"; }
+#kc-lost:has(#kl-SK-S5:target) :is(.pr--SK-S5, .pb--SK-S5) { display: flex; }
+body:has(#lost-SK-S5:target) #SK-S5 > td { background: #fdf3f3; }
+body:has(#lost-SK-S5:target) #SK-S5 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S5:target) #SK-S5 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S5:target) .tt-key::after { content: "SK-S5"; }
+#hk-p17:has(#kp-SK-S6:target) :is(.pr--SK-S6, .pb--SK-S6) { display: flex; }
+body:has(#moved-SK-S6:target) #SK-S6 > td { background: var(--ok-bg); }
+body:has(#moved-SK-S6:target) #SK-S6 .kc-now { display: flex; }
+body:has(#moved-SK-S6:target) #SK-S6 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S6:target) .tt-key::after { content: "SK-S6"; }
+#kc-lost:has(#kl-SK-S6:target) :is(.pr--SK-S6, .pb--SK-S6) { display: flex; }
+body:has(#lost-SK-S6:target) #SK-S6 > td { background: #fdf3f3; }
+body:has(#lost-SK-S6:target) #SK-S6 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S6:target) #SK-S6 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S6:target) .tt-key::after { content: "SK-S6"; }
+#hk-p17:has(#kp-SK-S7B:target) :is(.pr--SK-S7B, .pb--SK-S7B) { display: flex; }
+body:has(#moved-SK-S7B:target) #SK-S7B > td { background: var(--ok-bg); }
+body:has(#moved-SK-S7B:target) #SK-S7B .kc-now { display: flex; }
+body:has(#moved-SK-S7B:target) #SK-S7B .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-SK-S7B:target) .tt-key::after { content: "SK-S7B"; }
+#kc-lost:has(#kl-SK-S7B:target) :is(.pr--SK-S7B, .pb--SK-S7B) { display: flex; }
+body:has(#lost-SK-S7B:target) #SK-S7B > td { background: #fdf3f3; }
+body:has(#lost-SK-S7B:target) #SK-S7B .kc-now { display: flex; color: #c53030; }
+body:has(#lost-SK-S7B:target) #SK-S7B .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-SK-S7B:target) .tt-key::after { content: "SK-S7B"; }
+#hk-p17:has(#kp-ST-01:target) :is(.pr--ST-01, .pb--ST-01) { display: flex; }
+body:has(#moved-ST-01:target) #ST-01 > td { background: var(--ok-bg); }
+body:has(#moved-ST-01:target) #ST-01 .kc-now { display: flex; }
+body:has(#moved-ST-01:target) #ST-01 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-ST-01:target) .tt-key::after { content: "ST-01"; }
+#kc-lost:has(#kl-ST-01:target) :is(.pr--ST-01, .pb--ST-01) { display: flex; }
+body:has(#lost-ST-01:target) #ST-01 > td { background: #fdf3f3; }
+body:has(#lost-ST-01:target) #ST-01 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-ST-01:target) #ST-01 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-ST-01:target) .tt-key::after { content: "ST-01"; }
+#hk-p17:has(#kp-LR-01:target) :is(.pr--LR-01, .pb--LR-01) { display: flex; }
+body:has(#moved-LR-01:target) #LR-01 > td { background: var(--ok-bg); }
+body:has(#moved-LR-01:target) #LR-01 .kc-now { display: flex; }
+body:has(#moved-LR-01:target) #LR-01 .kc-now__t::after { content: "Recorded now"; }
+body:has(#moved-LR-01:target) .tt-key::after { content: "LR-01"; }
+#kc-lost:has(#kl-LR-01:target) :is(.pr--LR-01, .pb--LR-01) { display: flex; }
+body:has(#lost-LR-01:target) #LR-01 > td { background: #fdf3f3; }
+body:has(#lost-LR-01:target) #LR-01 .kc-now { display: flex; color: #c53030; }
+body:has(#lost-LR-01:target) #LR-01 .kc-now__t::after { content: "Reported lost now"; }
+body:has(#lost-LR-01:target) .tt-key::after { content: "LR-01"; }
+body:has(.pm[id^="moved-"]:target) #t-moved, body:has(.pm[id^="lost-"]:target) #t-lost { display: flex; animation: av-rise 320ms var(--ease); }

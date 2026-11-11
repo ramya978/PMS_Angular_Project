@@ -1,0 +1,136 @@
+/* mb-05-minibar-store-and-cart-stock.css: store / cart / room stock per item, below-minimum view (:target), requisition and
+   receive after-states, cart load from MB-04, stock adjustment MB-P06 (a marker per item and per expiring batch). */
+.ms-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  font-size: 12.5px;
+}
+
+.ms-r.is-low > td {
+  background: #fff7f5;
+}
+
+.ms-q2,
+.ms-c2,
+.ms-done,
+.p06-r--exp {
+  display: none;
+}
+
+.ms-done {
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+.ms:has(#low:target) .ms-r:not(.is-low) {
+  display: none;
+}
+
+.ms:not(:has(#low:target)) .hv__v[data-v="all"],
+.ms:has(#low:target) .hv__v[data-v="low"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+body:has(#requested:target) .ms-done--req,
+body:has(#received:target) .ms-done--rec {
+  display: flex;
+}
+
+body:has(#received:target) .ms-r .ms-q:has(+ .ms-q2) {
+  display: none;
+}
+
+body:has(#received:target) .ms-q2 {
+  display: inline;
+  font-weight: 700;
+  color: var(--em-700);
+}
+
+body:has(#cart-loaded:target) .ms-r td:nth-child(5) > .ms-q {
+  display: none;
+}
+
+body:has(#cart-loaded:target) .ms-c2 {
+  display: inline;
+  font-weight: 700;
+  color: var(--em-700);
+}
+
+#mb-p06:has(.pm[id^="p06-ex-"]:target) .p06-r--any {
+  display: none;
+}
+
+#mb-p06:has(.pm[id^="p06-ex-"]:target) .p06-r--exp {
+  display: block;
+}
+
+body:has(#requested:target) #t-req,
+body:has(#received:target) #t-rec,
+body:has(#cart-loaded:target) #t-cart,
+body:has(#adjusted:target) #t-adj { display: flex; animation: av-rise 320ms var(--ease); }
+
+.mr-rm {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mr-g {
+  display: grid;
+}
+
+.mc-note {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 12.5px;
+}
+
+.mc-note > .icon {
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pc {
+  display: none;
+  margin-bottom: 4px;
+}
+
+.mb-new {
+  display: none;
+}
+
+#mb-p06:has(#p06-mi-01:target) .pc--p06-mi-01 { display: flex; }
+#mb-p06:has(#p06-mi-02:target) .pc--p06-mi-02 { display: flex; }
+#mb-p06:has(#p06-mi-03:target) .pc--p06-mi-03 { display: flex; }
+#mb-p06:has(#p06-mi-04:target) .pc--p06-mi-04 { display: flex; }
+#mb-p06:has(#p06-mi-05:target) .pc--p06-mi-05 { display: flex; }
+#mb-p06:has(#p06-mi-06:target) .pc--p06-mi-06 { display: flex; }
+#mb-p06:has(#p06-mi-07:target) .pc--p06-mi-07 { display: flex; }
+#mb-p06:has(#p06-mi-08:target) .pc--p06-mi-08 { display: flex; }
+#mb-p06:has(#p06-mi-09:target) .pc--p06-mi-09 { display: flex; }
+#mb-p06:has(#p06-mi-10:target) .pc--p06-mi-10 { display: flex; }
+#mb-p06:has(#p06-mi-11:target) .pc--p06-mi-11 { display: flex; }
+#mb-p06:has(#p06-mi-12:target) .pc--p06-mi-12 { display: flex; }
+#mb-p06:has(#p06-mi-13:target) .pc--p06-mi-13 { display: flex; }
+#mb-p06:has(#p06-mi-14:target) .pc--p06-mi-14 { display: flex; }
+#mb-p06:has(#p06-ex-cb-0710-0:target) .pc--p06-ex-cb-0710-0 { display: flex; }
+#mb-p06:has(#p06-ex-fj-0815-1:target) .pc--p06-ex-fj-0815-1 { display: flex; }
+#mb-p06:has(#p06-ex-fj-0815-2:target) .pc--p06-ex-fj-0815-2 { display: flex; }
+#mb-p06:has(#p06-ex-bc-0901-3:target) .pc--p06-ex-bc-0901-3 { display: flex; }
+#mb-p06:has(#p06-ex-bc-0901-4:target) .pc--p06-ex-bc-0901-4 { display: flex; }
+#mb-p06:has(#p06-ex-ck-0712-5:target) .pc--p06-ex-ck-0712-5 { display: flex; }
+#mb-p06:has(#p06-ex-sd-0822-6:target) .pc--p06-ex-sd-0822-6 { display: flex; }
+#mb-p06:has(#p06-ex-pc-0820-7:target) .pc--p06-ex-pc-0820-7 { display: flex; }

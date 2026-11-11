@@ -1,0 +1,43 @@
+/* fns-01-bank-accounts.css: bank accounts with GL, statement and payment formats and settlement choices. */
+.cc-banner {
+  margin: 0;
+}
+
+.bk-name.field__input {
+  min-width: 220px;
+  height: 34px;
+  font-weight: 650;
+}
+
+.bk-ifsc.field__input {
+  width: 120px;
+  height: 28px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+[data-code="FNS-01-list"] td:nth-child(n + 2):nth-child(-n + 5) {
+  min-width: 150px;
+}
+
+[data-code="FNS-01-list"] td:last-child {
+  min-width: 220px;
+}
+
+.bk-id {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+body:has(#added:target) .bk-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

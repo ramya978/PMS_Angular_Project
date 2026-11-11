@@ -1,0 +1,103 @@
+/* mt-05-preventive-maintenance-calendar.css: week calendar of PM jobs (default) or October list (#v-month), PM job MT-P05 per job, reschedule, generate after-state. */
+.pmc-w {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pmc-d {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-height: 220px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.pmc-d--today {
+  box-shadow: inset 0 0 0 2px var(--em-600);
+}
+
+.pmc-d h3 {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pmc-d h3 b {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.pmj {
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.pmj small {
+  color: var(--ink-3);
+}
+
+.pmj--overdue {
+  box-shadow: 0 0 0 1.5px var(--st-cancelled);
+}
+
+.pm-list,
+.pm-gen,
+.pm-st2 {
+  display: none;
+}
+
+.pmw:has(#v-month:target) .pm-list {
+  display: block;
+}
+
+.pmw:has(#v-month:target) .pmc-w {
+  display: none;
+}
+
+.pmw:not(:has(#v-month:target)) .pm-v1,
+.pmw:has(#v-month:target) .pm-v2 {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+.pmw:has(#generated:target) .pm-gen {
+  display: flex;
+}
+
+.pm-in {
+  width: 90px;
+}
+.pmw:has(#done-1019-01:target) #t-done-1019-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1020-01:target) #t-done-1020-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1021-01:target) #t-done-1021-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1021-02:target) #t-done-1021-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1022-01:target) #t-done-1022-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1022-02:target) #t-done-1022-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1023-01:target) #t-done-1023-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1020-02:target) #t-done-1020-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1015-01:target) #t-done-1015-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1012-01:target) #t-done-1012-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1026-01:target) #t-done-1026-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1028-01:target) #t-done-1028-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1005-01:target) #t-done-1005-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#done-1024-01:target) #t-done-1024-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1022-02:target) #t-moved-1022-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1023-01:target) #t-moved-1023-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1020-02:target) #t-moved-1020-02 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1015-01:target) #t-moved-1015-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1026-01:target) #t-moved-1026-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1028-01:target) #t-moved-1028-01 { display: flex; animation: av-rise 320ms var(--ease); }
+.pmw:has(#moved-1024-01:target) #t-moved-1024-01 { display: flex; animation: av-rise 320ms var(--ease); }

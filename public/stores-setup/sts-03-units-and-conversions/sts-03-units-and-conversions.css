@@ -1,0 +1,87 @@
+/* sts-03-units-and-conversions.css: units list, conversion grid and pack sizes used on items. */
+.un-code {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-weight: 650;
+}
+
+[data-code="STS-03-list"] td:nth-child(2) {
+  min-width: 180px;
+}
+
+.un-arrow {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--ink-3);
+  vertical-align: -3px;
+}
+
+[data-code="STS-03-conv"] .field__wrap {
+  min-width: 110px;
+}
+
+.un-row--new,
+.un-conv--new {
+  display: none;
+}
+
+body:has(#added:target) .un-row--new,
+body:has(#conv:target) .un-conv--new {
+  display: table-row;
+}
+
+body:has(#added:target) .un-row--new > td,
+body:has(#conv:target) .un-conv--new > td {
+  background: var(--ok-bg);
+}
+
+.un-fresh {
+  color: var(--em-700, #2f855a);
+}
+
+body:has(#added:target) #t-added,
+body:has(#conv:target) #t-conv,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* Item types (section B). */
+.ty-row--new {
+  display: none;
+}
+
+body:has(#added-type:target) .ty-row--new {
+  display: table-row;
+}
+
+body:has(#added-type:target) .ty-row--new > td {
+  background: var(--ok-bg);
+}
+
+.ty-fresh {
+  color: var(--em-700, #2f855a);
+}
+
+.ty-name.field__input {
+  min-width: 140px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="STS-03-types"] td:nth-child(3) .fd-sub {
+  display: block;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body:has(#added-type:target) #t-added-type {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

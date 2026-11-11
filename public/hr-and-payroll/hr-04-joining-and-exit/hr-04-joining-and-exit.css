@@ -1,0 +1,25 @@
+/* hr-04-joining-and-exit.css – styles of HR-04 Joining & Exit (laptop rules; phone rules sit in max-width media queries). */
+
+.ac-tabs > input:nth-of-type(1):checked ~ .stabs__panels > .stabs__panel:nth-child(1),
+.ac-tabs > input:nth-of-type(2):checked ~ .stabs__panels > .stabs__panel:nth-child(2) {
+  display: block;
+}
+
+body:has(#joined:target) #t-joined,
+body:has(#exited:target) #t-exited {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.gl-aft {
+  display: none;
+}
+
+body:has(#joined:target) .hr-qu > li:nth-child(1) .gl-now,
+body:has(#exited:target) .hr-qu > li:nth-child(2) .gl-now {
+  display: none;
+}
+
+body:has(#joined:target) .hr-qu > li:nth-child(1) .gl-aft,
+body:has(#exited:target) .hr-qu > li:nth-child(2) .gl-aft {
+  display: inline-flex;
+}

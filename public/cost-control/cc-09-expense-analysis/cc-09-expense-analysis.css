@@ -1,0 +1,37 @@
+/* cc-09-expense-analysis.css: expenses against budget with drill-down pop-ups. */
+.cv-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin: 0;
+}
+
+.cv-filter .field {
+  min-width: 240px;
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+.ex-dept td {
+  background: var(--sunken);
+}
+
+.ex-ind {
+  padding-left: 14px;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+[data-code="CC-09-lines"] td:first-child {
+  min-width: 250px;
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

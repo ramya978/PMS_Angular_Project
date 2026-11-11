@@ -1,0 +1,86 @@
+/* ac-09-fixed-asset-register.css: class views, the two depreciation books, after-states and toasts. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-bld:target) .hv__v[data-v="v-bld"],
+#main:has(#v-pm:target) .hv__v[data-v="v-pm"],
+#main:has(#v-ff:target) .hv__v[data-v="v-ff"],
+#main:has(#v-ke:target) .hv__v[data-v="v-ke"],
+#main:has(#v-it:target) .hv__v[data-v="v-it"],
+#main:has(#v-veh:target) .hv__v[data-v="v-veh"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-bld:target) .gl-row:not(.fc-bld),
+#main:has(#v-pm:target) .gl-row:not(.fc-pm),
+#main:has(#v-ff:target) .gl-row:not(.fc-ff),
+#main:has(#v-ke:target) .gl-row:not(.fc-ke),
+#main:has(#v-it:target) .gl-row:not(.fc-it),
+#main:has(#v-veh:target) .gl-row:not(.fc-veh) {
+  display: none;
+}
+
+.gl-bk-it {
+  display: none;
+}
+
+#ac-p01:has(#bk-it:checked) .gl-bk-it {
+  display: block;
+}
+
+#ac-p01:has(#bk-it:checked) .gl-bk-ca {
+  display: none;
+}
+
+body:has(#dep-posted:target) .gl-dep-due {
+  display: none;
+}
+
+.gl-more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+body:has(#dep-posted:target) #t-dep-posted,
+body:has(#added:target) #t-added,
+body:has(#link-saved:target) #t-link-saved,
+body:has(#disposed-fa-1001:target) #t-disposed-fa-1001,
+body:has(#disposed-fa-1101:target) #t-disposed-fa-1101,
+body:has(#disposed-fa-1102:target) #t-disposed-fa-1102,
+body:has(#disposed-fa-1104:target) #t-disposed-fa-1104,
+body:has(#disposed-fa-1120:target) #t-disposed-fa-1120,
+body:has(#disposed-fa-1121:target) #t-disposed-fa-1121,
+body:has(#disposed-fa-1122:target) #t-disposed-fa-1122,
+body:has(#disposed-fa-1130:target) #t-disposed-fa-1130,
+body:has(#disposed-fa-1135:target) #t-disposed-fa-1135,
+body:has(#disposed-fa-1140:target) #t-disposed-fa-1140,
+body:has(#disposed-fa-1141:target) #t-disposed-fa-1141,
+body:has(#disposed-fa-1142:target) #t-disposed-fa-1142,
+body:has(#disposed-fa-1150:target) #t-disposed-fa-1150,
+body:has(#disposed-fa-1151:target) #t-disposed-fa-1151,
+body:has(#disposed-fa-1160:target) #t-disposed-fa-1160,
+body:has(#disposed-fa-1161:target) #t-disposed-fa-1161,
+body:has(#disposed-fa-1180:target) #t-disposed-fa-1180,
+body:has(#disposed-fa-1183:target) #t-disposed-fa-1183,
+body:has(#disposed-fa-1240:target) #t-disposed-fa-1240,
+body:has(#disposed-fa-1301:target) #t-disposed-fa-1301,
+body:has(#disposed-fa-0861:target) #t-disposed-fa-0861,
+body:has(#disposed-fa-1170:target) #t-disposed-fa-1170,
+body:has(#disposed-fa-1235:target) #t-disposed-fa-1235,
+body:has(#disposed-fa-1190:target) #t-disposed-fa-1190,
+body:has(#disposed-fa-1191:target) #t-disposed-fa-1191,
+body:has(#disposed-fa-1192:target) #t-disposed-fa-1192,
+body:has(#disposed-fa-1200:target) #t-disposed-fa-1200,
+body:has(#disposed-fa-1210:target) #t-disposed-fa-1210,
+body:has(#disposed-fa-1215:target) #t-disposed-fa-1215,
+body:has(#disposed-fa-1250:target) #t-disposed-fa-1250,
+body:has(#disposed-fa-1251:target) #t-disposed-fa-1251,
+body:has(#disposed-fa-1260:target) #t-disposed-fa-1260 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

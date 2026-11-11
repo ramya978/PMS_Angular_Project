@@ -1,0 +1,414 @@
+/* laundry.css: rules shared by the Laundry (LA) screens – order status colours, read-only fields, help panel,
+   the screen wrapper, order cards (.lac) and the after-state marker. Built only from the Aviv tokens.
+   Hero (.hkh), views (.hv), pop-up markers (.pm), record cards (.pr) and the System note (.hk-sys) come from housekeeping.css. */
+
+/* ───────── order status: colour + icon + label (uses the .pill.hk-pill look of aviv.css) ───────── */
+.lo--pick { --hk: #b7791f; }
+.lo--recv { --hk: #2b6cb0; }
+.lo--proc { --hk: #c05621; }
+.lo--ready { --hk: #2f855a; }
+.lo--out { --hk: #5b4bc4; }
+.lo--dlv { --hk: #0f766e; }
+.lo--billed { --hk: var(--br-600, #94722a); }
+.lo--hold { --hk: #b83280; }
+.lo--cxl { --hk: #718096; }
+.lo--late { --hk: #c53030; }
+
+:is(.pill.hk-pill)[class*="lo--"] > .icon {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--hk);
+  color: #fff;
+}
+
+/* ───────── screen wrapper ───────── */
+.law {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.law > * {
+  min-width: 0;
+}
+
+/* read-only (automatic) field value */
+.la-ro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.la-late {
+  color: var(--st-cancelled);
+  font-weight: 650;
+}
+
+.la-warn {
+  color: var(--st-tentative);
+  font-weight: 650;
+}
+
+.la-ok {
+  color: var(--st-ready);
+  font-weight: 650;
+}
+
+/* "How this works" help panel (brief Part D) */
+.la-help {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 13px;
+}
+
+.la-help > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--ink-2);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.la-help > summary .icon {
+  color: var(--br-600);
+}
+
+.la-help__b {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 28px;
+  padding: 0 16px 14px;
+  color: var(--ink-2);
+}
+
+.la-help__b ol,
+.la-help__b ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* the order / room badge used in lists and cards */
+.la-room {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 9px;
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1px var(--em-100);
+  color: var(--em-800);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.la-room--late {
+  background: var(--bad-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--st-cancelled) 25%, transparent);
+  color: var(--st-cancelled);
+}
+
+/* list row highlighted after an action (body:has(#after-…:target)) */
+.la-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: var(--st-ready);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* small key / value list inside cards */
+.la-kv {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 6px 14px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.la-kv dt {
+  color: var(--ink-3);
+}
+
+.la-kv dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* section card */
+.la-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.la-card__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.la-card__t .icon {
+  color: var(--em-600);
+}
+
+.la-card__t small {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* hero action buttons (inside .hkh) */
+.hkh .btn {
+  border-color: rgb(255 255 255 / 0.22);
+  background: rgb(255 255 255 / 0.08);
+  color: #fff;
+}
+
+.hkh .btn:hover {
+  background: rgb(255 255 255 / 0.16);
+}
+
+.hkh .btn--gold {
+  border-color: transparent;
+  background: linear-gradient(180deg, var(--gold-light, #e6d3a8), var(--gold, #c8a96a));
+  color: var(--deep, #0e1a2b);
+}
+
+.hkh .btn--gold:hover {
+  background: linear-gradient(180deg, #ecdcb6, #d0b47a);
+}
+
+.la-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* printed documents of the module (outputs): A4 sheet on screen, plain page in print */
+.la-doc {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  padding: 36px 40px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), var(--sh-3);
+  color: #111;
+  font-size: 13px;
+}
+
+.la-doc__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--em-700);
+}
+
+.la-doc__hotel b {
+  display: block;
+  color: var(--em-800);
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+.la-doc__hotel span {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.la-doc__title {
+  text-align: right;
+}
+
+.la-doc__title b {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.la-doc__title span {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.la-doc__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 20px;
+  margin: 16px 0;
+}
+
+.la-doc__meta div {
+  display: grid;
+  gap: 2px;
+}
+
+.la-doc__meta span {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.la-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.la-doc th,
+.la-doc td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.la-doc th {
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.la-doc .r {
+  text-align: right;
+}
+
+.la-doc tfoot td {
+  border-bottom: 0;
+  font-weight: 600;
+}
+
+.la-doc tfoot tr.tot td {
+  border-top: 2px solid var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.la-doc__foot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.la-doc__sign {
+  padding-top: 34px;
+  border-top: 1px solid var(--ink-3);
+  text-align: center;
+}
+
+.la-doc__note {
+  margin: 14px 0 0;
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+@media print {
+  .la-doc {
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .la-noprint {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .la-help__b {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* :target markers of views and after-states stay fixed, so following one does not scroll the page */
+.law > .hb-mks {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* slim bulk-action bar under the views (rule 5) */
+.la-bulk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.la-bulk > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.la-bulk__n {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* small inputs inside tables (item lines, counts) */
+.lo3-in {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.lo3-in:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.lo3-in--n {
+  width: 64px;
+  text-align: right;
+}
+
+.lo3-in--sel {
+  min-width: 128px;
+  white-space: nowrap;
+}

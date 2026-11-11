@@ -1,0 +1,187 @@
+/* st-09-document-detail-view.css: document register with type views and the detail page of one document. */
+.gr-no {
+  font-weight: 650;
+}
+
+.st-h {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.cn-neg {
+  color: var(--bad, #c53030);
+}
+
+[data-code="ST-09-register"] :is(th, td),
+[data-code="ST-09-lines"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="ST-09-register"] td:nth-child(3) {
+  min-width: 220px;
+}
+
+.lg-close td {
+  background: var(--surface-2);
+}
+
+/* detail page */
+.dv-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.dv-kind {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dv-no {
+  margin: 2px 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+
+.dv-sub {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.dv-state {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+}
+
+.dv-state b {
+  font-size: 22px;
+}
+
+.dv-grid .lf-card {
+  align-content: start;
+}
+
+.dv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dv-facts {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 6px 14px;
+  margin: 0;
+}
+
+.dv-facts div {
+  display: contents;
+}
+
+.dv-facts dt {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.dv-facts dd {
+  margin: 0;
+  font-size: 13.5px;
+}
+
+.dv-links,
+.dv-tl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dv-links li {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.dv-links li > span {
+  color: var(--ink-3);
+}
+
+.dv-tl li {
+  display: grid;
+  gap: 1px;
+  
+  font-size: 13.5px;
+}
+
+.dv-tl li span {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+@media (max-width: 760px) {
+  .dv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dv-facts {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+
+  .dv-links li {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+
+  .dv-state {
+    justify-items: start;
+  }
+}
+
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-requisition:target) .hv__v[data-v="v-requisition"],
+#main:has(#v-grn:target) .hv__v[data-v="v-grn"],
+#main:has(#v-issue:target) .hv__v[data-v="v-issue"],
+#main:has(#v-transfer:target) .hv__v[data-v="v-transfer"],
+#main:has(#v-deptreturn:target) .hv__v[data-v="v-deptreturn"],
+#main:has(#v-vendorreturn:target) .hv__v[data-v="v-vendorreturn"],
+#main:has(#v-adjustment:target) .hv__v[data-v="v-adjustment"],
+#main:has(#v-count:target) .hv__v[data-v="v-count"],
+#main:has(#v-cashpurchase:target) .hv__v[data-v="v-cashpurchase"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-requisition:target) .dr-row:not(.dr-row--requisition),
+#main:has(#v-grn:target) .dr-row:not(.dr-row--grn),
+#main:has(#v-issue:target) .dr-row:not(.dr-row--issue),
+#main:has(#v-transfer:target) .dr-row:not(.dr-row--transfer),
+#main:has(#v-deptreturn:target) .dr-row:not(.dr-row--deptreturn),
+#main:has(#v-vendorreturn:target) .dr-row:not(.dr-row--vendorreturn),
+#main:has(#v-adjustment:target) .dr-row:not(.dr-row--adjustment),
+#main:has(#v-count:target) .dr-row:not(.dr-row--count),
+#main:has(#v-cashpurchase:target) .dr-row:not(.dr-row--cashpurchase) {
+  display: none;
+}
+
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,90 @@
+/* fn-05-bill-passing.css: bill list with views, the match of two bills and the debit note pop-up. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-received:target) .hv__v[data-v="v-received"],
+#main:has(#v-matched:target) .hv__v[data-v="v-matched"],
+#main:has(#v-onhold:target) .hv__v[data-v="v-onhold"],
+#main:has(#v-passed:target) .hv__v[data-v="v-passed"],
+#main:has(#v-scheduled:target) .hv__v[data-v="v-scheduled"],
+#main:has(#v-paid:target) .hv__v[data-v="v-paid"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-received:target) .bl-row:not(.bl-s-received),
+#main:has(#v-matched:target) .bl-row:not(.bl-s-matched),
+#main:has(#v-onhold:target) .bl-row:not(.bl-s-onhold),
+#main:has(#v-passed:target) .bl-row:not(.bl-s-passed),
+#main:has(#v-scheduled:target) .bl-row:not(.bl-s-scheduled),
+#main:has(#v-paid:target) .bl-row:not(.bl-s-paid) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+[data-code="FN-05-bills"] td:nth-child(2) {
+  min-width: 230px;
+}
+
+.bl-st--p,
+.bl-st--d {
+  display: none;
+}
+
+body:has(#passed:target) #bil-2026-00546 .bl-st--m {
+  display: none;
+}
+
+body:has(#passed:target) #bil-2026-00546 .bl-st--p {
+  display: inline-flex;
+}
+
+body:has(#passed:target) #bil-2026-00546 > td {
+  background: var(--ok-bg);
+}
+
+body:has(#debited:target) #bil-2026-00547 .bl-st--h {
+  display: none;
+}
+
+body:has(#debited:target) #bil-2026-00547 .bl-st--d {
+  display: inline-flex;
+}
+
+body:has(#debited:target) #bil-2026-00547 > td {
+  background: var(--ok-bg);
+}
+
+body:has(#passed:target) .bp-pass {
+  display: none;
+}
+
+.bp-panel {
+  display: block;
+}
+
+.bp-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bp-net {
+  font-size: 16px;
+}
+
+body:has(#passed:target) #t-passed,
+body:has(#held:target) #t-held,
+body:has(#debited:target) #t-debited {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

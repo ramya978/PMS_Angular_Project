@@ -1,0 +1,21 @@
+/* tx-03-gst-inward-register.css: flag after-state and toasts. */
+.gl-aft {
+  display: none;
+}
+
+body:has(#flag-changed:target) .gl-now {
+  display: none;
+}
+
+body:has(#flag-changed:target) .gl-aft {
+  display: inline-flex;
+}
+
+body:has(#flag-changed:target) #t-flag-changed {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

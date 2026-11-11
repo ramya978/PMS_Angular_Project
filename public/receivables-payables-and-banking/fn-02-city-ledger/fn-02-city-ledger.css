@@ -1,0 +1,90 @@
+/* fn-02-city-ledger.css: accounts with views, hold and statements. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-corp:target) .hv__v[data-v="v-corp"],
+#main:has(#v-ta:target) .hv__v[data-v="v-ta"],
+#main:has(#v-ota:target) .hv__v[data-v="v-ota"],
+#main:has(#v-gov:target) .hv__v[data-v="v-gov"],
+#main:has(#v-over:target) .hv__v[data-v="v-over"],
+#main:has(#v-hold:target) .hv__v[data-v="v-hold"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-corp:target) .ac-row:not(.ac-t-corp),
+#main:has(#v-ta:target) .ac-row:not(.ac-t-ta),
+#main:has(#v-ota:target) .ac-row:not(.ac-t-ota),
+#main:has(#v-gov:target) .ac-row:not(.ac-t-gov),
+#main:has(#v-over:target) .ac-row:not(.ac-over),
+#main:has(#v-hold:target) .ac-row:not(.ac-hold) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+.cv-neg {
+  color: #a12626;
+}
+
+[data-code="FN-02-accounts"] td:nth-child(2) {
+  min-width: 270px;
+}
+
+[data-code="FN-02-accounts"] td:last-child {
+  min-width: 250px;
+}
+
+.ac-st--h {
+  display: none;
+}
+
+body:has(#hold-infopark:target) #ac-infopark .ac-st--a, body:has(#hold-infopark:target) #ac-infopark .ac-holdbtn { display: none; }
+body:has(#hold-infopark:target) #ac-infopark .ac-st--h { display: inline-flex; }
+body:has(#hold-infopark:target) #ac-infopark > td { background: var(--ok-bg); }
+body:has(#hold-shipyard:target) #ac-shipyard .ac-st--a, body:has(#hold-shipyard:target) #ac-shipyard .ac-holdbtn { display: none; }
+body:has(#hold-shipyard:target) #ac-shipyard .ac-st--h { display: inline-flex; }
+body:has(#hold-shipyard:target) #ac-shipyard > td { background: var(--ok-bg); }
+body:has(#hold-ktdc:target) #ac-ktdc .ac-st--a, body:has(#hold-ktdc:target) #ac-ktdc .ac-holdbtn { display: none; }
+body:has(#hold-ktdc:target) #ac-ktdc .ac-st--h { display: inline-flex; }
+body:has(#hold-ktdc:target) #ac-ktdc > td { background: var(--ok-bg); }
+body:has(#hold-malabar:target) #ac-malabar .ac-st--a, body:has(#hold-malabar:target) #ac-malabar .ac-holdbtn { display: none; }
+body:has(#hold-malabar:target) #ac-malabar .ac-st--h { display: inline-flex; }
+body:has(#hold-malabar:target) #ac-malabar > td { background: var(--ok-bg); }
+body:has(#hold-backwater:target) #ac-backwater .ac-st--a, body:has(#hold-backwater:target) #ac-backwater .ac-holdbtn { display: none; }
+body:has(#hold-backwater:target) #ac-backwater .ac-st--h { display: inline-flex; }
+body:has(#hold-backwater:target) #ac-backwater > td { background: var(--ok-bg); }
+body:has(#hold-spice:target) #ac-spice .ac-st--a, body:has(#hold-spice:target) #ac-spice .ac-holdbtn { display: none; }
+body:has(#hold-spice:target) #ac-spice .ac-st--h { display: inline-flex; }
+body:has(#hold-spice:target) #ac-spice > td { background: var(--ok-bg); }
+body:has(#hold-mmt:target) #ac-mmt .ac-st--a, body:has(#hold-mmt:target) #ac-mmt .ac-holdbtn { display: none; }
+body:has(#hold-mmt:target) #ac-mmt .ac-st--h { display: inline-flex; }
+body:has(#hold-mmt:target) #ac-mmt > td { background: var(--ok-bg); }
+body:has(#hold-booking:target) #ac-booking .ac-st--a, body:has(#hold-booking:target) #ac-booking .ac-holdbtn { display: none; }
+body:has(#hold-booking:target) #ac-booking .ac-st--h { display: inline-flex; }
+body:has(#hold-booking:target) #ac-booking > td { background: var(--ok-bg); }
+body:has(#hold-fsa:target) #ac-fsa .ac-st--a, body:has(#hold-fsa:target) #ac-fsa .ac-holdbtn { display: none; }
+body:has(#hold-fsa:target) #ac-fsa .ac-st--h { display: inline-flex; }
+body:has(#hold-fsa:target) #ac-fsa > td { background: var(--ok-bg); }
+
+body:has(#sent:target) #t-sent,
+body:has(#hold-infopark:target) #t-hold-infopark,
+body:has(#hold-shipyard:target) #t-hold-shipyard,
+body:has(#hold-ktdc:target) #t-hold-ktdc,
+body:has(#hold-malabar:target) #t-hold-malabar,
+body:has(#hold-backwater:target) #t-hold-backwater,
+body:has(#hold-spice:target) #t-hold-spice,
+body:has(#hold-mmt:target) #t-hold-mmt,
+body:has(#hold-booking:target) #t-hold-booking,
+body:has(#hold-fsa:target) #t-hold-fsa {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

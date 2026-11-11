@@ -1,0 +1,348 @@
+/* mis.css: shared parts of the MIS & Budgeting (MS) screens – statement tables, variance colours, budget grids, status flow, sparkline, dashboard cards.
+   Brand colours only through the theme variables (docs/THEME.md); status colours literal. Uses hr.css, revenue.css and approvals.css parts.
+   Phone / tablet rules inside max-width queries. */
+
+.ms-wide {
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--surface);
+}
+
+.ms-wide > table,
+.ms-wide table.dt__table {
+  min-width: 100%;
+  width: max-content;
+}
+
+table.ms-tbl {
+  font-size: 12.5px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table.ms-tbl th,
+table.ms-tbl td {
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+table.ms-tbl thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+}
+
+table.ms-tbl tbody td:first-child,
+table.ms-tbl thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--surface);
+  min-width: 220px;
+  white-space: normal;
+}
+
+table.ms-tbl thead th:first-child {
+  background: var(--surface-2);
+  z-index: 2;
+}
+
+table.ms-tbl tr.ms-h td {
+  background: var(--em-50);
+  color: var(--em-800);
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+table.ms-tbl tr.ms-h td:first-child {
+  background: var(--em-50);
+}
+
+table.ms-tbl tr.ms-sub td {
+  font-weight: 700;
+  border-top: 1px solid var(--line);
+}
+
+table.ms-tbl tr.ms-tot td {
+  font-weight: 700;
+  background: var(--surface-2);
+  border-top: 2px solid var(--line);
+}
+
+table.ms-tbl tr.ms-tot td:first-child {
+  background: var(--surface-2);
+}
+
+table.ms-tbl tr.ms-i1 td:first-child {
+  padding-left: 26px;
+}
+
+table.ms-tbl tr.ms-i2 td:first-child {
+  padding-left: 42px;
+  color: var(--ink-2);
+}
+
+table.ms-tbl td.ms-sep,
+table.ms-tbl th.ms-sep {
+  border-left: 1px solid var(--line);
+}
+
+.ms-fav {
+  color: #226b46;
+}
+
+.ms-adv {
+  color: #b42318;
+}
+
+.ms-flag {
+  font-weight: 700;
+  background: #fdf3e3;
+}
+
+.ms-estim {
+  background: repeating-linear-gradient(135deg, transparent 0 6px, rgb(var(--gold-rgb, 200 169 106) / 0.1) 6px 12px);
+}
+
+.ms-act {
+  color: #1f4a8c;
+}
+
+/* quick links between the pages of one screen */
+.ms-pages .hv__v[aria-current="page"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+.ms-view:has(#c-fy:not(:checked)) .c-fy,
+.ms-view:has(#c-pr:not(:checked)) .c-pr,
+.ms-view:has(#c-ytd:not(:checked)) .c-ytd,
+.ms-view:has(#c-mo:not(:checked)) .c-mo {
+  display: none;
+}
+
+.ms-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+/* dashboard cards */
+.ms-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.ms-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.ms-spark {
+  width: 100%;
+  height: 72px;
+  color: var(--em-600);
+}
+
+.ms-note {
+  margin: 8px 0 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+/* status flow of a budget version */
+.ms-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ms-flow > li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.ms-flow > li::after {
+  content: "›";
+  margin-left: 10px;
+  color: var(--ink-3);
+}
+
+.ms-flow > li:last-child::after {
+  content: none;
+}
+
+.ms-flow > li.is-done {
+  background: var(--ok-bg);
+  color: #226b46;
+}
+
+.ms-flow > li.is-now {
+  background: var(--em-600);
+  color: #fff;
+}
+
+.ms-flow > li.is-now::after {
+  color: var(--ink-3);
+}
+
+/* inputs inside budget grids */
+table.ms-tbl input.ms-in {
+  width: 92px;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  text-align: right;
+}
+
+table.ms-tbl input.ms-in--s {
+  width: 66px;
+}
+
+table.ms-tbl input.ms-in:focus {
+  outline: 2px solid rgb(var(--gold-rgb, 200 169 106) / 0.7);
+  outline-offset: 1px;
+}
+
+table.ms-tbl select.ms-sel {
+  width: 100%;
+  min-width: 170px;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font: inherit;
+}
+
+.ms-comment {
+  width: 100%;
+  min-width: 320px;
+  min-height: 56px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  resize: vertical;
+}
+
+.ms-comment--need {
+  border-color: #e0a14c;
+  background: #fffaf0;
+}
+
+/* wizard */
+.ms-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.ms-steps > li {
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.ms-steps > li b {
+  color: var(--ink);
+  font-size: 13.5px;
+}
+
+.ms-steps > li.is-done {
+  box-shadow: inset 0 0 0 1px #9fd0b3;
+  background: var(--ok-bg);
+}
+
+.ms-book {
+  display: grid;
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .ms-two,
+  .ms-three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ms-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  table.ms-tbl tbody td:first-child,
+  table.ms-tbl thead th:first-child {
+    min-width: 150px;
+  }
+
+  .ms-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* printable pages: wide tables scroll on screen and shrink on paper */
+.ms-pw {
+  overflow-x: auto;
+}
+
+.ms-pw table {
+  font-size: 11.5px;
+}
+
+.ms-pw th,
+.ms-pw td {
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.ms-pw td:last-child {
+  white-space: normal;
+}
+
+@media print {
+  .ms-pw {
+    overflow: visible;
+  }
+
+  .ms-pw table {
+    font-size: 9px;
+  }
+}

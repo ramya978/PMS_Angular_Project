@@ -1,0 +1,7 @@
+/* rv-05-demand-calendar.css – styles of RV-05 Demand Calendar (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

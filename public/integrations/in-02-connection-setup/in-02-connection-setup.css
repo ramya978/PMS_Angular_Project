@@ -1,0 +1,51 @@
+/* in-02-connection-setup.css: connection picker, test checklist, after-states. */
+.in-pick {
+  display: grid;
+  gap: 6px;
+}
+
+.in-pick__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.in-pick__a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 12.5px;
+  text-decoration: none;
+}
+
+.in-pick__a.is-on {
+  border-color: var(--em-600);
+  background: var(--em-50);
+  color: var(--em-800);
+  font-weight: 600;
+}
+
+.in-tests {
+  display: grid;
+  gap: 8px;
+}
+
+.ow-ro {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  font-weight: 600;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#tested:target) #t-tested,
+body:has(#golive:target) #t-golive,
+body:has(#paused:target) #t-paused,
+body:has(#resumed:target) #t-resumed {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

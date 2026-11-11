@@ -1,0 +1,960 @@
+/* setup-home.css: the Setup Home design shared by Reservation Setup (RSS-01), Front Desk Setup (FDS-01) and Housekeeping Setup (HKS-01) –
+   progress hero with ring and counters, "Show" filter, grouped step cards and the report cards below. */
+.card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card__desc {
+  margin-top: 2px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.card--lift {
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base);
+}
+
+.card--lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-3);
+}
+
+.tabs__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgb(20 32 27 / 0.08);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.sh__body {
+  display: grid;
+  gap: 16px;
+}
+
+.sh__body > * + * {
+  margin-top: 0;
+}
+
+/* hero: dark progress band + light filter strip */
+.sh__hero {
+  padding: 0;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-2);
+  color: var(--ink);
+}
+
+.sh__hero-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 28px;
+  padding: 22px 24px;
+  background: radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.24), transparent 60%), linear-gradient(135deg, var(--em-900, #0b2a22), var(--em-700, #174a3c));
+  color: #fff;
+}
+
+.sh__ring {
+  --pct: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold, #c8a96a) calc(var(--pct) * 1%), rgb(255 255 255 / 0.12) 0);
+}
+
+.sh__ring::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--em-950, #061c16);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+
+.sh__ring-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
+}
+
+.sh__ring-num {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sh__ring-sub {
+  margin-top: 2px;
+  color: rgb(255 255 255 / 0.6);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sh__hero-text {
+  min-width: 0;
+}
+
+.sh__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sh__hero-text h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sh__hero-text p {
+  margin-top: 4px;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 13px;
+}
+
+.sh__done-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2f9e6a;
+  box-shadow: 0 0 0 4px rgb(47 158 106 / 0.25);
+  color: #fff;
+}
+
+.sh__bar {
+  display: flex;
+  width: 100%;
+  max-width: 620px;
+  height: 6px;
+  margin-top: 14px;
+  gap: 3px;
+}
+
+.sh__bar > span {
+  min-width: 0;
+  border-radius: 3px;
+}
+
+.sh__bar-done {
+  background: linear-gradient(90deg, #2f9e6a, #6fd0a0);
+}
+
+.sh__bar-warn {
+  background: #e3b44f;
+}
+
+.sh__bar-todo {
+  background: rgb(255 255 255 / 0.22);
+}
+
+.sh__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  color: rgb(255 255 255 / 0.66);
+  font-size: 12px;
+  list-style: none;
+}
+
+.sh__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh__legend li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--d);
+}
+
+.sh__legend--done {
+  --d: #4cc38a;
+}
+
+.sh__legend--warn {
+  --d: #e3b44f;
+}
+
+.sh__legend--todo {
+  --d: rgb(255 255 255 / 0.4);
+}
+
+.sh__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(108px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+.sh__stat-ic {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgb(76 195 138 / 0.16);
+  color: #7fd3a6;
+}
+
+.sh__stat--warn .sh__stat-ic {
+  background: rgb(227 180 79 / 0.16);
+  color: #ecc06b;
+}
+
+.sh__stat--todo .sh__stat-ic {
+  background: rgb(255 255 255 / 0.1);
+  color: rgb(255 255 255 / 0.75);
+}
+
+.sh__stat-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: rgb(255 255 255 / 0.66);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.sh__stat-txt b {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sh__hero-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 12px 24px;
+  background: var(--surface);
+}
+
+.sh__foot-k {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sh__foot-n {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.sh__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sh__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.sh__chip:hover {
+  color: var(--ink);
+}
+
+.sh__chip[aria-pressed="true"] {
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  color: var(--ink);
+}
+
+.sh__chip[aria-pressed="true"] .tabs__count {
+  background: var(--em-700);
+  color: #fff;
+}
+
+@media (max-width: 1180px) {
+  .sh__hero-main {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .sh__stats {
+    grid-column: 1 / -1;
+  }
+}
+
+.sh__steps {
+  display: grid;
+  gap: 22px;
+}
+
+.sh__group > h3,
+.sh__group > h2 {
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sh__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.sh__step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 14px 16px;
+}
+
+.sh__step h3 {
+  font-size: 14.5px;
+  font-weight: 650;
+}
+
+.sh__step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sh__summary {
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.sh__why {
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.sh__warn {
+  display: grid;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: var(--r-md);
+  background: var(--warn-bg);
+  color: #6e4a0e;
+  font-size: 12px;
+}
+
+.sh__open {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.sh__opt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.sh__soon {
+  color: var(--ink-4);
+  font-size: 11.5px;
+}
+
+.sh__reports {
+  display: grid;
+  gap: 16px;
+}
+
+.sh__scroll {
+  overflow: auto;
+  border-radius: var(--r-md);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sh__report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.sh__report-table th {
+  padding: 9px 14px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.sh__report-table td {
+  padding: 9px 14px;
+  border-top: 1px solid var(--line-2);
+}
+
+/* ── HTML + CSS setup homes (FDS-01, HKS-01) ───────────────────────────── */
+.sh__done-mark--warn {
+  background: var(--br-400, #c6a45e);
+  color: var(--em-950, #061c16);
+  box-shadow: 0 0 0 4px rgb(var(--br-400-rgb, 198 164 94) / 0.28);
+}
+
+.sh__stat--bad .sh__stat-ic {
+  background: rgb(229 98 89 / 0.18);
+  color: #f19a92;
+}
+
+/* "Show" filter: hidden radios before the hero, labels styled as the chips */
+.sh__f {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label.sh__chip {
+  user-select: none;
+}
+
+.sh__f:focus-visible ~ .sh__hero .sh__filters {
+  outline: 2px solid var(--br-400);
+  outline-offset: 2px;
+}
+
+main:has(#shf-all:checked) label[for="shf-all"],
+main:has(#shf-warn:checked) label[for="shf-warn"],
+main:has(#shf-todo:checked) label[for="shf-todo"],
+main:has(#shf-done:checked) label[for="shf-done"] {
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  color: var(--ink);
+}
+
+main:has(#shf-all:checked) label[for="shf-all"] .tabs__count,
+main:has(#shf-warn:checked) label[for="shf-warn"] .tabs__count,
+main:has(#shf-todo:checked) label[for="shf-todo"] .tabs__count,
+main:has(#shf-done:checked) label[for="shf-done"] .tabs__count {
+  background: var(--em-700);
+  color: #fff;
+}
+
+main:has(#shf-warn:checked) .fds-card:not(.fds-card--attention, .hks-card--warning),
+main:has(#shf-todo:checked) .fds-card:not(.fds-card--todo, .hks-card--missing),
+main:has(#shf-done:checked) .fds-card:not(.fds-card--done, .hks-card--complete),
+main:has(#shf-warn:checked) .fds-group:not(:has(.fds-card--attention, .hks-card--warning)),
+main:has(#shf-todo:checked) .fds-group:not(:has(.fds-card--todo, .hks-card--missing)),
+main:has(#shf-done:checked) .fds-group:not(:has(.fds-card--done, .hks-card--complete)) {
+  display: none;
+}
+
+/* full-width steps, then warnings and recent changes side by side */
+.sh__layout {
+  display: grid;
+  gap: 22px;
+  margin-top: 16px;
+}
+
+.sh__layout > .fd-stack:first-child {
+  display: grid;
+  gap: 22px;
+}
+
+.sh__layout > aside {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.sh__layout .fds-group + .fds-group {
+  margin-top: 0;
+}
+
+.sh__layout .fds-group__h {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+}
+
+.sh__layout .fds-group__t {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sh__layout .fds-group__h .fd-muted {
+  font-size: 12.5px;
+}
+
+.sh__layout .fds-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+/* step card in the RSS-01 style */
+.sh__layout .fds-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  color: var(--ink);
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base);
+}
+
+.sh__layout .fds-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-3);
+  color: var(--ink);
+}
+
+.sh__layout .fds-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sh__layout .fds-card__t {
+  font-size: 14.5px;
+  font-weight: 650;
+}
+
+.sh__layout .fds-card__s {
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.sh__layout .fds-card__w {
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.sh__layout .fds-req {
+  align-self: flex-start;
+}
+
+/* "Review" button at the foot of every card (the whole card is the link) */
+.sh__review {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 4px;
+  height: 30px;
+  margin-top: auto;
+  padding: 0 10px 0 12px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong, #a39b88);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.fds-card--attention .sh__review,
+.fds-card--todo .sh__review,
+.hks-card--warning .sh__review,
+.hks-card--missing .sh__review {
+  background: var(--em-700);
+  box-shadow: none;
+  color: #fff;
+}
+
+.sh__foot-gap {
+  margin-top: auto;
+}
+
+@media (max-width: 1100px) {
+  .sh__layout > aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* the problem line inside a step card */
+.sh__layout .hks-card__warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--r-md);
+  background: var(--warn-bg);
+  color: #6e4a0e;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.sh__layout .hks-card--missing .hks-card__warn {
+  background: var(--bad-bg);
+  color: #8f2a25;
+}
+
+/* ── hero on a dark ground (data-tone="dark"): the "Show" strip joins the hero instead of sitting white below it ── */
+.sh__hero[data-tone="dark"] {
+  color: #fff;
+}
+
+.sh__hero[data-tone="dark"] .sh__hero-foot {
+  background: var(--em-950, #061c16);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+.sh__hero[data-tone="dark"] .sh__foot-k,
+.sh__hero[data-tone="dark"] .sh__foot-n {
+  color: rgb(255 255 255 / 0.58);
+}
+
+.sh__hero[data-tone="dark"] .sh__filters {
+  background: rgb(255 255 255 / 0.07);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+}
+
+.sh__hero[data-tone="dark"] .sh__chip {
+  color: rgb(255 255 255 / 0.74);
+}
+
+.sh__hero[data-tone="dark"] .sh__chip:hover {
+  color: #fff;
+}
+
+.sh__hero[data-tone="dark"] .tabs__count {
+  background: rgb(255 255 255 / 0.16);
+}
+
+/* ── compact setup hero: one slim band (the eight "-01-progress" heroes) ── */
+.sh__hero[data-code$="-01-progress"] .sh__hero-main {
+  gap: 10px 24px;
+  padding: 14px 22px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__kicker {
+  font-size: 10.5px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__hero-text h2 {
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 19px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__done-mark {
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 0 0 3px rgb(var(--br-400-rgb, 198 164 94) / 0.26);
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__hero-text p {
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__bar {
+  height: 5px;
+  margin-top: 8px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__legend {
+  display: none;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__hero-foot {
+  padding: 7px 22px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__filters {
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__chip {
+  height: 28px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__foot-k,
+.sh__hero[data-code$="-01-progress"] .sh__foot-n {
+  font-size: 11.5px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__stat {
+  padding: 8px 12px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__stat-ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.sh__hero[data-code$="-01-progress"] .sh__stat-txt b {
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+/* ── colours of the setup-home hero (all setup modules) come from these variables, so a theme change – and the light / dark
+   banner setting – recolours every module's own hero design without touching its shapes. Module designs are in each
+   `*-01-*.css` and use only these variables. `data-look="light"` = a hero that is always light (no screen uses it now; HKS-01 follows the banner setting since 2026-11-03). ── */
+.sh__hero {
+  --hx-a: var(--em-900, #0b2a22);
+  --hx-b: var(--em-700, #174a3c);
+  --hx-fg: #fff;
+  --hx-text: rgb(255 255 255 / 0.7);
+  --hx-dim: rgb(255 255 255 / 0.62);
+  --hx-line: rgb(255 255 255 / 0.14);
+  --hx-glass: rgb(255 255 255 / 0.07);
+  --hx-art: rgb(255 255 255 / 0.055);
+  --hx-track: rgb(255 255 255 / 0.14);
+  --hx-core: var(--em-950, #061c16);
+  --hx-gold: var(--gold, #c8a96a);
+  --hx-gold-hi: var(--gold-light, #e6d3a8);
+  --hx-kick: var(--gold-light, #e6d3a8);
+  --hx-done: #4cc38a;
+  --hx-warn: #e3b44f;
+  --hx-todo: rgb(255 255 255 / 0.4);
+  --hx-foot: var(--em-950, #061c16);
+  --hx-chip: rgb(255 255 255 / 0.74);
+  --hx-count: rgb(255 255 255 / 0.16);
+  --hx-ok-bg: rgb(76 195 138 / 0.16);
+  --hx-ok-fg: #7fd3a6;
+  --hx-wn-bg: rgb(227 180 79 / 0.16);
+  --hx-wn-fg: #ecc06b;
+  --hx-bd-bg: rgb(229 98 89 / 0.18);
+  --hx-bd-fg: #f19a92;
+  --hx-td-bg: rgb(255 255 255 / 0.1);
+  --hx-td-fg: rgb(255 255 255 / 0.75);
+}
+
+.sh__hero[data-look="light"],
+html[data-surf="light"] .sh__hero {
+  --hx-a: var(--em-50, #eef5f1);
+  --hx-b: var(--em-100, #dcebe3);
+  --hx-fg: var(--ink, #14201b);
+  --hx-text: var(--ink-2, #46514b);
+  --hx-dim: color-mix(in srgb, var(--ink-3, #67716a) 70%, var(--ink, #14201b));
+  --hx-line: var(--em-200, #bcd9cc);
+  --hx-glass: #fff;
+  --hx-art: rgb(var(--em-900-rgb, 11 42 34) / 0.07);
+  --hx-track: rgb(var(--em-900-rgb, 11 42 34) / 0.13);
+  --hx-core: #fff;
+  --hx-gold: var(--br-600, #94722a);
+  --hx-gold-hi: var(--br-500, #b08c46);
+  --hx-kick: color-mix(in srgb, var(--br-700, #7a5e22) 72%, #000);
+  --hx-done: #2f9e6a;
+  --hx-warn: var(--br-500, #b08c46);
+  --hx-todo: var(--ink-4, #949c95);
+  --hx-foot: #fff;
+  --hx-chip: var(--ink-2, #46514b);
+  --hx-count: rgb(var(--em-900-rgb, 11 42 34) / 0.09);
+  --hx-ok-bg: var(--ok-bg, #e7f3ec);
+  --hx-ok-fg: var(--st-ready, #1f7a4f);
+  --hx-wn-bg: var(--warn-bg, #fbf1da);
+  --hx-wn-fg: var(--st-tentative, #946510);
+  --hx-bd-bg: var(--bad-bg, #fbe9e6);
+  --hx-bd-fg: var(--st-cancelled, #b1342e);
+  --hx-td-bg: var(--sunken, #edf1ef);
+  --hx-td-fg: var(--ink-3, #67716a);
+}
+
+.sh__hero .sh__hero-main {
+  background: radial-gradient(60% 140% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.2), transparent 60%), linear-gradient(135deg, var(--hx-a), var(--hx-b));
+  color: var(--hx-fg);
+}
+
+.sh__hero .sh__ring {
+  background: conic-gradient(var(--hx-gold) calc(var(--pct) * 1%), var(--hx-track) 0);
+}
+
+.sh__hero .sh__ring::after {
+  background: var(--hx-core);
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero .sh__ring-num,
+.sh__hero .sh__hero-text h2,
+.sh__hero .sh__stat-txt b {
+  color: var(--hx-fg);
+}
+
+.sh__hero .sh__ring-sub,
+.sh__hero .sh__legend,
+.sh__hero .sh__stat-txt {
+  color: var(--hx-dim);
+}
+
+.sh__hero .sh__hero-text p {
+  color: var(--hx-text);
+}
+
+.sh__hero .sh__kicker {
+  color: var(--hx-kick);
+}
+
+.sh__hero .sh__bar-done {
+  background: linear-gradient(90deg, var(--hx-done), color-mix(in srgb, var(--hx-done) 70%, #fff));
+}
+
+.sh__hero .sh__bar-warn {
+  background: var(--hx-warn);
+}
+
+.sh__hero .sh__bar-todo {
+  background: var(--hx-track);
+}
+
+.sh__hero .sh__legend--done {
+  --d: var(--hx-done);
+}
+
+.sh__hero .sh__legend--warn {
+  --d: var(--hx-warn);
+}
+
+.sh__hero .sh__legend--todo {
+  --d: var(--hx-todo);
+}
+
+.sh__hero .sh__stat {
+  background: var(--hx-glass);
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero .sh__stat-ic {
+  background: var(--hx-ok-bg);
+  color: var(--hx-ok-fg);
+}
+
+.sh__hero .sh__stat--warn .sh__stat-ic {
+  background: var(--hx-wn-bg);
+  color: var(--hx-wn-fg);
+}
+
+.sh__hero .sh__stat--todo .sh__stat-ic {
+  background: var(--hx-td-bg);
+  color: var(--hx-td-fg);
+}
+
+.sh__hero .sh__stat--bad .sh__stat-ic {
+  background: var(--hx-bd-bg);
+  color: var(--hx-bd-fg);
+}
+
+.sh__hero[data-tone="dark"] .sh__hero-foot {
+  background: var(--hx-foot);
+  box-shadow: inset 0 1px 0 var(--hx-line);
+}
+
+.sh__hero[data-tone="dark"] .sh__foot-k,
+.sh__hero[data-tone="dark"] .sh__foot-n {
+  color: var(--hx-dim);
+}
+
+.sh__hero[data-tone="dark"] .sh__filters {
+  background: var(--hx-glass);
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero[data-tone="dark"] .sh__chip {
+  color: var(--hx-chip);
+}
+
+.sh__hero[data-tone="dark"] .sh__chip:hover {
+  color: var(--hx-fg);
+}
+
+.sh__hero[data-tone="dark"] .tabs__count {
+  background: var(--hx-count);
+  color: inherit;
+}
+
+/* a picked "Show" chip is always a white / surface chip with ink text, in every hero and both modes */
+.sh__hero .sh__chip[aria-pressed="true"],
+main:has(#shf-all:checked) .sh__hero label[for="shf-all"],
+main:has(#shf-warn:checked) .sh__hero label[for="shf-warn"],
+main:has(#shf-todo:checked) .sh__hero label[for="shf-todo"],
+main:has(#shf-done:checked) .sh__hero label[for="shf-done"] {
+  color: var(--ink, #14201b);
+}
+
+/* the hero is a card made of two bands that touch: the generic ".card > * + *" gap would show a white strip between them */
+.sh__hero > * + * {
+  margin-top: 0;
+}

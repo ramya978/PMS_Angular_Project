@@ -1,0 +1,258 @@
+/* hks-08-inspection-checklists-and-rules.css: checklists with an items panel, rules with condition chips, approval tags and conditional fields. */
+
+.hks-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font-size: 12.5px;
+}
+
+.hks-note .icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.fd-banner + .fd-banner {
+  margin-top: 10px;
+}
+
+.hks-ver {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hks-pendtxt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6e4a0e;
+}
+
+.hks-appr {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px var(--gold-light, #e6cf9c);
+  color: #6e4a0e;
+  font-size: 10.5px;
+  font-weight: 650;
+  vertical-align: 1px;
+}
+
+/* items panel under the list: C1 by default, the chosen checklist when its Items button is pressed */
+.hks-items {
+  display: none;
+  margin-top: 18px;
+}
+
+.hks-items--default {
+  display: block;
+}
+
+body:has(.hks-items:target) .hks-items--default:not(:target) {
+  display: none;
+}
+
+.hks-items:target {
+  display: block;
+}
+
+.hks-items .fd-cardhead {
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.hks-items__act {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hks-items__sum {
+  margin: 4px 0 12px;
+  font-size: 12.5px;
+}
+
+/* rules */
+.hks-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.hks-chip {
+  padding: 2px 9px;
+  border-radius: var(--r-sm, 8px);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+/* conditional fields */
+.hks-form:has(input[name="type"][value="PA inspection"]:checked) .hks-rt,
+.hks-form:has(input[name="type"][value="PA inspection"]:checked) .hks-tk,
+.hks-form:not(:has(input[name="inspection"][value="Spot check"]:checked)) .hks-rnd {
+  display: none;
+}
+
+/* a saved row is highlighted when the page is opened after Save */
+.dt__table tbody tr:target td {
+  background: var(--ok-bg);
+}
+
+/* saved toasts: shown with the row that was saved; the items panel opens after an item save */
+body:has(#saved-c1:target) #t-c1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c1:target) #items-c1,
+body:has(#itemadded-c1:target) #items-c1 {
+  display: block;
+}
+
+body:has(#itemsaved-c1:target) .hks-items--default:not(#items-c1),
+body:has(#itemadded-c1:target) .hks-items--default:not(#items-c1) {
+  display: none;
+}
+
+body:has(#saved-c2:target) #t-c2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c2:target) #items-c2,
+body:has(#itemadded-c2:target) #items-c2 {
+  display: block;
+}
+
+body:has(#itemsaved-c2:target) .hks-items--default:not(#items-c2),
+body:has(#itemadded-c2:target) .hks-items--default:not(#items-c2) {
+  display: none;
+}
+
+body:has(#saved-c3:target) #t-c3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c3:target) #items-c3,
+body:has(#itemadded-c3:target) #items-c3 {
+  display: block;
+}
+
+body:has(#itemsaved-c3:target) .hks-items--default:not(#items-c3),
+body:has(#itemadded-c3:target) .hks-items--default:not(#items-c3) {
+  display: none;
+}
+
+body:has(#saved-c4:target) #t-c4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c4:target) #items-c4,
+body:has(#itemadded-c4:target) #items-c4 {
+  display: block;
+}
+
+body:has(#itemsaved-c4:target) .hks-items--default:not(#items-c4),
+body:has(#itemadded-c4:target) .hks-items--default:not(#items-c4) {
+  display: none;
+}
+
+body:has(#saved-c5:target) #t-c5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c5:target) #items-c5,
+body:has(#itemadded-c5:target) #items-c5 {
+  display: block;
+}
+
+body:has(#itemsaved-c5:target) .hks-items--default:not(#items-c5),
+body:has(#itemadded-c5:target) .hks-items--default:not(#items-c5) {
+  display: none;
+}
+
+body:has(#saved-c6:target) #t-c6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c6:target) #items-c6,
+body:has(#itemadded-c6:target) #items-c6 {
+  display: block;
+}
+
+body:has(#itemsaved-c6:target) .hks-items--default:not(#items-c6),
+body:has(#itemadded-c6:target) .hks-items--default:not(#items-c6) {
+  display: none;
+}
+
+body:has(#saved-c7:target) #t-c7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#itemsaved-c7:target) #items-c7,
+body:has(#itemadded-c7:target) #items-c7 {
+  display: block;
+}
+
+body:has(#itemsaved-c7:target) .hks-items--default:not(#items-c7),
+body:has(#itemadded-c7:target) .hks-items--default:not(#items-c7) {
+  display: none;
+}
+body:has(#itemsaved-c1:target) #itemsaved-c1, body:has(#itemadded-c1:target) #itemadded-c1 {
+  display: flex;
+}
+
+body:has(#itemsaved-c2:target) #itemsaved-c2, body:has(#itemadded-c2:target) #itemadded-c2 {
+  display: flex;
+}
+
+body:has(#itemsaved-c3:target) #itemsaved-c3, body:has(#itemadded-c3:target) #itemadded-c3 {
+  display: flex;
+}
+
+body:has(#itemsaved-c4:target) #itemsaved-c4, body:has(#itemadded-c4:target) #itemadded-c4 {
+  display: flex;
+}
+
+body:has(#itemsaved-c5:target) #itemsaved-c5, body:has(#itemadded-c5:target) #itemadded-c5 {
+  display: flex;
+}
+
+body:has(#itemsaved-c6:target) #itemsaved-c6, body:has(#itemadded-c6:target) #itemadded-c6 {
+  display: flex;
+}
+
+body:has(#itemsaved-c7:target) #itemsaved-c7, body:has(#itemadded-c7:target) #itemadded-c7 {
+  display: flex;
+}
+
+body:has(#saved-r1:target) #t-r1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-r2:target) #t-r2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-r3:target) #t-r3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

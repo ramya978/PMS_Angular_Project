@@ -1,0 +1,24 @@
+/* rvs-01-segments-and-channel-groups.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.rv-tag { display: inline-flex; margin: 2px 6px 2px 0; padding: 3px 10px; border-radius: 999px; background: var(--em-50); color: var(--em-800); font-size: 12px; font-weight: 600; }
+.rv-map > summary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; cursor: pointer; list-style: none; }
+.rv-map > summary::-webkit-details-marker { display: none; }
+.rv-chg { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; color: var(--ink-3); font-size: 12px; }
+.rv-opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 14px; margin-top: 10px; padding: 12px; border-radius: 12px; background: var(--surface-2); }
+.rv-w { min-width: 220px; }
+.rv-ck > summary { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 12px; background: var(--ok-bg); color: var(--ok); font-weight: 600; cursor: pointer; }
+.rv-ck[open] > summary { margin-bottom: 12px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

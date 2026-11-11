@@ -1,0 +1,96 @@
+/* mt-02-work-queue.css: board by status (columns) or swimlanes by trade, work order cards with SLA countdown, Assign (MT-P02) and New work order (MT-P01) after-states. */
+
+#mt-p01:has(input[name="loc_type"][value="Guest room"]:checked) :is(.lf-if--room, .lf-if--use),
+#mt-p01:has(input[name="loc_type"]:is([value="Public area"], [value="Back of house"]):checked) .lf-if--area,
+#mt-p01:has(input[name="loc_type"][value="Asset"]:checked) .lf-if--asset {
+  display: flex;
+}
+
+#mt-p01 .modal__body .s-grid2 > :is(.lf-if--room, .lf-if--area, .lf-if--asset) {
+  order: 3;
+}
+
+.mq-board {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.mq-col {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 300px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.mq-col__h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 2px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.mq-empty {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mq-lanes,
+.mq-new,
+.mq-asg {
+  display: none;
+}
+
+.mq:has(#v-lanes:target) .mq-lanes {
+  display: block;
+}
+
+.mq:has(#v-lanes:target) .mq-board {
+  display: none;
+}
+
+.mq:not(:has(#v-lanes:target)) .mq-v1,
+.mq:has(#v-lanes:target) .mq-v2 {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+.mq-chip {
+  display: block;
+  margin-bottom: 4px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--hk) 45%, var(--line));
+  background: var(--surface);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.mq:has(#added:target) .mq-new {
+  display: grid;
+  box-shadow: 0 0 0 2px var(--em-600);
+}
+
+.mq:has(#assigned-2234:target) .mq-asg {
+  display: block;
+}
+
+.mq:has(#assigned-2234:target) #c-2234 {
+  display: none;
+}
+
+.mq:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }
+.mq:has(#assigned-2235:target) #t-asg-2235 { display: flex; animation: av-rise 320ms var(--ease); }
+.mq:has(#assigned-2234:target) #t-asg-2234 { display: flex; animation: av-rise 320ms var(--ease); }
+.mq:has(#assigned-2231:target) #t-asg-2231 { display: flex; animation: av-rise 320ms var(--ease); }
+.mq:has(#assigned-2219:target) #t-asg-2219 { display: flex; animation: av-rise 320ms var(--ease); }
+.mq:has(#assigned-2214:target) #t-asg-2214 { display: flex; animation: av-rise 320ms var(--ease); }

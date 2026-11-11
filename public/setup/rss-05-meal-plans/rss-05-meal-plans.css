@@ -1,0 +1,35 @@
+/* rss-05-meal-plans.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* meal service times and outlets – feeds Service View (RS-24), 2026-10-31 */
+.rss05-svc {
+  margin-bottom: 16px;
+}
+
+.rss05-svc .s-card-title .icon {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--em-600);
+  vertical-align: -2px;
+}
+
+.rss05-svc__g {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.rss05-svc__m {
+  display: grid;
+  grid-template-columns: 90px 120px 120px minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rss05-svc__m > b {
+  align-self: center;
+  color: var(--ink);
+}

@@ -1,0 +1,50 @@
+/* rt-o02-bill-gst-invoice.css: GST bills (80 mm) – one chosen by #bNNNN, check 4607 without one. */
+.kg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.gb {
+  display: none;
+  gap: 2px;
+  width: 320px;
+  padding: 16px;
+  border: 1px dashed #999;
+  background: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  text-align: center;
+}
+
+.gb table {
+  width: 100%;
+  margin: 8px 0;
+  text-align: left;
+}
+
+.gb td:last-child {
+  text-align: right;
+}
+
+.gs td {
+  border-top: 1px dashed #999;
+}
+
+.gq .icon {
+  width: 52px;
+  height: 52px;
+}
+
+.gw:not(:has(.pm:target)) .gb--4607,
+.gw:has(#b4601:target) .gb--4601,
+.gw:has(#b4603:target) .gb--4603,
+.gw:has(#b4604:target) .gb--4604,
+.gw:has(#b4605:target) .gb--4605,
+.gw:has(#b4607:target) .gb--4607,
+.gw:has(#b4608:target) .gb--4608,
+.gw:has(#b4609:target) .gb--4609,
+.gw:has(#b4610:target) .gb--4610,
+.gw:has(#b4611:target) .gb--4611 {
+  display: grid;
+}

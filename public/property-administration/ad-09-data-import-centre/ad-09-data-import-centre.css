@@ -1,0 +1,30 @@
+/* ad-09-data-import-centre.css: validation result and import after-states. */
+.ad-res {
+  display: none;
+}
+
+body:has(#validated:target) .ad-res,
+body:has(#imported:target) .ad-res {
+  display: grid;
+}
+
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#imported:target) table.dt__table tr.hr-new {
+  display: grid;
+  background: var(--ok-bg);
+}
+
+body:has(#rb-imp-ztv-0015:target) #r-imp-ztv-0015 {
+  opacity: .5;
+  text-decoration: line-through;
+}
+
+body:has(#imported:target) #t-imported,
+body:has(#tpl:target) #t-tpl,
+body:has(#rb-imp-ztv-0015:target) #t-rb-imp-ztv-0015 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

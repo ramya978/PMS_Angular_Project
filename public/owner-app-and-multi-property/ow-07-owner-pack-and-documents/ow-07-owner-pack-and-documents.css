@@ -1,0 +1,23 @@
+/* ow-07-owner-pack-and-documents.css: toasts. */
+body:has(#dl-p0:target) #t-dl-p0,
+body:has(#cm-p0:target) #t-cm-p0,
+body:has(#dl-p1:target) #t-dl-p1,
+body:has(#cm-p1:target) #t-cm-p1,
+body:has(#dl-p2:target) #t-dl-p2,
+body:has(#cm-p2:target) #t-cm-p2,
+body:has(#dl-p3:target) #t-dl-p3,
+body:has(#cm-p3:target) #t-cm-p3,
+body:has(#dl-p4:target) #t-dl-p4,
+body:has(#cm-p4:target) #t-cm-p4,
+body:has(#dl-d0:target) #t-dl-d0,
+body:has(#dl-d1:target) #t-dl-d1,
+body:has(#dl-d2:target) #t-dl-d2,
+body:has(#dl-d3:target) #t-dl-d3,
+body:has(#dl-d4:target) #t-dl-d4,
+body:has(#dl-d5:target) #t-dl-d5,
+body:has(#dl-d6:target) #t-dl-d6,
+body:has(#dl-d7:target) #t-dl-d7,
+body:has(#dl-d8:target) #t-dl-d8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

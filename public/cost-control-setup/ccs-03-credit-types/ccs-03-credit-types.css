@@ -1,0 +1,29 @@
+/* ccs-03-credit-types.css: credit types with GL account and approver. */
+.cc-banner {
+  margin: 0;
+}
+
+.cr-name.field__input {
+  min-width: 190px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="CCS-03-list"] td:nth-child(3) {
+  min-width: 250px;
+}
+
+[data-code="CCS-03-list"] td:nth-child(4) {
+  min-width: 170px;
+}
+
+body:has(#added:target) .cr-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,201 @@
+/* hk-12-guest-service-status.css: Guest Service Status – hero (shared .hkh), flag views (shared .hv), flag table with
+   coloured flag tags, welfare-check follow-up, after-state; HK-P12 entry, clear-flag and welfare-check pop-ups.
+   Shared patterns (.hkh, .hv, .pm, .pr) are in css/aviv/housekeeping.css. */
+.gsw {
+  display: grid;
+  gap: 16px;
+}
+
+.gs-t td {
+  vertical-align: top;
+}
+
+.gs-t td:nth-child(5) {
+  min-width: 240px;
+}
+
+.gs.is-over > td {
+  background: #fdf3f3;
+}
+
+.gs-f {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.gs-f--dnd { background: #fdecec; color: #b42318; }
+.gs-f--mur { background: var(--br-50); color: var(--br-700); }
+.gs-f--ref { background: #f1eef9; color: #6b46c1; }
+.gs-f--later { background: #e8f2fb; color: #2b6cb0; }
+.gs-f--green { background: var(--ok-bg); color: #2f855a; }
+.gs-f--sleep { background: #eef0fb; color: #4b4fa8; }
+.gs-f--lock { background: var(--line-2); color: var(--ink-2); }
+
+.gs-fu {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.gs-fu--late {
+  color: #c53030;
+}
+
+.gs-note {
+  white-space: normal;
+}
+
+.gs-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.gs-pr,
+.gs-pb,
+.p12-later {
+  display: none;
+}
+
+#hk-p12:has(input[value="later"]:checked) .p12-later {
+  display: grid;
+}
+.gsw:has(#gs-all:checked) .hv__v[for="gs-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-dnd:checked) .hv__v[for="gs-dnd"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-mur:checked) .hv__v[for="gs-mur"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-later:checked) .hv__v[for="gs-later"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-ref:checked) .hv__v[for="gs-ref"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-green:checked) .hv__v[for="gs-green"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-other:checked) .hv__v[for="gs-other"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.gsw:has(#gs-dnd:checked) .gs:not(.is-dnd) { display: none; }
+.gsw:has(#gs-mur:checked) .gs:not(.is-mur) { display: none; }
+.gsw:has(#gs-later:checked) .gs:not(.is-later) { display: none; }
+.gsw:has(#gs-ref:checked) .gs:not(.is-ref) { display: none; }
+.gsw:has(#gs-green:checked) .gs:not(.is-green) { display: none; }
+.gsw:has(#gs-other:checked) .gs:not(.is-sleep, .is-lock) { display: none; }
+#gs-clr:has(#clr-402:target) :is(.gs-pr--402, .gs-pb--402) { display: flex; }
+body:has(#cleared-402:target) #gs-402 > td { background: var(--ok-bg); }
+body:has(#cleared-402:target) #gs-402 .gs-now { display: flex; }
+body:has(#cleared-402:target) #gs-402 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-402:target) .tt-room::after { content: "402"; }
+#gs-clr:has(#clr-504:target) :is(.gs-pr--504, .gs-pb--504) { display: flex; }
+body:has(#cleared-504:target) #gs-504 > td { background: var(--ok-bg); }
+body:has(#cleared-504:target) #gs-504 .gs-now { display: flex; }
+body:has(#cleared-504:target) #gs-504 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-504:target) .tt-room::after { content: "504"; }
+#gs-clr:has(#clr-208:target) :is(.gs-pr--208, .gs-pb--208) { display: flex; }
+body:has(#cleared-208:target) #gs-208 > td { background: var(--ok-bg); }
+body:has(#cleared-208:target) #gs-208 .gs-now { display: flex; }
+body:has(#cleared-208:target) #gs-208 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-208:target) .tt-room::after { content: "208"; }
+#gs-clr:has(#clr-211:target) :is(.gs-pr--211, .gs-pb--211) { display: flex; }
+body:has(#cleared-211:target) #gs-211 > td { background: var(--ok-bg); }
+body:has(#cleared-211:target) #gs-211 .gs-now { display: flex; }
+body:has(#cleared-211:target) #gs-211 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-211:target) .tt-room::after { content: "211"; }
+#gs-clr:has(#clr-303:target) :is(.gs-pr--303, .gs-pb--303) { display: flex; }
+body:has(#cleared-303:target) #gs-303 > td { background: var(--ok-bg); }
+body:has(#cleared-303:target) #gs-303 .gs-now { display: flex; }
+body:has(#cleared-303:target) #gs-303 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-303:target) .tt-room::after { content: "303"; }
+#gs-clr:has(#clr-310:target) :is(.gs-pr--310, .gs-pb--310) { display: flex; }
+body:has(#cleared-310:target) #gs-310 > td { background: var(--ok-bg); }
+body:has(#cleared-310:target) #gs-310 .gs-now { display: flex; }
+body:has(#cleared-310:target) #gs-310 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-310:target) .tt-room::after { content: "310"; }
+#gs-clr:has(#clr-110:target) :is(.gs-pr--110, .gs-pb--110) { display: flex; }
+body:has(#cleared-110:target) #gs-110 > td { background: var(--ok-bg); }
+body:has(#cleared-110:target) #gs-110 .gs-now { display: flex; }
+body:has(#cleared-110:target) #gs-110 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-110:target) .tt-room::after { content: "110"; }
+#gs-clr:has(#clr-108:target) :is(.gs-pr--108, .gs-pb--108) { display: flex; }
+body:has(#cleared-108:target) #gs-108 > td { background: var(--ok-bg); }
+body:has(#cleared-108:target) #gs-108 .gs-now { display: flex; }
+body:has(#cleared-108:target) #gs-108 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-108:target) .tt-room::after { content: "108"; }
+#gs-clr:has(#clr-410:target) :is(.gs-pr--410, .gs-pb--410) { display: flex; }
+body:has(#cleared-410:target) #gs-410 > td { background: var(--ok-bg); }
+body:has(#cleared-410:target) #gs-410 .gs-now { display: flex; }
+body:has(#cleared-410:target) #gs-410 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-410:target) .tt-room::after { content: "410"; }
+#gs-clr:has(#clr-313:target) :is(.gs-pr--313, .gs-pb--313) { display: flex; }
+body:has(#cleared-313:target) #gs-313 > td { background: var(--ok-bg); }
+body:has(#cleared-313:target) #gs-313 .gs-now { display: flex; }
+body:has(#cleared-313:target) #gs-313 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-313:target) .tt-room::after { content: "313"; }
+#gs-clr:has(#clr-506:target) :is(.gs-pr--506, .gs-pb--506) { display: flex; }
+body:has(#cleared-506:target) #gs-506 > td { background: var(--ok-bg); }
+body:has(#cleared-506:target) #gs-506 .gs-now { display: flex; }
+body:has(#cleared-506:target) #gs-506 .gs-now__t::after { content: "Flag cleared now"; }
+body:has(#cleared-506:target) .tt-room::after { content: "506"; }
+#gs-wel:has(#wel-402:target) :is(.gs-pr--402, .gs-pb--402) { display: flex; }
+body:has(#welfare-402:target) #gs-402 > td { background: var(--ok-bg); }
+body:has(#welfare-402:target) #gs-402 .gs-now { display: flex; }
+body:has(#welfare-402:target) #gs-402 .gs-now__t::after { content: "Welfare check done now"; }
+body:has(#welfare-402:target) .tt-room::after { content: "402"; }
+#gs-wel:has(#wel-504:target) :is(.gs-pr--504, .gs-pb--504) { display: flex; }
+body:has(#welfare-504:target) #gs-504 > td { background: var(--ok-bg); }
+body:has(#welfare-504:target) #gs-504 .gs-now { display: flex; }
+body:has(#welfare-504:target) #gs-504 .gs-now__t::after { content: "Welfare check done now"; }
+body:has(#welfare-504:target) .tt-room::after { content: "504"; }
+#gs-wel:has(#wel-208:target) :is(.gs-pr--208, .gs-pb--208) { display: flex; }
+body:has(#welfare-208:target) #gs-208 > td { background: var(--ok-bg); }
+body:has(#welfare-208:target) #gs-208 .gs-now { display: flex; }
+body:has(#welfare-208:target) #gs-208 .gs-now__t::after { content: "Welfare check done now"; }
+body:has(#welfare-208:target) .tt-room::after { content: "208"; }
+body:has(.pm[id^="flag-saved"]:target) #t-flag-saved { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="cleared"]:target) #t-cleared { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(.pm[id^="welfare"]:target) #t-welfare { display: flex; animation: av-rise 320ms var(--ease); }

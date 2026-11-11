@@ -1,0 +1,52 @@
+/* sts-06-valuation-tolerances-and-close.css: valuation, negative stock, tolerances, numbering and month close. */
+.vn-wait {
+  margin: 0;
+}
+
+.nm-fmt.field__input {
+  min-width: 300px;
+}
+
+.st-now,
+.st-warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+}
+
+.st-now {
+  background: var(--ok-bg);
+  color: var(--ink-2);
+}
+
+.st-now .icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--em-600);
+}
+
+.st-warn {
+  display: none;
+  background: #fdf3dc;
+  color: #7a5200;
+}
+
+.st-warn .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+/* the FIFO warning appears when FIFO is chosen */
+#sec-val:has(input[value="FIFO"]:checked) .st-warn--fifo {
+  display: flex;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

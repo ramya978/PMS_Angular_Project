@@ -1,0 +1,117 @@
+/* rts-01-pos-setup-home.css: setup home – setup-home.css (hero, Show filter), setup-cards.css (cards, checks), menu import RTS-P03. */
+.app:has(#shf-warn:checked) .hks-card:not(.hks-card--warning),
+.app:has(#shf-todo:checked) .hks-card:not(.hks-card--missing),
+.app:has(#shf-done:checked) .hks-card:not(.hks-card--complete) {
+  display: none;
+}
+
+.mb-hidden-empty {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+.app:has(#shf-todo:checked) .mb-hidden-empty {
+  display: flex;
+}
+
+.mt-dl {
+  margin: 0;
+  font-size: 13px;
+}
+
+.mt-dl .icon {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+body:has(#imported:target) #t-imported { display: flex; animation: av-rise 320ms var(--ease); }
+
+/* hero design (colours are the --hx-* variables of setup-home.css) */
+.sh__hero[data-code="RTS-01-progress"] {
+  background:
+    linear-gradient(135deg, var(--hx-a), var(--hx-b));
+  box-shadow: 0 0 0 1px rgb(var(--gold-rgb, 200 169 106) / 0.3), var(--sh-2);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__hero-main {
+  background: none;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__ring {
+  background: conic-gradient(var(--hx-gold) calc(var(--pct) * 1%), var(--hx-track) 0);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__kicker {
+  padding: 3px 11px 3px 9px;
+  border-radius: 999px;
+  background: var(--hx-gold-hi);
+  color: var(--em-950, #061c16);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stats {
+  gap: 10px;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat {
+  position: relative;
+  min-width: 100px;
+  gap: 0;
+  padding: 10px 14px 9px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--hx-core) 70%, transparent);
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat--warn {
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat--todo {
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+/* punched notches on both sides, like a ticket */
+.sh__hero[data-code="RTS-01-progress"] .sh__stat::before,
+.sh__hero[data-code="RTS-01-progress"] .sh__stat::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--hx-a);
+  box-shadow: inset 0 0 0 1px var(--hx-line);
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat::before {
+  left: -6px;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat::after {
+  right: -6px;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat-ic {
+  display: none;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat-txt {
+  flex-direction: column-reverse;
+  gap: 0;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sh__hero[data-code="RTS-01-progress"] .sh__stat-txt b {
+  font-size: 26px;
+  line-height: 1.05;
+}

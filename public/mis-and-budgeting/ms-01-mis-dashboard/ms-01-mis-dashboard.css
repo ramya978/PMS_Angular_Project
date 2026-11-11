@@ -1,0 +1,8 @@
+/* ms-01-mis-dashboard.css – styles of MS-01 MIS Dashboard (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#ex1:target) #t-ex1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.c-fy { display: none; }
+.ms-view:has(#c-fy:checked) .c-fy { display: table-cell; }

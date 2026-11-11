@@ -1,0 +1,34 @@
+/* close.css – styles of FD-18-3 Cashier Shift – the “close” tab / step (laptop rules; phone rules sit in max-width media queries). */
+
+.variants > .variant:has(.fd-toast:target) {
+  display: block;
+}
+
+.variants:has(.variant:not(.is-default) .fd-toast:target) > .variant.is-default {
+  display: none;
+}
+
+.fd-guard {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 1px;
+  width: 1px;
+}
+
+/* record variants */
+#start:target ~ .v-start {
+  display: block;
+}
+
+#counted:target ~ .v-counted {
+  display: block;
+}
+
+#short:target ~ .v-short {
+  display: block;
+}
+
+#reasoned:target ~ .v-reasoned {
+  display: block;
+}

@@ -1,0 +1,30 @@
+/* mb-06-expiry-tracking.css: batches by expiry with days left (red under the warning days), swap-list after-state. */
+.ex-k {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ex-k .icon {
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.ex-r.is-red > td {
+  background: #fff7f5;
+}
+
+.ex-done {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+body:has(#swap:target) .ex-done,
+body:has(#swap:target) #t-swap {
+  display: flex;
+}

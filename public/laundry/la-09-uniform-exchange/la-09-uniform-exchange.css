@@ -1,0 +1,255 @@
+/* la-09-uniform-exchange.css: hero, the new-exchange form (employee scan, uniform lines with condition and the one-for-one check),
+   the entitlement card of the scanned employee and today's exchanges with views and the saved row as after-state. */
+.ux-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 16px;
+}
+
+.ux-form {
+  gap: 14px;
+}
+
+.ux-head {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.3fr) minmax(260px, 1fr);
+  align-items: start;
+  gap: 8px 16px;
+}
+
+.ux-head > .field {
+  align-content: start;
+}
+
+.ux-scan {
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.ux-scan b {
+  color: var(--em-800);
+  font-variant-numeric: tabular-nums;
+}
+
+/* who is at the counter: avatar, name and id, then the role as chips – one slim strip across the form */
+.ux-emp {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--em-50), var(--surface-2) 70%);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.ux-emp__av {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, var(--forest-2, #2d5646), var(--forest, #1f3d33));
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--gold, #c8a96a);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ux-emp__n {
+  display: grid;
+  line-height: 1.25;
+}
+
+.ux-emp b,
+.ux-emp small {
+  display: block;
+}
+
+.ux-emp small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ux-emp__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-emp__tags li {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ux-lines td,
+.ux-lines th {
+  vertical-align: middle;
+}
+
+.ux-lines tfoot :is(th, td) {
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.ux-lines .lo3-in--n {
+  width: 80px;
+}
+
+.ux-lines .lo3-in--sel {
+  min-width: 200px;
+}
+
+.ux-lines .ux-cond {
+  min-width: 120px;
+  max-width: 140px;
+}
+
+.ux-lines :is(td, th):last-child {
+  white-space: nowrap;
+}
+
+.lx-rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.lx-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ux-ent {
+  gap: 12px;
+}
+
+.ux-ent__l {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ux-ent__l li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.ux-ent__l b {
+  text-align: right;
+}
+
+.ux-ent__l .ux-ent__h {
+  padding-top: 0;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.ux-ent__n {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.ux-t td {
+  vertical-align: top;
+}
+
+.ux-c {
+  font-weight: 600;
+}
+
+.ux-c--damaged {
+  color: var(--hk-pu, #b7791f);
+}
+
+.ux-c--replace {
+  color: #c53030;
+}
+
+.uxw .ux-t tr.ux-new {
+  display: none;
+}
+
+body:has(#saved-13:target) .uxw .ux-t tr.ux-new {
+  display: grid;
+}
+
+body:has(#saved-13:target) .ux-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved-13:target) .ux-now,
+body:has(#saved-13:target) #t-saved {
+  display: flex;
+}
+
+.la-views .hv__v {
+  text-decoration: none;
+}
+
+@media (max-width: 1360px) {
+  .ux-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ux-head {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.uxw:not(:has(:is(#v-all, #v-dmg, #v-extra):target)) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.uxw:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.uxw:has(#v-dmg:target) .hv__v[data-v="v-dmg"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.uxw:has(#v-dmg:target) .ux-r:not(.is-dmg) { display: none; }
+.uxw:has(#v-extra:target) .hv__v[data-v="v-extra"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.uxw:has(#v-extra:target) .ux-r:not(.is-extra) { display: none; }

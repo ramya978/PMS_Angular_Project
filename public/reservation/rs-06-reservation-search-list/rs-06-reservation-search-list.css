@@ -1,0 +1,5 @@
+/* rs-06-reservation-search-list.css: no screen-specific rules, this screen uses the shared styles. */
+/* the bulk strip appears only once a booking is ticked – no half-empty band under the tabs */
+body[data-screen="RS-06"] .stabs:not(:has(.dt__table tbody input[type="checkbox"]:checked)) > .stabs__extra--end {
+  display: none;
+}

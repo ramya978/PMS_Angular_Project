@@ -1,0 +1,78 @@
+/* prs-02-vendor-categories.css: categories as a card grid with an editable name, vendor counts; add category; save. */
+.vc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.vc-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.vc-ic {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, var(--em-500, #3a7a62), var(--em-700, #1f3d33));
+  color: #fff;
+}
+
+.vc-main {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.vc-name.field__input {
+  height: 34px;
+  font-weight: 650;
+}
+
+.vc-who {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vc-n {
+  display: grid;
+  justify-items: end;
+  color: var(--ink-3);
+  font-size: 12px;
+  text-align: right;
+}
+
+.vc-n b {
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.vc-n small {
+  font-size: 11.5px;
+}
+
+.vc-card--new {
+  display: none;
+}
+
+body:has(#added:target) .vc-card--new {
+  display: grid;
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

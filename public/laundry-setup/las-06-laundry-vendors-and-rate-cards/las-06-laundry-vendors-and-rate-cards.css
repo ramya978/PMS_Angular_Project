@@ -1,0 +1,105 @@
+/* las-06-laundry-vendors-and-rate-cards.css: vendor cards with their rate cards, rate-card pop-up grid. */
+.vd-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vd {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.vd.is-off {
+  background: var(--surface-2);
+}
+
+.vd:target {
+  box-shadow: 0 0 0 2px var(--em-500);
+}
+
+.vd__h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vd__h div {
+  display: grid;
+  flex: 1;
+}
+
+.vd__h small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.vd__ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.vd__m,
+.vd-none {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.vd-none {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fdf3dc;
+  color: #946200;
+}
+
+.vd > .btn {
+  justify-self: start;
+}
+
+.vd--new {
+  display: none;
+}
+
+.vd--new:target {
+  display: grid;
+}
+
+.vd-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
+  margin: 0 -6px;
+}
+
+.vd-grid th {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+body:has(.vd:target) #t-v {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 1100px) {
+  .vd-list {
+    grid-template-columns: 1fr;
+  }
+}

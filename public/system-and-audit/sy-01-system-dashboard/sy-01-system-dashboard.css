@@ -1,0 +1,88 @@
+/* sy-01-system-dashboard.css: services, storage bars, tiles. */
+.sy-dash {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sy-svcs {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sy-svc {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.sy-svc small {
+  min-width: 110px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.sy-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 12px;
+  margin-bottom: 14px;
+}
+
+.sy-bar i {
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--em-600) var(--w), var(--line) var(--w));
+}
+
+.sy-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sy-t {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sy-t:hover {
+  border-color: var(--em-600);
+}
+
+.sy-t__h {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sy-t__v {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sy-t__s {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+@media (max-width: 1280px) {
+  .sy-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

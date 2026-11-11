@@ -1,0 +1,31 @@
+/* rv-09-rate-parity.css – styles of RV-09 Rate Parity (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#exported:target) #t-exp,
+body:has(#pr-ok-ago-2026-10-28:target) #t-ok-ago-2026-10-28,
+body:has(#pr-ok-ago-2026-10-29:target) #t-ok-ago-2026-10-29,
+body:has(#pr-ok-tri-2026-10-24:target) #t-ok-tri-2026-10-24,
+body:has(#pr-ok-mak-2026-11-08:target) #t-ok-mak-2026-11-08,
+body:has(#pr-ok-mak-2026-11-09:target) #t-ok-mak-2026-11-09,
+body:has(#pr-inv-ago-2026-10-28:target) #t-inv-ago-2026-10-28,
+body:has(#pr-inv-ago-2026-10-29:target) #t-inv-ago-2026-10-29,
+body:has(#pr-inv-tri-2026-10-24:target) #t-inv-tri-2026-10-24,
+body:has(#pr-inv-mak-2026-11-08:target) #t-inv-mak-2026-11-08,
+body:has(#pr-inv-mak-2026-11-09:target) #t-inv-mak-2026-11-09 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.pr-ok-ago-2026-10-28 { display: none; }
+body:has(#pr-ok-ago-2026-10-28:target) .pr-now-ago-2026-10-28 { display: none; }
+body:has(#pr-ok-ago-2026-10-28:target) .pr-ok-ago-2026-10-28 { display: inline-flex; }
+.pr-ok-ago-2026-10-29 { display: none; }
+body:has(#pr-ok-ago-2026-10-29:target) .pr-now-ago-2026-10-29 { display: none; }
+body:has(#pr-ok-ago-2026-10-29:target) .pr-ok-ago-2026-10-29 { display: inline-flex; }
+.pr-ok-tri-2026-10-24 { display: none; }
+body:has(#pr-ok-tri-2026-10-24:target) .pr-now-tri-2026-10-24 { display: none; }
+body:has(#pr-ok-tri-2026-10-24:target) .pr-ok-tri-2026-10-24 { display: inline-flex; }
+.pr-ok-mak-2026-11-08 { display: none; }
+body:has(#pr-ok-mak-2026-11-08:target) .pr-now-mak-2026-11-08 { display: none; }
+body:has(#pr-ok-mak-2026-11-08:target) .pr-ok-mak-2026-11-08 { display: inline-flex; }
+.pr-ok-mak-2026-11-09 { display: none; }
+body:has(#pr-ok-mak-2026-11-09:target) .pr-now-mak-2026-11-09 { display: none; }
+body:has(#pr-ok-mak-2026-11-09:target) .pr-ok-mak-2026-11-09 { display: inline-flex; }

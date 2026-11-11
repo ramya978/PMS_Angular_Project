@@ -1,0 +1,27 @@
+/* ln-08-store-requisitions.css: requisitions with status (Draft … Rejected), receive-issue after-states. */
+.rq-rc {
+  display: none;
+}
+
+.rq-st,
+.rq-rc {
+  margin-bottom: 4px;
+}
+
+body:has(#received-0423:target) #rq-0423 .rq-st,
+body:has(#received-0421:target) #rq-0421 .rq-st {
+  display: none;
+}
+
+body:has(#received-0423:target) #rq-0423 .rq-rc,
+body:has(#received-0421:target) #rq-0421 .rq-rc {
+  display: inline-flex;
+}
+
+body:has(#received-0423:target) #rq-0423 > td,
+body:has(#received-0421:target) #rq-0421 > td {
+  background: var(--ok-bg);
+}
+
+body:has(#received-0423:target) #t-rc-0423,
+body:has(#received-0421:target) #t-rc-0421 { display: flex; animation: av-rise 320ms var(--ease); }

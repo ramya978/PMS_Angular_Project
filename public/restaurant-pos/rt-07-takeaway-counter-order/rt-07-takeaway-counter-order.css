@@ -1,0 +1,6 @@
+/* rt-07-takeaway-counter-order.css: counter order form (Send KOT and settle → RT-05) and today's tokens. */
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}

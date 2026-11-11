@@ -1,0 +1,24 @@
+/* ccs-04-bar-control-settings.css: peg sizes, bottle sizes, open bottle measure and a worked example. */
+body:has(#added-peg:target) .pg-new > td,
+body:has(#added-bottle:target) .bt-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added-peg:target) #t-peg,
+body:has(#added-bottle:target) #t-bottle,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* the new rows appear with their own marker (the shared rule listens for #added) */
+.pg-new,
+.bt-new {
+  display: none;
+}
+
+body:has(#added-peg:target) tr.pg-new,
+body:has(#added-bottle:target) tr.bt-new {
+  display: table-row;
+}

@@ -1,0 +1,97 @@
+/* in-01-integration-catalogue.css: catalogue cards and category views. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-distribution:target) .hv__v[data-v="v-distribution"],
+#main:has(#v-market-data:target) .hv__v[data-v="v-market-data"],
+#main:has(#v-payments:target) .hv__v[data-v="v-payments"],
+#main:has(#v-messaging:target) .hv__v[data-v="v-messaging"],
+#main:has(#v-devices:target) .hv__v[data-v="v-devices"],
+#main:has(#v-government:target) .hv__v[data-v="v-government"],
+#main:has(#v-finance:target) .hv__v[data-v="v-finance"],
+#main:has(#v-hr:target) .hv__v[data-v="v-hr"],
+#main:has(#v-building:target) .hv__v[data-v="v-building"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-distribution:target) .in-c:not(.rg-distribution),
+#main:has(#v-market-data:target) .in-c:not(.rg-market-data),
+#main:has(#v-payments:target) .in-c:not(.rg-payments),
+#main:has(#v-messaging:target) .in-c:not(.rg-messaging),
+#main:has(#v-devices:target) .in-c:not(.rg-devices),
+#main:has(#v-government:target) .in-c:not(.rg-government),
+#main:has(#v-finance:target) .in-c:not(.rg-finance),
+#main:has(#v-hr:target) .in-c:not(.rg-hr),
+#main:has(#v-building:target) .in-c:not(.rg-building) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.in-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.in-c {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px 12px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.in-c__ic {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.in-c__t {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.in-c__t small {
+  color: var(--muted);
+}
+
+.in-c__m {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  margin: 0;
+}
+
+.in-c__m dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.in-c__m dd {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.in-c__a {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}

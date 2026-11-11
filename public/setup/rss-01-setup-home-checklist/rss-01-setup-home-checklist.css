@@ -1,0 +1,33 @@
+/* RSS-01 Setup Home: the design is in css/aviv/setup-home.css (shared with FDS-01 and HKS-01). Only this screen's extras are here. */
+.rss01-none {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+main:has(#shf-warn:checked, #shf-todo:checked) .rss01-none {
+  display: flex;
+}
+
+.rss01-reports {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.rss01-reports .fd-cardhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.rss01-reports > .card {
+  scroll-margin-top: 72px;
+}

@@ -1,0 +1,109 @@
+/* bq-02-enquiries.css: enquiries by status (views), row actions Proposal / Convert / Mark lost, BQ-P01 entry, BQ-P02 proposal (per enquiry), lost-reason modal per row. */
+.eqw:not(:has(:is(#v-all, #v-enq, #v-prop, #v-conv, #v-lost):target)) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-enq:target) .hv__v[data-v="v-enq"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-enq:target) tr.eq:not(.eq--enq) { display: none; }
+.eqw:has(#v-prop:target) .hv__v[data-v="v-prop"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-prop:target) tr.eq:not(.eq--prop) { display: none; }
+.eqw:has(#v-conv:target) .hv__v[data-v="v-conv"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-conv:target) tr.eq:not(.eq--conv) { display: none; }
+.eqw:has(#v-lost:target) .hv__v[data-v="v-lost"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.eqw:has(#v-lost:target) tr.eq:not(.eq--lost) { display: none; }
+.eqw:not(:has(#enq-saved:target)) .eq-added,
+.eq-pp,
+.eq-lost {
+  display: none;
+}
+
+.eqw:has(#enq-saved:target) #t-enq-saved { display: flex; animation: av-rise 320ms var(--ease); }
+
+.bq-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bq-if {
+  display: none;
+}
+
+#bq-p01:has(input[name="rooms"]:checked) .bq-if--rooms {
+  display: flex;
+}
+
+.pp-w,
+.ml-w {
+  display: none;
+}
+
+.pp-who {
+  grid-column: 1 / -1;
+}
+
+#bq-p02:has(#pp-0:target) .pp-w--0 { display: block; }
+#bq-p02:has(#pp-1:target) .pp-w--1 { display: block; }
+#bq-p02:has(#pp-2:target) .pp-w--2 { display: block; }
+#bq-p02:has(#pp-3:target) .pp-w--3 { display: block; }
+#bq-p02:not(:has(.pm:target)) .pp-w--0 {
+  display: block;
+}
+.eqw:has(#lost-0:target) #eq-0 .eq-now, .eqw:has(#lost-0:target) #eq-0 .bq-acts { display: none; }
+.eqw:has(#lost-0:target) #eq-0 .eq-lost { display: inline-flex; }
+.eqw:has(#lost-0:target) #t-lost-0 { display: flex; animation: av-rise 320ms var(--ease); }
+#ml-f-0 { display: none; }
+.eqw:has(#ml-0:target) #ml-f-0 { display: grid; }
+.eqw:has(#ml-0:target) .ml-w--0 { display: block; }
+.eqw:has(#lost-1:target) #eq-1 .eq-now, .eqw:has(#lost-1:target) #eq-1 .bq-acts { display: none; }
+.eqw:has(#lost-1:target) #eq-1 .eq-lost { display: inline-flex; }
+.eqw:has(#lost-1:target) #t-lost-1 { display: flex; animation: av-rise 320ms var(--ease); }
+#ml-f-1 { display: none; }
+.eqw:has(#ml-1:target) #ml-f-1 { display: grid; }
+.eqw:has(#ml-1:target) .ml-w--1 { display: block; }
+.eqw:has(#lost-2:target) #eq-2 .eq-now, .eqw:has(#lost-2:target) #eq-2 .bq-acts { display: none; }
+.eqw:has(#lost-2:target) #eq-2 .eq-lost { display: inline-flex; }
+.eqw:has(#lost-2:target) #t-lost-2 { display: flex; animation: av-rise 320ms var(--ease); }
+#ml-f-2 { display: none; }
+.eqw:has(#ml-2:target) #ml-f-2 { display: grid; }
+.eqw:has(#ml-2:target) .ml-w--2 { display: block; }
+.eqw:has(#lost-3:target) #eq-3 .eq-now, .eqw:has(#lost-3:target) #eq-3 .bq-acts { display: none; }
+.eqw:has(#lost-3:target) #eq-3 .eq-lost { display: inline-flex; }
+.eqw:has(#lost-3:target) #t-lost-3 { display: flex; animation: av-rise 320ms var(--ease); }
+#ml-f-3 { display: none; }
+.eqw:has(#ml-3:target) #ml-f-3 { display: grid; }
+.eqw:has(#ml-3:target) .ml-w--3 { display: block; }

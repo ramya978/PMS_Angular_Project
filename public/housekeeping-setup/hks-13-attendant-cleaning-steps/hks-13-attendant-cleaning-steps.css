@@ -1,0 +1,415 @@
+/* hks-13-attendant-cleaning-steps.css: steps of each task type, switched with #list-… links; step form with count and photo options. */
+
+.hks-views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 12px;
+}
+
+.hks-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hks-view:hover {
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--br-300);
+}
+
+.hks-view__n {
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--sunken);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.hks-views__sum {
+  margin-left: auto;
+  font-size: 12.5px;
+}
+
+.hks-list {
+  display: none;
+}
+
+.hks-list:target,
+.hks-list:has(:target),
+body:not(:has(.hks-list:target)):not(:has(.hks-list :target)) #list-dep {
+  display: block;
+}
+
+.hks-view--dep {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+.hks-view--dep .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+.fd-tabbar {
+  margin-bottom: 12px;
+}
+
+.hks-bar-act {
+  display: flex;
+  gap: 8px;
+}
+
+.hks-grip {
+  display: inline-flex;
+  margin-right: 8px;
+  color: var(--ink-4);
+  cursor: grab;
+  vertical-align: -2px;
+}
+
+body:has(.hks-list:target) .hks-view--dep,
+body:has(.hks-list :target) .hks-view--dep {
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+body:has(.hks-list:target) .hks-view--dep .hks-view__n,
+body:has(.hks-list :target) .hks-view--dep .hks-view__n {
+  background: var(--sunken);
+  color: inherit;
+}
+
+body:has(#list-dep:target) .hks-view--dep,
+body:has(#list-dep :target) .hks-view--dep {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-dep:target) .hks-view--dep .hks-view__n,
+body:has(#list-dep :target) .hks-view--dep .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-arr:target) .hks-view--arr,
+body:has(#list-arr :target) .hks-view--arr {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-arr:target) .hks-view--arr .hks-view__n,
+body:has(#list-arr :target) .hks-view--arr .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-tch:target) .hks-view--tch,
+body:has(#list-tch :target) .hks-view--tch {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-tch:target) .hks-view--tch .hks-view__n,
+body:has(#list-tch :target) .hks-view--tch .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-sty:target) .hks-view--sty,
+body:has(#list-sty :target) .hks-view--sty {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-sty:target) .hks-view--sty .hks-view__n,
+body:has(#list-sty :target) .hks-view--sty .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-lch:target) .hks-view--lch,
+body:has(#list-lch :target) .hks-view--lch {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-lch:target) .hks-view--lch .hks-view__n,
+body:has(#list-lch :target) .hks-view--lch .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-dcl:target) .hks-view--dcl,
+body:has(#list-dcl :target) .hks-view--dcl {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-dcl:target) .hks-view--dcl .hks-view__n,
+body:has(#list-dcl :target) .hks-view--dcl .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+body:has(#list-tdn:target) .hks-view--tdn,
+body:has(#list-tdn :target) .hks-view--tdn {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(#list-tdn:target) .hks-view--tdn .hks-view__n,
+body:has(#list-tdn :target) .hks-view--tdn .hks-view__n {
+  background: rgb(255 255 255 / 0.2);
+  color: #fff;
+}
+
+/* saved toasts: shown with the row that was saved */
+body:has(#saved-dep1:target) #t-dep1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep2:target) #t-dep2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep3:target) #t-dep3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep4:target) #t-dep4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep5:target) #t-dep5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep6:target) #t-dep6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep7:target) #t-dep7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep8:target) #t-dep8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep9:target) #t-dep9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep10:target) #t-dep10 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep11:target) #t-dep11 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep12:target) #t-dep12 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep13:target) #t-dep13 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dep14:target) #t-dep14 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr1:target) #t-arr1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr2:target) #t-arr2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr3:target) #t-arr3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr4:target) #t-arr4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr5:target) #t-arr5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-arr6:target) #t-arr6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tch1:target) #t-tch1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tch2:target) #t-tch2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tch3:target) #t-tch3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tch4:target) #t-tch4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty1:target) #t-sty1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty2:target) #t-sty2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty3:target) #t-sty3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty4:target) #t-sty4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty5:target) #t-sty5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty6:target) #t-sty6 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty7:target) #t-sty7 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty8:target) #t-sty8 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-sty9:target) #t-sty9 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lch1:target) #t-lch1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lch2:target) #t-lch2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lch3:target) #t-lch3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-lch4:target) #t-lch4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl1:target) #t-dcl1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl2:target) #t-dcl2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl3:target) #t-dcl3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl4:target) #t-dcl4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-dcl5:target) #t-dcl5 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tdn1:target) #t-tdn1 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tdn2:target) #t-tdn2 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tdn3:target) #t-tdn3 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+body:has(#saved-tdn4:target) #t-tdn4 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+

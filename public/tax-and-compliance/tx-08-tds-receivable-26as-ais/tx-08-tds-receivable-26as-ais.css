@@ -1,0 +1,22 @@
+/* tx-08-tds-receivable-26as-ais.css: import bar and toasts. */
+.tx-imp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.tx-imp .field {
+  flex: 1 1 280px;
+}
+
+body:has(#imported:target) #t-imported,
+body:has(#followed:target) #t-followed {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

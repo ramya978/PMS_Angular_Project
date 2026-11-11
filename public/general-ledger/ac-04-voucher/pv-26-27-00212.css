@@ -1,0 +1,9 @@
+/* pv-26-27-00212.css: toasts of voucher PV/26-27/00212. */
+body:has(#submitted:target) #t-submitted,
+body:has(#posted:target) #t-posted,
+body:has(#approved:target) #t-approved,
+body:has(#rejected:target) #t-rejected,
+body:has(#reopened:target) #t-reopened {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

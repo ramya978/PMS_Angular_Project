@@ -1,0 +1,61 @@
+/* sy-06-scheduled-jobs.css */
+.sy-lg {
+  display: none;
+  gap: 8px;
+}
+
+#sy-lg:has(#lg-fd-x10:target) .sy-lg[data-j="fd-x10"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-hk-x02:target) .sy-lg[data-j="hk-x02"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-rv-x01:target) .sy-lg[data-j="rv-x01"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-rv-x02:target) .sy-lg[data-j="rv-x02"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-an-x01:target) .sy-lg[data-j="an-x01"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-lg-x04:target) .sy-lg[data-j="lg-x04"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-in-x05:target) .sy-lg[data-j="in-x05"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-sy-x02:target) .sy-lg[data-j="sy-x02"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-ac-x01:target) .sy-lg[data-j="ac-x01"] {
+  display: grid;
+}
+
+#sy-lg:has(#lg-mb-x02:target) .sy-lg[data-j="mb-x02"] {
+  display: grid;
+}
+
+.sy-pre {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 12.5px;
+  white-space: pre-wrap;
+}
+
+body:has(#ran:target) #t-ran,
+body:has(#paused-j:target) #t-paused-j,
+body:has(#resumed-j:target) #t-resumed-j {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

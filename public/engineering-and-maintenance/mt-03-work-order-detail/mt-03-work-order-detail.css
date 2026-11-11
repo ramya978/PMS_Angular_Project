@@ -1,0 +1,143 @@
+/* mt-03-work-order-detail.css: one page per work order (index = WO-2210) – header with status / priority / SLA, Details, Work, Parts & labour,
+   Verification, timeline on the right; pop-ups MT-P02 / P03 / P04 and reopen; after-states by :target markers. */
+.mt-head {
+  gap: 8px;
+}
+
+.lfi-k {
+  color: var(--ink-3);
+}
+
+.lfi-h {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.lfi-sts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.mt-desc {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+
+.mt-g {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 16px;
+}
+
+.mt-main {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.mt-tl {
+  position: sticky;
+  top: 80px;
+}
+
+.mt-tl .lf-tl > li {
+  grid-template-columns: 96px 1fr;
+}
+
+.mt-wf {
+  display: grid;
+  gap: 12px;
+}
+
+.mt-wf__a {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.mt-done,
+.mt-calc,
+.mt-vnew {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+.mt-vnew {
+  background: var(--ok-bg);
+}
+
+.mt-cost {
+  margin-top: 12px;
+}
+
+.mts:not(.mts--now),
+.mt-vnew,
+.mt-tnew {
+  display: none;
+}
+
+.mtw:has(:is(#assigned, #hold, #completed, #verified, #reopened):target) .mts--now {
+  display: none;
+}
+
+.mtw:has(#assigned:target) .mts--assigned,
+.mtw:has(#hold:target) .mts--hold,
+.mtw:has(#completed:target) .mts--completed,
+.mtw:has(#verified:target) .mts--verified,
+.mtw:has(#reopened:target) .mts--reopen {
+  display: inline-flex;
+}
+
+.mtw:has(#parts:target) .mt-pnew {
+  display: table-row;
+}
+
+.mtw:has(#parts:target) .mt-pnone {
+  display: none;
+}
+
+.mtw:has(#verified:target) .mt-vnew {
+  display: flex;
+}
+
+.mtw:has(:is(#assigned, #hold, #completed, #verified, #reopened, #contractor, #parts):target) .mt-tnew {
+  display: grid;
+}
+
+.mtw:has(#assigned:target) .mt-tnew__t::after { content: "Assigned"; }
+.mtw:has(#hold:target) .mt-tnew__t::after { content: "On hold"; }
+.mtw:has(#completed:target) .mt-tnew__t::after { content: "Completed"; }
+.mtw:has(#verified:target) .mt-tnew__t::after { content: "Verified and closed"; }
+.mtw:has(#reopened:target) .mt-tnew__t::after { content: "Reopened"; }
+.mtw:has(#contractor:target) .mt-tnew__t::after { content: "Sent to the contractor"; }
+.mtw:has(#parts:target) .mt-tnew__t::after { content: "Parts requested (ST-04)"; }
+
+.mtw:has(#assigned:target) #t-assigned,
+.mtw:has(#parts:target) #t-parts,
+.mtw:has(#hold:target) #t-hold,
+.mtw:has(#contractor:target) #t-contractor,
+.mtw:has(#completed:target) #t-completed,
+.mtw:has(#verified:target) #t-verified,
+.mtw:has(#reopened:target) #t-reopened { display: flex; animation: av-rise 320ms var(--ease); }
+
+@media (max-width: 1200px) {
+  .mt-g {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mt-tl {
+    position: static;
+  }
+}

@@ -1,0 +1,6 @@
+/* rv-10-group-evaluation.css – styles of RV-10 Group Evaluation (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

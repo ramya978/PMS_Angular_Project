@@ -1,0 +1,21 @@
+/* txs-01-gst-registrations.css: the new registration row and toasts. */
+table.dt__table tr.tx-new {
+  display: none;
+}
+
+body:has(#added:target) tr.tx-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.tx-gstin.field__input {
+  min-width: 190px;
+  font-variant-numeric: tabular-nums;
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

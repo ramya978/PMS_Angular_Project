@@ -1,0 +1,45 @@
+/* sts-04-stores-and-sub-stores.css: store list with type, responsible person and stock tracking; add store; save. */
+.sr-name.field__input {
+  min-width: 190px;
+  height: 34px;
+  font-weight: 650;
+}
+
+[data-code="STS-04-list"] .field__wrap {
+  min-width: 190px;
+}
+
+.sr-track {
+  white-space: nowrap;
+}
+
+.sr-row--new {
+  display: none;
+}
+
+body:has(#added:target) .sr-row--new {
+  display: table-row;
+}
+
+body:has(#added:target) .sr-row--new > td {
+  background: var(--ok-bg);
+}
+
+.fd-sub .vn-flag {
+  height: 18px;
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+.fd-sub .vn-flag .icon {
+  width: 11px;
+  height: 11px;
+  margin-right: 3px;
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

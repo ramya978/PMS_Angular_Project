@@ -1,0 +1,159 @@
+/* hks-o02-checklist-print.css: printable inspection checklists and cleaning-step sheets, one shown at a time. */
+
+.hks-filters {
+  margin-bottom: 14px;
+}
+
+.hks-filterrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+
+.paper h2 {
+  margin: 18px 0 8px;
+  font-size: 15px;
+}
+
+.paper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.paper th,
+.paper td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #d9d4c6;
+  text-align: left;
+  vertical-align: top;
+}
+
+.paper th {
+  background: #f4f1ea;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.paper .r {
+  text-align: right;
+}
+
+.paper .c {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.paper__note {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 11.5px;
+}
+
+.hks-views {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+
+.hks-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hks-view__n {
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--sunken);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.hks-views__sum {
+  margin-left: auto;
+  font-size: 12.5px;
+}
+
+.hks-sheet {
+  display: none;
+}
+
+.hks-sheet:target,
+body:not(:has(.hks-sheet:target)) #sheet-c1 {
+  display: block;
+}
+
+.hks-view--c1 {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:has(.hks-sheet:target) .hks-view--c1 {
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+body:has(#sheet-c1:target) .hks-view--c1,
+body:has(#sheet-c2:target) .hks-view--c2,
+body:has(#sheet-c3:target) .hks-view--c3,
+body:has(#sheet-c4:target) .hks-view--c4,
+body:has(#sheet-c5:target) .hks-view--c5,
+body:has(#sheet-c6:target) .hks-view--c6,
+body:has(#sheet-dep:target) .hks-view--dep,
+body:has(#sheet-arr:target) .hks-view--arr,
+body:has(#sheet-tch:target) .hks-view--tch,
+body:has(#sheet-sty:target) .hks-view--sty,
+body:has(#sheet-lch:target) .hks-view--lch,
+body:has(#sheet-dcl:target) .hks-view--dcl,
+body:has(#sheet-tdn:target) .hks-view--tdn {
+  background: var(--em-800, #1f3d33);
+  color: #fff;
+  box-shadow: none;
+}
+
+.hks-ck {
+  table-layout: auto;
+}
+
+.hks-ck th:nth-child(1) {
+  width: 5%;
+}
+
+.hks-ck th:nth-child(2) {
+  width: 44%;
+}
+
+.hks-fill {
+  margin: 12px 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.paper__grp th {
+  background: #ebe7da;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
+@media print {
+  .hks-sheet {
+    break-after: page;
+    page-break-after: always;
+  }
+}

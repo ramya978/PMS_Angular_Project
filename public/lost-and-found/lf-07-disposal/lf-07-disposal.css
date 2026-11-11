@@ -1,0 +1,84 @@
+/* lf-07-disposal.css: views (Due, Pending approval, Approved, Disposed), Request disposal LF-P04, Approve and Record disposal after-states. */
+.dpl:not(:has(:is(#v-due, #v-pend, #v-appr, #v-done, #v-all):target)) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dpl:has(#v-due:target) .hv__v[data-v="v-due"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dpl:has(#v-due:target) tr.dpr:not(.r-due) { display: none; }
+.dpl:has(#v-pend:target) .hv__v[data-v="v-pend"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dpl:has(#v-pend:target) tr.dpr:not(.r-pend) { display: none; }
+.dpl:has(#v-appr:target) .hv__v[data-v="v-appr"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dpl:has(#v-appr:target) tr.dpr:not(.r-appr) { display: none; }
+.dpl:has(#v-done:target) .hv__v[data-v="v-done"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.dpl:has(#v-done:target) tr.dpr:not(.r-done) { display: none; }
+.dpl:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+.dp-ap,
+.dp-rec {
+  display: none;
+}
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.dpl:has(#requested:target) .lf-new {
+  display: table-row;
+}
+
+.dpl:has(#requested:target) #dp-0061 {
+  display: none;
+}
+
+.dpl:has(#requested:target) #t-requested { display: flex; animation: av-rise 320ms var(--ease); }
+.dpl:has(#ap-0049:target) #dp-0049 .dp-st { display: none; }
+.dpl:has(#ap-0049:target) #dp-0049 .dp-ap { display: inline-flex; }
+.dpl:has(#ap-0049:target) #dp-0049 > td { background: var(--ok-bg); }
+.dpl:has(#ap-0049:target) #dp-0049 .mr-acts { visibility: hidden; }
+.dpl:has(#ap-0049:target) #t-ap-0049 { display: flex; animation: av-rise 320ms var(--ease); }
+.dpl:has(#ap-0058:target) #dp-0058 .dp-st { display: none; }
+.dpl:has(#ap-0058:target) #dp-0058 .dp-ap { display: inline-flex; }
+.dpl:has(#ap-0058:target) #dp-0058 > td { background: var(--ok-bg); }
+.dpl:has(#ap-0058:target) #dp-0058 .mr-acts { visibility: hidden; }
+.dpl:has(#ap-0058:target) #t-ap-0058 { display: flex; animation: av-rise 320ms var(--ease); }
+.dpl:has(#recorded-0063:target) #dp-0063 .dp-st { display: none; }
+.dpl:has(#recorded-0063:target) #dp-0063 .dp-rec { display: inline-flex; }
+.dpl:has(#recorded-0063:target) #dp-0063 > td { background: var(--ok-bg); }
+.dpl:has(#recorded-0063:target) #dp-0063 .mr-acts { visibility: hidden; }
+.dpl:has(#recorded-0063:target) #t-rec-0063 { display: flex; animation: av-rise 320ms var(--ease); }

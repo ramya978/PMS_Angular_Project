@@ -1,0 +1,179 @@
+/* in-06-error-queue.css: error cards, assign / discard pop-ups, resubmit after-state. */
+.in-elist {
+  display: grid;
+  gap: 12px;
+}
+
+.in-e {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.in-e--discarded,
+.in-e--resubmitted {
+  opacity: .75;
+}
+
+.in-e__h {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.in-e__id {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.in-e__m {
+  margin: 0;
+}
+
+.in-e__d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.in-e__d dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.in-e__d dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.in-e__a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.in-st2,
+.in-who {
+  display: none;
+}
+
+#in-as:has(#as-e-2210:target) .in-who[data-e="e-2210"],
+#in-dc:has(#dc-e-2210:target) .in-who[data-e="e-2210"] {
+  display: block;
+}
+
+body:has(#rs-e-2210:target) #e-e-2210 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2210:target) #e-e-2210 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2210:target) #e-e-2210 {
+  background: var(--ok-bg);
+}
+
+#in-as:has(#as-e-2209:target) .in-who[data-e="e-2209"],
+#in-dc:has(#dc-e-2209:target) .in-who[data-e="e-2209"] {
+  display: block;
+}
+
+body:has(#rs-e-2209:target) #e-e-2209 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2209:target) #e-e-2209 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2209:target) #e-e-2209 {
+  background: var(--ok-bg);
+}
+
+#in-as:has(#as-e-2208:target) .in-who[data-e="e-2208"],
+#in-dc:has(#dc-e-2208:target) .in-who[data-e="e-2208"] {
+  display: block;
+}
+
+body:has(#rs-e-2208:target) #e-e-2208 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2208:target) #e-e-2208 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2208:target) #e-e-2208 {
+  background: var(--ok-bg);
+}
+
+#in-as:has(#as-e-2207:target) .in-who[data-e="e-2207"],
+#in-dc:has(#dc-e-2207:target) .in-who[data-e="e-2207"] {
+  display: block;
+}
+
+body:has(#rs-e-2207:target) #e-e-2207 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2207:target) #e-e-2207 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2207:target) #e-e-2207 {
+  background: var(--ok-bg);
+}
+
+#in-as:has(#as-e-2205:target) .in-who[data-e="e-2205"],
+#in-dc:has(#dc-e-2205:target) .in-who[data-e="e-2205"] {
+  display: block;
+}
+
+body:has(#rs-e-2205:target) #e-e-2205 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2205:target) #e-e-2205 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2205:target) #e-e-2205 {
+  background: var(--ok-bg);
+}
+
+#in-as:has(#as-e-2203:target) .in-who[data-e="e-2203"],
+#in-dc:has(#dc-e-2203:target) .in-who[data-e="e-2203"] {
+  display: block;
+}
+
+body:has(#rs-e-2203:target) #e-e-2203 .in-st {
+  display: none;
+}
+
+body:has(#rs-e-2203:target) #e-e-2203 .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rs-e-2203:target) #e-e-2203 {
+  background: var(--ok-bg);
+}
+
+body:has(#rs-e-2210:target) #t-rs-e-2210,
+body:has(#rs-e-2209:target) #t-rs-e-2209,
+body:has(#rs-e-2208:target) #t-rs-e-2208,
+body:has(#rs-e-2207:target) #t-rs-e-2207,
+body:has(#rs-e-2205:target) #t-rs-e-2205,
+body:has(#rs-e-2203:target) #t-rs-e-2203,
+body:has(#assigned:target) #t-assigned,
+body:has(#discarded:target) #t-discarded {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

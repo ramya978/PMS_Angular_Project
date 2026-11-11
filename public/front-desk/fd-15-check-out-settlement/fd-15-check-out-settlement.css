@@ -1,0 +1,214 @@
+/* fd-15-check-out-settlement.css – styles of FD-15 Check-out & Settlement (laptop rules; phone rules sit in max-width media queries). */
+
+.variants > .variant:has(.fd-toast:target) {
+  display: block;
+}
+
+.variants:has(.variant:not(.is-default) .fd-toast:target) > .variant.is-default {
+  display: none;
+}
+
+/* record variants */
+#FK-10108:target ~ .v-FK-10108 {
+  display: block;
+}
+
+#FK-10082:target ~ .v-FK-10082 {
+  display: block;
+}
+
+#FK-10058:target ~ .v-FK-10058 {
+  display: block;
+}
+
+#FK-10056:target ~ .v-FK-10056 {
+  display: block;
+}
+
+#FK-10002:target ~ .v-FK-10002 {
+  display: block;
+}
+
+#FK-10074:target ~ .v-FK-10074 {
+  display: block;
+}
+
+#FK-10035:target ~ .v-FK-10035 {
+  display: block;
+}
+
+#FK-10165:target ~ .v-FK-10165 {
+  display: block;
+}
+
+#FK-10050:target ~ .v-FK-10050 {
+  display: block;
+}
+
+#FK-10118:target ~ .v-FK-10118 {
+  display: block;
+}
+
+#FK-10011:target ~ .v-FK-10011 {
+  display: block;
+}
+
+#FK-10101:target ~ .v-FK-10101 {
+  display: block;
+}
+
+#FK-10084:target ~ .v-FK-10084 {
+  display: block;
+}
+
+#FK-10250:target ~ .v-FK-10250 {
+  display: block;
+}
+
+#FK-10104:target ~ .v-FK-10104 {
+  display: block;
+}
+
+#FK-10033:target ~ .v-FK-10033 {
+  display: block;
+}
+
+#FK-10170:target ~ .v-FK-10170 {
+  display: block;
+}
+
+#FK-10162:target ~ .v-FK-10162 {
+  display: block;
+}
+
+#FK-10140:target ~ .v-FK-10140 {
+  display: block;
+}
+
+#FK-10193:target ~ .v-FK-10193 {
+  display: block;
+}
+
+#FK-10205:target ~ .v-FK-10205 {
+  display: block;
+}
+
+#FK-10008:target ~ .v-FK-10008 {
+  display: block;
+}
+
+#FK-10069:target ~ .v-FK-10069 {
+  display: block;
+}
+
+#FK-10031:target ~ .v-FK-10031 {
+  display: block;
+}
+
+#FK-10143:target ~ .v-FK-10143 {
+  display: block;
+}
+
+#FK-10105:target ~ .v-FK-10105 {
+  display: block;
+}
+
+#FK-10061:target ~ .v-FK-10061 {
+  display: block;
+}
+
+#FK-10103:target ~ .v-FK-10103 {
+  display: block;
+}
+
+#FK-10106:target ~ .v-FK-10106 {
+  display: block;
+}
+
+#FK-10102:target ~ .v-FK-10102 {
+  display: block;
+}
+
+#FK-10197:target ~ .v-FK-10197 {
+  display: block;
+}
+
+#FK-10048:target ~ .v-FK-10048 {
+  display: block;
+}
+
+#FK-10180:target ~ .v-FK-10180 {
+  display: block;
+}
+
+#FK-10187:target ~ .v-FK-10187 {
+  display: block;
+}
+
+#FK-10120:target ~ .v-FK-10120 {
+  display: block;
+}
+
+#FK-10161:target ~ .v-FK-10161 {
+  display: block;
+}
+
+#FK-10200:target ~ .v-FK-10200 {
+  display: block;
+}
+
+#FK-10172:target ~ .v-FK-10172 {
+  display: block;
+}
+
+#FK-10123:target ~ .v-FK-10123 {
+  display: block;
+}
+
+#FK-10203:target ~ .v-FK-10203 {
+  display: block;
+}
+
+#FK-10178:target ~ .v-FK-10178 {
+  display: block;
+}
+
+#FK-10027:target ~ .v-FK-10027 {
+  display: block;
+}
+
+#FK-10159:target ~ .v-FK-10159 {
+  display: block;
+}
+
+#FK-10010:target ~ .v-FK-10010 {
+  display: block;
+}
+
+#FK-10097:target ~ .v-FK-10097 {
+  display: block;
+}
+
+#FK-10145:target ~ .v-FK-10145 {
+  display: block;
+}
+
+#FK-10109:target ~ .v-FK-10109 {
+  display: block;
+}
+
+#FK-10232:target ~ .v-FK-10232 {
+  display: block;
+}
+
+#FK-10029:target ~ .v-FK-10029 {
+  display: block;
+}
+
+#FK-10042:target ~ .v-FK-10042 {
+  display: block;
+}
+
+#FK-10142:target ~ .v-FK-10142 {
+  display: block;
+}

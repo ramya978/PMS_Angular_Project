@@ -1,0 +1,2490 @@
+/* rs-03-enquiry-list.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* ── RS-03: date filter (enquiry created or check-in), from / to – generated rules (2026-10-31) ── */
+
+.hf-f--date {
+  min-width: 190px;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="01"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="02"]:checked) tbody > :is(tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="03"]:checked) tbody > :is(tr.eq-cr-20261002) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="03"]:checked) tbody > :is(tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="04"]:checked) tbody > :is(tr.eq-cr-20261002) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="04"]:checked) tbody > :is(tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="05"]:checked) tbody > :is(tr.eq-cr-20261002, tr.eq-cr-20261004) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="05"]:checked) tbody > :is(tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="06"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="06"]:checked) tbody > :is(tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="07"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="07"]:checked) tbody > :is(tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="08"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="08"]:checked) tbody > :is(tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="09"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="09"]:checked) tbody > :is(tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="10"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="10"]:checked) tbody > :is(tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="11"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="11"]:checked) tbody > :is(tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="12"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="12"]:checked) tbody > :is(tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="13"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="13"]:checked) tbody > :is(tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="14"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="14"]:checked) tbody > :is(tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="15"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="15"]:checked) tbody > :is(tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="16"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="16"]:checked) tbody > :is(tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="17"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="17"]:checked) tbody > :is(tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="18"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="18"]:checked) tbody > :is(tr.eq-cr-20261021, tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="19"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="19"]:checked) tbody > :is(tr.eq-cr-20261021, tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="20"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="20"]:checked) tbody > :is(tr.eq-cr-20261021, tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="21"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="21"]:checked) tbody > :is(tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="22"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="cr"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="23"]:checked) tbody > :is(tr.eq-cr-20261002,
+  tr.eq-cr-20261004,
+  tr.eq-cr-20261005,
+  tr.eq-cr-20261006,
+  tr.eq-cr-20261008,
+  tr.eq-cr-20261013,
+  tr.eq-cr-20261014,
+  tr.eq-cr-20261015,
+  tr.eq-cr-20261016,
+  tr.eq-cr-20261017,
+  tr.eq-cr-20261018,
+  tr.eq-cr-20261021,
+  tr.eq-cr-20261022) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="23"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="24"]:checked) tbody > :is(tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="25"]:checked) tbody > :is(tr.eq-ci-20261024) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="25"]:checked) tbody > :is(tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="26"]:checked) tbody > :is(tr.eq-ci-20261024) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="26"]:checked) tbody > :is(tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="27"]:checked) tbody > :is(tr.eq-ci-20261024) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="27"]:checked) tbody > :is(tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="28"]:checked) tbody > :is(tr.eq-ci-20261024) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="28"]:checked) tbody > :is(tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="29"]:checked) tbody > :is(tr.eq-ci-20261024, tr.eq-ci-20261028) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="29"]:checked) tbody > :is(tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="30"]:checked) tbody > :is(tr.eq-ci-20261024, tr.eq-ci-20261028) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="30"]:checked) tbody > :is(tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="10"]:checked):has(input[name="eqf"][value="31"]:checked) tbody > :is(tr.eq-ci-20261024, tr.eq-ci-20261028) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="10"]:checked):has(input[name="eqt"][value="31"]:checked) tbody > :is(tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="01"]:checked) tbody > :is(tr.eq-ci-20261024, tr.eq-ci-20261028) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="01"]:checked) tbody > :is(tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="02"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="02"]:checked) tbody > :is(tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="03"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="03"]:checked) tbody > :is(tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="04"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="04"]:checked) tbody > :is(tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="05"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="05"]:checked) tbody > :is(tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="06"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="06"]:checked) tbody > :is(tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="07"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="07"]:checked) tbody > :is(tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="08"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="08"]:checked) tbody > :is(tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="09"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="09"]:checked) tbody > :is(tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="10"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="10"]:checked) tbody > :is(tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="11"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="11"]:checked) tbody > :is(tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="12"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="12"]:checked) tbody > :is(tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="13"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="13"]:checked) tbody > :is(tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="14"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="14"]:checked) tbody > :is(tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="15"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="15"]:checked) tbody > :is(tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="16"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="16"]:checked) tbody > :is(tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="17"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="17"]:checked) tbody > :is(tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="18"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="18"]:checked) tbody > :is(tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="19"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="19"]:checked) tbody > :is(tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="20"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="20"]:checked) tbody > :is(tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="21"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="21"]:checked) tbody > :is(tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="22"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="22"]:checked) tbody > :is(tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="23"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="23"]:checked) tbody > :is(tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="24"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="24"]:checked) tbody > :is(tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="25"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="25"]:checked) tbody > :is(tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="26"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="26"]:checked) tbody > :is(tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="27"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="27"]:checked) tbody > :is(tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="28"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="28"]:checked) tbody > :is(tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="29"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="29"]:checked) tbody > :is(tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="11"]:checked):has(input[name="eqf"][value="30"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="11"]:checked):has(input[name="eqt"][value="30"]:checked) tbody > :is(tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="01"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="01"]:checked) tbody > :is(tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="02"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="02"]:checked) tbody > :is(tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="03"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="03"]:checked) tbody > :is(tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="04"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="04"]:checked) tbody > :is(tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="05"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="05"]:checked) tbody > :is(tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="06"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="06"]:checked) tbody > :is(tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="07"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="07"]:checked) tbody > :is(tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="08"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="08"]:checked) tbody > :is(tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="09"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="09"]:checked) tbody > :is(tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="10"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="10"]:checked) tbody > :is(tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="11"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="11"]:checked) tbody > :is(tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="12"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="12"]:checked) tbody > :is(tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="13"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="13"]:checked) tbody > :is(tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="14"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="14"]:checked) tbody > :is(tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="15"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="15"]:checked) tbody > :is(tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="16"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="16"]:checked) tbody > :is(tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="17"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="17"]:checked) tbody > :is(tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="18"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="18"]:checked) tbody > :is(tr.eq-ci-20261220, tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="19"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="19"]:checked) tbody > :is(tr.eq-ci-20261220, tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="20"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="20"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="21"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="21"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="22"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="22"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="23"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="23"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="24"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="24"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="25"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="25"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="26"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="26"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="27"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqt-month"] option[value="12"]:checked):has(input[name="eqt"][value="27"]:checked) tbody > :is(tr.eq-ci-20261228) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="28"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220) {
+  display: none;
+}
+
+main:has(select[name="eqb"] option[value="ci"]:checked):has(select[name="eqf-month"] option[value="12"]:checked):has(input[name="eqf"][value="29"]:checked) tbody > :is(tr.eq-ci-20261024,
+  tr.eq-ci-20261028,
+  tr.eq-ci-20261101,
+  tr.eq-ci-20261105,
+  tr.eq-ci-20261108,
+  tr.eq-ci-20261109,
+  tr.eq-ci-20261111,
+  tr.eq-ci-20261114,
+  tr.eq-ci-20261115,
+  tr.eq-ci-20261119,
+  tr.eq-ci-20261120,
+  tr.eq-ci-20261122,
+  tr.eq-ci-20261123,
+  tr.eq-ci-20261128,
+  tr.eq-ci-20261129,
+  tr.eq-ci-20261130,
+  tr.eq-ci-20261203,
+  tr.eq-ci-20261204,
+  tr.eq-ci-20261205,
+  tr.eq-ci-20261210,
+  tr.eq-ci-20261213,
+  tr.eq-ci-20261218,
+  tr.eq-ci-20261220,
+  tr.eq-ci-20261228) {
+  display: none;
+}
+
+/* 2026-11-11 · enquiry type (individual / group) and the convert chooser */
+main:has(select[name="eqty"] option[value="grp"]:checked) tbody > tr:not(.eq-grp),
+main:has(input[name="eqty-q"][value="grp"]:checked) tbody > tr:not(.eq-grp) { display: none; }
+main:has(select[name="eqty"] option[value="ind"]:checked) tbody > tr:not(.eq-ind),
+main:has(input[name="eqty-q"][value="ind"]:checked) tbody > tr:not(.eq-ind) { display: none; }
+.eq-gtag {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold, #c8a96a) 22%, var(--surface));
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.eq-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.eq-tabs__t { position: relative; cursor: pointer; }
+.eq-tabs__t input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.eq-tabs__t span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink-2, var(--ink));
+  font-weight: 500;
+}
+.eq-tabs__t:has(input:checked) span {
+  background: var(--em-600);
+  color: #fff;
+  box-shadow: none;
+}
+.eq-tabs__t:has(input:focus-visible) span { outline: 2px solid var(--gold, #c8a96a); outline-offset: 2px; }
+.eq-tabs__go {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--em-600);
+  font-weight: 500;
+}
+.eq-cv { display: grid; gap: 10px; margin-bottom: 10px; }
+.eq-cv__o {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.eq-cv__o:hover { box-shadow: 0 0 0 1px var(--em-600); }
+.eq-cv__o.is-rec { box-shadow: 0 0 0 2px var(--em-600); background: var(--br-50); }
+.eq-cv__ic {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--br-50);
+  color: var(--em-600);
+}
+.eq-cv__t { display: grid; gap: 2px; }
+.eq-cv__t small { color: var(--ink-3); font-size: 12px; }

@@ -1,0 +1,178 @@
+/* rs-21-reservation-reports.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* ── RS-21: full filter bar on every report, detailed pickup report (2026-10-31) ── */
+.rep-f2 {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px 12px;
+  align-items: end;
+}
+
+.rep-f2__go {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.rep-summary.rep-summary--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.rep-sec {
+  margin-top: 16px;
+}
+
+.rep-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.rep-h small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rep-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.rep-table td.rep-up {
+  color: var(--st-ready);
+  font-weight: 700;
+}
+
+.rep-table td.rep-dn {
+  color: var(--st-cancelled);
+  font-weight: 700;
+}
+
+.rep-table tfoot :is(th, td) {
+  border-top: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  font-weight: 700;
+}
+
+.rep-bar {
+  display: inline-block;
+  width: 70px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--sunken);
+  vertical-align: middle;
+}
+
+.rep-bar > i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--em-600);
+}
+
+@media (max-width: 1180px) {
+  .rep-f2 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rep-two {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* ── 2026-11-04: separate sections strip + report sheet extras ── */
+.rep-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.rep-sec {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.rep-sec:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--br-500), var(--sh-2); }
+.rep-sec__ic {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--br-500) 14%, var(--surface));
+  color: var(--br-600);
+}
+.rep-sec strong { display: block; font-size: 14px; }
+.rep-sec small { display: block; margin-top: 2px; color: var(--ink-3); font-size: 12px; line-height: 1.4; }
+.rep-sub { margin: 18px 0 8px; font-family: var(--font-display); font-size: 16px; font-weight: 500; }
+.rep-day { font-family: var(--font-display); font-size: 15px; }
+.rep-table td, .rep-table th { white-space: nowrap; }
+@media (max-width: 1024px) { .rep-sections { grid-template-columns: 1fr; } }
+
+/* the filter fields of a report fill their row */
+@media (min-width: 1025px) {
+  .rep-f2 > .field {
+    flex: 1 1 200px;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .rep-f2 {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+
+  .rep-f2__go {
+    flex-basis: 100%;
+  }
+}
+
+/* Report sheets: text wraps so a report fits the sheet where it can; only the widest keep the sideways scroll (laptop only) */
+@media (min-width: 761px) {
+  [id^="sheet-RS-"] .rep-table :is(th, td) { padding-inline: 10px; white-space: normal; }
+  [id^="sheet-RS-"] .rep-table .pill { white-space: nowrap; }
+}
+
+/* Report bar: the buttons share the last row with the fields at any width (laptop only).
+   Four columns leave two cells free on the last row for 5, 6 and 10 fields; seven fields need five columns. */
+@media (min-width: 761px) {
+  .rep-filters.rep-f2 { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: end; }
+  .rep-filters.rep-f2:has(> .field:nth-child(7):nth-last-child(2)) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .rep-filters.rep-f2 > .rep-f2__go { grid-column: span 2 / -1; display: flex; justify-content: flex-end; align-self: end; margin: 0; }
+}
+
+/* Report bar on a laptop: the fields stay on one line (a long list of filters on two); the buttons take the last row (2026-11-11) */
+@media (min-width: 1025px) {
+  .rep-filters.rep-f2 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .rep-filters.rep-f2 > .rep-f2__go { grid-column: 1 / -1; }
+  .rep-filters.rep-f2:has(> .field:nth-child(5):nth-last-child(2)) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .rep-filters.rep-f2:has(> .field:nth-child(7):nth-last-child(2)) { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  /* ten filters: six on the first line, four and the buttons on the second */
+  .rep-filters.rep-f2:has(> .field:nth-child(10):nth-last-child(2)) > .rep-f2__go { grid-column: span 2 / -1; }
+}
+
+/* a chosen option stays on one line in the report bar (cut with … if it is too long) */
+@media (min-width: 1025px) {
+  .rep-filters.rep-f2 select.field__input,
+  .rep-filters.rep-f2 .field__input--select { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}

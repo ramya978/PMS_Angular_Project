@@ -1,0 +1,42 @@
+/* ad-08-go-live-checklist.css: property switch, test lock, toast. */
+.ad-v {
+  display: none;
+}
+
+#main:not(:has(#g-zkc:target)) .ad-v[data-v="ztv"],
+#main:has(#g-zkc:target) .ad-v[data-v="zkc"] {
+  display: grid;
+  gap: 16px;
+}
+
+#main:not(:has(#g-zkc:target)) .ad-sw a[data-v="ztv"],
+#main:has(#g-zkc:target) .ad-sw a[data-v="zkc"] {
+  border-color: var(--em-600);
+  background: var(--em-50);
+  color: var(--em-800);
+}
+
+.ad-tests {
+  display: grid;
+  gap: 8px;
+}
+
+.ad-lock {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.ad-signoff:has(.ad-test .check__input:not(:checked)) .ad-lock {
+  display: inline-flex;
+}
+
+.ad-signoff:has(.ad-test .check__input:not(:checked)) .fd-formfoot .btn--primary {
+  opacity: .5;
+  pointer-events: none;
+}
+
+body:has(#signed:target) #t-signed {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

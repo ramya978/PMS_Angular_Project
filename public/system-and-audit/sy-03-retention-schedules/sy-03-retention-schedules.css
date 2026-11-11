@@ -1,0 +1,13 @@
+/* sy-03-retention-schedules.css */
+.sy-prev {
+  display: none;
+}
+
+body:has(#preview:target) .sy-prev {
+  display: grid;
+}
+
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

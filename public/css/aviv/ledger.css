@@ -1,0 +1,625 @@
+/* ledger.css: shared parts of the General Ledger (AC) screens – posting-status grid, period strip, journal rows,
+   voucher form, trail, ledger tree and checklists. Brand colours only through the theme variables (docs/THEME.md);
+   status colours are literal on purpose. Phone / tablet rules are inside max-width queries at the end. */
+
+/* ───── posting status grid (AC-01) ───── */
+.gl-grid {
+  min-width: 760px;
+}
+
+.gl-grid td {
+  padding-inline: 6px;
+}
+
+.gl-grid th,
+.gl-grid td {
+  vertical-align: middle;
+}
+
+.gl-src {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.gl-src > .icon {
+  flex: none;
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.gl-src small,
+.gl-day small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.gl-st {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.gl-st--ok {
+  background: #e8f5ee;
+  color: #22663f;
+}
+
+.gl-st--bad {
+  background: #fdecec;
+  color: #a82a2a;
+}
+
+.gl-st--warn,
+.gl-st--wait {
+  background: #fdf3e2;
+  color: #8a5a12;
+}
+
+.gl-st--none {
+  background: var(--surface-2);
+  color: var(--ink-3);
+}
+
+.gl-st:hover {
+  box-shadow: inset 0 0 0 1px currentcolor;
+}
+
+/* ───── period strip ───── */
+.gl-pms {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gl-pm {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.gl-pm > span {
+  font-weight: 700;
+}
+
+.gl-pm small {
+  margin-left: 2px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.gl-pm b {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.gl-pm--lock {
+  color: var(--ink-2);
+}
+
+.gl-pm--open {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 1.5px var(--em-600);
+  color: var(--em-800);
+}
+
+.gl-pm--next {
+  color: var(--ink-3);
+}
+
+/* ───── journal and voucher lists ───── */
+.gl-tbl {
+  min-width: 980px;
+}
+
+.gl-day th {
+  padding-top: 14px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-weight: 700;
+  text-align: left;
+}
+
+.gl-day th > .icon {
+  margin-right: 6px;
+  color: var(--em-700);
+  vertical-align: -2px;
+}
+
+.gl-day small {
+  display: inline;
+  margin-left: 10px;
+}
+
+.gl-ref {
+  display: block;
+  font-weight: 600;
+}
+
+.gl-err {
+  color: #a82a2a;
+  font-size: 12.5px;
+}
+
+.gl-errc {
+  max-width: 280px;
+}
+
+.gl-acts {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gl-b {
+  font-weight: 700;
+}
+
+.gl-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.gl-note > .icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--em-700);
+}
+
+.gl-note--warn {
+  background: #fdf3e2;
+}
+
+.gl-note--warn > .icon {
+  color: #8a5a12;
+}
+
+.gl-note--bad {
+  background: #fdecec;
+}
+
+.gl-note--bad > .icon {
+  color: #a82a2a;
+}
+
+.gl-drill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.gl-dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px 18px;
+  margin: 0 0 12px;
+}
+
+.gl-dl dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gl-dl dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+/* ───── voucher form (AC-04, AC-05) ───── */
+.gl-types {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+}
+
+.gl-types legend {
+  margin-bottom: 8px;
+}
+
+.gl-type input {
+  position: absolute;
+  opacity: 0;
+}
+
+.gl-type span {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px 10px;
+  height: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-2, #a39b88);
+  cursor: pointer;
+}
+
+.gl-type span > .icon {
+  grid-row: span 2;
+  color: var(--em-700);
+}
+
+.gl-type small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.gl-type input:checked + span {
+  background: var(--em-50);
+  box-shadow: inset 0 0 0 2px var(--em-600);
+}
+
+.gl-type input:focus-visible + span {
+  outline: 2px solid var(--br-500);
+  outline-offset: 2px;
+}
+
+.gl-lines {
+  min-width: 860px;
+}
+
+.gl-lines .field__input {
+  width: 100%;
+}
+
+.gl-acc {
+  min-width: 260px;
+}
+
+.gl-amt {
+  max-width: 140px;
+  text-align: right;
+}
+
+.gl-tot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.gl-tot > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gl-foot .fd-spacer {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.gl-trail {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gl-trail li {
+  display: grid;
+  grid-template-columns: 150px 170px 1fr;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 13px;
+}
+
+/* ───── ledger tree, trial balance, books ───── */
+.gl-tree tr.gl-g th {
+  background: var(--surface-2);
+  font-weight: 700;
+  text-align: left;
+}
+
+.gl-tree tr.gl-p td:first-child {
+  padding-left: 22px;
+  font-weight: 600;
+}
+
+.gl-tree tr.gl-a td:first-child {
+  padding-left: 38px;
+}
+
+.gl-dr-cr {
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.gl-agree {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #22663f;
+  font-weight: 700;
+}
+
+.gl-run {
+  font-weight: 600;
+}
+
+/* ───── checklists (AC-10, AC-11) ───── */
+.gl-checks {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gl-check {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.gl-check__ic {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.gl-check--ok .gl-check__ic {
+  background: #e8f5ee;
+  color: #22663f;
+}
+
+.gl-check--bad .gl-check__ic {
+  background: #fdecec;
+  color: #a82a2a;
+}
+
+.gl-check--wait .gl-check__ic {
+  background: #fdf3e2;
+  color: #8a5a12;
+}
+
+.gl-check b {
+  display: block;
+}
+
+.gl-check small {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ───── tablet and phone (laptop view unchanged) ───── */
+@media (max-width: 1024px) {
+  .gl-types {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .gl-pms {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .gl-trail li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .gl-check {
+    grid-template-columns: 34px 1fr;
+  }
+
+  .gl-check > :last-child {
+    grid-column: 2;
+  }
+
+  .gl-errc {
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .gl-types {
+    grid-template-columns: 1fr;
+  }
+
+  .gl-pms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* journal numbers never break (AJ/26-27/01542) */
+.gl-tbl .num {
+  white-space: nowrap;
+}
+
+.gl-tbl td:first-child {
+  white-space: nowrap;
+}
+
+.gl-errc .gl-err {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+
+/* journal pop-up and line tables: account and department on one line */
+.gl-jm .modal__box {
+  width: min(1060px, 100%);
+}
+
+.gl-ltab td.nw,
+.gl-tbl td.nw,
+.gl-tree td.nw {
+  white-space: nowrap;
+}
+
+.gl-ltab {
+  min-width: 720px;
+}
+
+/* short columns shrink to their content; the narration / documents cell takes the room */
+.gl-tbl :is(th, td) {
+  width: 1%;
+}
+
+.gl-tbl td:has(> .gl-ref) {
+  width: auto;
+  min-width: 280px;
+}
+
+.gl-tbl .gl-errc {
+  min-width: 190px;
+}
+
+.gl-tbl td:has(> .gl-acts) {
+  min-width: 130px;
+}
+
+/* trial balance: seven columns fit a laptop screen */
+.gl-tb :is(th, td) {
+  padding-inline: 10px;
+  font-size: 13px;
+}
+
+.gl-tb {
+  min-width: 940px;
+}
+
+.gl-types--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gl-types--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gl-books {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .gl-types--2,
+  .gl-types--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* aviv.css lets .nw cells wrap in tables of 8+ columns; ledger tables keep codes, dates and amounts on one line */
+#main .gl-tbl .dt__td.nw,
+#main .gl-ltab .dt__td.nw {
+  white-space: nowrap;
+}
+
+/* wide printable schedules (7+ columns): the paper takes the full width, smaller figures; they scroll on phones */
+body:is([data-code^="AC-"], [data-code^="TX-"]) .paper:has(th:nth-child(7)) {
+  width: 100%;
+  max-width: none;
+}
+
+body:is([data-code^="AC-"], [data-code^="TX-"]) .paper table:has(th:nth-child(7)) :is(th, td) {
+  padding-inline: 6px;
+  font-size: 11.5px;
+}
+
+body:is([data-code^="AC-"], [data-code^="TX-"]) .paper td.pq-r {
+  white-space: nowrap;
+}
+
+body:is([data-code^="AC-"], [data-code^="TX-"]) .paper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 760px) {
+  .gl-dash .pq-l__m {
+    min-width: 0;
+  }
+
+  .gl-dash .pq-l__m small {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .gl-dash.dsh > div > .lf-card .pq-l {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gl-dash .pq-l > li {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+}
+
+/* "just created" rows inside a sortable table (.srt rows are grid rows) */
+table.srt > tbody > tr.gl-new {
+  display: none;
+}
+
+body:has(.pm[id^="reversed-"]:target) table.srt > tbody > tr.gl-new-none {
+  display: grid;
+  background: var(--em-50);
+}
+
+.gl-errc .btn {
+  margin-top: 6px;
+}

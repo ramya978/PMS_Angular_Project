@@ -1,0 +1,270 @@
+/* lostfound.css: rules shared by the Lost & Found (LF) screens, linked after laundry.css and linen.css –
+   photo tiles, value class, item header, custody timeline, :target tabs, after-state rows and toasts. Built only from the Aviv tokens. */
+
+/* photo thumbnail (a sample photo is not stored in the prototype: category icon on a tinted tile + photo count) */
+.lfp {
+  display: inline-grid;
+  position: relative;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--hk, var(--em-600)) 22%, var(--surface)), color-mix(in srgb, var(--hk, var(--em-600)) 8%, var(--surface)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hk, var(--em-600)) 30%, var(--line));
+  color: var(--hk, var(--em-700));
+}
+
+.lfp__n {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 650;
+  line-height: 18px;
+  text-align: center;
+}
+
+.lfp--lg {
+  width: 112px;
+  height: 112px;
+  border-radius: 16px;
+}
+
+.lfp--val { --hk: var(--br-600, #94722a); }
+.lfp--gen { --hk: #2b6cb0; }
+.lfp--per { --hk: #c05621; }
+
+/* value class: colour + icon + label */
+.lfv {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.lfv--val { color: #8a6516; }
+.lfv--gen { color: #2b6cb0; }
+.lfv--per { color: #c05621; }
+
+/* item number + tag */
+.lf-no {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* cells with a photo and text */
+.lf-it {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.lf-it > span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+/* after-state rows (shown by a :target marker of the page) */
+.lf-new {
+  display: none;
+}
+
+.lf-new > td {
+  background: var(--ok-bg);
+}
+
+/* disabled buttons keep their reason in the title */
+.btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* custody / contact timeline */
+.lf-tl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lf-tl > li {
+  display: grid;
+  position: relative;
+  grid-template-columns: 150px 1fr;
+  gap: 4px 16px;
+  padding: 10px 0 10px 22px;
+  border-left: 2px solid var(--line);
+  font-size: 13px;
+}
+
+.lf-tl > li::before {
+  position: absolute;
+  top: 15px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 0 0 2px var(--em-600);
+  content: "";
+}
+
+.lf-tl__w {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.lf-tl__t small {
+  display: block;
+  color: var(--ink-3);
+}
+
+.lf-tl > li.lf-new {
+  display: none;
+  border-radius: 0 10px 10px 0;
+  background: var(--ok-bg);
+}
+
+/* tabs that are separate :target panels (LF-03-1 … -3) */
+.lf-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.lf-tabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lf-panel {
+  display: none;
+  scroll-margin-top: 120px;
+}
+
+.lf-panel:target,
+.lf-panels:not(:has(.lf-panel:target)) > .lf-panel:first-child {
+  display: block;
+  animation: av-fade var(--t-base) var(--ease);
+}
+
+.lf-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.lf-card__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.lf-card__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* conditional fields in the pop-ups (shown by :has on the controlling radio / select) */
+.lf-if {
+  display: none;
+}
+
+/* key–value grid of a record */
+.lf-kv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px 20px;
+  margin: 0;
+}
+
+.lf-kv > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.lf-kv dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.lf-kv dd {
+  margin: 0;
+  font-size: 13.5px;
+}
+
+.lf-kv dd small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* signature pad (device – static equivalent with a captured sample) */
+.lf-sig {
+  display: grid;
+  place-items: center;
+  height: 84px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+}
+
+/* icons inside table cells and facts stay on the line */
+:is(.dt__td, .lf-kv dd) > .icon {
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.lfp--lg .icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* :target panels win over the card display */
+.lf-panels > .lf-panel {
+  display: none;
+}
+
+.lf-panels > .lf-panel:target,
+.lf-panels:not(:has(.lf-panel:target)) > .lf-panel:first-child {
+  display: grid;
+}

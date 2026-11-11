@@ -1,0 +1,47 @@
+/* bq-04-event-bookings.css: all events with dates, venues, pax, value, advance and status; views by status group. */
+.evw:not(:has(:is(#v-all, #v-opt, #v-def, #v-done, #v-cxl):target)) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-opt:target) .hv__v[data-v="v-opt"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-opt:target) tr.ev:not(.ev--opt) { display: none; }
+.evw:has(#v-def:target) .hv__v[data-v="v-def"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-def:target) tr.ev:not(.ev--def) { display: none; }
+.evw:has(#v-done:target) .hv__v[data-v="v-done"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-done:target) tr.ev:not(.ev--done) { display: none; }
+.evw:has(#v-cxl:target) .hv__v[data-v="v-cxl"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.evw:has(#v-cxl:target) tr.ev:not(.ev--cxl) { display: none; }

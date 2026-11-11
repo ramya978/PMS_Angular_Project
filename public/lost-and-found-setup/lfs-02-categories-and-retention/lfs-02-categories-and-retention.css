@@ -1,0 +1,72 @@
+/* lfs-02-categories-and-retention.css: categories grouped by value class, category form LFS-P01 (one sheet per category), add after-state. */
+.ln-k {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.ln-k .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pl-grp th {
+  padding: 8px 16px;
+  background: var(--surface-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.la-new {
+  display: none;
+}
+
+body:has(#added:target) .la-new {
+  display: table-row;
+}
+
+body:has(#added:target) .la-new > td {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved-rec:target) #t-rec { display: flex; animation: av-rise 320ms var(--ease); }
+
+.lf-ret {
+  display: grid;
+  grid-template-columns: 96px 120px;
+  gap: 8px;
+}
+
+.lf-wit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+/* BR-01: a valuable category whose default storage is not the safe */
+.lf-br01 {
+  display: none;
+  grid-column: 1 / -1;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fdf3dc;
+  color: #7a5200;
+  font-size: 13px;
+}
+
+.modal__box:has(select[name="value_class"] option[value="Valuable"]:checked):has(select[name="default_storage"] option:checked:not([value="Valuables safe"])) .lf-br01 {
+  display: flex;
+}

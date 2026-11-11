@@ -1,0 +1,62 @@
+/* lf-o04-guest-message.css: guest messages – found / ready / shipped samples; one item's message chosen by a marker (#mNNNN). */
+.gm-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.gm {
+  display: none;
+  gap: 8px;
+  padding: 16px 18px;
+  border-radius: 16px 16px 16px 4px;
+  background: #e7f6ec;
+  box-shadow: 0 0 0 1px var(--line);
+  font-size: 13.5px;
+}
+
+.gm__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.gm__h span,
+.gm small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.gm p {
+  margin: 0;
+}
+
+.gmw:not(:has(.pm:target)) .gm--s,
+.gmw:has(#m0112:target) .gm--0112,
+.gmw:has(#m0111:target) .gm--0111,
+.gmw:has(#m0110:target) .gm--0110,
+.gmw:has(#m0109:target) .gm--0109,
+.gmw:has(#m0108:target) .gm--0108,
+.gmw:has(#m0107:target) .gm--0107,
+.gmw:has(#m0106:target) .gm--0106,
+.gmw:has(#m0105:target) .gm--0105,
+.gmw:has(#m0104:target) .gm--0104,
+.gmw:has(#m0103:target) .gm--0103,
+.gmw:has(#m0102:target) .gm--0102,
+.gmw:has(#m0101:target) .gm--0101,
+.gmw:has(#m0100:target) .gm--0100,
+.gmw:has(#m0099:target) .gm--0099,
+.gmw:has(#m0098:target) .gm--0098,
+.gmw:has(#m0097:target) .gm--0097,
+.gmw:has(#m0095:target) .gm--0095,
+.gmw:has(#m0094:target) .gm--0094,
+.gmw:has(#m0090:target) .gm--0090,
+.gmw:has(#m0072:target) .gm--0072,
+.gmw:has(#m0063:target) .gm--0063,
+.gmw:has(#m0061:target) .gm--0061,
+.gmw:has(#m0058:target) .gm--0058,
+.gmw:has(#m0052:target) .gm--0052,
+.gmw:has(#m0049:target) .gm--0049 {
+  display: grid;
+}

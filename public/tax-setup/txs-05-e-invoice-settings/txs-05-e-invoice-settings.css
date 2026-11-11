@@ -1,0 +1,7 @@
+/* txs-05-e-invoice-settings.css: toasts. */
+body:has(#saved:target) #t-saved,
+body:has(#tested:target) #t-tested,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

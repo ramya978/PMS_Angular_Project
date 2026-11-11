@@ -1,0 +1,120 @@
+/* Home Launcher scene: Hotel Cutaway. HTML + CSS only; colours come from the theme variables (docs/THEME.md). */
+html, body { height: 100%; margin: 0; overflow: hidden; background: var(--deep, #0e1a2b); }
+.hsc {
+  --g: var(--gold, #c8a96a);
+  --d: var(--deep, #0e1a2b);
+  --d2: var(--deep-2, var(--d));
+  --b: var(--em-700, #174a3c);
+  --b5: var(--em-500, #2b7561);
+  --lit: color-mix(in srgb, var(--g) 68%, #fff);
+  --sil: color-mix(in srgb, var(--d2) 82%, #000);
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.hsc-l { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+.q-up { fill: color-mix(in srgb, var(--em-200, #bcd9cc) 66%, #fff); }
+.q1 { stop-color: color-mix(in srgb, var(--em-200, #bcd9cc) 66%, #fff); }
+.q2 { stop-color: color-mix(in srgb, var(--g) 18%, #fff); }
+.q3 { stop-color: color-mix(in srgb, var(--b5) 72%, #fff); }
+.q4 { stop-color: var(--b5); }
+.sun { fill: var(--g); animation: glow 7s ease-in-out infinite alternate; }
+.cloud { fill: #fff; opacity: .9; }
+.cg { animation: drift 58s ease-in-out var(--d) infinite alternate; }
+.far2 { fill: color-mix(in srgb, var(--b5) 28%, #fff); }
+.far { fill: color-mix(in srgb, var(--b5) 42%, #fff); }
+.road { fill: var(--d); }
+.kerb { fill: color-mix(in srgb, var(--g) 28%, #fff); }
+.lane { fill: none; stroke: var(--lit); stroke-width: 4; stroke-opacity: .7; }
+.wa { fill: color-mix(in srgb, var(--g) 16%, #fff); }
+.wb { fill: color-mix(in srgb, var(--em-200, #bcd9cc) 50%, #fff); }
+.wc { fill: color-mix(in srgb, var(--g) 30%, #fff); }
+.wd { fill: color-mix(in srgb, var(--em-200, #bcd9cc) 78%, #fff); }
+.glass { fill: color-mix(in srgb, var(--em-200, #bcd9cc) 40%, #fff); stroke: var(--d); stroke-width: 1.2; }
+.mull { fill: none; stroke: var(--d); stroke-width: .8; }
+.curt { fill: var(--g); }
+.f-dk { fill: var(--d2); stroke: var(--d2); stroke-width: 1.5; }
+.f-dk2 { fill: none; stroke: var(--d2); stroke-width: 4; stroke-linecap: round; }
+.f-bed { fill: var(--b); }
+.f-sh { fill: #fff; stroke: color-mix(in srgb, var(--b) 30%, #fff); stroke-width: 1; }
+.f-pl { fill: color-mix(in srgb, var(--g) 50%, #fff); }
+.f-bn { fill: var(--b5); }
+.beam { fill: var(--g); opacity: .28; animation: glow 5s ease-in-out var(--d) infinite alternate; }
+.beamr { fill: var(--lit); opacity: .32; animation: glow 5s ease-in-out var(--d) infinite alternate; }
+.lampsh { fill: var(--g); }
+.dim { fill: var(--d); opacity: 0; animation: dim var(--t) ease-in-out var(--d) infinite; }
+.steam { fill: none; stroke: var(--d2); stroke-opacity: .4; stroke-linecap: round; stroke-width: 2; animation: steam 3.4s ease-in-out var(--d) infinite; }
+.pp { fill: var(--b); }
+.pp2 { fill: var(--d); }
+.pp3 { fill: var(--g); }
+.bell { fill: var(--g); }
+.shaft { fill: color-mix(in srgb, var(--b) 14%, var(--d)); }
+.cable { stroke: var(--lit); stroke-width: 2; stroke-opacity: .6; }
+.rail { stroke: var(--g); stroke-width: 1.5; stroke-opacity: .5; }
+.lobby { fill: color-mix(in srgb, var(--g) 44%, #fff); }
+.rack { fill: color-mix(in srgb, var(--d) 60%, var(--g)); }
+.desk { fill: var(--b); }
+.deskt { fill: var(--d2); }
+.gw { animation: gw 26s linear infinite; }
+.case { fill: var(--g); }
+.glass2 { fill: color-mix(in srgb, var(--em-200, #bcd9cc) 56%, #fff); stroke: var(--d2); stroke-width: 2; }
+.revol { transform-origin: 348px 0; animation: revol 5s linear infinite; }
+.canopy { fill: var(--b); }
+.car { animation: lift 44s ease-in-out infinite; }
+.carb { fill: var(--lit); stroke: var(--g); stroke-width: 2; }
+.slab { fill: var(--d); }
+.tank { fill: var(--d); }
+.ripple { fill: none; stroke: #fff; stroke-width: 2; animation: rip 3s linear infinite; }
+.swim { animation: swim 22s ease-in-out infinite alternate; }
+.pa { fill: var(--b); stroke: var(--g); stroke-width: 2; }
+.tip { transform-origin: 0 -50px; animation: tip 6s ease-in-out var(--d) infinite alternate; }
+.rail2 { fill: none; stroke: var(--d); stroke-width: 2.4; }
+.pot { fill: var(--g); }
+.pm-t { fill: var(--d2); }
+.pm-l { fill: var(--b); }
+.sway { animation: sway 7s ease-in-out var(--d) infinite alternate; }
+.pmF path, .pmF__t { fill: var(--b); }
+.pmG path, .pmG__t { fill: var(--b5); }
+.taxi { animation: taxi 36s ease-in-out infinite; }
+.tx-b { fill: var(--g); }
+.tx-w { fill: var(--d); }
+.tx-l { fill: #fff; }
+.wh { fill: var(--d2); stroke: var(--lit); stroke-width: 3; }
+.wh2 { stroke: var(--lit); stroke-width: 1.5; }
+@keyframes glow { from { opacity: .78; } to { opacity: 1; } }
+@keyframes drift { from { transform: translateX(-60px); } to { transform: translateX(80px); } }
+@keyframes dim { 0%, 40%, 100% { opacity: 0; } 48%, 90% { opacity: .3; } }
+@keyframes steam { 0% { opacity: 0; transform: translateY(5px); } 50% { opacity: 1; } 100% { opacity: 0; transform: translateY(-8px); } }
+@keyframes gw { 0% { transform: translateX(370px); } 50%, 62% { transform: translateX(526px); } 100%, 92% { transform: translateX(760px); } }
+@keyframes revol { 0% { transform: scaleX(.1); } 50% { transform: scaleX(3); } 100% { transform: scaleX(.1); } }
+@keyframes lift {
+  0%, 6% { transform: translateY(790px); }
+  20%, 26% { transform: translateY(484px); }
+  40%, 46% { transform: translateY(296px); }
+  60%, 66% { transform: translateY(578px); }
+  80%, 86% { transform: translateY(390px); }
+  100% { transform: translateY(790px); }
+}
+@keyframes rip { to { transform: translateX(32px); } }
+@keyframes swim { from { transform: translateX(440px); } to { transform: translateX(690px); } }
+@keyframes tip { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+@keyframes sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes taxi {
+  0% { transform: translate(-160px, 840px); }
+  28%, 58% { transform: translate(270px, 840px); }
+  100% { transform: translate(1800px, 840px); }
+}
+@media (max-aspect-ratio: 1/1) {
+  .hsc-l { top: auto; bottom: 0; height: 125vw; overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .car { transform: translateY(484px); }
+  .taxi { transform: translate(270px, 840px); }
+  .gw { transform: translateX(526px); }
+  .swim { transform: translateX(560px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hsc *, .hsc *::before, .hsc *::after { animation: none !important; }
+}

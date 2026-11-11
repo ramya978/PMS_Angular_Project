@@ -1,0 +1,109 @@
+/* hks-16-floor-plans.css: floor list, upload pop-ups, placement mode with a plan preview and row / column boxes. */
+
+.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hks-place {
+  display: none;
+  margin-top: 18px;
+  padding: 16px 20px;
+}
+
+.hks-place:target {
+  display: block;
+}
+
+.hks-act {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hks-place__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.hks-plan {
+  align-content: start;
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.hks-plan__corridor {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  align-self: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 0.7);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-3);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hks-plan__tiles {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-template-rows: auto 28px auto;
+  gap: 6px;
+}
+
+.hks-plan__tiles .hks-tile:nth-child(n) {
+  align-self: start;
+}
+
+.hks-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--sh-1, 0 1px 2px rgb(0 0 0 / 0.08));
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  cursor: grab;
+}
+
+.hks-tile .icon {
+  color: var(--ink-4);
+}
+
+.hks-tile--suite {
+  box-shadow: 0 0 0 1px var(--br-400);
+}
+
+.hks-place__list {
+  max-height: 420px;
+}
+
+.hks-place__list input {
+  width: 72px;
+  height: 30px;
+}
+
+.hks-toastlink {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+  .hks-place__grid {
+    grid-template-columns: 1fr;
+  }
+}

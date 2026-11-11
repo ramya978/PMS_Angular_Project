@@ -1,0 +1,1404 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AVIV · ATELIER — Front Desk Setup module
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* progress band at the top of the setup home */
+.fds-top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 24px;
+  padding: 14px 20px;
+}
+
+.fds-ring {
+  --p: 50;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: conic-gradient(var(--em-600) calc(var(--p) * 1%), var(--sunken) 0);
+}
+
+.fds-ring::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.fds-ring__n {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fds-ring__n small {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+
+.fds-top__t > * + * {
+  margin-top: 2px;
+}
+
+.fds-top__ok {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #165f3d;
+  font-size: 12.5px;
+}
+
+.fds-top__ok .icon {
+  color: var(--st-ready);
+  width: 15px;
+  height: 15px;
+}
+
+.fds-top__stats {
+  display: flex;
+  gap: 0;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.fds-top__stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 8px 16px;
+}
+
+.fds-top__stats > div + div {
+  box-shadow: inset 1px 0 0 var(--line);
+}
+
+.fds-top__stats dd {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fds-group > * + * {
+  margin-top: 10px;
+}
+
+.fds-group + .fds-group {
+  margin-top: 22px;
+}
+
+.fds-group__h {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.fds-group__t {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.fds-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.fds-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px 12px 16px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink);
+  overflow: hidden;
+  transition: box-shadow var(--t-fast), transform var(--t-fast);
+}
+
+.fds-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px var(--br-300), var(--sh-2);
+  color: var(--ink);
+}
+
+.fds-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fds-card__t {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.fds-card__s {
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.fds-card__w {
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.fds-req {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--br-50);
+  box-shadow: inset 0 0 0 1px var(--br-200);
+  color: var(--br-700);
+  font-size: 10.5px;
+  font-weight: 650;
+}
+
+.fds-warn {
+  display: grid;
+  gap: 8px;
+}
+
+.fds-warn li {
+  display: grid;
+  gap: 2px;
+  padding: 9px 12px 9px 14px;
+  border-radius: var(--r-md);
+  background: var(--warn-bg);
+
+  font-size: 12.5px;
+}
+
+.fds-w__t {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #6e4a0e;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.fds-w__t .icon {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  color: var(--st-tentative);
+}
+
+.fds-warn .fd-link {
+  padding-left: 23px;
+  font-size: 12px;
+  color: var(--em-700);
+}
+
+.fds-recent {
+  display: grid;
+  gap: 0;
+}
+
+.fds-recent > * {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 12.5px;
+}
+
+.fds-r__w {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.fds-r__c {
+  color: var(--ink-2);
+}
+
+/* roles and limits */
+.fd-rolecards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.fd-rolecard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.fd-rowhead {
+  text-align: left;
+  font-weight: 650;
+  background: var(--surface-2);
+}
+
+.fd-pair {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.fd-pair .field__input {
+  width: 78px;
+  min-height: 32px;
+  padding: 4px 8px;
+}
+
+.dt__th--center {
+  text-align: center !important;
+}
+
+.fd-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.fd-filterwrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.fd-filterchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fd-filterchips input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fd-filterchips label,
+.fd-filterchips a {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 13px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fd-filterchips input:checked + label,
+.fd-filterchips a[aria-current] {
+  background: var(--em-800);
+  box-shadow: none;
+  color: #fff;
+}
+
+.fd-tierline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* FDS-21: editable repeating rows – a real table, inputs fill their cells */
+.fd-edit {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.fd-edit .dt__td {
+  padding: 6px 6px;
+}
+
+.fd-edit .dt__td:first-child {
+  padding-left: 14px;
+}
+
+.fd-edit .dt__td:last-child {
+  padding-right: 14px;
+}
+
+.fd-edit .field__input {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+}
+
+.fd-edit tbody tr:last-child .field__input {
+  border-style: dashed;
+  background: var(--surface-2);
+}
+
+.fd-empty {
+  padding: 18px;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.fds05-wrap,
+.fds05 {
+  display: block;
+}
+
+.fd-swatch__t {
+  font-size: 13px;
+}
+
+
+@media (max-width: 1100px) {
+  .fds-top {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .fds-top__stats {
+    grid-column: 1 / -1;
+  }
+}
+
+/* FDS-22: six role cards as an even 3 × 2 grid (no lone card on a second row) */
+.fd-rolecards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ═══════════ FDS-29a Account mapping grid ═══════════ */
+.mp-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mp-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mp-bar .fd-filterchips label {
+  gap: 8px;
+}
+
+.mp-bar .fd-filterchips label b {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.mp-bar .fd-filterchips input:checked + label b {
+  background: rgba(255, 255, 255, .2);
+}
+
+.mp-bar__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mp-table {
+  width: 100%;
+}
+
+.mp-table td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.mp-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mp-item b {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.mp-item small {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--em-800) 9%, transparent);
+  color: var(--em-800);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.mp-type {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mp-acc {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.mp-acc b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.mp-acc span {
+  color: var(--ink-2);
+}
+
+.mp-none {
+  color: var(--ink-3);
+}
+
+.mp-dc {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.mp-dc--c {
+  background: color-mix(in srgb, #2f855a 12%, transparent);
+  color: #276749;
+}
+
+.mp-dc--d {
+  background: color-mix(in srgb, #2b6cb0 11%, transparent);
+  color: #2c5282;
+}
+
+.mp-table tr.is-unmapped td {
+  background: color-mix(in srgb, #b7791f 8%, transparent);
+}
+
+/* "Not mapped" view: the grid gives way to a short list with a Map now button per item */
+.mp-unm {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: var(--r-md, 12px);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.mp-unm li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+}
+
+.mp-unm li + li {
+  border-top: 1px solid var(--line);
+}
+
+.mp-unm li .btn {
+  margin-left: auto;
+}
+
+.mp-wrap:has(#mapf-unm:checked) .mp-all {
+  display: none;
+}
+
+.mp-wrap:has(#mapf-unm:checked) .mp-unm {
+  display: block;
+}
+
+/* ───────── Settings sections on setup screens (FDS, HKS and every other setup module) ─────────
+   Title and description in a tinted rail on the left, the settings on the right in a compact grid;
+   inputs are as wide as their content and switches read as setting rows. Pop-up forms keep their own layout. */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  grid-auto-rows: min-content;
+  column-gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04), 0 12px 28px -22px rgb(16 24 40 / 0.35);
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > * {
+  grid-column: 2;
+  margin: 0;
+  padding-inline: 28px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > .fd-sec__t,
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > .fd-sec__d {
+  grid-column: 1;
+  padding: 0 22px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > .fd-sec__t {
+  grid-row: 1;
+  padding-top: 22px;
+  font-size: 17px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > .fd-sec__d {
+  grid-row: 2 / span 30;
+  margin-top: 6px !important;
+  padding-bottom: 22px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+/* the rail: tint and divider behind the first column */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec)::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1 / span 31;
+  border-right: 1px solid var(--line);
+  background:
+    radial-gradient(140% 60% at 0% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.12), transparent 60%),
+    var(--surface-2);
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > :nth-child(n + 3):not(.fd-sec__d) {
+  padding-top: 18px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > :last-child {
+  padding-bottom: 22px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > .fd-sec__t:first-child + .fd-sec__d + * {
+  grid-row: 1 / span 30;
+  align-self: start;
+  padding-top: 20px;
+}
+
+/* compact grid of settings */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .s-grid2 {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px 28px;
+}
+
+/* inputs sized to what they hold */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .field__input:is([type="number"],
+  [type="time"],
+  [type="date"]) {
+  max-width: 180px;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) :is(.field__input[type="text"],
+  .field__input[type="email"],
+  .field__input[type="tel"],
+  .field__wrap) {
+  max-width: 360px;
+}
+
+/* switches as setting rows */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .field--toggle {
+  align-content: start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .field--toggle:has(input:checked) {
+  background: color-mix(in srgb, var(--em-600) 6%, var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--em-600) 26%, var(--line));
+}
+
+/* radio / checkbox groups sit on a soft panel so they read as one choice */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .fd-fieldset > .fd-multi {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+@media (max-width: 1100px) {
+  body:is([data-code^="FDS-"],
+    [data-code^="HKS-"],
+    [data-code^="LAS-"],
+    [data-code^="MBS-"],
+    [data-code^="LNS-"],
+    [data-code^="LFS-"],
+    [data-code^="MTS-"],
+    [data-code^="RTS-"],
+    [data-code^="KTS-"],
+    [data-code^="BQS-"],
+    [data-code^="PRS-"],
+    [data-code^="STS-"],
+    [data-code^="CCS-"],
+    [data-code^="FNS-"],
+    [data-code^="ACS-"],
+    [data-code^="TXS-"],
+    [data-code^="HRS-"],
+    [data-code^="RVS-"],
+    [data-code^="DAS-"],
+    [data-code^="ANS-"],
+    [data-code^="MSS-"],
+    [data-code^="OWS-"],
+    [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:is([data-code^="FDS-"],
+    [data-code^="HKS-"],
+    [data-code^="LAS-"],
+    [data-code^="MBS-"],
+    [data-code^="LNS-"],
+    [data-code^="LFS-"],
+    [data-code^="MTS-"],
+    [data-code^="RTS-"],
+    [data-code^="KTS-"],
+    [data-code^="BQS-"],
+    [data-code^="PRS-"],
+    [data-code^="STS-"],
+    [data-code^="CCS-"],
+    [data-code^="FNS-"],
+    [data-code^="ACS-"],
+    [data-code^="TXS-"],
+    [data-code^="HRS-"],
+    [data-code^="RVS-"],
+    [data-code^="DAS-"],
+    [data-code^="ANS-"],
+    [data-code^="MSS-"],
+    [data-code^="OWS-"],
+    [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > *,
+  body:is([data-code^="FDS-"],
+    [data-code^="HKS-"],
+    [data-code^="LAS-"],
+    [data-code^="MBS-"],
+    [data-code^="LNS-"],
+    [data-code^="LFS-"],
+    [data-code^="MTS-"],
+    [data-code^="RTS-"],
+    [data-code^="KTS-"],
+    [data-code^="BQS-"],
+    [data-code^="PRS-"],
+    [data-code^="STS-"],
+    [data-code^="CCS-"],
+    [data-code^="FNS-"],
+    [data-code^="ACS-"],
+    [data-code^="TXS-"],
+    [data-code^="HRS-"],
+    [data-code^="RVS-"],
+    [data-code^="DAS-"],
+    [data-code^="ANS-"],
+    [data-code^="MSS-"],
+    [data-code^="OWS-"],
+    [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) > :is(.fd-sec__t,
+    .fd-sec__d) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body:is([data-code^="FDS-"],
+    [data-code^="HKS-"],
+    [data-code^="LAS-"],
+    [data-code^="MBS-"],
+    [data-code^="LNS-"],
+    [data-code^="LFS-"],
+    [data-code^="MTS-"],
+    [data-code^="RTS-"],
+    [data-code^="KTS-"],
+    [data-code^="BQS-"],
+    [data-code^="PRS-"],
+    [data-code^="STS-"],
+    [data-code^="CCS-"],
+    [data-code^="FNS-"],
+    [data-code^="ACS-"],
+    [data-code^="TXS-"],
+    [data-code^="HRS-"],
+    [data-code^="RVS-"],
+    [data-code^="DAS-"],
+    [data-code^="ANS-"],
+    [data-code^="MSS-"],
+    [data-code^="OWS-"],
+    [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec)::before {
+    display: none;
+  }
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .fd-fieldset {
+  padding: 0;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .fd-fieldset > legend {
+  padding: 0;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .field--toggle {
+  align-self: start;
+}
+
+/* sections that hold a table (or a wide board) stack: title and description on top, the table full width,
+   so its columns are not squeezed next to the rail */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) > *,
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) > :is(.fd-sec__t,
+  .fd-sec__d),
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) > .fd-sec__t:first-child + .fd-sec__d + * {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) > .fd-sec__d {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table)::before {
+  display: none;
+}
+
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec):has(table) {
+  background:
+    radial-gradient(60% 90px at 0% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.10), transparent 70%),
+    var(--surface);
+}
+
+/* option groups with five or more choices take the whole row of the settings grid, so their option tiles
+   flow across instead of running down one narrow column */
+body:is([data-code^="FDS-"],
+  [data-code^="HKS-"],
+  [data-code^="LAS-"],
+  [data-code^="MBS-"],
+  [data-code^="LNS-"],
+  [data-code^="LFS-"],
+  [data-code^="MTS-"],
+  [data-code^="RTS-"],
+  [data-code^="KTS-"],
+  [data-code^="BQS-"],
+  [data-code^="PRS-"],
+  [data-code^="STS-"],
+  [data-code^="CCS-"],
+  [data-code^="FNS-"],
+  [data-code^="ACS-"],
+  [data-code^="TXS-"],
+  [data-code^="HRS-"],
+  [data-code^="RVS-"],
+  [data-code^="DAS-"],
+  [data-code^="ANS-"],
+  [data-code^="MSS-"],
+  [data-code^="OWS-"],
+  [data-code^="LG-"]) .fd-sec:not(.modal .fd-sec) .s-grid2 > .fd-fieldset:has(.fd-multi > .check:nth-child(5)) {
+  grid-column: 1 / -1;
+}

@@ -1,0 +1,74 @@
+/* st-03-goods-received-note.css (GRN forms): lines grid, quality check, totals and the "saved" after-state. */
+.gr-batch {
+  display: grid;
+  gap: 4px;
+  min-width: 150px;
+}
+
+.gr-qc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.gr-tot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.gr-tot > div {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+}
+
+.gr-tot dt {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.gr-tot dd {
+  margin: 0;
+  font-weight: 650;
+}
+
+.gr-tot__sum dd {
+  font-size: 18px;
+}
+
+.gr-done {
+  display: none;
+}
+
+body:has(#saved:target) .gr-done {
+  display: flex;
+}
+
+.gr-stock {
+  display: grid;
+  gap: 2px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-code="ST-03-lines"] :is(th, td) {
+  padding-inline: 10px;
+}
+
+[data-code="ST-03-lines"] td:first-child {
+  min-width: 170px;
+}
+
+[data-code="ST-03-lines"] .field__wrap {
+  min-width: 120px;
+}
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

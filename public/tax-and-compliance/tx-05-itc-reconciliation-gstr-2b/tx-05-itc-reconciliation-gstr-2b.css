@@ -1,0 +1,45 @@
+/* tx-05-itc-reconciliation-gstr-2b.css: result views, the import bar and toasts. */
+#main:not(:has(.pm--v:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-m:target) .hv__v[data-v="v-m"],
+#main:has(#v-b:target) .hv__v[data-v="v-b"],
+#main:has(#v-p:target) .hv__v[data-v="v-p"],
+#main:has(#v-x:target) .hv__v[data-v="v-x"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 -2px 0 var(--em-600);
+}
+
+#main:has(#v-m:target) .gl-row:not(.rr-m),
+#main:has(#v-b:target) .gl-row:not(.rr-b),
+#main:has(#v-p:target) .gl-row:not(.rr-p),
+#main:has(#v-x:target) .gl-row:not(.rr-x) {
+  display: none;
+}
+
+.pm--v {
+  position: absolute;
+}
+
+.tx-imp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.tx-imp .field {
+  flex: 1 1 280px;
+}
+
+body:has(#imported:target) #t-imported,
+body:has(#matched:target) #t-matched,
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

@@ -1,0 +1,56 @@
+/* prs-05-terms-templates-and-numbering.css: payment terms with add, standard PO clauses, RFQ / PO templates, numbering. */
+.prs-term {
+  width: 160px;
+}
+
+.prs-fmt {
+  width: 180px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+#sec-b .s-grid2 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.tp-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.tp-card__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.tp-card .field__input[type="text"] {
+  max-width: none;
+}
+
+.prs-note code {
+  padding: 0 5px;
+  border-radius: 5px;
+  background: var(--surface-2);
+  font-size: 11.5px;
+}
+
+body:has(#added:target) #t-added,
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

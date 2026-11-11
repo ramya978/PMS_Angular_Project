@@ -1,0 +1,11 @@
+/* las-04-posting-and-tax.css: settings form in the title-rail layout of fds.css. */
+.l4-gst {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 13px;
+}

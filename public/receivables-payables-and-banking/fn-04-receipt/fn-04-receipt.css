@@ -1,0 +1,38 @@
+/* fn-04-receipt.css: receipt form, payment mode fields and the allocation. */
+.rc-m {
+  display: none;
+  gap: 12px;
+}
+
+#sec-rc:has(input[value="NEFT / RTGS"]:checked) .rc-m--neft,
+#sec-rc:has(input[value="Cheque"]:checked) .rc-m--cheque,
+#sec-rc:has(input[value="UPI"]:checked) .rc-m--upi,
+#sec-rc:has(input[value="Card"]:checked) .rc-m--card,
+#sec-rc:has(input[value="Cash"]:checked) .rc-m--cash {
+  display: grid;
+}
+
+.rc-a {
+  display: none;
+}
+
+body:has(#saved:target) .rc-b {
+  display: none;
+}
+
+body:has(#saved:target) .rc-a {
+  display: inline-flex;
+}
+
+body:has(#saved:target) #al-cl-2026-0377 > td {
+  background: var(--ok-bg);
+}
+
+[data-code="FN-04-allocation"] td:first-child {
+  min-width: 300px;
+}
+
+body:has(#saved:target) #t-saved {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

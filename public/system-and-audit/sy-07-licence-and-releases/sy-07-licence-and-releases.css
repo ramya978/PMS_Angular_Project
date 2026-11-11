@@ -1,0 +1,23 @@
+/* sy-07-licence-and-releases.css */
+.sy-dash {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sy-rel {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.sy-rel p {
+  margin: 2px 0 0;
+  color: var(--muted);
+}
+
+body:has(#scheduled:target) #t-scheduled {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

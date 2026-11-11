@@ -1,0 +1,51 @@
+/* acs-03-posting-rules.css: posting rules, unmapped codes and the test journal. */
+.dl-total td {
+  background: var(--sunken);
+}
+
+.un-after {
+  display: none;
+}
+
+body:has(#mapped:target) .un-before {
+  display: none;
+}
+
+body:has(#mapped:target) .un-after {
+  display: flex;
+}
+
+body:has(#mapped:target) .ur-box {
+  background: var(--ok-bg);
+}
+
+tr.pr-new {
+  display: none;
+}
+
+body:has(#mapped:target) tr.pr-new {
+  display: table-row;
+}
+
+body:has(#mapped:target) tr.pr-new > td {
+  background: var(--ok-bg);
+}
+
+.tp-box {
+  display: none;
+}
+
+body:has(#tested:target) .tp-box {
+  display: block;
+}
+
+[data-code="ACS-03-rules"] td:nth-child(n + 3):nth-child(-n + 4) {
+  min-width: 250px;
+}
+
+body:has(#mapped:target) #t-mapped,
+body:has(#added:target) #t-added,
+body:has(#tested:target) #t-tested {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

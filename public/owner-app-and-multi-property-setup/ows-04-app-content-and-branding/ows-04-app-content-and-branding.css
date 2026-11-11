@@ -1,0 +1,22 @@
+/* ows-04-app-content-and-branding.css: after-states (new rows, status changes) and toasts. */
+table.dt__table tr.hr-new,
+.ow-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new--added {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) .ow-new--added {
+  display: grid;
+  box-shadow: inset 0 0 0 1px var(--ok, #2F855A);
+}
+
+body:has(#saved:target) #t-saved,
+body:has(#cancelled:target) #cancelled,
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

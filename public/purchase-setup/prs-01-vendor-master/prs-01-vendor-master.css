@@ -1,0 +1,259 @@
+/* prs-01-vendor-master.css: vendor list with views, approval callout, row after-states (approve, hold, blacklist, release, save) and the vendor form (PRS-P01). */
+.vn-wait__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 12px 0 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.vn-wait__list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1px 12px;
+  padding: 9px 12px;
+}
+
+.vn-wait__list li + li {
+  box-shadow: inset 0 1px 0 var(--line-2);
+}
+
+.vn-wait__list li > .fd-muted {
+  grid-row: 2;
+  font-size: 12px;
+}
+
+.vn-wait__list .btn {
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+
+.vn-list {
+  display: grid;
+  gap: 12px;
+}
+
+.vn-views {
+  justify-self: start;
+}
+
+.vn-name {
+  font-weight: 650;
+}
+
+[data-code="PRS-01-list"] :is(th, td) {
+  padding-inline: 12px;
+}
+
+[data-code="PRS-01-list"] td:first-child {
+  min-width: 190px;
+}
+
+[data-code="PRS-01-list"] td:nth-child(3) {
+  min-width: 120px;
+  max-width: 150px;
+}
+
+[data-code="PRS-01-list"] .vn-tag {
+  white-space: normal;
+}
+
+[data-code="PRS-01-list"] td:nth-child(6) {
+  min-width: 140px;
+  max-width: 150px;
+}
+
+[data-code="PRS-01-list"] .fd-sub .icon {
+  display: inline-block;
+  color: var(--em-600);
+  vertical-align: -1px;
+}
+
+.vn-name + .vn-flag {
+  height: 20px;
+  margin-left: 4px;
+  font-size: 11px;
+  vertical-align: 1px;
+}
+
+.vn-acts {
+  display: grid;
+  gap: 4px;
+}
+
+.vn-acts > .btn {
+  justify-content: center;
+}
+
+[data-code="PRS-01-list"] td:nth-child(5) {
+  max-width: 160px;
+}
+
+.vn-danger {
+  color: var(--bad, #c53030);
+}
+
+.btn.vn-danger-fill {
+  background: linear-gradient(180deg, #d24545, #b02a2a);
+}
+
+.vn-legend {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.vn-legend .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* views */
+#main:not(:has(.hb-mks .pm:target)) .hv__v[data-v="v-all"],
+#main:has(#v-all:target) .hv__v[data-v="v-all"],
+#main:has(#v-pend:target) .hv__v[data-v="v-pend"],
+#main:has(#v-ok:target) .hv__v[data-v="v-ok"],
+#main:has(#v-hold:target) .hv__v[data-v="v-hold"],
+#main:has(#v-black:target) .hv__v[data-v="v-black"],
+#main:has(#v-msme:target) .hv__v[data-v="v-msme"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+#main:has(#v-pend:target) .vn-row:not(.vn-row--pend),
+#main:has(#v-ok:target) .vn-row:not(.vn-row--ok),
+#main:has(#v-hold:target) .vn-row:not(.vn-row--hold),
+#main:has(#v-black:target) .vn-row:not(.vn-row--black),
+#main:has(#v-msme:target) .vn-row:not(.vn-row--msme) {
+  display: none;
+}
+
+/* the changed vendor (the new vendor of #added is .prs-new, purchase.css) */
+.vn-row:has(.pm:target) > td {
+  background: var(--ok-bg);
+}
+
+/* row after-states: the marker sits in the row, so one rule serves every vendor */
+.vn-to {
+  display: none;
+}
+
+.vn-row:has(:is(.pm--ap, .pm--rl):target) .vn-to--ok,
+.vn-row:has(.pm--hd:target) .vn-to--hold,
+.vn-row:has(.pm--bk:target) .vn-to--black,
+.vn-row:has(.pm--ap:target) .vn-to--bank {
+  display: inline-flex;
+}
+
+.vn-row:has(:is(.pm--ap, .pm--rl, .pm--hd, .pm--bk):target) .vn-to--note {
+  display: block;
+}
+
+.vn-row:has(:is(.pm--ap, .pm--rl, .pm--hd, .pm--bk):target) :is(.vn-now, .vn-chk--todo, .vn-acts > .btn:not(:last-child)) {
+  display: none;
+}
+
+/* toasts */
+body:has(#added:target) #t-added,
+body:has(.pm--hd:target) #t-hold,
+body:has(.pm--bk:target) #t-black,
+body:has(.pm--rl:target) #t-release,
+body:has(.pm--sv:target) #t-saved,
+body:has(#ap-v1052:target) #t-ap-v1052,
+body:has(#ap-v3027:target) #t-ap-v3027,
+body:has(#ap-v3031:target) #t-ap-v3031 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* vendor form (PRS-P01) */
+.vn-code {
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vn-form {
+  display: grid;
+  gap: 16px;
+}
+
+.vn-sec {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.vn-sec__t {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.vn-unreg {
+  align-self: center;
+}
+
+.vn-sec .s-grid2:has(.vn-unreg :checked) .field:has(> [name$="-gstin"]) {
+  opacity: 0.45;
+}
+
+.vn-x01 {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--ok-bg);
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.vn-x01 .icon {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--em-600);
+  vertical-align: -2px;
+}
+
+.vn-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  grid-column: 1 / -1;
+}
+
+.vn-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .vn-wait > .icon {
+    display: none;
+  }
+
+  .vn-sec {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,55 @@
+/* cc-04-monthly-fandb-cost.css: cost of sales by store, months and the journal. */
+.mc-tot {
+  background: color-mix(in srgb, var(--sunken) 55%, transparent);
+}
+
+.mc-key td {
+  background: var(--sunken);
+}
+
+.mc-now td {
+  background: var(--ok-bg);
+}
+
+[data-code="CC-04-formula"] td:first-child {
+  min-width: 230px;
+}
+
+.mc-st--after {
+  display: none;
+}
+
+body:has(#posted:target) .mc-st--before,
+body:has(#posted:target) .mc-post {
+  display: none;
+}
+
+body:has(#posted:target) .mc-st--after {
+  display: inline-flex;
+}
+
+body:has(#posted:target) #t-posted,
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+/* Filter: year, month and status hide the rows of the Months table that do not match */
+main:has(select[name="year"] option[value="2024"]:checked) [data-code="CC-04-months"] tbody > tr:not(.y2024) { display: none; }
+main:has(select[name="year"] option[value="2025"]:checked) [data-code="CC-04-months"] tbody > tr:not(.y2025) { display: none; }
+main:has(select[name="year"] option[value="2026"]:checked) [data-code="CC-04-months"] tbody > tr:not(.y2026) { display: none; }
+main:has(select[name="month"] option[value="01"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m01) { display: none; }
+main:has(select[name="month"] option[value="02"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m02) { display: none; }
+main:has(select[name="month"] option[value="03"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m03) { display: none; }
+main:has(select[name="month"] option[value="04"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m04) { display: none; }
+main:has(select[name="month"] option[value="05"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m05) { display: none; }
+main:has(select[name="month"] option[value="06"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m06) { display: none; }
+main:has(select[name="month"] option[value="07"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m07) { display: none; }
+main:has(select[name="month"] option[value="08"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m08) { display: none; }
+main:has(select[name="month"] option[value="09"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m09) { display: none; }
+main:has(select[name="month"] option[value="10"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m10) { display: none; }
+main:has(select[name="month"] option[value="11"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m11) { display: none; }
+main:has(select[name="month"] option[value="12"]:checked) [data-code="CC-04-months"] tbody > tr:not(.m12) { display: none; }
+main:has(select[name="status"] option[value="posted"]:checked) [data-code="CC-04-months"] tbody > tr:not(:has(.cc--ok)) { display: none; }
+main:has(select[name="status"] option[value="open"]:checked) [data-code="CC-04-months"] tbody > tr:not(:has(.cc--wait)) { display: none; }
+main:has(select[name="status"] option[value="none"]:checked) [data-code="CC-04-months"] tbody > tr:not(:has(.cc--draft)) { display: none; }

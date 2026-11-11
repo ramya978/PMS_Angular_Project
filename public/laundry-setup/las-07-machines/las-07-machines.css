@@ -1,0 +1,66 @@
+/* las-07-machines.css: setup list with an inline add form (details) and the added row shown after saving. */
+.la-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.la-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.la-add > summary::-webkit-details-marker {
+  display: none;
+}
+
+.la-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+tr.is-off > td {
+  color: var(--ink-3);
+}
+
+.la-new {
+  display: none;
+}
+
+body:has(#added:target) .la-new {
+  display: table-row;
+}
+
+/* the list is a sortable grid table (.srt): its rows are grid rows */
+table.srt > tbody > tr.la-new {
+  display: none;
+}
+
+body:has(#added:target) table.srt > tbody > tr.la-new {
+  display: grid;
+}
+
+body:has(#added:target) .la-new > td,
+body:has(#added:target) .la-new {
+  background: var(--ok-bg);
+}
+
+body:has(#added:target) #t-added {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.la-sum {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+}

@@ -1,0 +1,64 @@
+/* in-07-api-keys-and-webhooks.css: key shown once, revoke after-states. */
+.in-st2 {
+  display: none;
+}
+
+.in-key {
+  display: none;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  background: rgb(var(--gold-rgb, 200 169 106) / .12);
+}
+
+body:has(#created:target) .in-key {
+  display: grid;
+}
+
+.in-key code {
+  font-size: 15px;
+  word-break: break-all;
+}
+
+body:has(#rv-api-staah:target) #k-api-staah .in-st {
+  display: none;
+}
+
+body:has(#rv-api-staah:target) #k-api-staah .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rv-api-sim:target) #k-api-sim .in-st {
+  display: none;
+}
+
+body:has(#rv-api-sim:target) #k-api-sim .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rv-api-bi:target) #k-api-bi .in-st {
+  display: none;
+}
+
+body:has(#rv-api-bi:target) #k-api-bi .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#rv-api-gc:target) #k-api-gc .in-st {
+  display: none;
+}
+
+body:has(#rv-api-gc:target) #k-api-gc .in-st2 {
+  display: inline-flex;
+}
+
+body:has(#created:target) #t-created,
+body:has(#hook-tested:target) #t-hook-tested,
+body:has(#rv-api-staah:target) #t-rv-api-staah,
+body:has(#rv-api-sim:target) #t-rv-api-sim,
+body:has(#rv-api-bi:target) #t-rv-api-bi,
+body:has(#rv-api-gc:target) #t-rv-api-gc {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

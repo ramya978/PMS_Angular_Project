@@ -1,0 +1,36 @@
+/* las-05-liability-and-laundry-list-terms.css: liability rules and terms, preview of the printed text, approval notes. */
+.l5-wait,
+.l5-pend {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.l5-wait {
+  background: #fff7e6;
+  box-shadow: inset 0 0 0 1px #f1dfb5;
+  color: #6e4a0e;
+}
+
+.l5-pend {
+  display: none;
+  background: #eef0fb;
+  color: #3c3f86;
+}
+
+body:has(#pending:target) .l5-pend,
+body:has(#pending:target) #t-pend {
+  display: flex;
+}
+
+.l5-prev {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--br-50);
+  font-size: 12.5px;
+  font-style: italic;
+}

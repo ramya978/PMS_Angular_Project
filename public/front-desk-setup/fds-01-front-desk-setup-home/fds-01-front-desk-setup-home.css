@@ -1,0 +1,85 @@
+
+
+/* hero design (colours are the --hx-* variables of setup-home.css) */
+.sh__hero[data-code="FDS-01-progress"] {
+  background:
+    radial-gradient(50% 160% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.22), transparent 62%),
+    linear-gradient(160deg, var(--hx-a) 0%, var(--hx-b) 100%);
+  box-shadow: 0 0 0 1px rgb(var(--gold-rgb, 200 169 106) / 0.3), var(--sh-2);
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__hero-main {
+  background: none;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__ring {
+  width: auto;
+  height: auto;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  border-radius: 0;
+  background: none;
+  box-shadow: 1px 0 0 rgb(var(--gold-rgb, 200 169 106) / 0.4);
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__ring::after {
+  display: none;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__ring-text {
+  align-items: flex-start;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__ring-num {
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  background: linear-gradient(180deg, var(--hx-gold-hi) 0%, var(--hx-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__ring-sub {
+  margin-top: 4px;
+  color: var(--hx-kick);
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.22em;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__bar {
+  max-width: 560px;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__stats {
+  grid-template-columns: repeat(3, auto);
+  gap: 0;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__stat {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 20px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__stat + .sh__stat {
+  box-shadow: inset 1px 0 0 var(--hx-line);
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__stat-txt {
+  flex-direction: column;
+  gap: 0;
+  font-size: 11px;
+}
+
+.sh__hero[data-code="FDS-01-progress"] .sh__stat-txt b {
+  font-size: 26px;
+}

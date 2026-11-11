@@ -1,0 +1,15 @@
+/* da-06-kpi-scorecards.css – styles of DA-06 KPI Scorecards (laptop rules; phone rules sit in max-width media queries). */
+
+body:has(#cm-k-04:target) #t-k-04,
+body:has(#cm-k-05:target) #t-k-05,
+body:has(#cm-k-07:target) #t-k-07,
+body:has(#cm-k-09:target) #t-k-09,
+body:has(#cm-k-11:target) #t-k-11,
+body:has(#cm-k-12:target) #t-k-12,
+body:has(#exported:target) #t-exp {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+.da-spark { min-width: 150px; }
+.da-cm { display: flex; gap: 6px; }
+.da-w { min-width: 200px; }

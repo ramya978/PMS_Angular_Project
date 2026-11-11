@@ -1,0 +1,13 @@
+/* fds-22-front-desk-roles-limits.css: no screen-specific rules, this screen uses the shared styles. */
+
+/* FDS-22a Limits by role: all six roles fit the sheet without a sideways scrollbar (laptop only) */
+@media (min-width: 761px) {
+  #FDS-22a .fd-grid { width: 100%; min-width: 0; }
+  #FDS-22a .fd-grid :is(th, td) { padding-inline: 6px; white-space: normal; min-width: 0; }
+  #FDS-22a .fd-grid th[scope="row"] { width: 20%; min-width: 150px; padding-inline-start: 14px; }
+  #FDS-22a .fd-grid thead .srt-l { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; white-space: normal; }
+  #FDS-22a .fd-grid .fd-sub { display: block; white-space: normal; }
+  #FDS-22a .fd-grid td .field__input { width: 100%; min-width: 0; padding-inline: 8px; appearance: textfield; }
+  #FDS-22a .fd-grid td .field__input::-webkit-inner-spin-button { display: none; }
+  #FDS-22a .fd-grid .fd-pair { display: grid; grid-template-columns: minmax(0, 1fr) 12px; gap: 3px; align-items: center; min-width: 0; }
+}

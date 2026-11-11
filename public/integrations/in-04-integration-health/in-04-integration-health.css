@@ -1,0 +1,78 @@
+/* in-04-integration-health.css: one tile per connection. */
+.in-hgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.in-h {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.in-h:target {
+  outline: 2px solid var(--gold);
+}
+
+.in-h--error {
+  border-color: #C53030;
+}
+
+.in-h__h {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.in-h__h small {
+  display: block;
+  color: var(--muted);
+}
+
+.in-c__ic {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.in-h__m {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.in-h__m dt {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.in-h__m dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.in-bad {
+  color: #C53030;
+}
+
+.in-h__bar {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #C53030 var(--w), var(--em-100, var(--line)) var(--w));
+}
+
+.in-h__a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

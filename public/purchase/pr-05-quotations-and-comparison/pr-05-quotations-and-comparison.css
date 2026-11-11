@@ -1,0 +1,8 @@
+/* pr-05-quotations-and-comparison.css: RFQ with vendors, quote grid with landed cost, vendor selection (reason when not the lowest) and recent RFQs. */
+.pq-cmp th.pq-r, .pq-cmp td.pq-r { min-width: 150px; }
+.pq-cmp .field__input { width: 96px; margin-left: auto; }
+.pq-cmpw:has(input[name="vendor"]:not([value="V-3012"]):checked) .pq-if { display: grid; }
+body:has(#quotes-saved:target) #t-quotes {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

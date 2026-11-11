@@ -1,0 +1,43 @@
+/* three cards in a row; a card left alone on the last row grows to fill it, so no row is half empty */
+.fd-rep-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.fd-rep {
+  position: relative;
+  display: grid;
+  flex: 1 1 calc((100% - 28px) / 3);
+  gap: 8px;
+  align-content: start;
+  min-width: 280px;
+  overflow: hidden;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+.fd-rep:hover {
+  transform: translateY(-2px);
+}
+
+.fd-rep__h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fd-rep__t {
+  margin: 0;
+  font-size: 15px;
+}
+
+.fd-rep__h .code-chip {
+  flex: none;
+  white-space: nowrap;
+}
+
+.fd-rep__f {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-2);
+}

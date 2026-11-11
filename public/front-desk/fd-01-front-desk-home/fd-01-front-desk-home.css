@@ -1,0 +1,347 @@
+/* fd-01-front-desk-home.css – lower half of the Front Desk home: two balanced columns, premium room-status card, two-column activity timeline */
+/* Two columns: arrivals (tall) on the left; room status + departures stacked on the right. Both columns end at the same line. */
+.hm-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 16px;
+}
+
+.hm-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.hm-col > .card {
+  margin: 0;
+}
+
+.hm-col:first-child > .card,
+.hm-col > .card:last-child {
+  flex: 1 1 auto;
+}
+
+/* ── Room status card ── */
+.rs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rs-wrap {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+
+.rs-card .fd-donut {
+  width: 132px;
+  height: 132px;
+}
+
+.rs-card .fd-donut::after {
+  inset: 15px;
+}
+
+.rs-card .fd-donut__n {
+  font-size: 30px;
+}
+
+.rs-legend {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rs-leg {
+  --k: var(--st-ready);
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 8px 12px 10px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  transition: box-shadow 0.18s ease-out, transform 0.18s ease-out;
+}
+
+.rs-leg:hover {
+  box-shadow: inset 0 0 0 1px var(--k), var(--sh-1);
+  transform: translateY(-1px);
+}
+
+.rs-leg--ready {
+  --k: var(--st-ready);
+}
+
+.rs-leg--dirty {
+  --k: var(--st-dirty);
+}
+
+.rs-leg--occupied {
+  --k: var(--st-occupied);
+}
+
+.rs-leg--ooo {
+  --k: var(--st-ooo);
+}
+
+.rs-leg__ic {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--k) 14%, white);
+  color: var(--k);
+}
+
+.rs-leg__t {
+  display: grid;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.rs-leg__t b {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rs-leg__t small {
+  overflow: hidden;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rs-leg__n {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.rs-leg__n small {
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.rs-leg__bar {
+  grid-column: 2 / -1;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--surface-2);
+}
+
+.rs-leg__bar i {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--k);
+}
+
+.rs-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--line);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.rs-facts span {
+  display: grid;
+  gap: 2px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+}
+
+.rs-facts small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.rs-facts b {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Recent activity: a two-column timeline ── */
+.rs-feed .fd-feed--cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  gap: 0 36px;
+}
+
+.fd-feed--cols li {
+  grid-template-columns: 46px 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+}
+
+.fd-feed--cols li:nth-child(5) {
+  border-bottom: 0;
+}
+
+.fd-feed--cols time {
+  padding: 0;
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.fd-feed__ic {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--em-600) 12%, white);
+  color: var(--em-600);
+}
+
+.fd-feed__ic .icon {
+  margin: 0;
+}
+
+.fd-feed--queue .fd-feed__ic {
+  background: color-mix(in srgb, var(--st-dirty) 14%, white);
+  color: var(--st-dirty);
+}
+
+.fd-feed--pay .fd-feed__ic {
+  background: color-mix(in srgb, var(--st-occupied) 12%, white);
+  color: var(--st-occupied);
+}
+
+@media (max-width: 1240px) {
+  .hm-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rs-feed .fd-feed--cols {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+  .fd-feed--cols li:nth-child(5) {
+    border-bottom: 1px solid var(--line-2);
+  }
+}
+
+/* ── Arrivals progress strip (top of Next arrivals) ── */
+.ap {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.ap__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.ap__top b {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ap__pct {
+  align-self: center;
+  color: var(--em-700);
+  font-weight: 600;
+}
+
+.ap__bar {
+  display: flex;
+  gap: 3px;
+  height: 8px;
+}
+
+.ap__bar i {
+  min-width: 6px;
+  border-radius: 99px;
+}
+
+.ap__in {
+  --c: var(--em-600);
+}
+
+.ap__q {
+  --c: var(--st-dirty);
+}
+
+.ap__o {
+  --c: var(--st-occupied);
+}
+
+.ap__w {
+  --c: #c5cdc9;
+}
+
+.ap__bar i {
+  background: var(--c);
+}
+
+.ap__key {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ap__key li {
+  display: grid;
+  gap: 1px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--c) 10%, var(--surface));
+  color: var(--ink-3);
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+
+.ap__key b {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Departures: slimmer rows so both columns end together */
+[data-code="FD-01-departures"] .dt__td {
+  padding-block: 8px;
+}

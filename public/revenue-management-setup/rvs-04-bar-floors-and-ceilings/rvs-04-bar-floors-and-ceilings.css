@@ -1,0 +1,27 @@
+/* rvs-04-bar-floors-and-ceilings.css: new rows and toasts. */
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#added:target) tr.hr-new {
+  display: table-row;
+  background: var(--ok-bg);
+}
+
+.ap-ok-dlxs-peak, .ap-no-dlxs-peak { display: none; }
+body:has(#ap-ok-dlxs-peak:target) .ap-now-dlxs-peak, body:has(#ap-no-dlxs-peak:target) .ap-now-dlxs-peak { display: none; }
+body:has(#ap-ok-dlxs-peak:target) .ap-ok-dlxs-peak, body:has(#ap-no-dlxs-peak:target) .ap-no-dlxs-peak { display: inline-flex; }
+.ap-ok-prms-peak, .ap-no-prms-peak { display: none; }
+body:has(#ap-ok-prms-peak:target) .ap-now-prms-peak, body:has(#ap-no-prms-peak:target) .ap-now-prms-peak { display: none; }
+body:has(#ap-ok-prms-peak:target) .ap-ok-prms-peak, body:has(#ap-no-prms-peak:target) .ap-no-prms-peak { display: inline-flex; }
+.prs-n--m { max-width: 120px; }
+body:has(#saved:target) #t-saved,
+body:has(#added:target) #t-added,
+body:has(#cancelled:target) #cancelled,
+body:has(#ap-ok-dlxs-peak:target) #t-ap-ok-dlxs-peak,
+body:has(#ap-ok-prms-peak:target) #t-ap-ok-prms-peak,
+body:has(#ap-no-dlxs-peak:target) #t-ap-no-dlxs-peak,
+body:has(#ap-no-prms-peak:target) #t-ap-no-prms-peak {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

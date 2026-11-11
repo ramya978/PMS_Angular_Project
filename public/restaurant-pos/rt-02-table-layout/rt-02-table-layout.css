@@ -1,0 +1,46 @@
+/* rt-02-table-layout.css: sections as :target tabs (indoor default), tables coloured by status with covers, steward and time; open table RT-P01 per free table, transfer RT-P02. */
+.tl-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tl-lg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ttile.lg {
+  min-height: 0;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.tt-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.tlw:not(:has(:is(#sec-outdoor, #sec-private):target)) .lf-tabs a[data-t="1"],
+.tlw:has(#sec-outdoor:target) .lf-tabs a[data-t="2"],
+.tlw:has(#sec-private:target) .lf-tabs a[data-t="3"] {
+  background: var(--surface);
+  color: var(--em-800);
+  box-shadow: 0 1px 2px rgb(20 32 27 / 0.12), 0 0 0 1px var(--line-strong);
+}
+
+.modal:has(input[name="guest_type"][value="In-house guest"]:checked) .lf-if--room,
+.modal:has(input[name="guest_type"][value="Table booking"]:checked) .lf-if--book {
+  display: flex;
+}
+
+.tlw:has(#clear-v2:target) #tt-v2 {
+  --hk: #2f855a;
+}
+
+.tlw:has(#transferred:target) #t-transferred,
+.tlw:has(#clear-v2:target) #t-clear-v2 { display: flex; animation: av-rise 320ms var(--ease); }

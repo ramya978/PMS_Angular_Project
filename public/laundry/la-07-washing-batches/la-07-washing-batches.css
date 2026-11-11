@@ -1,0 +1,142 @@
+/* la-07-washing-batches.css: hero, new-batch form (from LA-06 #from-lex), running batches with End batch, today's
+   batches by machine (views #m-<machine>, opened from LA-10 "Open batches"). */
+.wb-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.wb-runs {
+  display: grid;
+  gap: 16px;
+}
+
+.wb-from {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--info-bg);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.wbw:has(#from-lex:target) .wb-from {
+  display: flex;
+}
+
+.wb-grids {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.wb-grids .field__label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.lo3-in--w {
+  width: 90px;
+}
+
+.wb-run {
+  gap: 10px;
+}
+
+.wb-run .la-kv dd {
+  font-weight: 500;
+}
+
+.lx-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wbw .wb-t tr.wb-new,
+.wb-empty {
+  display: none;
+}
+
+body:has(#started-07:target) .wbw .wb-t tr.wb-new {
+  display: grid;
+}
+
+.wbw:has(#m-WE-02:target) .wb-empty {
+  display: grid;
+}
+
+body:has(#ended-05:target) #b-05 > td,
+body:has(#ended-06:target) #b-06 > td {
+  background: var(--ok-bg);
+}
+
+body:has(#ended-05:target) :is(.wb-now-05, #t-ended-05),
+body:has(#ended-06:target) :is(.wb-now-06, #t-ended-06),
+body:has(#from-lex:target) #t-from-lex {
+  display: flex;
+}
+
+body:has(#ended-05:target) #run-05,
+body:has(#ended-06:target) #run-06 {
+  opacity: 0.55;
+}
+
+.la-views .hv__v {
+  text-decoration: none;
+}
+
+@media (max-width: 1240px) {
+  .wb-top {
+    grid-template-columns: 1fr;
+  }
+}
+.wbw:not(:has(:is(#m-all, #m-WE-01, #m-WE-03, #m-WE-04, #m-WE-02):target)) .hv__v[data-v="m-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-all:target) .hv__v[data-v="m-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-WE-01:target) .hv__v[data-v="m-WE-01"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-WE-01:target) .wb-r:not(.m-WE-01) { display: none; }
+.wbw:has(#m-WE-03:target) .hv__v[data-v="m-WE-03"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-WE-03:target) .wb-r:not(.m-WE-03) { display: none; }
+.wbw:has(#m-WE-04:target) .hv__v[data-v="m-WE-04"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-WE-04:target) .wb-r:not(.m-WE-04) { display: none; }
+.wbw:has(#m-WE-02:target) .hv__v[data-v="m-WE-02"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.wbw:has(#m-WE-02:target) .wb-r:not(.m-WE-02) { display: none; }

@@ -1,0 +1,10 @@
+/* ow-04-money.css: toasts and the ageing detail. */
+.ow-more[open] > summary {
+  margin-bottom: 12px;
+}
+
+body:has(#h-zmn:target) #t-h-zmn,
+body:has(#h-g04:target) #t-h-g04 {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

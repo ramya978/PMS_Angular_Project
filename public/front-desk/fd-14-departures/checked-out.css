@@ -1,0 +1,10 @@
+/* checked-out.css – styles of FD-14-2 Departures – the “checked out” tab / step (laptop rules; phone rules sit in max-width media queries). */
+
+.cotab:has(.fd-after:target) .fd-empty-row {
+  display: none;
+}
+
+.cotab:has(#co-FK-10104:target) .fd-after--x {
+  display: table-row;
+  background: color-mix(in srgb, var(--st-ready) 12%, var(--surface));
+}

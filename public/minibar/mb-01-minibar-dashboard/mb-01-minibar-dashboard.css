@@ -1,0 +1,170 @@
+/* mb-01-minibar-dashboard.css: navy hero with the actions, 8 position tiles (each opens its list), departure checks,
+   grace-period list and two figure cards. Shared: css/aviv/minibar.css, laundry.css (cards, room badge), housekeeping.css (hero). */
+.mbd-hello {
+  margin: 4px 0 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.mbd-k {
+  align-self: center;
+}
+
+.mbd-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mbd-t {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 160ms var(--ease), transform 160ms var(--ease);
+}
+
+.mbd-t:hover {
+  box-shadow: 0 0 0 1px var(--hk), 0 10px 22px -16px rgb(16 24 40 / 0.4);
+  transform: translateY(-2px);
+}
+
+.mbd-t__i {
+  display: grid;
+  grid-row: span 3;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--hk) 14%, transparent);
+  color: var(--hk);
+}
+
+.mbd-t__k {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mbd-t b {
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.mbd-t small {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.mbd-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.mbd-col {
+  display: grid;
+  gap: 16px;
+}
+
+.mbd-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mbd-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+
+.mbd-row:first-child {
+  border-top: 0;
+}
+
+.mbd-row__t {
+  display: grid;
+}
+
+.mbd-row__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.mbd-row__r {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+}
+
+.mbd-row.is-done .la-room {
+  opacity: 0.6;
+}
+
+.mbd-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.mbd-fig {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mbd-fig__i {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--hk) 14%, transparent);
+  color: var(--hk);
+}
+
+.mbd-fig__t {
+  display: grid;
+}
+
+.mbd-fig__t > span {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.mbd-fig__t b {
+  font-size: 22px;
+}
+
+.mbd-fig__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+@media (max-width: 1240px) {
+  .mbd-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mbd-grid {
+    grid-template-columns: 1fr;
+  }
+}

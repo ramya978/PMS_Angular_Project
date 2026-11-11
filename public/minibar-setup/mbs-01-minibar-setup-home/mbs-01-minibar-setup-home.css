@@ -1,0 +1,111 @@
+/* mbs-01-minibar-setup-home.css: Minibar Setup Home – setup-home.css (progress hero, Show filter) and setup-cards.css
+   (cards, go-live checks); here the Show filter wiring for the six cards and the empty state of "Missing". */
+.app:has(#shf-warn:checked) .hks-card:not(.hks-card--warning),
+.app:has(#shf-todo:checked) .hks-card:not(.hks-card--missing),
+.app:has(#shf-done:checked) .hks-card:not(.hks-card--complete) {
+  display: none;
+}
+
+.mb-hidden-empty {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--ok-bg);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.app:has(#shf-todo:checked) .mb-hidden-empty {
+  display: flex;
+}
+
+/* hero design (colours are the --hx-* variables of setup-home.css) */
+.sh__hero[data-code="MBS-01-progress"] {
+  background:
+    linear-gradient(120deg, var(--hx-a) 0%, var(--hx-b) 100%);
+  box-shadow: 0 0 0 1px var(--hx-line), var(--sh-2);
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__hero-main {
+  background: none;
+}
+
+/* the bottle: the liquid level is the percentage */
+.sh__hero[data-code="MBS-01-progress"] .sh__ring {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 0;
+  background: none;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__ring::before {
+  content: "";
+  flex: none;
+  width: 36px;
+  height: 84px;
+  background: linear-gradient(to top, var(--hx-gold) calc(var(--pct) * 1%), var(--hx-track) 0);
+  clip-path: polygon(34% 0, 66% 0, 66% 14%, 100% 30%, 100% 100%, 0 100%, 0 30%, 34% 14%);
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__ring::after {
+  display: none;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__ring-text {
+  align-items: flex-start;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__ring-num {
+  font-size: 40px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__ring-sub {
+  margin-top: 2px;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stats {
+  display: flex;
+  gap: 8px;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat {
+  width: 88px;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--hx-glass);
+  box-shadow: inset 0 0 0 2px var(--hx-done);
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat--warn {
+  box-shadow: inset 0 0 0 2px var(--hx-warn);
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat--todo {
+  box-shadow: inset 0 0 0 2px var(--hx-todo);
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat-ic {
+  display: none;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat-txt {
+  align-items: center;
+  gap: 0;
+  font-size: 11px;
+}
+
+.sh__hero[data-code="MBS-01-progress"] .sh__stat-txt b {
+  font-size: 28px;
+  line-height: 1.05;
+}

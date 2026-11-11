@@ -1,0 +1,747 @@
+/* FD-14 Departures: the list uses the shared compact-list styles (.arl in css/aviv/aviv.css). */
+
+/* ── generated filter rules: each filter hides the rows that do not match (no script) ── */
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="23"]:checked) .arl-t > tbody > :is(tr.dd-1022) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="24"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="25"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="26"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="27"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="28"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="29"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="30"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="10"]:checked):has(input[name="df"][value="31"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="01"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027, tr.dd-1031) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="02"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027, tr.dd-1031) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="03"]:checked) .arl-t > tbody > :is(tr.dd-1022, tr.dd-1023, tr.dd-1024, tr.dd-1025, tr.dd-1026, tr.dd-1027, tr.dd-1031) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="04"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="05"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="06"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="07"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="08"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="09"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="10"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="11"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="12"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="13"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="14"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="15"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="16"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="17"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="18"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="19"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="20"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119) {
+  display: none;
+}
+
+main:has(select[name="df-month"] option[value="11"]:checked):has(input[name="df"][value="21"]:checked) .arl-t > tbody > :is(tr.dd-1022,
+  tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="22"]:checked) .arl-t > tbody > :is(tr.dd-1023,
+  tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="23"]:checked) .arl-t > tbody > :is(tr.dd-1024,
+  tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="24"]:checked) .arl-t > tbody > :is(tr.dd-1025,
+  tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="25"]:checked) .arl-t > tbody > :is(tr.dd-1026,
+  tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="26"]:checked) .arl-t > tbody > :is(tr.dd-1027,
+  tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="27"]:checked) .arl-t > tbody > :is(tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="28"]:checked) .arl-t > tbody > :is(tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="29"]:checked) .arl-t > tbody > :is(tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="30"]:checked) .arl-t > tbody > :is(tr.dd-1031,
+  tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="10"]:checked):has(input[name="dt"][value="31"]:checked) .arl-t > tbody > :is(tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="01"]:checked) .arl-t > tbody > :is(tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="02"]:checked) .arl-t > tbody > :is(tr.dd-1103,
+  tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="03"]:checked) .arl-t > tbody > :is(tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="04"]:checked) .arl-t > tbody > :is(tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="05"]:checked) .arl-t > tbody > :is(tr.dd-1106,
+  tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="06"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="07"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="08"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="09"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="10"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="11"]:checked) .arl-t > tbody > :is(tr.dd-1112,
+  tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="12"]:checked) .arl-t > tbody > :is(tr.dd-1113,
+  tr.dd-1114,
+  tr.dd-1115,
+  tr.dd-1117,
+  tr.dd-1118,
+  tr.dd-1119,
+  tr.dd-1120,
+  tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="13"]:checked) .arl-t > tbody > :is(tr.dd-1114, tr.dd-1115, tr.dd-1117, tr.dd-1118, tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="14"]:checked) .arl-t > tbody > :is(tr.dd-1115, tr.dd-1117, tr.dd-1118, tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="15"]:checked) .arl-t > tbody > :is(tr.dd-1117, tr.dd-1118, tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="16"]:checked) .arl-t > tbody > :is(tr.dd-1117, tr.dd-1118, tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="17"]:checked) .arl-t > tbody > :is(tr.dd-1118, tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="18"]:checked) .arl-t > tbody > :is(tr.dd-1119, tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="19"]:checked) .arl-t > tbody > :is(tr.dd-1120, tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="dt-month"] option[value="11"]:checked):has(input[name="dt"][value="20"]:checked) .arl-t > tbody > :is(tr.dd-1121) {
+  display: none;
+}
+
+main:has(select[name="stay"] option[value="in"]:checked) .arl-t > tbody > tr:not(.ss-in),
+main:has(select[name="stay"] option[value="not"]:checked) .arl-t > tbody > tr:not(.ss-not),
+main:has(select[name="bal"] option[value="due"]:checked) .arl-t > tbody > tr:not(.bal),
+main:has(select[name="bal"] option[value="none"]:checked) .arl-t > tbody > tr.bal,
+main:has(input[name="express"]:checked) .arl-t > tbody > tr:not(.xe) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="GDLX"]:checked) .arl-t > tbody > tr:not(.rt-GDLX) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="PDLX"]:checked) .arl-t > tbody > tr:not(.rt-PDLX) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="DLXS"]:checked) .arl-t > tbody > tr:not(.rt-DLXS) {
+  display: none;
+}
+
+main:has(select[name="roomtype"] option[value="PRMS"]:checked) .arl-t > tbody > tr:not(.rt-PRMS) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="agoda"]:checked) .arl-t > tbody > tr:not(.ag-agoda) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="booking-com"]:checked) .arl-t > tbody > tr:not(.ag-booking-com) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="coir-craft-industries"]:checked) .arl-t > tbody > tr:not(.ag-coir-craft-industries) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="easemytrip"]:checked) .arl-t > tbody > tr:not(.ag-easemytrip) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="expedia"]:checked) .arl-t > tbody > tr:not(.ag-expedia) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="heritage-routes-travel"]:checked) .arl-t > tbody > tr:not(.ag-heritage-routes-travel) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="kerala-trails-travel-co"]:checked) .arl-t > tbody > tr:not(.ag-kerala-trails-travel-co) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="makemytrip-goibibo"]:checked) .arl-t > tbody > tr:not(.ag-makemytrip-goibibo) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="periyar-infotech-solutio"]:checked) .arl-t > tbody > tr:not(.ag-periyar-infotech-solutio) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="periyar-tours-travels"]:checked) .arl-t > tbody > tr:not(.ag-periyar-tours-travels) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="self-booking"]:checked) .arl-t > tbody > tr:not(.ag-self-booking) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="southern-skies-travel"]:checked) .arl-t > tbody > tr:not(.ag-southern-skies-travel) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="spice-coast-journeys"]:checked) .arl-t > tbody > tr:not(.ag-spice-coast-journeys) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="sunrise-tours-india"]:checked) .arl-t > tbody > tr:not(.ag-sunrise-tours-india) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="techpark-kochi-systems"]:checked) .arl-t > tbody > tr:not(.ag-techpark-kochi-systems) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="trip-com"]:checked) .arl-t > tbody > tr:not(.ag-trip-com) {
+  display: none;
+}
+
+main:has(select[name="agent"] option[value="willingdon-logistics-llp"]:checked) .arl-t > tbody > tr:not(.ag-willingdon-logistics-llp) {
+  display: none;
+}
+
+main:has(#dlc-mob:checked) .arl-t .c-mob,
+main:has(#dlc-trv:checked) .arl-t .c-trv {
+  display: block;
+}

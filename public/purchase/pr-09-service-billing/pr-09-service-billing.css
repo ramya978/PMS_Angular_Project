@@ -1,0 +1,264 @@
+/* pr-09-service-billing.css: service jobs as cards – summary strip, one card per service PO with a four-step track
+   (approved → work done → certified → bill passed), the certificate form and the Certify after-state. */
+
+.sv-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.sv-stat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 0;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.sv-stat > .icon {
+  grid-row: 1 / 4;
+  box-sizing: content-box;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--sunken);
+  color: var(--ink-2);
+}
+
+.sv-stat b {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.sv-stat span {
+  font-weight: 600;
+}
+
+.sv-stat small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.sv-stat--warn > .icon { background: var(--warn-bg); color: var(--st-dirty); }
+.sv-stat--warn b { color: var(--st-dirty); }
+.sv-stat--ok > .icon { background: var(--ok-bg); color: var(--st-ready); }
+.sv-stat--ok b { color: var(--st-ready); }
+
+.sv-lead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* ───── cards ───── */
+.sv-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.sv-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1px var(--line), var(--sh-1);
+}
+
+.sv-card--wide {
+  grid-column: 1 / -1;
+  border-radius: 22px;
+  background:
+    radial-gradient(60% 120% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.14), transparent 60%),
+    var(--surface);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--br-500) 55%, var(--line)), var(--sh-2);
+}
+
+.sv-card__h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.sv-card__id {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-weight: 650;
+}
+
+.sv-status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sv-card__v {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sv-card__v small {
+  margin-left: 6px;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sv-card__t {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.sv-card__vendor {
+  margin: -6px 0 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.sv-card__d {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+/* ───── four-step track ───── */
+.sv-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin: 6px 0 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.sv-step {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  padding-top: 14px;
+  color: var(--ink-4);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sv-step::before {
+  content: "";
+  position: absolute;
+  inset: 4px 0 auto 0;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--sunken);
+}
+
+.sv-step__d {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sunken);
+  color: transparent;
+}
+
+.sv-step.is-done {
+  color: var(--ink-2);
+}
+
+.sv-step.is-done::before {
+  background: var(--em-500);
+}
+
+.sv-step.is-done .sv-step__d {
+  background: var(--em-600);
+  color: #fff;
+}
+
+.sv-step.is-now {
+  color: var(--ink);
+}
+
+.sv-step.is-now::before {
+  background: linear-gradient(90deg, var(--br-500), var(--br-200));
+}
+
+.sv-step.is-now .sv-step__d {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--br-500);
+}
+
+.sv-step.is-next::before {
+  background: repeating-linear-gradient(90deg, var(--em-200) 0 8px, transparent 8px 12px);
+}
+
+/* ───── certificate form ───── */
+.sv-card .pq-form {
+  margin-top: 6px;
+  padding: 18px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-2) 70%, #fff);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sv-card .s-grid2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  align-items: start;
+}
+
+.sv-card .s-grid2 > .field {
+  flex: 1 1 260px;
+}
+
+.sv-card .s-grid2 > .field:first-child {
+  flex-basis: 100%;
+}
+
+.sv-card .pq-foot {
+  margin-top: 4px;
+}
+
+/* ───── after "Certify" ───── */
+.pq-sv:has(.pm:target) { box-shadow: inset 0 0 0 2px #9ad1b3, var(--sh-2); }
+.pq-sv:has(.pm:target) .pq-now, .pq-sv:has(.pm:target) form { display: none; }
+.pq-sv:has(.pm:target) .pq-to--cert { display: inline-flex; }
+.pq-sv:has(.pm:target) p.pq-to--cert { display: flex; height: auto; white-space: normal; }
+.pq-sv:has(.pm:target) .sv-step--work { color: var(--ink-2); }
+.pq-sv:has(.pm:target) :is(.sv-step--work, .sv-step--cert)::before { background: var(--em-500); }
+.pq-sv:has(.pm:target) :is(.sv-step--work, .sv-step--cert) .sv-step__d { background: var(--em-600); color: #fff; box-shadow: none; }
+.pq-sv:has(.pm:target) .sv-step--bill::before { background: repeating-linear-gradient(90deg, var(--em-200) 0 8px, transparent 8px 12px); }
+
+body:has(.pm[id^=cert-]:target) #t-cert {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
+
+@media (max-width: 760px) {
+  .sv-card {
+    padding: 18px;
+  }
+
+  .sv-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 10px;
+  }
+}

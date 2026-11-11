@@ -1,0 +1,12 @@
+/* cc-01-cost-control-dashboard.css: outlet cost table, daily cost columns and the alert lists. */
+.pqd .pq-g2 {
+  margin: 0;
+}
+
+.pqd .lf-card--wide {
+  grid-column: 1 / -1;
+}
+
+[data-code="CC-01-outlets"] .cc-bar {
+  margin-top: 4px;
+}

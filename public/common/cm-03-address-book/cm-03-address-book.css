@@ -1,0 +1,57 @@
+/* cm-03-address-book.css – styles of CM-03 Address Book (laptop rules; phone rules sit in max-width media queries). */
+
+.ab:has(#t-guest:target) .ab-r:not(.r-guest) {
+  display: none;
+}
+
+.ab:has(#t-guest:target) .ab-chip--t-guest {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ab:has(#t-company:target) .ab-r:not(.r-company) {
+  display: none;
+}
+
+.ab:has(#t-company:target) .ab-chip--t-company {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ab:has(#t-agent:target) .ab-r:not(.r-agent) {
+  display: none;
+}
+
+.ab:has(#t-agent:target) .ab-chip--t-agent {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ab:has(#t-vendor:target) .ab-r:not(.r-vendor) {
+  display: none;
+}
+
+.ab:has(#t-vendor:target) .ab-chip--t-vendor {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ab:has(#t-staff:target) .ab-r:not(.r-staff) {
+  display: none;
+}
+
+.ab:has(#t-staff:target) .ab-chip--t-staff {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ab:not(:has(.va:target)) .ab-chip--t-all {
+  background: var(--em-700);
+  color: #fff;
+  box-shadow: none;
+}

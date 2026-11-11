@@ -1,0 +1,92 @@
+/* ad-01-properties.css: deactivate pop-up, after-states. */
+.lg-who,
+.lg-go,
+.lg-st2 {
+  display: none;
+}
+
+table.dt__table tr.hr-new {
+  display: none;
+}
+
+body:has(#created:target) table.dt__table tr.hr-new {
+  display: grid;
+  background: var(--ok-bg);
+}
+
+body:has(#dx-zkc:target) #p-zkc .lg-st {
+  display: none;
+}
+
+body:has(#dx-zkc:target) #p-zkc .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-zkc:target) #p-zkc {
+  background: var(--bad-bg);
+}
+
+#ad-cf:has(#cf-zkc:target) .lg-who[data-u="zkc"],
+#ad-cf:has(#cf-zkc:target) .lg-go[data-u="zkc"] {
+  display: inline-flex;
+}
+
+body:has(#dx-zmn:target) #p-zmn .lg-st {
+  display: none;
+}
+
+body:has(#dx-zmn:target) #p-zmn .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-zmn:target) #p-zmn {
+  background: var(--bad-bg);
+}
+
+#ad-cf:has(#cf-zmn:target) .lg-who[data-u="zmn"],
+#ad-cf:has(#cf-zmn:target) .lg-go[data-u="zmn"] {
+  display: inline-flex;
+}
+
+body:has(#dx-zal:target) #p-zal .lg-st {
+  display: none;
+}
+
+body:has(#dx-zal:target) #p-zal .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-zal:target) #p-zal {
+  background: var(--bad-bg);
+}
+
+#ad-cf:has(#cf-zal:target) .lg-who[data-u="zal"],
+#ad-cf:has(#cf-zal:target) .lg-go[data-u="zal"] {
+  display: inline-flex;
+}
+
+body:has(#dx-zcb:target) #p-zcb .lg-st {
+  display: none;
+}
+
+body:has(#dx-zcb:target) #p-zcb .lg-st2 {
+  display: inline-flex;
+}
+
+body:has(#dx-zcb:target) #p-zcb {
+  background: var(--bad-bg);
+}
+
+#ad-cf:has(#cf-zcb:target) .lg-who[data-u="zcb"],
+#ad-cf:has(#cf-zcb:target) .lg-go[data-u="zcb"] {
+  display: inline-flex;
+}
+
+body:has(#created:target) #t-created,
+body:has(#dx-zkc:target) #t-dx-zkc,
+body:has(#dx-zmn:target) #t-dx-zmn,
+body:has(#dx-zal:target) #t-dx-zal,
+body:has(#dx-zcb:target) #t-dx-zcb {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}

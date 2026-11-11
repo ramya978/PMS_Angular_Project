@@ -1,0 +1,181 @@
+/* la-08-vendor-laundry-challans.css: hero, :target views, challan table with item lines in <details>, LA-P06 receipt
+   (marker per open challan), new challan (prints LA-O03), match vendor bill, after-states of receipt, claim and match. */
+.ch-t td {
+  vertical-align: top;
+}
+
+.ch-lines {
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+.ch-lines > summary {
+  color: var(--em-700);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ch-lines ul {
+  display: grid;
+  gap: 4px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ch-lines li {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) repeat(4, auto);
+  gap: 12px;
+  color: var(--ink-2);
+}
+
+.ch-is,
+.p6o,
+.p6b {
+  display: none;
+}
+
+.ch-acts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.ch-r.is-od > td {
+  background: #fdf3f3;
+}
+
+.ch-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.p6o {
+  gap: 12px;
+}
+
+.p6o table {
+  margin-top: 0;
+}
+
+.ch-t td:first-child strong,
+.ch-t td:nth-child(3) {
+  white-space: nowrap;
+}
+
+/* sortable grid (tools/add-table-sort.py): vendor column takes the rest, the others hug their content */
+.ch-t.srt {
+  --srt-cols: max-content minmax(200px, 1fr) max-content minmax(120px, max-content) max-content max-content minmax(0, 240px) !important;
+}
+
+.la-views .hv__v {
+  text-decoration: none;
+}
+.chw:not(:has(:is(#v-open, #v-due, #v-od, #v-rec, #v-billed, #v-closed, #v-all):target)) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-open:target) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-open:target) .ch-r:not(.is-open), .chw:not(:has(:is(#v-open, #v-due, #v-od, #v-rec, #v-billed, #v-closed, #v-all):target)) .ch-r:not(.is-open) { display: none; }
+.chw:has(#v-due:target) .hv__v[data-v="v-due"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-due:target) .ch-r:not(.is-due) { display: none; }
+.chw:has(#v-od:target) .hv__v[data-v="v-od"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-od:target) .ch-r:not(.is-od) { display: none; }
+.chw:has(#v-rec:target) .hv__v[data-v="v-rec"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-rec:target) .ch-r:not(.st-received) { display: none; }
+.chw:has(#v-billed:target) .hv__v[data-v="v-billed"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-billed:target) .ch-r:not(.st-billed) { display: none; }
+.chw:has(#v-closed:target) .hv__v[data-v="v-closed"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.chw:has(#v-closed:target) .ch-r:not(.st-closed) { display: none; }
+.chw:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+#la-p06:has(#p06-0411:target) .p6o--0411 { display: grid; }
+#la-p06:has(#p06-0411:target) .p6b--0411 { display: inline-flex; }
+body:has(#received-0411:target) #c-0411 > td { background: var(--ok-bg); }
+body:has(#received-0411:target) :is(.ch-now-0411, #t-rec-0411) { display: flex; }
+body:has(#received-0411:target) .ch-now-0411 .ch-now-t::after { content: "Received now – stock updated"; }
+body:has(#received-0411:target) #c-0411 .ch-was { display: none; }
+body:has(#received-0411:target) #c-0411 .ch-is { display: inline; }
+body:has(#received-0411:target) .chw .ch-t #c-0411 { display: grid; }
+#la-p06:has(#p06-0410:target) .p6o--0410 { display: grid; }
+#la-p06:has(#p06-0410:target) .p6b--0410 { display: inline-flex; }
+body:has(#received-0410:target) #c-0410 > td { background: var(--ok-bg); }
+body:has(#received-0410:target) :is(.ch-now-0410, #t-rec-0410) { display: flex; }
+body:has(#received-0410:target) .ch-now-0410 .ch-now-t::after { content: "Received now – stock updated"; }
+body:has(#received-0410:target) #c-0410 .ch-was { display: none; }
+body:has(#received-0410:target) #c-0410 .ch-is { display: inline; }
+body:has(#received-0410:target) .chw .ch-t #c-0410 { display: grid; }
+#la-p06:has(#p06-0409:target) .p6o--0409 { display: grid; }
+#la-p06:has(#p06-0409:target) .p6b--0409 { display: inline-flex; }
+body:has(#received-0409:target) #c-0409 > td { background: var(--ok-bg); }
+body:has(#received-0409:target) :is(.ch-now-0409, #t-rec-0409) { display: flex; }
+body:has(#received-0409:target) .ch-now-0409 .ch-now-t::after { content: "Received now – stock updated"; }
+body:has(#received-0409:target) #c-0409 .ch-was { display: none; }
+body:has(#received-0409:target) #c-0409 .ch-is { display: inline; }
+body:has(#received-0409:target) .chw .ch-t #c-0409 { display: grid; }
+#la-p06:has(#p06-0407:target) .p6o--0407 { display: grid; }
+#la-p06:has(#p06-0407:target) .p6b--0407 { display: inline-flex; }
+body:has(#received-0407:target) #c-0407 > td { background: var(--ok-bg); }
+body:has(#received-0407:target) :is(.ch-now-0407, #t-rec-0407) { display: flex; }
+body:has(#received-0407:target) .ch-now-0407 .ch-now-t::after { content: "Received now – stock updated"; }
+body:has(#received-0407:target) #c-0407 .ch-was { display: none; }
+body:has(#received-0407:target) #c-0407 .ch-is { display: inline; }
+body:has(#received-0407:target) .chw .ch-t #c-0407 { display: grid; }
+#la-p06:target .p6o--0411 { display: grid; }
+#la-p06:target .p6b--0411 { display: inline-flex; }
+body:has(#claim-0407:target) #c-0407 > td, body:has(#matched-0408:target) #c-0408 > td { background: var(--ok-bg); }
+body:has(#claim-0407:target) :is(.ch-now-0407, #t-claim), body:has(#matched-0408:target) :is(.ch-now-0408, #t-match) { display: flex; }
+body:has(#claim-0407:target) .ch-now-0407 .ch-now-t::after { content: "Debit note requested now (3 pieces)"; }
+body:has(#matched-0408:target) .ch-now-0408 .ch-now-t::after { content: "Billed now – KDC/26-27/1207 sent to Accounts"; }
+body:has(#matched-0408:target) .chw .ch-t #c-0408 { display: grid; }

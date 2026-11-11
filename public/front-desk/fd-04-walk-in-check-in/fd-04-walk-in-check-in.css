@@ -1,0 +1,84 @@
+/* record variants */
+#default:target ~ .v-default {
+  display: block;
+}
+
+#r-102:target ~ .v-r-102 {
+  display: block;
+}
+
+#r-106:target ~ .v-r-106 {
+  display: block;
+}
+
+#r-117:target ~ .v-r-117 {
+  display: block;
+}
+
+#r-203:target ~ .v-r-203 {
+  display: block;
+}
+
+#r-204:target ~ .v-r-204 {
+  display: block;
+}
+
+#r-206:target ~ .v-r-206 {
+  display: block;
+}
+
+#r-210:target ~ .v-r-210 {
+  display: block;
+}
+
+#r-215:target ~ .v-r-215 {
+  display: block;
+}
+
+#r-302:target ~ .v-r-302 {
+  display: block;
+}
+
+#r-307:target ~ .v-r-307 {
+  display: block;
+}
+
+#r-311:target ~ .v-r-311 {
+  display: block;
+}
+
+#r-312:target ~ .v-r-312 {
+  display: block;
+}
+
+#r-314:target ~ .v-r-314 {
+  display: block;
+}
+
+#r-315:target ~ .v-r-315 {
+  display: block;
+}
+
+#r-317:target ~ .v-r-317 {
+  display: block;
+}
+
+#r-405:target ~ .v-r-405 {
+  display: block;
+}
+
+#r-411:target ~ .v-r-411 {
+  display: block;
+}
+
+#r-412:target ~ .v-r-412 {
+  display: block;
+}
+
+#r-413:target ~ .v-r-413 {
+  display: block;
+}
+
+#r-414:target ~ .v-r-414 {
+  display: block;
+}

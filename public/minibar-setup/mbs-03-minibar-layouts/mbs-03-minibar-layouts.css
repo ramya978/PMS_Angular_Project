@@ -1,0 +1,208 @@
+/* mbs-03-minibar-layouts.css: layouts as cards (room types, rooms, a drawn minibar with the par per shelf and the item table),
+   Add layout form (details), after-states of Add and Copy. */
+.ly-sum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  font-size: 13px;
+}
+
+.ly-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.ly {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.ly__h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ly__h > div {
+  display: grid;
+  flex: 1;
+}
+
+.ly__h small,
+.ly__pic {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.ly__ic {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--em-50);
+  color: var(--em-700);
+}
+
+.ly__meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 14px;
+  font-size: 13px;
+}
+
+.ly__k {
+  color: var(--ink-3);
+}
+
+.ly-rt {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-weight: 650;
+  font-size: 12px;
+}
+
+.ly__body {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.ly-fr {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #1c2b3a;
+}
+
+.ly-fr__s {
+  display: grid;
+  gap: 3px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  background: #2a3d50;
+}
+
+.ly-fr__k {
+  color: #c9d4de;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.ly-fr__i {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.ly-dot {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.ly-dot--bev {
+  background: #cfe3f6;
+  color: #1d4f85;
+}
+
+.ly-dot--snk {
+  background: #f6e2b5;
+  color: #6e4a0e;
+}
+
+.ly-dot--liq {
+  background: #ecd0e5;
+  color: #6d2f5f;
+}
+
+.ly__pic {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.ly tr.is-missing > td {
+  background: #fffaf2;
+}
+
+.mi-miss {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: #fdf3dc;
+  color: #946200;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.ly--copy,
+.ly--new {
+  display: none;
+}
+
+body:has(#added:target) .ly--new,
+body:has(#copied-l-01:target) .ly--copy-l-01,
+body:has(#copied-l-02:target) .ly--copy-l-02,
+body:has(#copied-l-03:target) .ly--copy-l-03 {
+  display: grid;
+  box-shadow: 0 0 0 2px var(--em-500);
+}
+
+.la-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.la-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.la-add > summary::-webkit-details-marker {
+  display: none;
+}
+
+.la-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.la-add__a {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ly-grid .field__input {
+  min-width: 140px;
+}
+
+body:has(#added:target) #t-added,
+body:has(#copied-l-01:target) #t-copied-l-01,
+body:has(#copied-l-02:target) #t-copied-l-02,
+body:has(#copied-l-03:target) #t-copied-l-03 { display: flex; animation: av-rise 320ms var(--ease); }

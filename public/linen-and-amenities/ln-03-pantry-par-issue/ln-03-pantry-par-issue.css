@@ -1,0 +1,125 @@
+/* ln-03-pantry-par-issue.css: one issue form per floor pantry chosen by :target tabs (floor 3 default – the lowest), issue all floors list. */
+.pi-f,
+.pi-all {
+  display: none;
+}
+
+.pi:not(:has(:is(#f1, #f2, #f3, #f4, #f5, #all-floors):target)) .pi-f--f3,
+.pi:has(#f1:target) .pi-f--f1,
+.pi:has(#f2:target) .pi-f--f2,
+.pi:has(#f3:target) .pi-f--f3,
+.pi:has(#f4:target) .pi-f--f4,
+.pi:has(#f5:target) .pi-f--f5,
+.pi:has(#all-floors:target) .pi-all {
+  display: block;
+}
+
+.pi:not(:has(:is(#f1, #f2, #f3, #f4, #f5, #all-floors):target)) .pq-tabs__t[data-t="f3"],
+.pi:has(#f1:target) .pq-tabs__t[data-t="f1"],
+.pi:has(#f2:target) .pq-tabs__t[data-t="f2"],
+.pi:has(#f3:target) .pq-tabs__t[data-t="f3"],
+.pi:has(#f4:target) .pq-tabs__t[data-t="f4"],
+.pi:has(#f5:target) .pq-tabs__t[data-t="f5"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+
+.pi-sig {
+  margin-top: 12px;
+}
+
+.pi-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* issue list of all floors: a tile per item – quantity needed, how much of the linen room stock it takes, short items in red */
+.pi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pi-it {
+  display: grid;
+  flex: 1 1 calc((100% - 30px) / 4);
+  gap: 4px;
+  min-width: 210px;
+  padding: 12px 14px 11px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--surface) 45%, var(--em-50));
+  box-shadow: inset 0 0 0 1px var(--line), 0 10px 18px -16px rgb(var(--forest-rgb, 31 61 51) / 0.6);
+}
+
+.pi-it--short {
+  background: linear-gradient(135deg, var(--surface) 45%, #fdecec);
+  box-shadow: inset 0 0 0 1px #f2b8b8;
+}
+
+.pi-it__n {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.pi-it__q {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.pi-it__q b {
+  margin-right: 3px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.pi-it__bar {
+  display: block;
+  height: 6px;
+  margin-top: 2px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--line);
+}
+
+.pi-it__bar > i {
+  display: block;
+  width: calc(var(--p) * 1%);
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--forest-2, #2d5646), var(--gold, #c8a96a));
+}
+
+.pi-it--short .pi-it__bar > i {
+  background: linear-gradient(90deg, #e05252, #c53030);
+}
+
+.pi-it__s {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.rp-acts .fd-muted {
+  margin-right: auto;
+  font-size: 12.5px;
+}

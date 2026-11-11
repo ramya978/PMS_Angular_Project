@@ -1,0 +1,142 @@
+/* hk-23-vip-and-special-preparations.css: VIP & Special Preparations – hero, status views, preparation table (guest,
+   room, ETA, VIP level, type tag, items, requested by, status), mark-prepared pop-up. Shared: housekeeping.css. */
+.vpw {
+  display: grid;
+  gap: 16px;
+}
+
+.vp-t td {
+  vertical-align: top;
+}
+
+.vp-t td:first-child {
+  min-width: 230px;
+}
+
+.vp-t td:nth-child(3) {
+  min-width: 280px;
+}
+
+.vp-vip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--br-100);
+  color: var(--br-700);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vp-t-tag,
+.vp-t {
+  display: inline-block;
+  margin-bottom: 3px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--em-50);
+  color: var(--em-700);
+  font-size: 11.5px;
+  font-weight: 650;
+}
+
+.vp-prep {
+  display: block;
+  font-size: 13px;
+}
+
+.vp-now {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #2f855a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.vp-t td:last-child {
+  min-width: 160px;
+}
+
+.vp-t td:last-child > * {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+/* laptop: Mark prepared · Supervisor check · Issue amenities sit side by side */
+@media (min-width: 1025px) {
+  .vp-t td:last-child {
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .vp-t td:last-child > * {
+    display: inline-flex;
+    width: auto;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+.vp .is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pr,
+.pb {
+  display: none;
+}
+.vpw:has(#vv-to:checked) .vp:not(.is-to), .vpw:has(#vv-prepared:checked) .vp:not(.is-prepared), .vpw:has(#vv-checked:checked) .vp:not(.is-checked) { display: none; }
+.vpw:has(#vv-all:checked) .hv__v[for="vv-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.vpw:has(#vv-to:checked) .hv__v[for="vv-to"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.vpw:has(#vv-prepared:checked) .hv__v[for="vv-prepared"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.vpw:has(#vv-checked:checked) .hv__v[for="vv-checked"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+#vp-done:has(#vpd-VP-0422-01:target) :is(.pr--VP-0422-01, .pb--VP-0422-01) { display: flex; }
+body:has(#prepared-VP-0422-01:target) #VP-0422-01 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-01:target) #VP-0422-01 .vp-now { display: flex; }
+#vp-done:has(#vpd-VP-0422-02:target) :is(.pr--VP-0422-02, .pb--VP-0422-02) { display: flex; }
+body:has(#prepared-VP-0422-02:target) #VP-0422-02 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-02:target) #VP-0422-02 .vp-now { display: flex; }
+#vp-done:has(#vpd-VP-0422-03:target) :is(.pr--VP-0422-03, .pb--VP-0422-03) { display: flex; }
+body:has(#prepared-VP-0422-03:target) #VP-0422-03 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-03:target) #VP-0422-03 .vp-now { display: flex; }
+#vp-done:has(#vpd-VP-0422-06:target) :is(.pr--VP-0422-06, .pb--VP-0422-06) { display: flex; }
+body:has(#prepared-VP-0422-06:target) #VP-0422-06 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-06:target) #VP-0422-06 .vp-now { display: flex; }
+#vp-done:has(#vpd-VP-0422-09:target) :is(.pr--VP-0422-09, .pb--VP-0422-09) { display: flex; }
+body:has(#prepared-VP-0422-09:target) #VP-0422-09 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-09:target) #VP-0422-09 .vp-now { display: flex; }
+#vp-done:has(#vpd-VP-0422-10:target) :is(.pr--VP-0422-10, .pb--VP-0422-10) { display: flex; }
+body:has(#prepared-VP-0422-10:target) #VP-0422-10 > td { background: var(--ok-bg); }
+body:has(#prepared-VP-0422-10:target) #VP-0422-10 .vp-now { display: flex; }
+body:has(.pm[id^="prepared-"]:target) #t-prepared, body:has(#vipok:target) #t-vipok, body:has(#viprework:target) #t-viprework { display: flex; animation: av-rise 320ms var(--ease); }
+body:has(:is(#vipok, #viprework):target) #VP-0422-04 > td { background: var(--ok-bg); }

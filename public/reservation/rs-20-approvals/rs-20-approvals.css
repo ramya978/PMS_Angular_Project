@@ -1,0 +1,474 @@
+/* rs-20-approvals.css: Approvals – decision-desk hero with today's deadline timeline, requests as decision cards. */
+
+/* ───────── Decision-desk hero ───────── */
+.ap-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 1.1fr) auto;
+  align-items: center;
+  gap: 24px 36px;
+  padding: 26px 30px;
+  border-radius: 20px;
+  background:
+    radial-gradient(55% 120% at 100% 0%, rgb(var(--gold-rgb, 200 169 106) / 0.22), transparent 60%),
+    radial-gradient(45% 110% at 0% 100%, rgb(var(--forest-rgb, 31 61 51) / 0.95), transparent 70%),
+    var(--deep, #0e1a2b);
+  box-shadow: 0 0 0 1px rgb(var(--deep-rgb, 14 26 43) / 0.9), 0 24px 48px -30px rgb(var(--deep-rgb, 14 26 43) / 0.7);
+  color: #fff;
+}
+
+.ap-hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--gold-light, #e6d3a8);
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ap-hero__title {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.ap-hero__title b {
+  color: #f0c987;
+  font-weight: 600;
+}
+
+.ap-hero__sub {
+  max-width: 460px;
+  margin-top: 6px;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ap-hero__acts {
+  margin-top: 18px;
+}
+
+.ap-hero .ap-hero__go {
+  border: 0;
+  background: linear-gradient(180deg, var(--gold-light, #e2c584), var(--gold, #c8a96a));
+  box-shadow: 0 8px 18px -10px rgb(var(--gold-rgb, 200 169 106) / 0.9), inset 0 1px 0 rgb(255 255 255 / 0.45);
+  color: #1b1405;
+  font-weight: 650;
+}
+
+.ap-hero .ap-hero__go:hover {
+  color: #1b1405;
+  filter: brightness(1.05);
+}
+
+/* today's deadlines on a time track */
+.ap-tl {
+  padding: 16px 18px 12px;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 0.05);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.ap-tl__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  color: rgb(255 255 255 / 0.75);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ap-tl__over {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgb(229 98 89 / 0.18);
+  color: #f6b3ac;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.ap-tl__track {
+  position: relative;
+  height: 8px;
+  margin: 50px 0 10px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.12);
+}
+
+.ap-tl__past {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--x);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(76 195 138 / 0.25), rgb(76 195 138 / 0.7));
+}
+
+.ap-tl__now {
+  position: absolute;
+  top: 50%;
+  left: var(--x);
+  width: 2px;
+  height: 26px;
+  margin: -13px 0 0 -1px;
+  background: #4cc38a;
+}
+
+.ap-tl__now b {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #4cc38a;
+  color: var(--deep, #0e1a2b);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.ap-tl__marks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ap-tl__m {
+  position: absolute;
+  bottom: 50%;
+  left: var(--x);
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  transform: translateX(-50%);
+  padding-bottom: 12px;
+}
+
+.ap-tl__m::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--gold-light, #e6d3a8);
+  box-shadow: 0 0 0 3px #12223a;
+}
+
+.ap-tl__m--soon::after {
+  background: #ecc06b;
+  box-shadow: 0 0 0 3px #12223a, 0 0 0 7px rgb(236 192 107 / 0.25);
+}
+
+.ap-tl__t {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.ap-tl__l {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.ap-tl__axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  color: rgb(255 255 255 / 0.45);
+  font-size: 10.5px;
+}
+
+/* outcome counters */
+.ap-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.ap-hs {
+  display: grid;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.ap-hs dt {
+  color: rgb(255 255 255 / 0.62);
+  font-size: 11.5px;
+}
+
+.ap-hs dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.ap-hs--wait {
+  --c: var(--gold-light, #e6d3a8);
+}
+
+.ap-hs--warn {
+  --c: #ecc06b;
+}
+
+.ap-hs--ok {
+  --c: #4cc38a;
+}
+
+.ap-hs--bad {
+  --c: #e5625a;
+}
+
+/* ───────── Requests as decision cards ───────── */
+.ap-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 14px;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+}
+
+.ap-list .ap-r {
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "ic what pill"
+    "ref ref ref"
+    "by by due"
+    "acts acts acts";
+  align-items: center;
+  gap: 14px 14px;
+  padding: 18px 20px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px rgb(16 24 40 / 0.04), 0 14px 30px -24px rgb(16 24 40 / 0.4);
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base);
+}
+
+.ap-list .ap-r:hover {
+  transform: translateY(-2px);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--br-300), 0 18px 36px -24px rgb(16 24 40 / 0.5);
+}
+
+.ap-list .ap-r > .ap-ic {
+  grid-area: ic;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+}
+
+.ap-list .ap-r__what {
+  grid-area: what;
+}
+
+.ap-list .ap-r .ap-amt {
+  font-size: 22px;
+}
+
+.ap-list .ap-r > .pill {
+  grid-area: pill;
+  align-self: start;
+  justify-self: end;
+}
+
+.ap-list .ap-r > .ap-ic {
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--st-tentative) 12%, var(--surface));
+  color: #7d5410;
+}
+
+.ap-list .ap-r--escalated > .ap-ic {
+  background: color-mix(in srgb, var(--st-dirty) 12%, var(--surface));
+  color: #9c4416;
+}
+
+.ap-list .ap-r--approved > .ap-ic {
+  background: var(--ok-bg);
+  color: #165f3d;
+}
+
+.ap-list .ap-r--rejected > .ap-ic {
+  background: var(--bad-bg);
+  color: #8f2a25;
+}
+
+.ap-list .ap-r__ref {
+  grid-area: ref;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.ap-list .ap-r__by {
+  grid-area: by;
+}
+
+.ap-list .ap-r__due {
+  grid-area: due;
+  justify-self: end;
+  text-align: right;
+}
+
+.ap-list .ap-r__acts {
+  grid-area: acts;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-2);
+}
+
+/* deadline countdown */
+.ap-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 11.5px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.ap-left--soon {
+  background: var(--warn-bg);
+  box-shadow: inset 0 0 0 1px var(--gold-light, #ecd9a8);
+  color: #6e4a0e;
+}
+
+.ap-left--late {
+  background: var(--bad-bg);
+  box-shadow: inset 0 0 0 1px #e8c0bb;
+  color: #8f2a25;
+}
+
+@media (max-width: 1280px) {
+  .ap-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+  }
+
+  .ap-hero__stats {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* phone: deadline labels take turns above and below the line, so they never overlap */
+@media (max-width: 760px) {
+  .ap-tl__track {
+    margin-top: 58px;
+  }
+
+  .ap-tl__l {
+    max-width: 118px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .ap-tl__m:nth-child(even) {
+    top: 50%;
+    bottom: auto;
+    padding: 12px 0 0;
+  }
+
+  .ap-tl__m:nth-child(even)::after {
+    top: -5px;
+    bottom: auto;
+  }
+
+  .ap-tl__axis {
+    margin-top: 60px;
+  }
+}
+
+/* phone: request cards – requester on one line, the deadline under it, the figure on one line */
+@media (max-width: 760px) {
+  .ap-list .ap-r {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "ic what pill"
+      "ref ref ref"
+      "by by by"
+      "due due due"
+      "acts acts acts";
+    gap: 10px 12px;
+    padding: 16px 14px;
+  }
+
+  .ap-list .ap-r > .ap-ic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ap-list .ap-r .ap-amt {
+    font-size: 19px;
+    white-space: nowrap;
+  }
+
+  .ap-list .ap-r__by > span {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6px;
+    font-size: 13px;
+  }
+
+  .ap-list .ap-r__by .ap-r__s {
+    white-space: normal;
+  }
+
+  .ap-list .ap-r__due {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px 8px;
+    text-align: left;
+  }
+
+  .ap-list .ap-r__acts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .ap-list .ap-r__acts > .btn {
+    justify-content: center;
+  }
+
+  .ap-r__s,
+  .ap-r__ref {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+}

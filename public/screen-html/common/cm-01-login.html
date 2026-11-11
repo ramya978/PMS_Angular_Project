@@ -1,0 +1,141 @@
+
+  <main class="login" data-code="CM-01">
+    <section class="login__art" aria-hidden="true">
+      <svg class="login__aviv" viewbox="0 0 320 420" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M160 410V70" stroke-width="2.5"></path>
+        <g stroke-width="2">
+          <path d="M160 360c-40-6-72-30-88-70 38 4 70 28 88 70z"></path><path d="M160 360c40-6 72-30 88-70-38 4-70 28-88 70z"></path>
+          <path d="M160 300c-36-6-64-28-78-62 34 3 62 25 78 62z"></path><path d="M160 300c36-6 64-28 78-62-34 3-62 25-78 62z"></path>
+          <path d="M160 240c-30-6-54-24-66-54 28 3 52 21 66 54z"></path><path d="M160 240c30-6 54-24 66-54-28 3-52 21-66 54z"></path>
+          <path d="M160 182c-24-5-42-20-52-44 22 3 40 18 52 44z"></path><path d="M160 182c24-5 42-20 52-44-22 3-40 18-52 44z"></path>
+          <path d="M160 128c-16-4-28-14-34-30 15 2 27 12 34 30z"></path><path d="M160 128c16-4 28-14 34-30-15 2-27 12-34 30z"></path>
+          <path d="M160 70c-8-6-12-16-12-28 9 6 12 16 12 28z"></path><path d="M160 70c8-6 12-16 12-28-9 6-12 16-12 28z"></path>
+        </g>
+      </svg>
+      <div class="login__brand">
+        <p class="login__eyebrow">Aviv Hotels</p>
+        <p class="login__name">The Aviv Kochi</p>
+        <p class="login__tag">Reservations, rates and guests – calm, quick and in one place.</p>
+      </div>
+    </section>
+
+    <section class="login__panel">
+      <div class="login__card" id="login-card">
+        <div class="login__head">
+          <span class="login__mark" aria-hidden="true"><svg viewbox="0 0 24 24"><path d="M12 22V9M12 9C9 8 7 5 7 2c3 1 5 3 5 7zm0 0c3-1 5-4 5-7-3 1-5 3-5 7zm0 7c-3-.5-5-2.5-6-5 3 0 5 2 6 5zm0 0c3-.5 5-2.5 6-5-3 0-5 2-6 5z"></path></svg></span>
+          <div>
+            <h1 class="login__title">Welcome back</h1>
+            <p class="login__sub">Sign in to Aviv PMS</p>
+          </div>
+        </div>
+
+        <div class="login__signedin" id="signed-in" hidden>
+          <p>You are already signed in as <strong id="signed-in-name"></strong>.</p>
+          <div class="row">
+            <a class="btn btn--primary" id="continue" href="/">Continue</a>
+            <button class="btn" type="button" id="switch-user">Sign in as someone else</button>
+          </div>
+        </div>
+
+        <form id="login-form" novalidate>
+          <p class="login__error" id="login-error" role="alert" hidden></p>
+          <div class="stack">
+            <div class="field" id="email-field">
+              <label class="field__label" for="email">Email <span class="field__req" aria-hidden="true">*</span></label>
+              <input class="field__input" id="email" name="email" type="email" autocomplete="username" required aria-required="true" aria-describedby="email-err" placeholder="name&#64;avivkochi.example" autofocus>
+              <p class="field__error" id="email-err" hidden></p>
+            </div>
+            <div class="field" id="password-field">
+              <label class="field__label" for="password">Password <span class="field__req" aria-hidden="true">*</span></label>
+              <div class="field__wrap field__wrap--btn">
+                <input class="field__input" id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" aria-describedby="password-err caps-warning">
+                <button class="field__btn" type="button" id="toggle-password" aria-label="Show password" aria-pressed="false">
+                  <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#eye"></use></svg>
+                </button>
+              </div>
+              <p class="login__caps" id="caps-warning" role="status" hidden>Caps Lock is on – your password is case sensitive.</p>
+              <p class="field__error" id="password-err" hidden></p>
+            </div>
+            <div class="row row--between">
+              <label class="check"><input class="check__input" type="checkbox" id="remember"><span class="check__box" aria-hidden="true"><svg class="icon"><use href="/assets/icons/sprite.svg#check"></use></svg></span><span class="check__label">Remember this device for 30 days</span></label>
+              <button class="login__link" type="button" data-opens="CM-P02">Forgot password?</button>
+            </div>
+            <button class="btn btn--primary login__submit" type="submit" id="submit"><span class="btn__label">Sign in</span></button>
+          </div>
+        </form>
+
+        <details class="login__demo" id="demo">
+          <summary>Demo accounts</summary>
+          <p class="login__demo-note">This is a demo. Password <code>Aviv&#64;2026</code>, one-time code <code>123456</code>, PIN <code>2026</code>. Pick a person to fill the form.</p>
+          <ul id="demo-list" class="login__demo-list"></ul>
+        </details>
+      </div>
+      <p class="login__foot">The Aviv Kochi · Bristow Road, Willingdon Island, Kochi</p>
+    </section>
+  </main>
+
+  
+  <dialog class="dialog dialog--sm" data-code="CM-P01" aria-labelledby="otp-title">
+    <form id="otp-form" method="dialog" novalidate>
+      <header class="dialog__header">
+        <div>
+          <h2 class="dialog__title" id="otp-title">Enter your code</h2>
+          <p class="dialog__desc" id="otp-desc">We sent a 6-digit code.</p>
+        </div>
+        <button class="btn btn--ghost btn--icon" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#x"></use></svg></button>
+      </header>
+      <div class="dialog__body stack">
+        <div class="field" data-fw="s">
+          <label class="field__label" for="otp-code" id="otp-label">One-time code</label>
+          <input class="field__input otp__input num" id="otp-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-describedby="otp-err" placeholder="••••••">
+          <p class="field__error" id="otp-err" role="alert" hidden></p>
+        </div>
+        <label class="check"><input class="check__input" type="checkbox" id="otp-remember"><span class="check__box" aria-hidden="true"><svg class="icon"><use href="/assets/icons/sprite.svg#check"></use></svg></span><span class="check__label">Do not ask again on this device for 30 days</span></label>
+        <p class="field__hint"><button class="login__link" type="button" id="otp-resend">Send a new code</button> <span id="otp-resend-note" role="status"></span></p>
+      </div>
+      <footer class="dialog__footer">
+        <button class="btn" type="button" data-close>Back</button>
+        <button class="btn btn--primary" type="submit" id="otp-submit"><span class="btn__label">Verify and sign in</span></button>
+      </footer>
+    </form>
+  </dialog>
+
+  
+  <dialog class="dialog dialog--sm" data-code="CM-P02" aria-labelledby="fp-title">
+    <form id="fp-form" method="dialog" novalidate>
+      <header class="dialog__header">
+        <div>
+          <h2 class="dialog__title" id="fp-title">Reset your password</h2>
+          <p class="dialog__desc" id="fp-desc">Enter your email and we will send a 6-digit code to your phone.</p>
+        </div>
+        <button class="btn btn--ghost btn--icon" type="button" data-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#x"></use></svg></button>
+      </header>
+      <div class="dialog__body stack">
+        <div class="field">
+          <label class="field__label" for="fp-email">Email</label>
+          <input class="field__input" id="fp-email" type="email" autocomplete="email" aria-describedby="fp-email-err" required>
+          <p class="field__error" id="fp-email-err" hidden></p>
+        </div>
+        <div class="stack" id="fp-step2" hidden>
+          <div class="field" data-fw="x">
+            <label class="field__label" for="fp-code">6-digit code</label>
+            <input class="field__input num" id="fp-code" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" aria-describedby="fp-code-err">
+            <p class="field__error" id="fp-code-err" hidden></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="fp-new">New password</label>
+            <input class="field__input" id="fp-new" type="password" autocomplete="new-password" aria-describedby="fp-new-hint fp-new-err">
+            <ul class="login__rules" id="fp-new-hint"></ul>
+            <p class="field__error" id="fp-new-err" hidden></p>
+          </div>
+        </div>
+        <p class="login__info" id="fp-info" role="status" hidden></p>
+      </div>
+      <footer class="dialog__footer">
+        <button class="btn" type="button" data-close>Cancel</button>
+        <button class="btn btn--primary" type="submit" id="fp-submit"><span class="btn__label">Send code</span></button>
+      </footer>
+    </form>
+  </dialog>
+
+  

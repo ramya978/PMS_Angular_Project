@@ -1,0 +1,97 @@
+/* kt-06-banquet-production-list.css: function cards from BEOs with items and quantities, allergens / special meals, status, Print (KT-O01) and Mark dispatched after-state. */
+.bq-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 16px;
+}
+
+/* every function card is the same size: title and items on top, buttons pinned to the bottom edge */
+.bq-g > .bq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 300px;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.bq-h {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-2, var(--line));
+}
+
+.bq-h > span:first-child {
+  display: grid;
+  gap: 3px;
+  font-size: 15px;
+}
+
+.bq-h small {
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.bq-l {
+  display: grid;
+  flex: 1 1 auto;
+  align-content: start;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13.5px;
+}
+
+.bq-l li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bq-l li > span {
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.bq > .ln-k {
+  margin: 0;
+}
+
+.ex-a {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: auto;
+}
+
+.ex-a .btn {
+  justify-content: center;
+  min-height: 40px;
+}
+
+.bq-new {
+  display: none;
+}
+.bqw:has(#disp-0:target) #bq-0 .bq-now { display: none; }
+.bqw:has(#disp-0:target) #bq-0 .bq-new { display: inline-flex; }
+.bqw:has(#disp-0:target) #t-disp-0 { display: flex; animation: av-rise 320ms var(--ease); }
+.bqw:has(#disp-1:target) #bq-1 .bq-now { display: none; }
+.bqw:has(#disp-1:target) #bq-1 .bq-new { display: inline-flex; }
+.bqw:has(#disp-1:target) #t-disp-1 { display: flex; animation: av-rise 320ms var(--ease); }
+.bqw:has(#disp-2:target) #bq-2 .bq-now { display: none; }
+.bqw:has(#disp-2:target) #bq-2 .bq-new { display: inline-flex; }
+.bqw:has(#disp-2:target) #t-disp-2 { display: flex; animation: av-rise 320ms var(--ease); }
+.bqw:has(#disp-3:target) #bq-3 .bq-now { display: none; }
+.bqw:has(#disp-3:target) #bq-3 .bq-new { display: inline-flex; }
+.bqw:has(#disp-3:target) #t-disp-3 { display: flex; animation: av-rise 320ms var(--ease); }
+.bqw:has(#disp-4:target) #bq-4 .bq-now { display: none; }
+.bqw:has(#disp-4:target) #bq-4 .bq-new { display: inline-flex; }
+.bqw:has(#disp-4:target) #t-disp-4 { display: flex; animation: av-rise 320ms var(--ease); }

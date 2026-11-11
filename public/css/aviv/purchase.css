@@ -1,0 +1,1010 @@
+/* purchase.css: shared styles of the Purchase Setup (PRS) and Purchase (PR) pages – section strip, vendor status
+   colours, compliance flags, category tags and the bank check. Linked after linen.css, before the screen stylesheet. */
+
+/* section strip linking the five setup screens */
+.prs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.prs-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.prs-nav a:hover {
+  color: var(--ink);
+}
+
+.prs-nav a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+/* vendor status: colour + icon + label (the .pill.hk-pill look of aviv.css) */
+.vn--pend { --hk: #b7791f; }
+.vn--ok { --hk: #2f855a; }
+.vn--hold { --hk: #718096; }
+.vn--black { --hk: #c53030; }
+
+.pill.hk-pill[class*="vn--"] > .icon {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--hk);
+  color: #fff;
+}
+
+/* compliance flags: MSME (paid within 45 days) and unregistered vendors (reverse charge) */
+.vn-flag {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.vn-flag--msme {
+  background: #e8f0fb;
+  color: #1d4f8f;
+}
+
+.vn-flag--rcm {
+  background: #fdf3dc;
+  color: #7a5200;
+}
+
+/* category tags */
+.vn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.vn-tag {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* bank check: verified / to verify */
+.vn-chk {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--em-700, #2f855a);
+  font-weight: 600;
+}
+
+.vn-chk--todo {
+  color: #946200;
+}
+
+.vn-chk .icon {
+  width: 13px;
+  height: 13px;
+}
+
+@media (max-width: 760px) {
+  .prs-nav {
+    flex-wrap: nowrap;
+    width: auto;
+    overflow-x: auto;
+    border-radius: 14px;
+    scrollbar-width: none;
+  }
+}
+
+/* ───────── setup forms of PRS-02 … PRS-05 ───────── */
+.prs-form {
+  display: grid;
+  gap: 12px;
+}
+
+/* content of a settings section (fds.css puts it right of the title rail) */
+.prs-in {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* numbers typed inside table cells */
+.prs-n {
+  width: 110px;
+}
+
+.prs-n--s {
+  width: 76px;
+}
+
+/* "Add …" box above a list */
+.prs-add {
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.prs-add > summary {
+  display: inline-flex;
+  margin: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.prs-add > summary::-webkit-details-marker {
+  display: none;
+}
+
+.prs-add__f {
+  display: grid;
+  gap: 12px;
+  padding: 4px 16px 16px;
+}
+
+.prs-add__a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* the row or card added by "Add" – shown with the #added marker */
+.prs-new {
+  display: none;
+}
+
+body:has(#added:target) tr.prs-new {
+  display: table-row;
+}
+
+/* inside a sortable table (.srt, aviv.css) the rows are grid rows */
+table.srt > tbody > tr.prs-new {
+  display: none;
+}
+
+body:has(#added:target) table.srt > tbody > tr.prs-new {
+  display: grid;
+}
+
+body:has(#added:target) tr.prs-new > td {
+  background: var(--ok-bg);
+}
+
+.prs-note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.prs-note .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* ───────── Purchase (PR): document status, grids, approval path, totals, print sheets ───────── */
+
+/* requisition and order status: colour + icon + label (the .pill.hk-pill look) */
+.pq--draft { --hk: #718096; }
+.pq--wait { --hk: #b7791f; }
+.pq--back { --hk: #c05621; }
+.pq--ok { --hk: #2f855a; }
+.pq--blue { --hk: #2b6cb0; }
+.pq--part { --hk: #975a16; }
+.pq--done { --hk: #4a5568; }
+.pq--bad { --hk: #c53030; }
+
+.pill.hk-pill[class*="pq--"] > .icon {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--hk) 80%, #fff), var(--hk));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), 0 3px 8px -4px var(--hk);
+  color: #fff;
+}
+
+/* layout helpers */
+.pq-g2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+.pq-g3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+.pq-g2 > *,
+.pq-g3 > * {
+  min-width: 0;
+}
+
+.law .lf-card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pq-r {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+th.pq-r {
+  text-align: right;
+}
+
+.pq-muted {
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.pq-hi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.pq-l {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pq-l > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.pq-l > li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.pq-l__m {
+  display: grid;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.pq-l__m small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.pq-l__s {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* budget bars */
+.pq-bud {
+  display: grid;
+  grid-template-columns: minmax(110px, 150px) minmax(0, 1fr) minmax(120px, auto);
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+}
+
+.pq-bud b {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pq-bar {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+
+.pq-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--em-600, #2f855a);
+}
+
+.pq-bar--hot i {
+  background: #b7791f;
+}
+
+.pq-bar--over i {
+  background: #c53030;
+}
+
+/* approval path: who approves, in which order */
+.pq-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pq-path > li {
+  display: grid;
+  gap: 1px;
+  min-width: 150px;
+  padding: 8px 12px 8px 34px;
+  position: relative;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 13px;
+}
+
+.pq-path > li > .icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: var(--ink-3);
+}
+
+.pq-path small {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.pq-path > li.is-done > .icon {
+  color: #2f855a;
+}
+
+.pq-path > li.is-now {
+  background: #fdf3dc;
+  box-shadow: inset 0 0 0 1px #e9c46a;
+}
+
+.pq-path > li.is-now > .icon {
+  color: #946200;
+}
+
+.pq-path > li.is-late {
+  background: #fde8e8;
+  box-shadow: inset 0 0 0 1px #f1a9a9;
+}
+
+.pq-path > li.is-late > .icon {
+  color: #c53030;
+}
+
+.pq-path > li.is-bad > .icon {
+  color: #c53030;
+}
+
+/* flags: price variance, budget, MSME, urgent */
+.pq-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.pq-flag .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.pq-flag--warn {
+  background: #fdf3dc;
+  color: #7a5200;
+}
+
+.pq-flag--bad {
+  background: #fde8e8;
+  color: #9b1c1c;
+}
+
+.pq-flag--ok {
+  background: #e6f4ec;
+  color: #1f6b44;
+}
+
+.pq-flag--info {
+  background: #e8f0fb;
+  color: #1d4f8f;
+}
+
+/* document header strip (number, dates, status) */
+.pq-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.pq-head__no {
+  font-family: var(--font-display, inherit);
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.pq-head__m {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.pq-head__m b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pq-head > .pq-st {
+  margin-left: auto;
+}
+
+/* document form */
+.pq-form {
+  display: grid;
+  gap: 16px;
+}
+
+.pq-sec {
+  display: grid;
+  gap: 12px;
+}
+
+.pq-sec__t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.pq-form fieldset[disabled] {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.pq-form fieldset[disabled] .field__input,
+.pq-form fieldset[disabled] .check {
+  opacity: 0.85;
+}
+
+.pq-in {
+  width: 100%;
+  min-width: 70px;
+}
+
+.pq-in--n {
+  min-width: 80px;
+  text-align: right;
+}
+
+.pq-line td {
+  vertical-align: top;
+}
+
+.pq-line .fd-sub {
+  display: block;
+}
+
+.pq-tot {
+  display: grid;
+  gap: 4px;
+  width: min(100%, 380px);
+  margin-left: auto;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 13.5px;
+}
+
+.pq-tot > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pq-tot > div > b {
+  font-variant-numeric: tabular-nums;
+}
+
+.pq-tot__g {
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pq-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.pq-foot > .pq-sp {
+  flex: 1 1 200px;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.pq-why {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* history / timeline */
+.pq-tl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pq-tl > li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 0 10px;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.pq-tl > li > .icon {
+  margin-top: 2px;
+  color: var(--ink-3);
+}
+
+.pq-tl > li.is-done > .icon {
+  color: #2f855a;
+}
+
+.pq-tl > li.is-bad > .icon {
+  color: #c53030;
+}
+
+.pq-tl small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* after-states: the marker is a hidden :target element inside the document */
+.pq-to {
+  display: none;
+}
+
+.pq-doc:has(.pm:target) .pq-flash > td,
+.pq-doc:has(.pm:target) .pq-flash {
+  background: var(--ok-bg);
+}
+
+/* row after-state in lists */
+.pq-row:has(.pm:target) > td {
+  background: var(--ok-bg);
+}
+
+tr.pq-new {
+  display: none;
+}
+
+body:has(#added:target) tr.pq-new {
+  display: table-row;
+}
+
+table.srt > tbody > tr.pq-new {
+  display: none;
+}
+
+body:has(#added:target) table.srt > tbody > tr.pq-new {
+  display: grid;
+}
+
+body:has(#added:target) tr.pq-new > td {
+  background: var(--ok-bg);
+}
+
+/* conditional field: shown when the controlling radio / select has the "other" value */
+.pq-if {
+  display: none;
+}
+
+/* comparison grid (PR-05) */
+.pq-cmp th,
+.pq-cmp td {
+  vertical-align: top;
+}
+
+.pq-cmp .is-low {
+  background: #e6f4ec;
+}
+
+.pq-cmp .is-low b {
+  color: #1f6b44;
+}
+
+.pq-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* quick-pick strip of filters for lists */
+.pq-views {
+  margin: 0;
+}
+
+/* phone-first approval cards (PR-04) */
+.pq-ap {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.pq-ap__h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.pq-ap__no {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.pq-ap__v {
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pq-ap__a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pq-ap__a .btn {
+  flex: 1 1 140px;
+  justify-content: center;
+}
+
+.pq-ap details > summary {
+  cursor: pointer;
+  color: var(--em-700, #2f855a);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* printed documents (O01 – O03, R01 – R07) */
+.pq-sheet {
+  display: grid;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), 0 10px 30px -18px rgb(0 0 0 / 0.25);
+  font-size: 13px;
+}
+
+.pq-sheet__hd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--em-800, #1f3d33);
+}
+
+.pq-sheet__hd h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.pq-sheet__hd p {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.pq-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pq-sheet th,
+.pq-sheet td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.pq-sheet th {
+  background: var(--surface-2);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.pq-sheet td.pq-r,
+.pq-sheet th.pq-r {
+  text-align: right;
+}
+
+.pq-sheet__sign {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 40px;
+  font-size: 12px;
+}
+
+.pq-sheet__sign > div {
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-3);
+}
+
+.pq-sheet-wrap {
+  overflow-x: auto;
+}
+
+/* report filters */
+.pq-rep {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 10px 14px;
+}
+
+@media (max-width: 760px) {
+  .pq-bud {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .pq-bud .pq-bar {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .pq-sheet {
+    padding: 16px;
+  }
+
+  .pq-tot {
+    width: 100%;
+  }
+
+  .pq-head > .pq-st {
+    margin-left: 0;
+  }
+
+  .pq-path > li {
+    flex: 1 1 100%;
+  }
+}
+
+@media print {
+  .pq-sheet {
+    max-width: none;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+/* list helpers shared by the Purchase screens (same look as the vendor list of PRS-01) */
+.vn-list {
+  display: grid;
+  gap: 12px;
+}
+
+.vn-acts {
+  display: grid;
+  gap: 4px;
+}
+
+.vn-acts > .btn {
+  justify-content: center;
+}
+
+.btn.vn-danger-fill {
+  background: linear-gradient(180deg, #d24545, #b02a2a);
+}
+
+.vn-legend {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.vn-legend .icon {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+.pq-sel {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--forest, #1f3d33);
+}
+
+/* document line tables: roomy inputs, tables scroll inside their card on narrow screens */
+.pq-form .dt__table {
+  min-width: 880px;
+}
+
+.pq-line .field__input {
+  min-height: 36px;
+}
+
+.pq-line td:first-child .pq-in {
+  min-width: 220px;
+}
+
+.pq-line .pq-in--n {
+  width: 104px;
+  min-width: 0;
+}
+
+.pq-line .pq-flag {
+  display: flex;
+  width: fit-content;
+  max-width: 260px;
+  height: auto;
+  margin-top: 4px;
+  padding: 2px 8px;
+  white-space: normal;
+}
+
+.pq-line td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* keep numbers on one line even in tables with many columns */
+.dt__table .dt__td.pq-no {
+  white-space: nowrap;
+}
+
+/* two mini progress bars (received, billed) in one cell */
+.pq-prog {
+  display: grid;
+  grid-template-columns: 62px minmax(60px, 1fr) 44px;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.pq-prog__l {
+  color: var(--ink-3);
+}
+
+.pq-prog b {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.fd-multi .check .fd-sub {
+  white-space: nowrap;
+}
+
+.pq-cmp th[scope="row"] {
+  min-width: 190px;
+}
+
+.pq-cmp th.pq-r,
+.pq-cmp td.pq-r {
+  min-width: 170px;
+}
+
+/* printed documents inside the app: wide tables scroll inside the sheet on small screens */
+article.paper[data-code^="PR-"] {
+  overflow-x: auto;
+}
+
+article.paper[data-code^="PR-"] table {
+  min-width: 700px;
+  font-size: 12.5px;
+}
+
+article.paper[data-code^="PR-"] td.pq-r,
+article.paper[data-code^="PR-"] th.pq-r {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+article.paper[data-code^="PR-"] .pq-g2 {
+  margin: 12px 0;
+}
+
+@media print {
+  article.paper[data-code^="PR-"] {
+    overflow: visible;
+  }
+}
+
+/* a flag used as a sentence (after-states, notes) wraps like text */
+p.pq-flag {
+  height: auto;
+  min-height: 22px;
+  padding: 6px 10px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+p.pq-flag .icon {
+  flex: none;
+}
+
+.field__input[type="file"] {
+  max-width: 100%;
+}
+
+/* hidden labels inside a scrolling table stay inside it (they must not widen the page) */
+.s-scroll {
+  position: relative;
+}
+
+.vc-who {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

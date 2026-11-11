@@ -1,0 +1,74 @@
+/* lf-04-lost-reports.css: views (:target), lost reports with status, Find matches, lost report entry LF-P02 and the added report. */
+.lrl:not(:has(:is(#v-open, #v-matched, #v-returned, #v-notfound, #v-closed, #v-all):target)) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-open:target) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-open:target) tr.lrr:not(.r-open), .lrl:not(:has(:is(#v-open, #v-matched, #v-returned, #v-notfound, #v-closed, #v-all):target)) tr.lrr:not(.r-open) { display: none; }
+.lrl:has(#v-matched:target) .hv__v[data-v="v-matched"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-matched:target) tr.lrr:not(.r-matched) { display: none; }
+.lrl:has(#v-returned:target) .hv__v[data-v="v-returned"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-returned:target) tr.lrr:not(.r-returned) { display: none; }
+.lrl:has(#v-notfound:target) .hv__v[data-v="v-notfound"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-notfound:target) tr.lrr:not(.r-notfound) { display: none; }
+.lrl:has(#v-closed:target) .hv__v[data-v="v-closed"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-closed:target) tr.lrr:not(.r-closed) { display: none; }
+.lrl:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lrl:has(#v-all:target) tr.lrr:not(.r-all) { display: none; }
+
+.lrl:has(#added:target) .lf-new {
+  display: table-row;
+}
+
+.lrl:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }
+
+.mr-acts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.lrl .fd-sub .icon {
+  display: inline-block;
+  vertical-align: -2px;
+}

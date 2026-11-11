@@ -1,0 +1,150 @@
+/* lf-02-found-items-register.css: views (:target), register table with photo / value class / retention, found item entry LF-P01 with conditional fields, added row. */
+.lfl:not(:has(:is(#v-open, #v-today, #v-val, #v-contact, #v-due, #v-perish, #v-closed, #v-all):target)) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-open:target) .hv__v[data-v="v-open"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-open:target) tr.lfr:not(.r-open), .lfl:not(:has(:is(#v-open, #v-today, #v-val, #v-contact, #v-due, #v-perish, #v-closed, #v-all):target)) tr.lfr:not(.r-open) { display: none; }
+.lfl:has(#v-today:target) .hv__v[data-v="v-today"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-today:target) tr.lfr:not(.r-today) { display: none; }
+.lfl:has(#v-val:target) .hv__v[data-v="v-val"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-val:target) tr.lfr:not(.r-val) { display: none; }
+.lfl:has(#v-contact:target) .hv__v[data-v="v-contact"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-contact:target) tr.lfr:not(.r-contact) { display: none; }
+.lfl:has(#v-due:target) .hv__v[data-v="v-due"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-due:target) tr.lfr:not(.r-due) { display: none; }
+.lfl:has(#v-perish:target) .hv__v[data-v="v-perish"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-perish:target) tr.lfr:not(.r-perish) { display: none; }
+.lfl:has(#v-closed:target) .hv__v[data-v="v-closed"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-closed:target) tr.lfr:not(.r-closed) { display: none; }
+.lfl:has(#v-all:target) .hv__v[data-v="v-all"] {
+  background: var(--hv-on-bg);
+  box-shadow: var(--hv-on-sh);
+  color: var(--hv-on-ink);
+  --hv-b-bg: var(--hv-on-b-bg);
+  --hv-b-ink: var(--hv-on-b-ink);
+}
+.lfl:has(#v-all:target) tr.lfr:not(.r-all) { display: none; }
+
+.lfl:has(#added:target) .lf-new {
+  display: table-row;
+}
+
+.lfl:has(#added:target) #t-added { display: flex; animation: av-rise 320ms var(--ease); }
+
+.lfl .dt__table :is(th, td) {
+  padding-inline: 9px;
+}
+
+.lfl .lf-g {
+  max-width: 120px;
+}
+
+.lfl .lf-loc {
+  max-width: 150px;
+}
+
+.lf-ret > .fd-sub {
+  display: inline;
+  margin-left: 4px;
+}
+
+.lfl .lf-where {
+  max-width: 170px;
+  white-space: normal;
+}
+
+.lf-desc {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lf-empty {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--ok-bg);
+  font-size: 13px;
+}
+
+#lf-p01 .modal__body .s-grid2 > :is(.lf-if--room, .lf-if--area, .lf-stay) {
+  order: 3;
+}
+
+#lf-p01:has(input[name="where_type"][value="Room"]:checked) .lf-if--room,
+#lf-p01:has(input[name="where_type"]:not([value="Room"]):checked) .lf-if--area,
+#lf-p01:has(select[name="category"] :is(option[value="Cash"], option[value="Jewellery"]):checked) .lf-if--wit {
+  display: flex;
+}
+
+.lf-br {
+  display: none;
+  grid-column: 1 / -1;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fdf3dc;
+  color: #7a5200;
+  font-size: 13px;
+}
+
+#lf-p01:has(select[name="category"] :is(option[value="Electronics"],
+  option[value="Mobile phone"],
+  option[value="Jewellery"],
+  option[value="Watch"],
+  option[value="Cash"],
+  option[value="Cards / documents"],
+  option[value="Passport / ID"]):checked):has(select[name="location"] option:checked:not([value="Valuables safe"])) .lf-br,
+#lf-p01:has(input[name="raise"]:checked):has(select[name="location"] option:checked:not([value="Valuables safe"])) .lf-br {
+  display: flex;
+}

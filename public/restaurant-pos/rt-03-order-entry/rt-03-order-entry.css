@@ -1,0 +1,94 @@
+/* rt-03-order-entry.css: one page per open check (index = check 4609): categories as :target tabs and item buttons (left), check with lines, totals and actions (right);
+   modifiers, RT-P03 / P04 / P05 and after-states. */
+.oe {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.oe-cats {
+  margin-bottom: 4px;
+}
+
+.ib-g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.oe-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.oe-m {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+}
+
+.chk-ls {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chk-empty {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.chk-new {
+  display: none;
+  background: var(--ok-bg);
+}
+
+.oe-a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.oew:not(:has(.lf-panel:target)) .oe-cats a[data-c="0"] {
+  background: var(--surface);
+  color: var(--em-800);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.oew:has(#sent:target) .chk-l b::after {
+  margin-left: 6px;
+  color: var(--st-ready);
+  font-size: 11px;
+  content: "KOT sent";
+}
+
+@media (max-width: 1200px) {
+  .oe {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.oew:has(#opened:target) #t-opened { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#sent:target) #t-sent { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#held:target) #t-held { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#fired:target) #t-fired { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#reprinted:target) #t-reprinted { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#voided:target) #t-voided { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#discounted:target) #t-discounted { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#split:target) #t-split { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-095:target) .chk-new--mn-095 { display: grid; }
+.oew:has(#add-mn-095:target) #t-add-mn-095 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-096:target) .chk-new--mn-096 { display: grid; }
+.oew:has(#add-mn-096:target) #t-add-mn-096 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-097:target) .chk-new--mn-097 { display: grid; }
+.oew:has(#add-mn-097:target) #t-add-mn-097 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-098:target) .chk-new--mn-098 { display: grid; }
+.oew:has(#add-mn-098:target) #t-add-mn-098 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-180:target) .chk-new--mn-180 { display: grid; }
+.oew:has(#add-mn-180:target) #t-add-mn-180 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-181:target) .chk-new--mn-181 { display: grid; }
+.oew:has(#add-mn-181:target) #t-add-mn-181 { display: flex; animation: av-rise 320ms var(--ease); }
+.oew:has(#add-mn-182:target) .chk-new--mn-182 { display: grid; }
+.oew:has(#add-mn-182:target) #t-add-mn-182 { display: flex; animation: av-rise 320ms var(--ease); }

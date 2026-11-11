@@ -1,0 +1,266 @@
+/* hks-01-housekeeping-setup-home.css: Housekeeping Setup Home – progress band, setup cards, go-live checks and the import pop-up. Built on the shared setup-home styles in css/aviv/fds.css. */
+
+/* progress band */
+.hks-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 24px;
+  padding: 14px 20px;
+}
+
+.hks-top__t > * + * {
+  margin-top: 6px;
+}
+
+.hks-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 22px;
+  max-width: 520px;
+  border-radius: 999px;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+  overflow: hidden;
+}
+
+.hks-bar__fill {
+  align-self: stretch;
+  width: calc(var(--p) * 1%);
+  border-radius: 999px;
+  background: var(--em-600);
+}
+
+.hks-bar__n {
+  position: absolute;
+  right: 10px;
+  font-size: 11px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+/* setup cards: the title link covers the whole card, the small links stay clickable above it */
+.hks-cards {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.hks-card {
+  gap: 5px;
+}
+
+.hks-card--missing::before {
+  background: var(--st-cancelled);
+}
+
+.hks-card__id {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hks-step {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 11.5px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.hks-card__open {
+  color: inherit;
+}
+
+.hks-card__open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.hks-card__open:focus-visible {
+  outline: none;
+}
+
+.hks-card:has(.hks-card__open:focus-visible) {
+  box-shadow: 0 0 0 2px var(--br-400);
+}
+
+.hks-card__warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  color: #6e4a0e;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hks-card__warn .icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--st-tentative);
+}
+
+.hks-card--missing .hks-card__warn {
+  color: #7d231e;
+}
+
+.hks-card--missing .hks-card__warn .icon {
+  color: var(--st-cancelled);
+}
+
+.hks-card__links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.hks-card__links .fd-link {
+  color: var(--em-700);
+}
+
+.hks-card__also .code-chip {
+  margin-left: 4px;
+}
+
+/* go-live readiness */
+.hks-checks {
+  display: grid;
+  gap: 8px;
+}
+
+.hks-check {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 12.5px;
+}
+
+.hks-check--ok .hks-check__i {
+  color: var(--st-ready);
+}
+
+.hks-check--fail {
+  background: var(--warn-bg);
+}
+
+.hks-check--fail .hks-check__i {
+  color: var(--st-cancelled);
+}
+
+.hks-check__t {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hks-check__t small {
+  color: var(--ink-3);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hks-check__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font-size: 12px;
+}
+
+.hks-check__links .fd-link {
+  color: var(--em-700);
+}
+
+body:has(#validated:target) .hks-ready {
+  box-shadow: 0 0 0 2px var(--br-400), var(--sh-2);
+}
+
+/* import pop-up: the download confirmation appears inside the open pop-up */
+.hks-dl-note {
+  display: none;
+}
+
+.hks-dl-note:target {
+  display: flex;
+}
+
+.modal:has(.hks-dl-note:target) {
+  display: grid;
+}
+
+@media (max-width: 1100px) {
+  .hks-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* hero design: the shapes are here, every colour is a --hx-* variable of setup-home.css, so the hero follows the colour theme and the
+   Light / Dark banner setting like the hero of every other setup module (data-tone="dark" on the section) */
+.sh__hero[data-code="HKS-01-progress"] .sh__hero-main {
+  color: var(--hx-fg);
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__ring {
+  width: 72px;
+  height: 72px;
+  box-shadow: 0 10px 20px -12px rgb(0 0 0 / 0.5);
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__ring::after {
+  inset: 7px;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__ring-num {
+  font-size: 19px;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__ring-sub {
+  margin-top: 0;
+  font-size: 8.5px;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__stats {
+  display: flex;
+  gap: 8px;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__stat {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 6px;
+  border-radius: 999px;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__stat-ic {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__stat-txt {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sh__hero[data-code="HKS-01-progress"] .sh__stat-txt b {
+  font-size: 18px;
+}

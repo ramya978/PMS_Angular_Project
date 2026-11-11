@@ -1,0 +1,169 @@
+/* cc-03-daily-fandb-cost.css: the day panel, the day chips and the list of days. */
+.pm--d {
+  position: absolute;
+}
+
+.dd-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin: 0;
+}
+
+.dd-date .field__input {
+  width: 170px;
+}
+
+.dd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+
+.dd-chip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+}
+
+.dd-chip:hover {
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--em-600);
+}
+
+/* only one day panel is shown: yesterday until another day is chosen */
+.dd-panel {
+  display: none;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+#main:not(:has(.pm--d:target)) #dd-1021 {
+  display: grid;
+}
+
+#main:has(#day-1001:target) #dd-1001 { display: grid; }
+#main:has(#day-1002:target) #dd-1002 { display: grid; }
+#main:has(#day-1003:target) #dd-1003 { display: grid; }
+#main:has(#day-1004:target) #dd-1004 { display: grid; }
+#main:has(#day-1005:target) #dd-1005 { display: grid; }
+#main:has(#day-1006:target) #dd-1006 { display: grid; }
+#main:has(#day-1007:target) #dd-1007 { display: grid; }
+#main:has(#day-1008:target) #dd-1008 { display: grid; }
+#main:has(#day-1009:target) #dd-1009 { display: grid; }
+#main:has(#day-1010:target) #dd-1010 { display: grid; }
+#main:has(#day-1011:target) #dd-1011 { display: grid; }
+#main:has(#day-1012:target) #dd-1012 { display: grid; }
+#main:has(#day-1013:target) #dd-1013 { display: grid; }
+#main:has(#day-1014:target) #dd-1014 { display: grid; }
+#main:has(#day-1015:target) #dd-1015 { display: grid; }
+#main:has(#day-1016:target) #dd-1016 { display: grid; }
+#main:has(#day-1017:target) #dd-1017 { display: grid; }
+#main:has(#day-1018:target) #dd-1018 { display: grid; }
+#main:has(#day-1019:target) #dd-1019 { display: grid; }
+#main:has(#day-1020:target) #dd-1020 { display: grid; }
+#main:has(#day-1021:target) #dd-1021 { display: grid; }
+
+#main:not(:has(.pm--d:target)) .dd-chip[data-d="day-1021"],
+#main:has(#day-1001:target) .dd-chip[data-d="day-1001"],
+#main:has(#day-1002:target) .dd-chip[data-d="day-1002"],
+#main:has(#day-1003:target) .dd-chip[data-d="day-1003"],
+#main:has(#day-1004:target) .dd-chip[data-d="day-1004"],
+#main:has(#day-1005:target) .dd-chip[data-d="day-1005"],
+#main:has(#day-1006:target) .dd-chip[data-d="day-1006"],
+#main:has(#day-1007:target) .dd-chip[data-d="day-1007"],
+#main:has(#day-1008:target) .dd-chip[data-d="day-1008"],
+#main:has(#day-1009:target) .dd-chip[data-d="day-1009"],
+#main:has(#day-1010:target) .dd-chip[data-d="day-1010"],
+#main:has(#day-1011:target) .dd-chip[data-d="day-1011"],
+#main:has(#day-1012:target) .dd-chip[data-d="day-1012"],
+#main:has(#day-1013:target) .dd-chip[data-d="day-1013"],
+#main:has(#day-1014:target) .dd-chip[data-d="day-1014"],
+#main:has(#day-1015:target) .dd-chip[data-d="day-1015"],
+#main:has(#day-1016:target) .dd-chip[data-d="day-1016"],
+#main:has(#day-1017:target) .dd-chip[data-d="day-1017"],
+#main:has(#day-1018:target) .dd-chip[data-d="day-1018"],
+#main:has(#day-1019:target) .dd-chip[data-d="day-1019"],
+#main:has(#day-1020:target) .dd-chip[data-d="day-1020"],
+#main:has(#day-1021:target) .dd-chip[data-d="day-1021"] {
+  background: var(--em-50);
+  color: var(--em-800);
+  box-shadow: inset 0 0 0 1px var(--em-600);
+}
+
+.dd-panel__t {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.dd-net td {
+  background: var(--sunken);
+}
+
+.dd-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.dd-foot__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 70ch;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+
+.dd-foot__note .icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+/* the draft becomes finalised after "Finalise day" */
+.dd-st--fin {
+  display: none;
+}
+
+body:has(#finalised:target) .dd-st--draft,
+body:has(#finalised:target) .dd-fin {
+  display: none;
+}
+
+body:has(#finalised:target) .dd-st--fin {
+  display: inline-flex;
+}
+
+.dl-total td {
+  background: var(--sunken);
+}
+
+body:has(#finalised:target) .dl-row--draft > td {
+  background: var(--ok-bg);
+}
+
+body:has(#finalised:target) #t-finalised,
+body:has(#exported:target) #t-exported {
+  display: flex;
+  animation: av-rise 320ms var(--ease);
+}
